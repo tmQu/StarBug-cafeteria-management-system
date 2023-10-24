@@ -1,5 +1,5 @@
 # StarBug-cafeteria-management-system
-A project Operate and advertise food and drinks from a chain store
+A project operate and advertise food and drinks from a chain store
 
 Team's members:
 - Designer: VDChuong
