@@ -9,7 +9,7 @@ const NavigationBar = () => {
     setSelectedButton(name);
   };
   
-  const categories = ["Home", "About", "Coffee", "Tea", "Cake"];
+  const categories = ["Home", "About", "Coffee", "Tea", "MilkTea","Cake"];
 
   return (
     <div className="w-screen h-full px-[10vw] grid-in-navigation bg-red-600">
