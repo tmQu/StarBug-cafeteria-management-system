@@ -1,17 +1,29 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "./button";
 
 const NavigationBar = () => {
-  // call reusable button to create a list of buttons
+  const [selectedButton, setSelectedButton] = useState("Home");
+
+  const handleButtonClick = (name) => {
+    setSelectedButton(name);
+  };
+  
+  const categories = ["Home", "About", "Coffee", "Tea", "Cake"];
+
   return (
-    <div className="w-screen h-full px-[10vw] grid-in-navigation bg-red-300">
-      <ul className="flex flex-row ">
-        <li className="mr-2">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="mr-2">
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+    <div className="w-screen h-full px-[10vw] grid-in-navigation bg-red-600">
+      <div className="flex flex-row space-x-2">
+        {categories.map((name) => (
+          <Link to={"/" + name.toLowerCase()} key={name}>
+            <Button
+              name={name}
+              isClicked={name === selectedButton}
+              onClick={() => handleButtonClick(name)}
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
