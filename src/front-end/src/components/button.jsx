@@ -1,15 +1,18 @@
 import React from "react";
 
 const Button = (props) => {
+  // list props like this, so we can understand easily what props include in the far future
+  const { onClick, isClicked, name } = props;
+
   return (
     <button
       type="button"
-      className={`px-2 text-sm bg-red-600 text-white rounded font-light border-none transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl ${
-        props.isClicked ? "text-black bg-white" : ""
+      className={`w-[140px] h-[50px] px-2 text-lg rounded-lg font-light border-none transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl ${
+        isClicked ? "text-black bg-white" : "text-white"
       }`}
-      onClick={props.onClick}
+      onClick={onClick}
     >
-      {props.name}
+      {name}
     </button>
   );
 };

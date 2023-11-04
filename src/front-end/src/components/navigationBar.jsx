@@ -13,7 +13,7 @@ const NavigationBar = () => {
 
   return (
     <div className="w-screen h-full px-[10vw] grid-in-navigation bg-red-600">
-      <div className="flex flex-row space-x-2">
+      <div className="flex flex-row space-x-2 pt-1">
         {categories.map((name) => (
           <Link to={"/" + name.toLowerCase()} key={name}>
             <Button
