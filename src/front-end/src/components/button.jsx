@@ -7,9 +7,9 @@ const Button = (props) => {
   return (
     <button
       type="button"
-      className={`w-[140px] h-[50px] px-2 text-lg rounded-lg font-light border-none transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl ${
-        isClicked ? "text-black bg-white" : "text-white"
-      }`}
+      className={`w-140 h-50 px-2 text-lg rounded-lg font-light border-none transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl hover:bg-[#BE2623]
+      ${isClicked ? "text-black bg-white" : "text-white"
+        }`}
       onClick={onClick}
     >
       {name}

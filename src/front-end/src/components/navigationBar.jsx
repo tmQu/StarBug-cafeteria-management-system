@@ -12,7 +12,7 @@ const NavigationBar = () => {
   const categories = ["Home", "About", "Coffee", "Tea", "MilkTea","Cake"];
 
   return (
-    <div className="w-screen h-full px-[10vw] grid-in-navigation bg-red-600">
+    <div className="w-screen h-full px-[10vw] grid-in-navigation bg-[#D63431]">
       <div className="flex flex-row space-x-2 pt-1">
         {categories.map((name) => (
           <Link to={"/" + name.toLowerCase()} key={name}>
