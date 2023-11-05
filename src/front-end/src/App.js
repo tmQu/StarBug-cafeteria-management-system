@@ -3,7 +3,7 @@ import About from "./pages/about";
 import Header from "./components/header";
 import NavigationBar from "./components/navigationBar";
 import Footer from "./components/footer";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <div className="grid-in-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* create more pages such as: tea, coffee,... here */}
           <Route path="/about" element={<About />}></Route>
         </Routes>
       </div>

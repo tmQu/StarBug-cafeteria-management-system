@@ -9,7 +9,7 @@ module.exports = {
         app: "1fr",
       },
       gridTemplateRows: {
-        app: "60px 60px 1fr 60px",
+        app: "74px 74px 1fr 250px",
       },
     },
     screens: {
