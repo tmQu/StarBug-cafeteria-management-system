@@ -7,7 +7,7 @@ const SearchBar = () => {
                 <input
                     type="search"
                     id="search-dropdown"
-                    className="w-[85%] px-1 border-none rounded-l-lg bg-[#F4F2EC] focus:outline-[#BFBFBF]"
+                    className="w-[85%] px-1 pl-[10px] border-none rounded-l-lg bg-[#F4F2EC] focus:outline-[#BFBFBF]"
                     placeholder="Search for your favor"
                     required
                 />
