@@ -20,8 +20,8 @@ const NavigationBar = () => {
 
   // call reusable button to create a list of buttons
   return (
-    <div className="w-screen h-full pt-4 grid-in-navigation bg-[#BE2623]">
-      <ul className="w-[1120px] mx-auto flex flex-row justify-between">
+    <div className="w-screen h-[75px] grid-in-navigation bg-[#BE2623]">
+      <ul className="w-[1120px] h-[100%] py-3 mx-auto flex flex-row justify-between">
         {routes.map((route) => (
           <li className="mr-2">
             <Link to={route.path} key={route.name}>
