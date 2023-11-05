@@ -1,3 +1,5 @@
+import SearchBar from "./searchBar";
+
 const Header = () => {
   // call search bar and some reusable button for login
   // create circle button for cart icon
@@ -8,7 +10,9 @@ const Header = () => {
           <div>Logo</div>
           <div>StarBug</div>
         </div>
-        <div>Search bar</div>
+        <div>
+          <SearchBar/>
+        </div>
         <div className="w-fit flex flex-row gap-2">
           <div>Cart button</div>
           <div>Login button</div>
