@@ -1,4 +1,6 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "./button";
 
 const NavigationBar = () => {
   const routes = [
@@ -10,13 +12,25 @@ const NavigationBar = () => {
     { name: "About", path: "/about" },
   ];
 
+  const [selectedButton, setSelectedButton] = useState('Home');
+
+  const handleButtonClick = (name) => {
+    setSelectedButton(name);
+  };
+
   // call reusable button to create a list of buttons
   return (
-    <div className="w-screen h-full pt-4 grid-in-navigation bg-red-300">
+    <div className="w-screen h-full pt-4 grid-in-navigation bg-[#BE2623]">
       <ul className="w-[1120px] mx-auto flex flex-row justify-between">
         {routes.map((route) => (
           <li className="mr-2">
-            <Link to={route.path}>{route.name}</Link>
+            <Link to={route.path} key={route.name}>
+              <Button 
+              name ={route.name}
+              isClicked={route.name === selectedButton}
+              onClick={() => handleButtonClick(route.name)}
+              />
+            </Link>
             {/* Link will be replaced with button */}
           </li>
         ))}
