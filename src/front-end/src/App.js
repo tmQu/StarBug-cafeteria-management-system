@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
-      <div className="fixed top-0 w-full h-[75px]">
+      <div className="fixed top-0 w-full h-[75px] z-40">
           <Header />
           <NavigationBar />
       </div>
