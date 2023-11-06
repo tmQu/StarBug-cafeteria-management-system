@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "./button";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
   const routes = [
     { name: "Home", path: "/" },
     { name: "Tea", path: "/tea" },
@@ -14,8 +15,9 @@ const NavigationBar = () => {
 
   const [selectedButton, setSelectedButton] = useState("Home");
 
-  const handleButtonClick = (name) => {
-    setSelectedButton(name);
+  const handleButtonOnClick = (data) => {
+    navigate(data.path);
+    setSelectedButton(data.name);
   };
 
   return (
@@ -26,7 +28,7 @@ const NavigationBar = () => {
             <Button
               name={route.name}
               isClicked={route.name === selectedButton}
-              onClick={() => handleButtonClick(route.name)}
+              onClick={() => handleButtonOnClick(route)}
             />
           </li>
         ))}
