@@ -7,12 +7,28 @@ const Button = (props) => {
   return (
     <button
       type="button"
-      className={`w-140 h-50 px-2 py-[5px] -pt-0.5 text-lg rounded-lg font-light border-none transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-xl hover:bg-[#D63431]
-      ${isClicked ? "text-black bg-white" : "text-white"
-        }`}
+      className={`w-[140px] h-[50px] text-lg rounded-lg font-light border-none transition-transform duration-500 ease-in-out
+      ${
+        isClicked
+          ? "text-black bg-white"
+          : "text-white hover:scale-105 hover:shadow-xl hover:bg-[#D63431]"
+      }`}
       onClick={onClick}
     >
       {name}
+    </button>
+  );
+};
+
+export const LoginButton = (props) => {
+  const { onClick } = props;
+
+  return (
+    <button
+      className="w-[140px] h-[50px] bg-[#F4F2EC] font-bold rounded-lg ml-[20px] hover:bg-[#E5E5E5]"
+      onClick={onClick}
+    >
+      Login
     </button>
   );
 };
