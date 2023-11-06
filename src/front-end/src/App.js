@@ -8,11 +8,9 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
-      <div className="">
-        <Header />
-      </div>
-      <div className="">
-        <NavigationBar />
+      <div className="fixed top-0 w-full h-[75px]">
+          <Header />
+          <NavigationBar />
       </div>
       <div className="grid-in-content">
         <Routes>
