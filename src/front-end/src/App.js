@@ -1,5 +1,10 @@
 import Home from "./pages/home";
+import Tea from "./pages/tea";
+import MilkTea from "./pages/milktea";
+import Coffee from "./pages/coffee";
+import Cake from "./pages/cake";
 import About from "./pages/about";
+
 import Header from "./components/header";
 import NavigationBar from "./components/navigationBar";
 import Footer from "./components/footer";
@@ -15,7 +20,10 @@ function App() {
       <div className="grid-in-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* create more pages such as: tea, coffee,... here */}
+          <Route path="/tea" element={<Tea />} />
+          <Route path="/milktea" element={<MilkTea />} />
+          <Route path="/coffee" element={<Coffee />} />
+          <Route path="/cake" element={<Cake />} />
           <Route path="/about" element={<About />}></Route>
         </Routes>
       </div>
