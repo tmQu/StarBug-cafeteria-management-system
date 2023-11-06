@@ -1,6 +1,8 @@
 import Item from "../components/item";
+import Top3Items from "../components/top3Items";
 import HomeSlider from "../components/slider";
 import Promotions from "../components/promotions";
+import ShowAllButton from "../components/showAllButton";
 
 const Home = () => {
   // we will fetch items data from server
@@ -67,18 +69,18 @@ const Home = () => {
           <HomeSlider items={items} />
         </div>
         <div className="h-[160px]">
-          <div className="w-[930px] h-[220px] flex items-center mx-auto justify-between relative -top-12">
+          <div className="w-[930px] h-[210px] flex items-center mx-auto justify-between relative -top-12">
             <Promotions images={images} />
           </div>
         </div>
-        <div className="w-full h-[385px] mt-2 bg-yellow-300">
-          Top 3 items here
+        <div className="w-full h-[385px] mt-2">
+          <Top3Items />
         </div>
         <div className="w-[930px] h-fit mx-auto mt-2 bg-[whitesmoke] grid grid-cols-4 grid-rows-3 gap-6">
           Item
         </div>
-        <div className="w-[300px] h-[40px] mx-auto mt-2 bg-lime-400">
-          Xem tat ca san pham button
+        <div className="">
+          <ShowAllButton />
         </div>
       </div>
     </div>

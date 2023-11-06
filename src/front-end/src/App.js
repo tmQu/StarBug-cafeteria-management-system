@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
       <div className="fixed top-0 w-full h-[75px] z-40">
-          <Header />
-          <NavigationBar />
+        <Header />
+        <NavigationBar />
       </div>
       <div className="grid-in-content">
         <Routes>
@@ -19,7 +19,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
         </Routes>
       </div>
-      <div className="">
+      <div className="grid-in-footer">
         <Footer />
       </div>
     </div>
