@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "./button";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
   const routes = [
     { name: "Home", path: "/" },
     { name: "Tea", path: "/tea" },
@@ -12,26 +13,23 @@ const NavigationBar = () => {
     { name: "About", path: "/about" },
   ];
 
-  const [selectedButton, setSelectedButton] = useState('Home');
+  const [selectedButton, setSelectedButton] = useState("Home");
 
-  const handleButtonClick = (name) => {
-    setSelectedButton(name);
+  const handleButtonOnClick = (data) => {
+    navigate(data.path);
+    setSelectedButton(data.name);
   };
 
-  // call reusable button to create a list of buttons
   return (
-    <div className="w-screen h-[75px] grid-in-navigation bg-[#BE2623]">
-      <ul className="w-[1120px] h-[100%] py-3 mx-auto flex flex-row justify-between">
+    <div className="w-screen h-full grid-in-navigation bg-[#BE2623]">
+      <ul className="w-[1120px] pt-2.5 mx-auto flex flex-row justify-between">
         {routes.map((route) => (
-          <li className="mr-2">
-            <Link to={route.path} key={route.name}>
-              <Button 
-              name ={route.name}
+          <li className="">
+            <Button
+              name={route.name}
               isClicked={route.name === selectedButton}
-              onClick={() => handleButtonClick(route.name)}
-              />
-            </Link>
-            {/* Link will be replaced with button */}
+              onClick={() => handleButtonOnClick(route)}
+            />
           </li>
         ))}
       </ul>
