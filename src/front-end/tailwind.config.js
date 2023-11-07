@@ -16,7 +16,7 @@ module.exports = withMT({
         app: "1fr",
       },
       gridTemplateRows: {
-        app: "59px 59px 1fr 250px",
+        app: "60px 60px 1fr 250px",
       },
 >>>>>>> 85ded07 (Chuong - Header fix commit)
     },
