@@ -80,7 +80,7 @@ const SearchBar = (props) => {
         FocusEvent={(e) => {}}
       >
         <input
-          className="w-full pl-4 -mt-0.5 text-lg"
+          className="w-full pl-4 pt-0.5 text-lg"
           type="text"
           placeholder="Search product"
           autoComplete="off"

@@ -11,7 +11,7 @@ const Home = () => {
   // we will fetch items data from server
 
   return (
-    <div className="w-screen h-fit mt-[2px] mx-auto">
+    <div className="w-screen h-fit mx-auto">
       <div className="w-[1120px] mx-auto bg-[#F4F2EC]">
         <div className="w-[1120px] h-[300px]">
           <HomeSlider items={items} />
