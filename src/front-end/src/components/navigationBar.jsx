@@ -22,7 +22,7 @@ const NavigationBar = () => {
 
   return (
     <div className="w-screen h-full grid-in-navigation bg-[#BE2623]">
-      <ul className="w-[1120px] pt-2.5 mx-auto flex flex-row justify-between">
+      <ul className="w-[1120px] mx-auto flex flex-row justify-between">
         {routes.map((route) => (
           <li className="">
             <Button

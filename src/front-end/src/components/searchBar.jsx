@@ -23,7 +23,7 @@
 //               viewBox="0 0 20 20"
 //             >
 //               <path
-//                 stroke="currentColor"
+//                 stroke="currentColor" 
 //                 strokeLinecap="round"
 //                 strokeLinejoin="round"
 //                 strokeWidth="2"
@@ -70,7 +70,7 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className="w-[400px] h-[50px] z-40 relative">
+    <div className="w-[340px] h-[40px] z-40 relative">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="h-full flex flex-row justify-start rounded-3xl overflow-hidden"
