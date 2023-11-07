@@ -1,6 +1,3 @@
-<<<<<<< HEAD:src/front-end/src/components/layouts/searchBar.jsx
-import { useForm, useEffect, useRef, set } from "react-hook-form";
-=======
 // import React from "react";
 
 // const SearchBar = () => {
@@ -42,17 +39,13 @@ import { useForm, useEffect, useRef, set } from "react-hook-form";
 // };
 
 import { useForm } from "react-hook-form";
->>>>>>> 85ded07 (Chuong - Header fix commit):src/front-end/src/components/searchBar.jsx
 import { useState, useMemo } from "react";
 
 const SearchBar = (props) => {
-  const [showPopup, setShowPopup] = useState(false);
-
   const { register, handleSubmit, reset, setValue, setFocus } = useForm({
     defaultValues: { search: "" },
   });
   const onSubmit = (data) => {
-    // call api search
     addItems(data.search);
     reset();
   };
@@ -70,7 +63,7 @@ const SearchBar = (props) => {
 
   const addItems = (data) => {
     const value = data;
-    if (value === "") return;
+    if (value == "") return;
     setItems((prev) => {
       return [...prev, value];
     });
@@ -87,16 +80,14 @@ const SearchBar = (props) => {
         FocusEvent={(e) => {}}
       >
         <input
-          className="w-full pl-4 pt-0.5 text-lg focus:outline-none"
+          className="w-full pl-4 -mt-0.5 text-lg"
           type="text"
           placeholder="Search product"
           autoComplete="off"
           {...register("search")}
-          onFocus={() => {
-            setShowPopup(true);
-          }}
           onBlur={() => {
-            setShowPopup(false);
+            setFocus("search");
+            setQuery("");
           }}
         />
         <div className="w-[61px] flex flex-row bg-[#F3F2ED]">
@@ -110,11 +101,10 @@ const SearchBar = (props) => {
           </button>
         </div>
       </form>
-
-      {showPopup === true && query != "" && filteredItems != "" && (
-        <div className="absolute h-auto w-full mt-1 z-50 rounded-lg overflow-hidden shadow-xl bg-[#eeefef]">
+      {query != "" && filteredItems != 0 && (
+        <div className="absolute h-auto w-full mt-1 z-50 rounded-xl overflow-hidden shadow-xl bg-[#eeefef]">
           <div
-            className="h-8 rounded-t-lg bg-[#EAE8DC] pl-2 font-normal pt-1.5"
+            className="h-10 rounded-xl bg-[#e1e1e1] pl-2 font-normal pt-2"
             onMouseEnter={() => {
               setValue("search", "");
             }}
@@ -124,7 +114,7 @@ const SearchBar = (props) => {
           {filteredItems.map((item, index) => (
             <div key={index} onClick={() => console.log("cl")}>
               <div
-                className="h-8 px-2 pt-1 pl-3 rounded-md font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-gray-300"
+                className="h-9 px-2 pt-0.5 rounded-md text-lg font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-gray-300"
                 onMouseEnter={() => {
                   console.log("set ", item);
                   setValue("search", item);
@@ -133,7 +123,7 @@ const SearchBar = (props) => {
                 {item}
               </div>
               {item !== filteredItems[filteredItems.length - 1] && (
-                <hr className="w-[96%] h-[1.5px] bg-[#d0d1d2] px-2 mx-auto"></hr>
+                <hr className="h-[1.5px] mt-1 bg-[#d0d1d2] w-[80%] ml-2"></hr>
               )}
             </div>
           ))}
