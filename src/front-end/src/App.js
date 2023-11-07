@@ -1,5 +1,10 @@
 import Home from "./pages/home";
+import Tea from "./pages/tea";
+import MilkTea from "./pages/milktea";
+import Coffee from "./pages/coffee";
+import Cake from "./pages/cake";
 import About from "./pages/about";
+
 import Header from "./components/header";
 import NavigationBar from "./components/navigationBar";
 import Footer from "./components/footer";
@@ -8,20 +13,21 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
-      <div className="">
+      <div className="fixed top-0 w-full h-[75px] z-40">
         <Header />
-      </div>
-      <div className="">
         <NavigationBar />
       </div>
       <div className="grid-in-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* create more pages such as: tea, coffee,... here */}
+          <Route path="/tea" element={<Tea />} />
+          <Route path="/milktea" element={<MilkTea />} />
+          <Route path="/coffee" element={<Coffee />} />
+          <Route path="/cake" element={<Cake />} />
           <Route path="/about" element={<About />}></Route>
         </Routes>
       </div>
-      <div className="">
+      <div className="grid-in-footer">
         <Footer />
       </div>
     </div>
