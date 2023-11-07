@@ -1,6 +1,13 @@
 import Logo from "./logo";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (route) => {
+    navigate(`/${route}`); // Chuyển hướng đến đường dẫn tương ứng
+  };
   return (
     <div className="w-screen h-[410px] flex flex-col justify-center items-center bg-[#EAE8DC]">
       <div className="w-[307px] py-2 mx-auto text-[#183942] text-center text-[15px] opacity-[0.6] font-Source-Sans-3 font-bold line-height:normal tracking-[.25em]">
@@ -10,9 +17,11 @@ const Footer = () => {
         Request More Information
       </div>
       <div className="py-3 mx-auto">
-        <button className="w-[198px] h-[60px] py-1 text-[#F4F2EC] bg-[#183942] px-6 rounded-[30px] text-xl font-Source-Sans-3 font-bold cursor-pointer transition-transform ease-in-out duration-500 hover:bg-[#0a181c] hover:scale-[1.05]">
-          About us
-        </button>
+        <Link to="/about">
+          <button className="w-[198px] h-[60px] py-1 text-[#F4F2EC] bg-[#183942] px-6 rounded-[30px] text-xl font-Source-Sans-3 font-bold cursor-pointer transition-transform ease-in-out duration-500 hover:bg-[#0a181c] hover:scale-[1.05]">
+            About us
+          </button>
+        </Link>
       </div>
       <div className="mx-auto py-2 w-[139px] text-[#183942] text-center font-black text-[16px]">
         @Intech.co, ltd
@@ -24,15 +33,19 @@ const Footer = () => {
         <div className="flex mr-auto">
           <Logo />
         </div>
-        <div className="w-[460px] h-[20px] justify-between flex">
-          {['Coffee', 'Tea', 'Milk tea', 'Cake'].map((item, index) => (
-            <a key={index} className="text-[#183942] text-center font-black text-[18px] cursor-pointer">
+        <div className="flex w-[460px] h-[20px] justify-between">
+          {['Coffee', 'Tea', 'Milktea', 'Cake'].map((item, index) => (
+            <a
+              key={index}
+              className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
+              onClick={() => handleNavigation(item.toLowerCase())}
+            >
               {item}
             </a>
           ))}
         </div>
         <div className="flex w-[255px] h-[45px] ml-auto justify-between">
-        <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
+          <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
               <path opacity="0.25" d="M43.875 22.5C43.875 34.3051 34.3051 43.875 22.5 43.875C10.6949 43.875 1.125 34.3051 1.125 22.5C1.125 10.6949 10.6949 1.125 22.5 1.125C34.3051 1.125 43.875 10.6949 43.875 22.5Z" stroke="#183942" stroke-width="2.25" />
               <path d="M17.6875 19.375C18.6195 19.375 19.375 18.6195 19.375 17.6875C19.375 16.7555 18.6195 16 17.6875 16C16.7555 16 16 16.7555 16 17.6875C16 18.6195 16.7555 19.375 17.6875 19.375Z" fill="#183942" />

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "./button";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const routes = [
     { name: "Home", path: "/" },
     { name: "Tea", path: "/tea" },
@@ -15,6 +16,13 @@ const NavigationBar = () => {
 
   const [selectedButton, setSelectedButton] = useState("Home");
 
+  useEffect(() => {
+    const currentRoute = routes.find((route) => route.path === location.pathname);
+    if (currentRoute) {
+      setSelectedButton(currentRoute.name);
+    }
+  }, [location.pathname, routes]);
+
   const handleButtonOnClick = (data) => {
     navigate(data.path);
     setSelectedButton(data.name);
@@ -24,7 +32,7 @@ const NavigationBar = () => {
     <div className="w-screen h-full grid-in-navigation bg-[#BE2623]">
       <ul className="w-[1120px] pt-2.5 mx-auto flex flex-row justify-between">
         {routes.map((route) => (
-          <li className="">
+          <li key={route.name}>
             <Button
               name={route.name}
               isClicked={route.name === selectedButton}
