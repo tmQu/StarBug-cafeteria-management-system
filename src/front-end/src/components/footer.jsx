@@ -24,7 +24,7 @@ const Footer = () => {
         </button>
       </div>
       <div className="mx-auto py-2 w-[139px] text-[#183942] text-center font-black text-[16px]">
-        @Intech .Co, Ltd
+        @Intech .Co
       </div>
       <div className="flex justify-center items-center my-3">
         <hr className="w-[1120px] border-[1px] border-gray-600" />
