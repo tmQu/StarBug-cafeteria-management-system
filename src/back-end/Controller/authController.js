@@ -178,7 +178,7 @@ const authHandler = {
     forgetPwd: async (req, res) => {
         var email = req.body.email;
         sendForgetPwdEmail(email);
-        res.staus(201);
+        res.status(201);
     },
     resetPwd: async (req, res) => {
         var forgetPwdToken = req.query.token;
