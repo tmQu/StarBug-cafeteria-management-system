@@ -4,33 +4,33 @@ const About = () => {
   const members = [
     {
       name: "Le Hoang Sang",
-      role: "Front-end Developer",
+      role: "\"Perfect website\"",
       image:
-        "https://img.freepik.com/premium-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg",
+        "./assets/Member_files/LHS.jpg",
     },
     {
       name: "Tran Minh Quang",
-      role: "Back-end Developer",
+      role: "\"I found my favor here\"",
       image:
-        "https://img.freepik.com/premium-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg",
+        "./assets/Member_files/TMQ.jpg",
     },
     {
       name: "Nguyen Quoc Huy",
-      role: "Front-end Developer",
+      role: "\"I like this cake\"",
       image:
-        "https://img.freepik.com/premium-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg",
+        "./assets/Member_files/NQH.jpg",
     },
     {
       name: "Vu Dinh Chuong",
-      role: "Front-end Developer",
+      role: "\"Coffee is my style\"",
       image:
-        "https://img.freepik.com/premium-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg",
+        "./assets/Member_files/VDC.jpg",
     },
     {
       name: "Phu Thanh Nhan",
-      role: "Back-end Developer",
+      role: "\"Love the tea here\"",
       image:
-        "https://img.freepik.com/premium-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg",
+        "./assets/Member_files/PTN.png",
     },
   ];
   return (
