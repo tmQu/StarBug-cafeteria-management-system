@@ -12,8 +12,8 @@ const Home = () => {
 
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-[1120px] mx-auto bg-[#F4F2EC]">
-        <div className="w-[1120px] h-[300px]">
+      <div className="w-screen mx-auto bg-[#F4F2EC]">
+        <div className="w-screen h-[386px]">
           <HomeSlider items={items} />
         </div>
         <div className="h-[160px]">
