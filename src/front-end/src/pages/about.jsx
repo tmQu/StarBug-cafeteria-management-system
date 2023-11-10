@@ -2,8 +2,8 @@ import MemberCard from "../components/memberCard";
 import Story from "../components/story";
 import HomeSlider from "../components/slider";
 
-import stories from "../stories.json";
-import members from "../members.json";
+import stories from "../staticData/stories.json";
+import members from "../staticData/members.json";
 
 import items from "../api/items";
 
@@ -28,7 +28,6 @@ const About = () => {
               paragraph={story.paragraph}
             />
           ))}
-
         </div>
         <div className="flex justify-center items-center my-3 pt-8">
           <hr className="w-[792px] border-[1px] border-[#0D3745]" />
