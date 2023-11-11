@@ -1,50 +1,20 @@
 import express from "express";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
+import {Item, Slider, Promotion} from "databaseSchema/dbSchema"
+import multer from 'multer'
+
 
 
 const app = express();
 const port = 4000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const upload = multer({ dest: 'uploads/' })
 
 const dbName = "StarBug-example"
 mongoose.connect('mongodb://127.0.0.1:27017/' + dbName);
 
-var itemSchema = mongoose.Schema({
-    id: String,
-    name: String,
-    category: String,
-    price: Number,
-    img: String,
-    avgRate: {
-        type: Number,
-        default: 0
-    },
-    topItem:{
-        type: Boolean,
-        default: false
-    },
-    Description:{
-        // Later design
-    }
-})
 
-
-var promotionSchema = mongoose.Schema({
-    id: String,
-    img: String
-})
-
-
-var sliderSchema = mongoose.Schema({
-    id: String,
-    img: String,
-    pos: String
-})
-const Item = mongoose.model('Item', itemSchema);
-const Promotion = mongoose.model('Promotion', promotionSchema);
-const Slider = mongoose.model('Slider', sliderSchema);
 
 
 
@@ -75,16 +45,8 @@ const Slider = mongoose.model('Slider', sliderSchema);
 
 
 app.get('/item/all', async (req, res)=>{
-    console.log('all');
 
 
-    try{
-        var result = await Item.find();
-        res.send(result);
-    }
-    catch(err){
-        console.log(err);
-    }
 });
 
 app.get('/item/filter', async(req, res) => {
@@ -121,6 +83,7 @@ app.get('/item/filter', async(req, res) => {
     }
 })
 
+
 app.get('/item/:id', async (req, res)=>{
     // console.log('id');
     try{
@@ -139,6 +102,7 @@ app.get('/item/:id', async (req, res)=>{
 app.post('/item', async (req, res) => {
     var data = req.body;
     console.log(req.body);
+
     try {
         await new Item(data).save();
         res.sendStatus(200);
@@ -167,7 +131,11 @@ app.patch('/item/:id', async (req, res) => {
 app.delete('/item/:id', async (req, res) => {
     var filter = {id: req.params.id};
     try{
-        await Item.findOneAndDelete(filter);
+        var result = await Item.findOneAndDelete(filter);
+        if (!result)
+        {
+            res.sendStatus(404).json({err: 'Item not found'})
+        }
         console.log('delete success');
         res.sendStatus(200);
     }
@@ -222,8 +190,10 @@ app.get('/slider/:id', async (req, res)=>{
 
 
 
-app.post('/slider', async (req, res) => {
+app.post('/slider', upload.single('item-img'),async (req, res) => {
     var data = req.body;
+    var img = req.file;
+
     console.log(req.body);
     try {
         await new Slider(data).save();
