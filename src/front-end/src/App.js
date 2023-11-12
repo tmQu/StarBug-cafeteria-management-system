@@ -13,9 +13,9 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
-      <div className="fixed top-0 w-full h-[75px] z-40">
-        <Header />
-        <NavigationBar />
+      <div className="fixed top-0 w-full z-40">
+        <div className="h-[60px]"><Header /></div>
+        <div className="h-[60px] pt-0"><NavigationBar /></div>
       </div>
       <div className="grid-in-content">
         <Routes>

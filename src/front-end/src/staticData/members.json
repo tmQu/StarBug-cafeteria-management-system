@@ -1,0 +1,31 @@
+[
+    {
+      "name": "Le Hoang Sang",
+      "role": "\"Perfect website\"",
+      "image": "./assets/Member_files/LHS.jpg"
+    },
+    {
+      "name": "Tran Minh Quang",
+      "role": "\"I found my favor here\"",
+      "image":
+        "./assets/Member_files/TMQ.jpg"
+    },
+    {
+      "name": "Nguyen Quoc Huy",
+      "role": "\"I like this cake\"",
+      "image":
+        "./assets/Member_files/NQH.jpg"
+    },
+    {
+      "name": "Vu Dinh Chuong",
+      "role": "\"Coffee is my style\"",
+      "image":
+        "./assets/Member_files/VDC.jpg"
+    },
+    {
+      "name": "Phu Thanh Nhan",
+      "role": "\"Love the tea here\"",
+      "image":
+        "./assets/Member_files/PTN.png"
+    }
+]

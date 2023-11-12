@@ -1,19 +1,31 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "./button";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
-  const routes = [
-    { name: "Home", path: "/" },
-    { name: "Tea", path: "/tea" },
-    { name: "Milk Tea", path: "/milktea" },
-    { name: "Coffee", path: "/coffee" },
-    { name: "Cake", path: "/cake" },
-    { name: "About", path: "/about" },
-  ];
-
+  const location = useLocation();
+  const routes = useMemo(
+    () => [
+      { name: "Home", path: "/" },
+      { name: "Tea", path: "/tea" },
+      { name: "Milk Tea", path: "/milktea" },
+      { name: "Coffee", path: "/coffee" },
+      { name: "Cake", path: "/cake" },
+      { name: "About", path: "/about" },
+    ],
+    []
+  );
   const [selectedButton, setSelectedButton] = useState("Home");
+
+  useEffect(() => {
+    const currentRoute = routes.find(
+      (route) => route.path === location.pathname
+    );
+    if (currentRoute) {
+      setSelectedButton(currentRoute.name);
+    }
+  }, [location.pathname, routes]);
 
   const handleButtonOnClick = (data) => {
     navigate(data.path);
@@ -22,9 +34,9 @@ const NavigationBar = () => {
 
   return (
     <div className="w-screen h-full grid-in-navigation bg-[#BE2623]">
-      <ul className="w-[1120px] pt-2.5 mx-auto flex flex-row justify-between">
+      <ul className="w-[1120px] h-full mx-auto flex flex-row justify-between items-center">
         {routes.map((route) => (
-          <li className="">
+          <li key={route.name}>
             <Button
               name={route.name}
               isClicked={route.name === selectedButton}
