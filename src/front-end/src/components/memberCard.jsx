@@ -2,17 +2,21 @@ const MemberCard = (props) => {
   const { id, name, role, image } = props;
   return (
     <div
-      className="w-[300px] h-[385px] bg-[#E3E0CC] rounded-lg shadow-xl flex flex-col items-center
-    [transition:transform_0.5s_ease] hover:cursor-pointer hover:scale-[1.04]"
+      className="w-[300px] h-[385px] bg-[#E3E0CC] rounded-xl shadow-xl flex flex-col items-center
+    [transition:transform_0.5s_ease] hover:cursor-pointer hover:scale-[1.01]"
     >
       <img
-        className="w-full h-[75%] rounded-t-lg object-cover"
+        className="w-56 h-48 m-2 rounded-lg object-cover"
         alt="member img"
         src={image}
       ></img>
-      <div className="w-fit mt-3">
-        <p className="w-fit text-2xl mx-auto font-semibold">{name}</p>
-        <p className="w-fit -mt-1 text-base mx-auto font-medium">{role}</p>
+      <div className="w-fit h-full mb-1 flex flex-col justify-center items-center">
+        <p className="w-fit text-2xl mx-auto text-[#0D3745] font-semibold">
+          {name}
+        </p>
+        <p className="w-fit -mt-1 text-base mx-auto text-[#0D3745] font-medium">
+          {role}
+        </p>
       </div>
     </div>
   );
