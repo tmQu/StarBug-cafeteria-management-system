@@ -1,10 +1,8 @@
 import MemberCard from "../components/memberCard";
 import Story from "../components/story";
 import HomeSlider from "../components/slider";
-
 import stories from "../staticData/stories.json";
 import members from "../staticData/members.json";
-
 import items from "../api/items";
 
 const About = () => {
@@ -14,10 +12,10 @@ const About = () => {
         <div className="w-[1120px] h-[300px]">
           <HomeSlider items={items} />
         </div>
-        <div className="w-[1120px] h-[101px] my-3 py-4 flex items-center justify-center text-[70px] font-bold font-Source-Sans-3  text-[#0D3745]">
+        <div className="w-[1120px] h-fit mt-1 pt-4 flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]">
           STORY BEHIND THE FAVOR
         </div>
-        <div className="w-[1120px] h-fit px-4 mx-auto py-2">
+        <div className="w-[1120px] h-fit px-4 mx-auto">
           {stories.map((story, index) => (
             <Story
               key={index}
@@ -32,10 +30,10 @@ const About = () => {
         <div className="flex justify-center items-center my-3 pt-8">
           <hr className="w-[792px] border-[1px] border-[#0D3745]" />
         </div>
-        <div className="w-[1120px] h-[101px] py-4 flex items-center justify-center text-[80px] font-bold font-Source-Sans-3  text-[#0D3745]">
+        <div className="w-[1120px] h-[100px] py-4 flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]">
           Loyal Customer
         </div>
-        <div className="w-[1120px] h-fit px-4 p-8 mx-auto">
+        <div className="w-[1120px] h-fit pb-6 mx-auto">
           <div className="flex flex-row justify-center gap-4">
             {members.slice(0, 2).map((member) => (
               <MemberCard
