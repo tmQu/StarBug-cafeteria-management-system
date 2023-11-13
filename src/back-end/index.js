@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', express.static('database'))
+app.use('/database', express.static('database'))
 app.use('/item', itemRouter);
 app.use('/promotion', promotionRouter);
 app.use('/slider', sliderRouter);
