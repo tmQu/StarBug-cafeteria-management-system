@@ -14,8 +14,8 @@ import { useInView } from "react-intersection-observer";
 
 const Home = () => {
   // we will fetch items data from serverconst apiUrl = `https://fakestoreapi.com/products?limit=12`;
-
-  // const apiUrl = `http://localhost:4000/`;
+  
+  // const apiUrl = ``;
   // const { data } = useQuery({
   //   queryKey: ["items"],
   //   queryFn: () => axios.get(apiUrl).then((res) => res),
