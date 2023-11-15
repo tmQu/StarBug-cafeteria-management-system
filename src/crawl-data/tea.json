@@ -1,0 +1,144 @@
+{
+  "items": [
+    {
+      "id": "tra-1",
+      "name": "Trà Lipton Ngon",
+      "category": "Trà",
+      "price": 25000,
+      "image": "tra1.jpg",
+      "avg-rating": 4.0,
+      "isTopItem": true,
+      "description": {
+        "heading": "Trà Lipton Ngon",
+        "title": "Hương Vị Tự Nhiên",
+        "description": "Trà Lipton với hương vị tự nhiên, mang lại cảm giác thư giãn sau mỗi ngụm."
+      }
+    },
+    {
+      "id": "tra-2",
+      "name": "Trà Oolong Đặc Biệt",
+      "category": "Trà",
+      "price": 32000,
+      "image": "tra2.jpg",
+      "avg-rating": 4.2,
+      "isTopItem": false,
+      "description": {
+        "heading": "Trà Oolong Đặc Biệt",
+        "title": "Hương Vị Độc Đáo",
+        "description": "Trà Oolong đặc biệt với hương vị độc đáo, thích hợp cho những ai yêu thích trà truyền thống."
+      }
+    },
+    {
+      "id": "tra-3",
+      "name": "Trà Lài Hòa Quyện",
+      "category": "Trà",
+      "price": 28000,
+      "image": "tra3.jpg",
+      "avg-rating": 4.1,
+      "isTopItem": true,
+      "description": {
+        "heading": "Trà Lài Hòa Quyện",
+        "title": "Hương Vị Nồng Nàn",
+        "description": "Trà lái hòa quyện, hương vị nồng nàn và sâu lắng, làm cho mỗi ngày trở nên trọn vẹn."
+      }
+    },
+    {
+      "id": "tra-4",
+      "name": "Trà Đen Twinnings",
+      "category": "Trà",
+      "price": 30000,
+      "image": "tra4.jpg",
+      "avg-rating": 4.3,
+      "isTopItem": false,
+      "description": {
+        "heading": "Trà Đen Twinnings",
+        "title": "Hòa Quyện Hương Thơm",
+        "description": "Trà đen Twinnings với hương thơm quyến rũ, đưa bạn đến một thế giới trà đen đẳng cấp."
+      }
+    },
+    {
+      "id": "tra-5",
+      "name": "Trà Xanh Nhài",
+      "category": "Trà",
+      "price": 35000,
+      "image": "tra5.jpg",
+      "avg-rating": 4.4,
+      "isTopItem": true,
+      "description": {
+        "heading": "Trà Xanh Nhài",
+        "title": "Hương Vị Dịu Dàng",
+        "description": "Trà xanh nhài nhẹ nhàng với hương vị dịu dàng, làm cho thời gian thư giãn trở nên thêm phần trọn vẹn."
+      }
+    },
+    {
+      "id": "tra-6",
+      "name": "Trà Lục Bình",
+      "category": "Trà",
+      "price": 27000,
+      "image": "tra6.jpg",
+      "avg-rating": 4.0,
+      "isTopItem": false,
+      "description": {
+        "heading": "Trà Lục Bình",
+        "title": "Hương Vị Nguyên Bản",
+        "description": "Trà lục bình truyền thống với hương vị nguyên bản, làm cho mỗi ngày trở nên tươi mới."
+      }
+    },
+    {
+      "id": "tra-7",
+      "name": "Trà Sữa Đào",
+      "category": "Trà",
+      "price": 38000,
+      "image": "tra7.jpg",
+      "avg-rating": 4.2,
+      "isTopItem": true,
+      "description": {
+        "heading": "Trà Sữa Đào",
+        "title": "Hòa Quyện Hương Đào",
+        "description": "Trà sữa đào mát lạnh, hòa quyện hương đào tinh tế, thích hợp cho những ngày nóng bức."
+      }
+    },
+    {
+      "id": "tra-8",
+      "name": "Trà Lài Phủ Bạc",
+      "category": "Trà",
+      "price": 30000,
+      "image": "tra8.jpg",
+      "avg-rating": 4.3,
+      "isTopItem": false,
+      "description": {
+        "heading": "Trà Lài Phủ Bạc",
+        "title": "Hương Vị Độc Đáo",
+        "description": "Trà lái phủ bạc với hương vị độc đáo, mang lại trải nghiệm thưởng thức trà truyền thống."
+      }
+    },
+    {
+      "id": "tra-9",
+      "name": "Trà Hoa Cúc",
+      "category": "Trà",
+      "price": 32000,
+      "image": "tra9.jpg",
+      "avg-rating": 4.1,
+      "isTopItem": true,
+      "description": {
+        "heading": "Trà Hoa Cúc",
+        "title": "Hương Vị Dịu Dàng",
+        "description": "Trà hoa cúc nhẹ nhàng với hương thơm dịu dàng, giúp thư giãn sau một ngày bận rộn."
+      }
+    },
+    {
+      "id": "tra-10",
+      "name": "Trà Đào Xanh",
+      "category": "Trà",
+      "price": 34000,
+      "image": "tra10.jpg",
+      "avg-rating": 4.4,
+      "isTopItem": false,
+      "description": {
+        "heading": "Trà Đào Xanh",
+        "title": "Hương Vị Tinh Khiết",
+        "description": "Trà đào xanh tinh khiết, mang lại hương vị tươi mới và nguyên bản của trà truyền thống."
+      }
+    }
+  ]
+}

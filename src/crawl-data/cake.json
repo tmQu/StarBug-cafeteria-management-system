@@ -1,0 +1,144 @@
+{
+  "items": [
+    {
+      "id": "banh-ngot-1",
+      "name": "Bánh Chocolate Brownie",
+      "category": "Bánh Ngọt",
+      "price": 25000,
+      "image": "banh1.jpg",
+      "avg-rating": 4.2,
+      "isTopItem": true,
+      "description": {
+        "heading": "Bánh Chocolate Brownie",
+        "title": "Hương Vị Chocolate Đậm Đà",
+        "description": "Bánh Chocolate Brownie đậm đà với lớp chocolate béo ngậy, hấp dẫn từng miếng."
+      }
+    },
+    {
+      "id": "banh-ngot-2",
+      "name": "Bánh Muffin Dâu",
+      "category": "Bánh Ngọt",
+      "price": 28000,
+      "image": "banh2.jpg",
+      "avg-rating": 4.1,
+      "isTopItem": false,
+      "description": {
+        "heading": "Bánh Muffin Dâu",
+        "title": "Hương Vị Tươi Mát",
+        "description": "Bánh Muffin dâu tươi ngon, mang lại cảm giác tươi mát và ngon miệng."
+      }
+    },
+    {
+      "id": "banh-ngot-3",
+      "name": "Bánh Gato Trứng Muối",
+      "category": "Bánh Ngọt",
+      "price": 30000,
+      "image": "banh3.jpg",
+      "avg-rating": 4.3,
+      "isTopItem": true,
+      "description": {
+        "heading": "Bánh Gato Trứng Muối",
+        "title": "Hòa Quyện Hương Vị",
+        "description": "Bánh gato trứng muối hòa quyện hương vị trứng và muối, tạo nên sự độc đáo."
+      }
+    },
+    {
+      "id": "banh-ngot-4",
+      "name": "Bánh Cupcake Vanilla",
+      "category": "Bánh Ngọt",
+      "price": 26000,
+      "image": "banh4.jpg",
+      "avg-rating": 4.0,
+      "isTopItem": false,
+      "description": {
+        "heading": "Bánh Cupcake Vanilla",
+        "title": "Hương Vị Vanilla Dịu Dàng",
+        "description": "Bánh Cupcake vanilla với hương vị dịu dàng và kem phủ béo ngậy, thích hợp cho thời điểm nhẹ nhàng."
+      }
+    },
+    {
+      "id": "banh-ngot-5",
+      "name": "Bánh Donut Chocolate",
+      "category": "Bánh Ngọt",
+      "price": 32000,
+      "image": "banh5.jpg",
+      "avg-rating": 4.4,
+      "isTopItem": true,
+      "description": {
+        "heading": "Bánh Donut Chocolate",
+        "title": "Hương Vị Donut Đặc Trưng",
+        "description": "Bánh Donut chocolate với hương vị đặc trưng của donut và lớp chocolate béo ngậy."
+      }
+    },
+    {
+      "id": "banh-ngot-6",
+      "name": "Bánh Tart Dâu",
+      "category": "Bánh Ngọt",
+      "price": 29000,
+      "image": "banh6.jpg",
+      "avg-rating": 4.2,
+      "isTopItem": false,
+      "description": {
+        "heading": "Bánh Tart Dâu",
+        "title": "Hương Vị Tươi Mát",
+        "description": "Bánh Tart dâu với hương vị tươi mát và lớp nhân dâu thơm ngon."
+      }
+    },
+    {
+      "id": "banh-ngot-7",
+      "name": "Bánh Pudding Caramel",
+      "category": "Bánh Ngọt",
+      "price": 35000,
+      "image": "banh7.jpg",
+      "avg-rating": 4.3,
+      "isTopItem": true,
+      "description": {
+        "heading": "Bánh Pudding Caramel",
+        "title": "Hương Vị Caramel Béo Ngậy",
+        "description": "Bánh Pudding Caramel với hương vị caramel béo ngậy và lớp bánh mềm mịn."
+      }
+    },
+    {
+      "id": "banh-ngot-8",
+      "name": "Bánh Ép Matcha",
+      "category": "Bánh Ngọt",
+      "price": 33000,
+      "image": "banh8.jpg",
+      "avg-rating": 4.1,
+      "isTopItem": false,
+      "description": {
+        "heading": "Bánh Ép Matcha",
+        "title": "Hương Vị Độc Đáo",
+        "description": "Bánh ép Matcha với hương vị độc đáo của trà xanh Matcha, thích hợp cho người yêu thích trà."
+      }
+    },
+    {
+      "id": "banh-ngot-9",
+      "name": "Bánh Cookie Sô Cô La",
+      "category": "Bánh Ngọt",
+      "price": 31000,
+      "image": "banh9.jpg",
+      "avg-rating": 4.0,
+      "isTopItem": true,
+      "description": {
+        "heading": "Bánh Cookie Sô Cô La",
+        "title": "Hương Vị Sô Cô La Đặc Trưng",
+        "description": "Bánh cookie sô cô la với hương vị đặc trưng của sô cô la, giòn ngon từng lớp."
+      }
+    },
+    {
+      "id": "banh-ngot-10",
+      "name": "Bánh Bông Lan Matcha",
+      "category": "Bánh Ngọt",
+      "price": 30000,
+      "image": "banh10.jpg",
+      "avg-rating": 4.4,
+      "isTopItem": false,
+      "description": {
+        "heading": "Bánh Bông Lan Matcha",
+        "title": "Hương Vị Bông Lan Quyến Rũ",
+        "description": "Bánh bông lan Matcha quyến rũ với hương vị thơm ngon của Matcha và lớp bánh mềm mịn."
+      }
+    }
+  ]
+}

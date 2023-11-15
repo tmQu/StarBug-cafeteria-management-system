@@ -1,0 +1,144 @@
+{
+  "items": [
+    {
+      "id": "cafe-1",
+      "name": "Cà Phê Đen Robusta",
+      "category": "Cà Phê",
+      "price": 35000,
+      "image": "cafe1.jpg",
+      "avg-rating": 4.0,
+      "isTopItem": true,
+      "description": {
+        "heading": "Cà Phê Đen Robusta",
+        "title": "Hương Vị Đậm Đà",
+        "description": "Cà phê đen Robusta mạnh mẽ, với hương vị đậm đà và hậu vị lâu."
+      }
+    },
+    {
+      "id": "cafe-2",
+      "name": "Cà Phê Sữa Đá",
+      "category": "Cà Phê",
+      "price": 40000,
+      "image": "cafe2.jpg",
+      "avg-rating": 4.2,
+      "isTopItem": false,
+      "description": {
+        "heading": "Cà Phê Sữa Đá",
+        "title": "Hòa Quyện Hương Vị",
+        "description": "Cà phê sữa đá thơm ngon, với sự kết hợp hoàn hảo giữa cà phê và sữa đặc ngọt ngào."
+      }
+    },
+    {
+      "id": "cafe-3",
+      "name": "Cà Phê Caramel Macchiato",
+      "category": "Cà Phê",
+      "price": 45000,
+      "image": "cafe3.jpg",
+      "avg-rating": 4.5,
+      "isTopItem": true,
+      "description": {
+        "heading": "Cà Phê Caramel Macchiato",
+        "title": "Lớp Caramel Béo Ngậy",
+        "description": "Caramel Macchiato với lớp caramel béo ngậy, tạo nên cảm giác thưởng thức đặc biệt."
+      }
+    },
+    {
+      "id": "cafe-4",
+      "name": "Cà Phê Phin Hòa Quyện",
+      "category": "Cà Phê",
+      "price": 42000,
+      "image": "cafe4.jpg",
+      "avg-rating": 4.3,
+      "isTopItem": false,
+      "description": {
+        "heading": "Cà Phê Phin Hòa Quyện",
+        "title": "Hương Vị Cổ Điển",
+        "description": "Cà phê phin truyền thống, hòa quyện hương vị cổ điển của Việt Nam."
+      }
+    },
+    {
+      "id": "cafe-5",
+      "name": "Cà Phê Sữa Nóng",
+      "category": "Cà Phê",
+      "price": 38000,
+      "image": "cafe5.jpg",
+      "avg-rating": 4.1,
+      "isTopItem": false,
+      "description": {
+        "heading": "Cà Phê Sữa Nóng",
+        "title": "Thưởng Thức Nóng Bỏng",
+        "description": "Cà phê sữa nóng, thơm ngon và đậm đà, làm ấm lòng những ngày se lạnh."
+      }
+    },
+    {
+      "id": "cafe-6",
+      "name": "Cà Phê Espresso",
+      "category": "Cà Phê",
+      "price": 48000,
+      "image": "cafe6.jpg",
+      "avg-rating": 4.4,
+      "isTopItem": true,
+      "description": {
+        "heading": "Cà Phê Espresso",
+        "title": "Hương Vị Đắng Đậm",
+        "description": "Espresso với hương vị đắng đậm và chất lượng tinh khiết, làm say mê những tín đồ cà phê."
+      }
+    },
+    {
+      "id": "cafe-7",
+      "name": "Cà Phê Mocha",
+      "category": "Cà Phê",
+      "price": 42000,
+      "image": "cafe7.jpg",
+      "avg-rating": 4.6,
+      "isTopItem": false,
+      "description": {
+        "heading": "Cà Phê Mocha",
+        "title": "Hòa Quyện Hương Chocolate",
+        "description": "Cà phê Mocha với hòa quyện hương vị chocolate và cà phê, làm cho thời gian thư giãn thêm phần ngon miệng."
+      }
+    },
+    {
+      "id": "cafe-8",
+      "name": "Cà Phê Sữa Hấp Dẫn",
+      "category": "Cà Phê",
+      "price": 44000,
+      "image": "cafe8.jpg",
+      "avg-rating": 4.2,
+      "isTopItem": true,
+      "description": {
+        "heading": "Cà Phê Sữa Hấp Dẫn",
+        "title": "Hương Vị Thơm Ngon",
+        "description": "Cà phê sữa hấp dẫn với hương vị thơm ngon và lớp sữa béo ngậy, thích hợp cho mọi ngày."
+      }
+    },
+    {
+      "id": "cafe-9",
+      "name": "Cà Phê Latte",
+      "category": "Cà Phê",
+      "price": 46000,
+      "image": "cafe9.jpg",
+      "avg-rating": 4.3,
+      "isTopItem": false,
+      "description": {
+        "heading": "Cà Phê Latte",
+        "title": "Sự Hòa Quyện Hoàn Hảo",
+        "description": "Cà phê Latte với sự hòa quyện hoàn hảo giữa cà phê, sữa và lớp bọt sữa mịn màng."
+      }
+    },
+    {
+      "id": "cafe-10",
+      "name": "Cà Phê Sữa Nâu Đá",
+      "category": "Cà Phê",
+      "price": 40000,
+      "image": "cafe10.jpg",
+      "avg-rating": 4.1,
+      "isTopItem": true,
+      "description": {
+        "heading": "Cà Phê Sữa Nâu Đá",
+        "title": "Hương Vị Ghiền Ngay",
+        "description": "Cà phê sữa nâu đá thơm ngon, hấp dẫn, đủ sức ghiền ngay từ lần thử đầu tiên."
+      }
+    }
+  ]
+}
