@@ -5,7 +5,7 @@
       "name": "Bánh Chocolate Brownie",
       "category": "Bánh Ngọt",
       "price": 25000,
-      "image": "banh1.jpg",
+      "image": "https://i.pinimg.com/564x/0f/22/f6/0f22f6cb6c5692c695762fa7624b40a5.jpg",
       "avg-rating": 4.2,
       "isTopItem": true,
       "description": {
@@ -19,7 +19,7 @@
       "name": "Bánh Muffin Dâu",
       "category": "Bánh Ngọt",
       "price": 28000,
-      "image": "banh2.jpg",
+      "image": "https://i.pinimg.com/564x/79/e8/2a/79e82adb43ea1aebbaf5bb84db50cd1d.jpg",
       "avg-rating": 4.1,
       "isTopItem": false,
       "description": {
@@ -33,7 +33,7 @@
       "name": "Bánh Gato Trứng Muối",
       "category": "Bánh Ngọt",
       "price": 30000,
-      "image": "banh3.jpg",
+      "image": "https://i.pinimg.com/564x/0f/0e/27/0f0e27f6340c1aafd14ec94897d732ec.jpg",
       "avg-rating": 4.3,
       "isTopItem": true,
       "description": {
@@ -47,7 +47,7 @@
       "name": "Bánh Cupcake Vanilla",
       "category": "Bánh Ngọt",
       "price": 26000,
-      "image": "banh4.jpg",
+      "image": "https://i.pinimg.com/564x/58/ac/d2/58acd2e3d9b6097bf55f82fddc4fdc88.jpg",
       "avg-rating": 4.0,
       "isTopItem": false,
       "description": {
@@ -61,7 +61,7 @@
       "name": "Bánh Donut Chocolate",
       "category": "Bánh Ngọt",
       "price": 32000,
-      "image": "banh5.jpg",
+      "image": "https://i.pinimg.com/564x/4c/ec/1d/4cec1da2ea92d68f0c1dfbf7a269c3f9.jpg",
       "avg-rating": 4.4,
       "isTopItem": true,
       "description": {
@@ -75,7 +75,7 @@
       "name": "Bánh Tart Dâu",
       "category": "Bánh Ngọt",
       "price": 29000,
-      "image": "banh6.jpg",
+      "image": "https://i.pinimg.com/564x/0c/1d/53/0c1d53a1fad489bec27386d2b58452fc.jpg",
       "avg-rating": 4.2,
       "isTopItem": false,
       "description": {
@@ -89,7 +89,7 @@
       "name": "Bánh Pudding Caramel",
       "category": "Bánh Ngọt",
       "price": 35000,
-      "image": "banh7.jpg",
+      "image": "https://i.pinimg.com/564x/4b/88/42/4b8842ca5618a7388c3e424bcd78f50e.jpg",
       "avg-rating": 4.3,
       "isTopItem": true,
       "description": {
@@ -100,44 +100,44 @@
     },
     {
       "id": "banh-ngot-8",
-      "name": "Bánh Ép Matcha",
+      "name": "Matcha Macaron",
       "category": "Bánh Ngọt",
       "price": 33000,
-      "image": "banh8.jpg",
+      "image": "https://i.pinimg.com/736x/57/dc/33/57dc339c0944a33bb2be77089d126399.jpg",
       "avg-rating": 4.1,
       "isTopItem": false,
       "description": {
-        "heading": "Bánh Ép Matcha",
+        "heading": "Matcha Macaron",
         "title": "Hương Vị Độc Đáo",
-        "description": "Bánh ép Matcha với hương vị độc đáo của trà xanh Matcha, thích hợp cho người yêu thích trà."
+        "description": "Matcha Macaron với hương vị độc đáo của trà xanh Matcha, thích hợp cho người yêu thích trà."
       }
     },
     {
       "id": "banh-ngot-9",
-      "name": "Bánh Cookie Sô Cô La",
+      "name": "Bánh chocolate",
       "category": "Bánh Ngọt",
       "price": 31000,
-      "image": "banh9.jpg",
+      "image": "https://i.pinimg.com/564x/0f/22/f6/0f22f6cb6c5692c695762fa7624b40a5.jpg",
       "avg-rating": 4.0,
       "isTopItem": true,
       "description": {
-        "heading": "Bánh Cookie Sô Cô La",
-        "title": "Hương Vị Sô Cô La Đặc Trưng",
-        "description": "Bánh cookie sô cô la với hương vị đặc trưng của sô cô la, giòn ngon từng lớp."
+        "heading": "Bánh chocolate",
+        "title": "Hương Vị chocolate Đặc Trưng",
+        "description": "Bánh chocolate với hương vị đặc trưng của chocolate."
       }
     },
     {
       "id": "banh-ngot-10",
-      "name": "Bánh Bông Lan Matcha",
+      "name": "White chocolate Matcha mousse cake",
       "category": "Bánh Ngọt",
       "price": 30000,
-      "image": "banh10.jpg",
+      "image": "https://i.pinimg.com/564x/45/42/e1/4542e1e0ef68a732079842b1516603cd.jpg",
       "avg-rating": 4.4,
       "isTopItem": false,
       "description": {
-        "heading": "Bánh Bông Lan Matcha",
+        "heading": "White chocolate Matcha mousse cake",
         "title": "Hương Vị Bông Lan Quyến Rũ",
-        "description": "Bánh bông lan Matcha quyến rũ với hương vị thơm ngon của Matcha và lớp bánh mềm mịn."
+        "description": "Trải nghiệm sức hấp dẫn quyến rũ của chiếc bánh Mousse matcha cùng chocolate trắng."
       }
     }
   ]
