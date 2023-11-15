@@ -5,7 +5,7 @@
       "name": "Trà Lipton Ngon",
       "category": "Trà",
       "price": 25000,
-      "image": "tra1.jpg",
+      "image": "https://i.pinimg.com/564x/76/38/20/763820283679c7272d2be2d6e327d1c8.jpg",
       "avg-rating": 4.0,
       "isTopItem": true,
       "description": {
@@ -19,7 +19,7 @@
       "name": "Trà Oolong Đặc Biệt",
       "category": "Trà",
       "price": 32000,
-      "image": "tra2.jpg",
+      "image": "https://i.pinimg.com/564x/af/51/48/af5148b7131618156433c2b5b6118fd5.jpg",
       "avg-rating": 4.2,
       "isTopItem": false,
       "description": {
@@ -33,7 +33,7 @@
       "name": "Trà Lài Hòa Quyện",
       "category": "Trà",
       "price": 28000,
-      "image": "tra3.jpg",
+      "image": "https://i.pinimg.com/564x/d5/88/f6/d588f6aef6896ccf6d9f2d57e401c4dc.jpg",
       "avg-rating": 4.1,
       "isTopItem": true,
       "description": {
@@ -47,7 +47,7 @@
       "name": "Trà Đen Twinnings",
       "category": "Trà",
       "price": 30000,
-      "image": "tra4.jpg",
+      "image": "https://i.pinimg.com/564x/0c/d1/74/0cd1744b4166d61220c067d2c2e21ec6.jpg",
       "avg-rating": 4.3,
       "isTopItem": false,
       "description": {
@@ -61,7 +61,7 @@
       "name": "Trà Xanh Nhài",
       "category": "Trà",
       "price": 35000,
-      "image": "tra5.jpg",
+      "image": "https://i.pinimg.com/564x/43/08/a6/4308a6fd31986f44c65d7d9a1f09961d.jpg",
       "avg-rating": 4.4,
       "isTopItem": true,
       "description": {
@@ -75,7 +75,7 @@
       "name": "Trà Lục Bình",
       "category": "Trà",
       "price": 27000,
-      "image": "tra6.jpg",
+      "image": "https://i.pinimg.com/564x/80/29/56/80295628691d07be976f1b049517f9ab.jpg",
       "avg-rating": 4.0,
       "isTopItem": false,
       "description": {
@@ -89,7 +89,7 @@
       "name": "Trà Sữa Đào",
       "category": "Trà",
       "price": 38000,
-      "image": "tra7.jpg",
+      "image": "https://i.pinimg.com/564x/95/f8/c4/95f8c4b19a6b7c2e9fb9bf50273a223c.jpg",
       "avg-rating": 4.2,
       "isTopItem": true,
       "description": {
@@ -103,7 +103,7 @@
       "name": "Trà Lài Phủ Bạc",
       "category": "Trà",
       "price": 30000,
-      "image": "tra8.jpg",
+      "image": "https://i.pinimg.com/564x/81/e2/c8/81e2c83531375c842e0fbd6d6f5e9a4c.jpg",
       "avg-rating": 4.3,
       "isTopItem": false,
       "description": {
@@ -117,7 +117,7 @@
       "name": "Trà Hoa Cúc",
       "category": "Trà",
       "price": 32000,
-      "image": "tra9.jpg",
+      "image": "https://i.pinimg.com/564x/ab/c8/83/abc8839c1ef31f8427dac146fd844f2c.jpg",
       "avg-rating": 4.1,
       "isTopItem": true,
       "description": {
@@ -131,7 +131,7 @@
       "name": "Trà Đào Xanh",
       "category": "Trà",
       "price": 34000,
-      "image": "tra10.jpg",
+      "image": "https://i.pinimg.com/564x/ca/9d/92/ca9d92b12ed6e30cd7563ccfaa845bf7.jpg",
       "avg-rating": 4.4,
       "isTopItem": false,
       "description": {
