@@ -1,5 +1,5 @@
 const Top3Item = (props) => {
-  const { id, name, price, image, rate } = props;
+  const { id, name, price, image, rate, feature } = props;
   return (
     <div
       className="w-[300px] h-[385px] bg-[#183942] rounded-xl shadow-xl

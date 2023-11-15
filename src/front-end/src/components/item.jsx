@@ -1,5 +1,5 @@
 const Item = (props) => {
-  const { id, name, price, rate, image } = props;
+  const { id, name, price, rate, image, feature } = props;
 
   return (
     <div className="w-[210px] h-[260px] bg-[#6A6A6A] rounded-lg shadow-lg">
