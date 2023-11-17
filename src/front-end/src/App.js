@@ -4,6 +4,7 @@ import MilkTea from "./pages/milktea";
 import Coffee from "./pages/coffee";
 import Cake from "./pages/cake";
 import About from "./pages/about";
+import Product from "./pages/product";
 
 import Header from "./components/header";
 import NavigationBar from "./components/navigationBar";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/coffee" element={<Coffee />} />
           <Route path="/cake" element={<Cake />} />
           <Route path="/about" element={<About />}></Route>
+          <Route path="/product" element={<Product />}></Route>
         </Routes>
       </div>
       <div className="grid-in-footer">

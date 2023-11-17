@@ -10,7 +10,7 @@ import images from "../api/images";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useInView } from "react-intersection-observer";
+//import { useInView } from "react-intersection-observer";
 
 const Home = () => {
   // we will fetch items data from serverconst apiUrl = `https://fakestoreapi.com/products?limit=12`;
