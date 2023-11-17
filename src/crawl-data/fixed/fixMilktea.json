@@ -1,0 +1,122 @@
+[
+    {
+        "id": "tra-sua-1",
+        "name": "Trà Sữa Trân Châu Đen",
+        "category": "Trà Sữa",
+        "price": 38000,
+        "avg-rating": 4.3,
+        "description": "Trà Sữa Trân Châu Đen\nHòa Quyện Hương Vị\nTrà sữa trân châu đen hòa quyện hương vị trà sữa truyền thống với trân châu ngon giòn.",
+        "topItem": true,
+        "img": [
+            "https://i.pinimg.com/564x/27/c5/2e/27c52ed0f48029e0ec8e69f0d7b4dd69.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-2",
+        "name": "Trà Sữa Matcha",
+        "category": "Trà Sữa",
+        "price": 42000,
+        "avg-rating": 4.5,
+        "description": "Trà Sữa Matcha\nHòa Quyện Với Hạt Trân Châu\nTrà sữa Matcha pha chế tinh tế, kết hợp hoàn hảo với hạt trân châu giòn ngon.",
+        "topItem": false,
+        "img": [
+            "https://i.pinimg.com/564x/cb/1a/22/cb1a22e786627e2db55edc838412ca49.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-3",
+        "name": "Trà Sữa Hạt Ngọc Trai",
+        "category": "Trà Sữa",
+        "price": 45000,
+        "avg-rating": 4.2,
+        "description": "Trà Sữa Hạt Ngọc Trai\nSự Sang Trọng\nTrà sữa hạt ngọc trai với sự sang trọng và hương vị độc đáo, làm say mê từng giọt.",
+        "topItem": true,
+        "img": [
+            "https://i.pinimg.com/736x/07/db/68/07db68265b33136df5ca10d5a07ad368.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-4",
+        "name": "Trà Sữa Thái Xanh",
+        "category": "Trà Sữa",
+        "price": 40000,
+        "avg-rating": 4.4,
+        "description": "Trà Sữa Thái Xanh\nHòa Quyện Vị Thơm\nTrà sữa thái xanh mềm mại với hương vị thơm ngon và sự kết hợp tuyệt vời giữa trà và sữa.",
+        "topItem": false,
+        "img": [
+            "https://i.pinimg.com/564x/0e/86/86/0e8686ab820369e1d507117560e745e3.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-5",
+        "name": "Trà Sữa Phô Mai Đen",
+        "category": "Trà Sữa",
+        "price": 48000,
+        "avg-rating": 4.1,
+        "description": "Trà Sữa Phô Mai Đen\nHòa Quyện Hương Phô Mai\nTrà sữa phô mai đen hòa quyện hương vị truyền thống và phô mai đen độc đáo.",
+        "topItem": true,
+        "img": [
+            "https://i.pinimg.com/564x/1f/b1/16/1fb116053ed554e4bf3ea4e22d07d387.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-6",
+        "name": "Trà Sữa Thạch Phô Mai",
+        "category": "Trà Sữa",
+        "price": 43000,
+        "avg-rating": 4.3,
+        "description": "Trà Sữa Thạch Phô Mai\nSự Kết Hợp Hòa Quyện\nTrà sữa thạch phô mai với sự kết hợp hòa quyện giữa trà sữa thơm ngon và thạch phô mai béo ngậy.",
+        "topItem": false,
+        "img": [
+            "https://i.pinimg.com/564x/82/1a/e8/821ae8d4cad34ba129b5bdf2a4e265df.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-7",
+        "name": "Trà Sữa Olong Hạt Trân Châu",
+        "category": "Trà Sữa",
+        "price": 46000,
+        "avg-rating": 4.5,
+        "description": "Trà Sữa Olong Hạt Trân Châu\nHương Vị Đặc Biệt\nTrà sữa Olong hạt trân châu với hương vị đặc biệt và trân châu giòn ngon, không thể chối từ.",
+        "topItem": true,
+        "img": [
+            "https://i.pinimg.com/564x/d8/b1/90/d8b1906d19e31dbc7629203cc56f11a2.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-8",
+        "name": "Trà Sữa Khoai Môn",
+        "category": "Trà Sữa",
+        "price": 42000,
+        "avg-rating": 4.2,
+        "description": "Trà Sữa Khoai Môn\nHương Vị Độc Đáo\nTrà sữa khoai môn với hương vị độc đáo và thạch khoai môn thơm ngon.",
+        "topItem": false,
+        "img": [
+            "https://i.pinimg.com/564x/46/a7/3b/46a73b8481d808a01f26c1c2b7d6887d.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-9",
+        "name": "Trà Sữa Đào Ngọc Trai",
+        "category": "Trà Sữa",
+        "price": 44000,
+        "avg-rating": 4.1,
+        "description": "Trà Sữa Đào Ngọc Trai\nHòa Quyện Hương Đào\nTrà sữa đào ngọc trai hòa quyện hương vị trà sữa truyền thống và hạt ngọc trai đen độc đáo.",
+        "topItem": true,
+        "img": [
+            "https://i.pinimg.com/736x/0a/24/66/0a2466e3f9849d0d9ff4f1be3c4cc48c.jpg"
+        ]
+    },
+    {
+        "id": "tra-sua-10",
+        "name": "Trà Sữa Bạc Xỉu",
+        "category": "Trà Sữa",
+        "price": 40000,
+        "avg-rating": 4.4,
+        "description": "Trà Sữa Bạc Xỉu\nHương Vị Đặc Sắc\nTrà sữa bạc xỉu với hương vị đặc sắc và sự kết hợp tuyệt vời giữa trà, sữa và đường.",
+        "topItem": false,
+        "img": [
+            "https://i.pinimg.com/564x/50/66/6c/50666c559f4a1aaa6ff1764b07aa655b.jpg"
+        ]
+    }
+]
