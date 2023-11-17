@@ -15,7 +15,7 @@ import axios from "axios";
 const Home = () => {
   // we will fetch items data from serverconst apiUrl = `https://fakestoreapi.com/products?limit=12`;
 
-  // const apiUrl = `http://localhost:4000/`;
+  // const apiUrl = ``;
   // const { data } = useQuery({
   //   queryKey: ["items"],
   //   queryFn: () => axios.get(apiUrl).then((res) => res),
@@ -25,8 +25,8 @@ const Home = () => {
 
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-[1120px] mx-auto bg-[#F4F2EC]">
-        <div className="w-[1120px] h-[300px]">
+      <div className="w-screen mx-auto bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+        <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
           <HomeSlider items={items} />
         </div>
         <div className="h-[160px]">
