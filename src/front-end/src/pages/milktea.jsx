@@ -4,16 +4,15 @@ import items from "../api/items";
 import stories from "../staticData/stories.json";
 import Item from "../components/item";
 
-
 const MilkTea = (props) => {
   return (
-    <div className="w-screen h-fit mx-auto py-3 my-3">
+    <div className="w-screen h-fit mx-auto">
       <div className="w-screen mx-auto bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
           <HomeSlider items={items} />
         </div>
         <div className="w-[930px] mx-auto">
-          <div  clasName="h-[460px]">
+          <div clasName="h-[460px]">
             <Story
               reverse={false}
               image={stories[0].image}
