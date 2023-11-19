@@ -36,11 +36,11 @@ const SizeSelect = () => {
     };
 
     return (
-        <div className="w-400">
+        <div className="w-[400px]">
             <div className="py-1 bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-norma pl-3">
                 Size
             </div>
-            <div className="flex justify-center items-center bg-[#F3F2ED] text-[16px] font-medium text-[#324054]">
+            <div className="h-[80px] flex justify-center items-center bg-[#F3F2ED] text-[16px] font-medium text-[#324054]">
                 {renderSizeButton('Small', '+ 0')}
                 {renderSizeButton('Medium', '+ $5')}
                 {renderSizeButton('Large', '+ $10')}
