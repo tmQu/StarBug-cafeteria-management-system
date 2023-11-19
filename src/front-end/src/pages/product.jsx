@@ -15,6 +15,9 @@ const Product = () => {
                         <div className="w-[400px] h-[500px]">
                             <PicItem />
                         </div>
+                        <div className="w-[400px] h-[126px] flex mx-auto text-[16px] justify-center items-center text-justify my-auto px-2">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque aperiam sunt praesentium perspiciatis at deserunt velit architecto ipsa quis? Asperiores, excepturi? Eaque perferendis aspernatur beatae soluta neque omnis at autem!
+                        </div>
                     </div>
                     <div className="w-[450px] h-[690px] py-2 flex flex-col">
                         <div className="w-[135px] h-[20px] flex mr-auto ml-2">
