@@ -11,27 +11,37 @@ import NavigationBar from "./components/navigationBar";
 import Footer from "./components/footer";
 import { Routes, Route } from "react-router-dom";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
 function App() {
   return (
     <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
-      <div className="fixed top-0 w-full z-40">
-        <div className="h-[60px]"><Header /></div>
-        <div className="h-[60px] pt-0"><NavigationBar /></div>
-      </div>
-      <div className="grid-in-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tea" element={<Tea />} />
-          <Route path="/milktea" element={<MilkTea />} />
-          <Route path="/coffee" element={<Coffee />} />
-          <Route path="/cake" element={<Cake />} />
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/product" element={<Product />}></Route>
-        </Routes>
-      </div>
-      <div className="grid-in-footer">
-        <Footer />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="fixed top-0 w-full z-40">
+          <div className="h-[60px]">
+            <Header />
+          </div>
+          <div className="h-[60px] pt-0">
+            <NavigationBar />
+          </div>
+        </div>
+        <div className="grid-in-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tea" element={<Tea />} />
+            <Route path="/milktea" element={<MilkTea />} />
+            <Route path="/coffee" element={<Coffee />} />
+            <Route path="/cake" element={<Cake />} />
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/product" element={<Product />}></Route>
+          </Routes>
+        </div>
+        <div className="grid-in-footer">
+          <Footer />
+        </div>
+      </QueryClientProvider>
     </div>
   );
 }

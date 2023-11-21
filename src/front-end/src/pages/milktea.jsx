@@ -22,7 +22,7 @@ const MilkTea = (props) => {
             />
           </div>
         </div>
-        <div className="w-[930px] h-fit mx-auto my-4 grid grid-cols-4 grid-rows-3 gap-6">
+        <div className="w-[930px] h-fit mx-auto py-4 grid grid-cols-4 grid-rows-3 gap-6">
           {items.map((item) => (
             <Item
               id={item.id}

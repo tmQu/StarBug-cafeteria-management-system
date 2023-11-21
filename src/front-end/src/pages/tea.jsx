@@ -4,8 +4,7 @@ import items from "../api/items";
 import stories from "../staticData/stories.json";
 import Item from "../components/item";
 
-
-const Tea= (props) => {
+const Tea = (props) => {
   return (
     <div className="w-screen h-fit mx-auto">
       <div className="w-screen mx-auto bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
@@ -13,7 +12,7 @@ const Tea= (props) => {
           <HomeSlider items={items} />
         </div>
         <div className="w-[930px] mx-auto">
-          <div  clasName="h-[460px]">
+          <div clasName="h-[460px]">
             <Story
               reverse={true}
               image={stories[0].image}
@@ -23,7 +22,7 @@ const Tea= (props) => {
             />
           </div>
         </div>
-        <div className="w-[930px] h-fit mx-auto my-4 grid grid-cols-4 grid-rows-3 gap-6">
+        <div className="w-[930px] h-fit mx-auto py-4 grid grid-cols-4 grid-rows-3 gap-6">
           {items.map((item) => (
             <Item
               id={item.id}

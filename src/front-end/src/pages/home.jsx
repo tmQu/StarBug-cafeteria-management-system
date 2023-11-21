@@ -15,13 +15,15 @@ import axios from "axios";
 const Home = () => {
   // we will fetch items data from serverconst apiUrl = `https://fakestoreapi.com/products?limit=12`;
 
-  // const apiUrl = ``;
+  // const apiUrl = `http://localhost:4000/item/all`;
   // const { data } = useQuery({
   //   queryKey: ["items"],
   //   queryFn: () => axios.get(apiUrl).then((res) => res),
   //   staleTime: 1000 * 5,
   //   retry: 3,
   // });
+
+  // console.log(data);
 
   return (
     <div className="w-screen h-fit mx-auto">
