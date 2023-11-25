@@ -1,7 +1,7 @@
-import SearchBar from "./searchBar";
-import CartButton from "./cartButton";
-import LoginButton from "./loginButton";
-import Logo from "./logo";
+import SearchBar from "../searchBar";
+import CartButton from "../buttons/cartButton";
+import LoginButton from "../buttons/loginButton";
+import Logo from "../logo";
 
 const Header = () => {
   const handleLogin = () => {

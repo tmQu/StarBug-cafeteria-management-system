@@ -5,10 +5,11 @@ import Coffee from "./pages/coffee";
 import Cake from "./pages/cake";
 import About from "./pages/about";
 import Product from "./pages/product";
+import AddToCartPopup from "./components/popUps/addToCartPopUp";
 
-import Header from "./components/header";
-import NavigationBar from "./components/navigationBar";
-import Footer from "./components/footer";
+import Header from "./components/layouts/header";
+import NavigationBar from "./components/layouts/navigationBar";
+import Footer from "./components/layouts/footer";
 import { Routes, Route } from "react-router-dom";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -27,6 +28,9 @@ function App() {
             <NavigationBar />
           </div>
         </div>
+        {/* <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">
+          <AddToCartPopup />
+        </div> */}
         <div className="grid-in-content">
           <Routes>
             <Route path="/" element={<Home />} />

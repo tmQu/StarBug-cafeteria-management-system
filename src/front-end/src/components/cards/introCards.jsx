@@ -1,10 +1,10 @@
-import cards from "../staticData/introCards";
+import cards from "../../staticData/introCards";
 
 const IntroCards = (props) => {
   const data = cards;
 
   return (
-    <div className="w-full h-full flex flex-row justify-center items-center">
+    <div className="w-full h-full flex flex-row justify-center items-center animate-item-show">
       {data.map((card) => (
         <div
           key={card.id}

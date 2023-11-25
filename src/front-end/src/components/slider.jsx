@@ -6,7 +6,7 @@ const HomeSlider = (props) => {
   return (
     <Carousel
       transition={{ duration: 1 }}
-      className=""
+      className="animate-item-show"
       navigation={() => <div></div>}
     >
       {items.map((item) => (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const ProductInfo = ({ productName = "Tên sản phẩm", price = "9999" }) => {
   const [quantity, setQuantity] = useState(0);
@@ -15,7 +15,7 @@ const ProductInfo = ({ productName = "Tên sản phẩm", price = "9999" }) => {
 
   return (
     <div>
-      <div className="w-fit h-[40px] font-Source-Sans-3 text-[32px] font-bold flex-inline">
+      <div className="w-fit h-[40px] font-Source-Sans-3 text-[32px] font-semibold flex-inline">
         {productName}
       </div>
       <div className="flex items-center w-[400px] h-[35px] py-3">

@@ -1,16 +1,17 @@
-import Item from "../components/item";
-import IntroCards from "../components/introCards";
-import Top3Items from "../components/top3Items";
+import Item from "../components/items/item";
+import IntroCards from "../components/cards/introCards";
+import Top3Items from "../components/items/top3Items";
 import HomeSlider from "../components/slider";
 import Promotions from "../components/promotions";
-import ShowAllButton from "../components/showAllButton";
+import ShowAllButton from "../components/buttons/showAllButton";
 
 import items from "../api/items";
 import images from "../api/images";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-//import { useInView } from "react-intersection-observer";
+
+import { useInView } from "react-intersection-observer";
 
 const Home = () => {
   // we will fetch items data from serverconst apiUrl = `https://fakestoreapi.com/products?limit=12`;
@@ -22,52 +23,86 @@ const Home = () => {
   //   staleTime: 1000 * 5,
   //   retry: 3,
   // });
-
   // console.log(data);
+
+  const { ref: sliderRef, inView: sliderVisible } = useInView();
+  const { ref: promotionRef, inView: promotionVisible } = useInView();
+  const { ref: introCardsRef, inView: introCardsVisible } = useInView();
+  const { ref: bestSellerTitleRef, inView: bestSellerTitleVisible } =
+    useInView();
+  const { ref: top3ItemsRef, inView: top3ItemsVisible } = useInView();
+  const { ref: ourProductTitleRef, inView: ourProductTitleVisible } =
+    useInView();
+  const { ref: itemsRef, inView: itemsVisible } = useInView();
+  const { ref: showButtonRef, inView: showButtonVisible } = useInView();
 
   return (
     <div className="w-screen h-fit mx-auto">
       <div className="w-screen mx-auto bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
-          <HomeSlider items={items} />
+        <div
+          className="w-screen max-w-[2000px] h-[386px] mx-auto"
+          ref={sliderRef}
+        >
+          {sliderVisible && <HomeSlider items={items} />}
         </div>
-        <div className="h-[160px]">
-          <div className="w-[930px] h-[210px] flex items-center mx-auto justify-between relative -top-12">
-            <Promotions images={images} />
-          </div>
+        <div className="h-[160px]" ref={promotionRef}>
+          {promotionVisible && (
+            <div className="w-[930px] h-[210px] flex items-center mx-auto justify-between relative -top-12 animate-item-show">
+              <Promotions images={images} />
+            </div>
+          )}
         </div>
-        <div className="w-full h-[320px] px-5 mt-2 flex flex-col justify-center items-center">
-          <p className="my-2 text-3xl font-semibold text-[#0D3746]">
-            Our values
-          </p>
-          <IntroCards />
+        <div
+          className="w-full h-[320px] px-5 mt-2 flex flex-col justify-center items-center"
+          ref={introCardsRef}
+        >
+          {introCardsVisible && (
+            <p className="my-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
+              Our values
+            </p>
+          )}
+          {introCardsVisible && <IntroCards />}
         </div>
-        <div className="w-full h-10 mt-4 flex flex-row justify-center items-center">
-          <p className="pt-2 my-2 text-3xl font-semibold text-[#0D3746]">
-            Best sellers
-          </p>
+        <div
+          className="w-full h-10 mt-4 flex flex-row justify-center items-center"
+          ref={bestSellerTitleRef}
+        >
+          {bestSellerTitleVisible && (
+            <p className="pt-2 my-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
+              Best sellers
+            </p>
+          )}
         </div>
-        <div className="w-full h-[385px] mt-4">
-          <Top3Items />
+        <div className="w-full h-[385px] mt-4" ref={top3ItemsRef}>
+          {top3ItemsVisible && <Top3Items />}
         </div>
-        <div className="w-full h-10 mt-4 flex flex-row justify-center items-center">
-          <p className="pt-2 my-2 text-3xl font-semibold text-[#0D3746]">
-            Our products
-          </p>
+        <div
+          className="w-full h-10 mt-4 flex flex-row justify-center items-center"
+          ref={ourProductTitleRef}
+        >
+          {ourProductTitleVisible && (
+            <p className="pt-2 my-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
+              Our products
+            </p>
+          )}
         </div>
-        <div className="w-[930px] h-fit mx-auto mt-4 grid grid-cols-4 grid-rows-3 gap-6">
-          {items.map((item) => (
-            <Item
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              rate={item.rate}
-              image={item.image}
-            />
-          ))}
+        <div className="w-[930px] h-fit mx-auto mt-4 " ref={itemsRef}>
+          {itemsVisible && (
+            <div className="grid grid-cols-4 grid-rows-3 gap-6 animate-item-show">
+              {items.map((item) => (
+                <Item
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  rate={item.rate}
+                  image={item.image}
+                />
+              ))}
+            </div>
+          )}
         </div>
-        <div className="py-4">
-          <ShowAllButton />
+        <div className="py-4" ref={showButtonRef}>
+          {showButtonVisible && <ShowAllButton />}
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 const Story = ({ reverse = "false", image, title, subtitle, paragraph }) => {
   return (
     <div
-      className={`w-[960px] h-full flex justify-center gap-14 mx-auto py-8 ${
+      className={`w-[960px] h-full animate-item-show flex justify-center gap-14 mx-auto py-8 ${
         reverse ? "flex-row-reverse " : "flex-row"
       }`}
     >

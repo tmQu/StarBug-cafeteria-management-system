@@ -1,9 +1,9 @@
 import SizeSelect from "../components/sizeSelect";
 import ToppingSelect from "../components/toppingSelect";
-import AddToCartButton from "../components/addToCartButton";
+import AddToCartButton from "../components/buttons/addToCartButton";
 import NoteHere from "../components/noteHere";
 import Star from "../components/star";
-import PicItem from "../components/picItem";
+import PicItem from "../components/items/picItem";
 import ProductInfo from "../components/productInfo";
 
 const Product = () => {

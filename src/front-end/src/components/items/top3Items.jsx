@@ -32,7 +32,7 @@ const Top3Items = () => {
   ];
 
   return (
-    <div className="w-[960px] h-full mx-auto flex flex-row">
+    <div className="w-[960px] h-full mx-auto flex flex-row animate-item-show">
       {top3Items.map((item) => (
         <div className="mx-2">
           <Top3Item
