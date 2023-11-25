@@ -31,7 +31,7 @@ const Footer = () => {
       </div>
       <div className="w-[1120px] mx-auto flex flex-row justify-between items-center">
         <div className="flex mr-auto">
-          <Logo />
+          <Logo theme="dark"/>
         </div>
         <div className="flex w-[460px] h-[20px] justify-between">
           {["Coffee", "Tea", "Milktea", "Cake"].map((item, index) => (
