@@ -2,7 +2,17 @@ import Story from "../components/story";
 import HomeSlider from "../components/slider";
 import items from "../api/items";
 import stories from "../staticData/stories.json";
-import Item from "../components/items/item";
+import Item from "../components/item";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+// const apiUrl = `dbUrl + '/item/filter?category=Tên category đó'`;
+// const { data } = useQuery({
+//   queryKey: ["milkteas"],
+//   queryFn: () => axios.get(apiUrl).then((res) => res),
+//   staleTime: 1000 * 5,
+//   retry: 3,
+// });
 
 const MilkTea = (props) => {
   return (
