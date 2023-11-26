@@ -5,6 +5,16 @@ import stories from "../staticData/stories.json";
 import Item from "../components/items/item";
 
 import { useInView } from "react-intersection-observer";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+// const apiUrl = `dbUrl + '/item/filter?category=Tên category đó'`;
+// const { data } = useQuery({
+//   queryKey: ["coffees"],
+//   queryFn: () => axios.get(apiUrl).then((res) => res),
+//   staleTime: 1000 * 5,
+//   retry: 3,
+// });
 
 const Coffee = (props) => {
 

@@ -3,7 +3,7 @@ import Topping from "./topping";
 const ToppingSelect = () => {
   return (
     <div className="w-400">
-      <div className="flex items-center bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-norma pl-3">
+      <div className="flex items-center bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-normal pl-3">
         Topping
       </div>
       <div className="flex flex-col justify-center items-center bg-[#F3F2ED]">

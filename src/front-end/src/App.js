@@ -6,6 +6,7 @@ import Cake from "./pages/cake";
 import About from "./pages/about";
 import Product from "./pages/product";
 import AddToCartPopup from "./components/popUps/addToCartPopUp";
+import PaymentDetail from "./pages/payment";
 
 import Header from "./components/layouts/header";
 import NavigationBar from "./components/layouts/navigationBar";
@@ -48,6 +49,7 @@ function App() {
             <Route path="/cake" element={<Cake />} />
             <Route path="/about" element={<About />}></Route>
             <Route path="/product" element={<Product />}></Route>
+            <Route path="/payment" element={<PaymentDetail />}></Route>
           </Routes>
         </div>
         <div className="grid-in-footer">
