@@ -14,6 +14,10 @@ import Footer from "./components/layouts/footer";
 import { Routes, Route } from "react-router-dom";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import LogInPopUp from "./components/popUps/logInPopUp";
+import SignUpPopUp from "./components/popUps/signUpPopUp";
+import NewPassword from "./components/popUps/newPassword";
+import ForgotPassword from "./components/popUps/forgotPassword";
 
 const queryClient = new QueryClient();
 
@@ -29,9 +33,13 @@ function App() {
             <NavigationBar />
           </div>
         </div>
-        {/* <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">
-          <AddToCartPopup />
-        </div> */}
+        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">
+          {/* <AddToCartPopup /> */}
+          {/* <LogInPopUp/> */}
+          {/* <SignUpPopUp/> */}
+          {/* <NewPassword/> */}
+          <ForgotPassword />
+        </div>
         <div className="grid-in-content">
           <Routes>
             <Route path="/" element={<Home />} />
