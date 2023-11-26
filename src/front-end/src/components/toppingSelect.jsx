@@ -11,19 +11,19 @@ const ToppingSelect = () => {
                 <Topping />
                 <div className="w-[340px] stroke-[1px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="342" height="2" viewBox="0 0 342 2" fill="none">
-                        <path d="M1 1H341" stroke="#D9D9D9" stroke-linecap="round" />
+                        <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
                     </svg>
                 </div>
                 <Topping />
                 <div className="w-[340px] stroke-[1px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="342" height="2" viewBox="0 0 342 2" fill="none">
-                        <path d="M1 1H341" stroke="#D9D9D9" stroke-linecap="round" />
+                        <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
                     </svg>
                 </div>
                 <Topping />
                 <div className="w-[340px] stroke-[1px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="342" height="2" viewBox="0 0 342 2" fill="none">
-                        <path d="M1 1H341" stroke="#D9D9D9" stroke-linecap="round" />
+                        <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
                     </svg>
                 </div>
                 <Topping />
