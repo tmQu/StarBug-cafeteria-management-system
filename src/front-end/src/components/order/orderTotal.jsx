@@ -1,5 +1,5 @@
 import Voucher from "./voucher";
-import { RoundedButton } from "../button";
+import { RoundedButton } from "../buttons/button";
 
 const OrderTotal = ({ total, fee, voucher }) => {
   let discount = 0;

@@ -10,8 +10,8 @@ const Button = (props) => {
       transition-transform duration-500 ease-in-out
       ${
         isClicked
-          ? "text-black bg-[#F3F2ED]"
-          : "text-white hover:scale-[1.02] hover:shadow-xl hover:bg-[#D63431]"
+          ? "text-[#F3F2ED] border-b-2 border-b-[#F3F2ED]"
+          : "text-white transform hover:scale-[1.02]"
       } ${className}`}
       onClick={onClick}
     >

@@ -1,4 +1,4 @@
-import { BorderButton } from "../button";
+import { BorderButton } from "../buttons/button";
 import CustomerOrder from "./customerOrder";
 import OrderTotal from "./orderTotal";
 

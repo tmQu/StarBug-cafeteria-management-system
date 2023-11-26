@@ -1,4 +1,4 @@
-import { BorderButton } from "../button";
+import { BorderButton } from "../buttons/button";
 import OrderDelivery from "./orderDelivery";
 import PaymentMethod from "./paymentMethod";
 

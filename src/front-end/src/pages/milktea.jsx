@@ -2,7 +2,7 @@ import Story from "../components/story";
 import HomeSlider from "../components/slider";
 import items from "../api/items";
 import stories from "../staticData/stories.json";
-import Item from "../components/item";
+import Item from "../components/items/item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
