@@ -42,7 +42,7 @@ function App() {
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
           {/* <ForgotPassword /> */}
-          {/* <UserPopUp/> */}
+          <UserPopUp/>
           {/* <StaffPopUp/> */}
           {/* <ManagerPopUp/> */}
         </div>
