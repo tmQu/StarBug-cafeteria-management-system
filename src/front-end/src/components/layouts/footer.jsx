@@ -34,7 +34,7 @@ const Footer = () => {
           <Logo />
         </div>
         <div className="flex w-[460px] h-[20px] justify-between">
-          {["Coffee", "Tea", "Milktea", "Cake"].map((item, index) => (
+          {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
             <button
               className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
               onClick={() => handleNavigation(item.toLowerCase())}
@@ -82,7 +82,7 @@ const Footer = () => {
               />
             </svg>
             </a>
-            <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
+            <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]" href="https://github.com/LHSang6403/StarBug-cafeteria-management-system">
             <svg 
               xmlns="http://www.w3.org/2000/svg"
               width="45"
