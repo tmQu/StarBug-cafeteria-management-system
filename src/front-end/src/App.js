@@ -18,6 +18,9 @@ import LogInPopUp from "./components/popUps/logInPopUp";
 import SignUpPopUp from "./components/popUps/signUpPopUp";
 import NewPassword from "./components/popUps/newPassword";
 import ForgotPassword from "./components/popUps/forgotPassword";
+import UserPopUp from "./components/popUps/userPopUp";
+import StaffPopUp from "./components/popUps/staffPopUp";
+import ManagerPopUp from "./components/popUps/managerPopUp";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +41,10 @@ function App() {
           {/* <LogInPopUp/> */}
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
-          <ForgotPassword />
+          {/* <ForgotPassword /> */}
+          {/* <UserPopUp/> */}
+          {/* <StaffPopUp/> */}
+          {/* <ManagerPopUp/> */}
         </div>
         <div className="grid-in-content">
           <Routes>
