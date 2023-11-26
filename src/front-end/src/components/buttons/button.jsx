@@ -1,11 +1,11 @@
 import React from "react";
 
 const Button = (props) => {
-  const { onClick, isClicked, name, className } = props;
+  const { onClick, isClicked, name, className, type = "button" } = props;
 
   return (
     <button
-      type="button"
+      type={type}
       className={`w-fit h-[40px] px-4 pt-[4px] text-lg font-light 
       transition-transform duration-500 ease-in-out
       ${
@@ -21,11 +21,11 @@ const Button = (props) => {
 };
 
 export const BorderButton = (props) => {
-  const { onClick, name, className } = props;
+  const { onClick, name, className, type = "button" } = props;
 
   return (
     <button
-      type="button"
+      type={type}
       className={`text-xs rounded-full font-light border-[0.6px] border-[#B0B0B0]
       transition-transform duration-500 ease-in-out text-black bg-none ${className}`}
       onClick={onClick}
@@ -36,11 +36,11 @@ export const BorderButton = (props) => {
 };
 
 export const RoundedButton = (props) => {
-  const { onClick, name, className } = props;
+  const { onClick, name, className, type = "button" } = props;
 
   return (
     <button
-      type="button"
+      type={type}
       className={`w-[114px] h-[43px] text-xs rounded-full font-light border-[0.6px] border-[#B0B0B0]
       transition-transform duration-500 ease-in-out text-black bg-[#E5E5E5] ${className}`}
       onClick={onClick}

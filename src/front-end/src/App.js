@@ -7,6 +7,7 @@ import About from "./pages/about";
 import Product from "./pages/product";
 import AddToCartPopup from "./components/popUps/addToCartPopUp";
 import PaymentDetail from "./pages/payment";
+import Setting from "./pages/setting";
 
 import Header from "./components/layouts/header";
 import NavigationBar from "./components/layouts/navigationBar";
@@ -38,7 +39,7 @@ function App() {
           {/* <LogInPopUp/> */}
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
-          <ForgotPassword />
+          {/* <ForgotPassword /> */}
         </div>
         <div className="grid-in-content">
           <Routes>
@@ -50,6 +51,7 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/product" element={<Product />}></Route>
             <Route path="/payment" element={<PaymentDetail />}></Route>
+            <Route path="/setting" element={<Setting />}></Route>
           </Routes>
         </div>
         <div className="grid-in-footer">
