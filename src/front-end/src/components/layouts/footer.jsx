@@ -87,9 +87,6 @@ const Footer = () => {
             </svg>
             </a>
             <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]" href="https://github.com/LHSang6403/StarBug-cafeteria-management-system">
-            <svg 
-          </a>
-          <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="45"
