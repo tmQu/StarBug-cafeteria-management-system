@@ -1,6 +1,30 @@
+import { useState } from 'react';
 import LargeButton from "../buttons/largeButton";
 
 const ForgotPassword = () => {
+    const [email, setEmail] = useState('');
+    const [sendStatus, setSendStatus] = useState('');
+    const [resendStatus, setResendStatus] = useState('');
+    const [signupStatus, setSignupStatus] = useState('');
+
+    const handleSend = () => {
+        console.log('Đã gửi email tới:', email);
+        setSendStatus('Email đã được gửi');
+    };
+
+    const handleResend = () => {
+        console.log('Đã gửi lại email tới:', email);
+        setResendStatus('Email đã được gửi lại');
+    };
+
+    const handleSignup = () => {
+        console.log('Đăng ký với email:', email);
+        setSignupStatus('Đã đăng ký thành công');
+    };
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
     return (
         <div className="w-[380px] h-[270px] flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
             <div className="w-[24px] h-[24px] -mt-6 mr-auto pl-3">
@@ -21,22 +45,26 @@ const ForgotPassword = () => {
                     <input
                         className="w-full text-[18px] font- font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
                         placeholder="GMAIL"
+                        value={email}
+                        onChange={handleEmailChange}
                     />
                 </div>
             </div>
             <div className="w-[300px] h-[44px] flex justify-center items-center">
-                <LargeButton name="SEND" />
+                <LargeButton name="SEND" onClick={handleSend}/>
             </div>
             <div className="w-[300px] flex flex-row">
                 <button
                     className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center mr-auto hover:scale-105 transition-transform duration-500 ease-in-out"
                     href="#"
+                    onClick={handleResend}
                 >
                     Resend
                 </button>
                 <button
                     className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center ml-auto hover:scale-105 transition-transform duration-500 ease-in-out"
                     href="#"
+                    onClick={handleSignup}
                 >
                     Sign up
                 </button>

@@ -1,6 +1,25 @@
+import { useState } from "react";
 import LargeButton from "../buttons/largeButton";
 
 const SignUpPopUp = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        phoneNumber: '',
+    });
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSignUp = () => {
+        console.log('Thông tin người dùng:', formData);
+
+        // Gửi thông tin người dùng đi tại đây (ví dụ: sử dụng fetch hoặc Axios)
+    };
     return (
         <div className="w-[380px] h-[425px] flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
             <div className="w-[24px] h-[24px] -mb-4 mr-auto pl-3">
@@ -21,6 +40,9 @@ const SignUpPopUp = () => {
                     <input
                         className="w-full text-[18px] font- font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
                         placeholder="GMAIL"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
@@ -35,6 +57,9 @@ const SignUpPopUp = () => {
                     <input
                         className="w-full text-[18px] font-extralight font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
                         placeholder="USERNAME"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
@@ -49,6 +74,9 @@ const SignUpPopUp = () => {
                     <input
                         className="w-full text-[18px] font-extralight font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
                         placeholder="PASSWORD"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
@@ -63,6 +91,9 @@ const SignUpPopUp = () => {
                     <input
                         className="w-full text-[18px] font-extralight font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
                         placeholder="CONFIRM"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
@@ -76,11 +107,14 @@ const SignUpPopUp = () => {
                     <input
                         className="w-full text-[18px] font-extralight font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
                         placeholder="PHONE NUMBER"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
             <div className="w-[300px] h-[44px] flex justify-center items-center">
-                <LargeButton name="SIGN UP" />
+                <LargeButton name="SIGN UP" onClick={handleSignUp}/>
             </div>
         </div>
     )
