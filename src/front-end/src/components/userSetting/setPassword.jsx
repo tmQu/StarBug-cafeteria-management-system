@@ -31,7 +31,7 @@ const SetPassword = () => {
         </div>
       </div>
       <div className="py-4 mx-auto">
-        <hr className="ml-[27px] w-[980px] border-[1px] border-[#9F9FA8]" />
+        <hr className="ml-[27px] w-[995px] border-[1px] border-[#9F9FA8]" />
       </div>
       <div className="w-[995px] justify-between mx-auto">
         <InfoBox className="w-full h-[69px]" title="Recent Password" info="Recent Password" hidden="true" type="password" />

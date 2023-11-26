@@ -95,12 +95,12 @@ const InfoBox = ({ title, info, className, hidden, type = "text" }) => {
 
   return (
     <div className="flex flex-col py-2">
-      <span className="text-[26px] text-[#0E3746] font-semibold">{title}</span>
+      <span className="text-[26px] text-[#0E3746] font-semibold py-2">{title}</span>
       <div className="relative">
         <input
           type={passwordType}
           className={`rounded-lg border-[2px] border-[#9F9FA8] bg-transparent pl-4 text-[26px] ${className}`}
-          placeholder={showPassword && hidden ? "Hidden" : `${info}`}
+          placeholder={showPassword && hidden ? `${info}` : "Hidden"}
           onChange={handlePasswordChange}
           value={password}
         />
