@@ -10,7 +10,7 @@ const handleSave = () => {
 
 const SetPassword = () => {
   return (
-    <div className="w-[1050px] h-[502px] mx-auto mt-16">
+    <div className="w-[1050px] h-[502px] mx-auto mt-16 mb-8">
       <div className="w-[995px] flex justify-between mx-auto">
         <span className="text-[38px] font-bold text-[#0E3746]">BASIC INFO</span>
         <div className="w-[338px] flex justify-between">
