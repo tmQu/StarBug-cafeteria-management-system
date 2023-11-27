@@ -1,4 +1,5 @@
 import AddressInput from "./addressInput";
+import InfoInput from "./infoInput";
 
 const OrderDelivery = ({ Address }) => {
   return (
@@ -49,7 +50,7 @@ const OrderDelivery = ({ Address }) => {
           Time expected: <span className="font-semibold">30 minutes</span>
         </div>
       </div>
-      <AddressInput />
+      <InfoInput />
     </div>
   );
 };
