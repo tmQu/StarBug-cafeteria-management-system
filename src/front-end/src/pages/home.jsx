@@ -33,7 +33,9 @@ const Home = () => {
   const { ref: top3ItemsRef, inView: top3ItemsVisible } = useInView();
   const { ref: ourProductTitleRef, inView: ourProductTitleVisible } =
     useInView();
-  const { ref: itemsRef, inView: itemsVisible } = useInView();
+  const { ref: itemsRef1, inView: itemsVisible1 } = useInView();
+  const { ref: itemsRef2, inView: itemsVisible2 } = useInView();
+  const { ref: itemsRef3, inView: itemsVisible3 } = useInView();
   const { ref: showButtonRef, inView: showButtonVisible } = useInView();
 
   return (
@@ -45,12 +47,13 @@ const Home = () => {
         >
           {sliderVisible && <HomeSlider items={items} />}
         </div>
-        <div className="h-[160px]" ref={promotionRef}>
-          {promotionVisible && (
-            <div className="w-[930px] h-[210px] flex items-center mx-auto justify-between relative -top-12 animate-item-show">
-              <Promotions images={images} />
-            </div>
-          )}
+        <div className="h-[160px]">
+          <div
+            className="w-[930px] h-[210px] flex items-center mx-auto justify-between relative -top-12"
+            ref={promotionRef}
+          >
+            {promotionVisible && <Promotions images={images} />}
+          </div>
         </div>
         <div
           className="w-full h-[320px] px-5 mt-2 flex flex-col justify-center items-center"
@@ -86,20 +89,54 @@ const Home = () => {
             </p>
           )}
         </div>
-        <div className="w-[930px] h-fit mx-auto mt-4 " ref={itemsRef}>
-          {itemsVisible && (
-            <div className="grid grid-cols-4 grid-rows-3 gap-6 animate-item-show">
-              {items.map((item) => (
-                <Item
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  rate={item.rate}
-                  image={item.image}
-                />
-              ))}
+        <div className="w-[930px] h-fit mx-auto mt-4 ">
+          <div className="flex flex-col gap-6">
+            <div ref={itemsRef1}>
+              {itemsVisible1 && (
+                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                  {items.slice(0, 4).map((item) => (
+                    <Item
+                      id={item.id}
+                      name={item.name}
+                      price={item.price}
+                      rate={item.rate}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+            <div ref={itemsRef2}>
+              {itemsVisible2 && (
+                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                  {items.slice(4, 8).map((item) => (
+                    <Item
+                      id={item.id}
+                      name={item.name}
+                      price={item.price}
+                      rate={item.rate}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+            <div ref={itemsRef3}>
+              {itemsVisible3 && (
+                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                  {items.slice(8, 12).map((item) => (
+                    <Item
+                      id={item.id}
+                      name={item.name}
+                      price={item.price}
+                      rate={item.rate}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
         <div className="py-4" ref={showButtonRef}>
           {showButtonVisible && <ShowAllButton />}
