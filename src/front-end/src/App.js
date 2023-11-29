@@ -1,26 +1,22 @@
 import Home from "./pages/home";
-import Tea from "./pages/tea";
-import MilkTea from "./pages/milktea";
-import Coffee from "./pages/coffee";
-import Cake from "./pages/cake";
 import About from "./pages/about";
-import Product from "./pages/product";
-import AddToCartPopup from "./components/popUps/addToCartPopUp";
-import PaymentDetail from "./pages/payment";
-
 import Header from "./components/layouts/header";
 import NavigationBar from "./components/layouts/navigationBar";
 import Footer from "./components/layouts/footer";
 import { Routes, Route } from "react-router-dom";
+
+import Tea from "./pages/tea";
+import MilkTea from "./pages/milktea";
+import Coffee from "./pages/coffee";
+import Cake from "./pages/cake";
+import Product from "./pages/product";
+import PaymentDetail from "./pages/payment";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LogInPopUp from "./components/popUps/logInPopUp";
 import SignUpPopUp from "./components/popUps/signUpPopUp";
 import NewPassword from "./components/popUps/newPassword";
 import ForgotPassword from "./components/popUps/forgotPassword";
-import UserPopUp from "./components/popUps/userPopUp";
-import StaffPopUp from "./components/popUps/staffPopUp";
-import ManagerPopUp from "./components/popUps/managerPopUp";
 
 const queryClient = new QueryClient();
 
@@ -42,9 +38,6 @@ function App() {
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
           {/* <ForgotPassword /> */}
-          {/* <UserPopUp/> */}
-          {/* <StaffPopUp/> */}
-          {/* <ManagerPopUp/> */}
         </div>
         <div className="grid-in-content">
           <Routes>

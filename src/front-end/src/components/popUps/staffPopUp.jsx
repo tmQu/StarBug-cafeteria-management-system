@@ -20,7 +20,7 @@ const StaffPopUp = () => {
                 </div>
             </div>
 
-            <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0">
+            <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
                 <div className="pl-[14px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 2.75C6.75 2.33579 6.41421 2 6 2C5.58579 2 5.25 2.33579 5.25 2.75V4.00879C3.43368 4.13698 2 5.65106 2 7.5V8.5C2 10.3489 3.43368 11.863 5.25 11.9912L5.25 17.25C5.25 17.6642 5.58579 18 6 18C6.41421 18 6.75 17.6642 6.75 17.25L6.75 11.9912C8.56632 11.863 10 10.3489 10 8.5V7.5C10 5.65106 8.56632 4.13698 6.75 4.00879V2.75ZM8.5 7.5C8.5 6.39543 7.60457 5.5 6.5 5.5H5.5C4.39543 5.5 3.5 6.39543 3.5 7.5V8.5C3.5 9.60457 4.39543 10.5 5.5 10.5H6.5C7.60457 10.5 8.5 9.60457 8.5 8.5V7.5Z" fill="#0E3746" />
@@ -31,7 +31,7 @@ const StaffPopUp = () => {
                     Profile Settings
                 </div>
             </div>
-            <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0">
+            <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
                 <div className="pl-[14px]">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.1565 9.34155H5.7002V10.3704H15.1565V9.34155Z" fill="#0E3746" />
@@ -45,7 +45,7 @@ const StaffPopUp = () => {
                     Order Manager
                 </div>
             </div>
-            <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE]">
+            <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
                 <div className="pl-[14px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.12318 7.95119C4.52295 4.95005 6.81842 2.15002 9.87899 2.15002H10.4998C13.1864 2.15002 15.3498 4.35886 15.3498 7.02935C15.3498 8.52272 14.6614 9.95117 13.4774 10.872L10.9077 12.8707C10.8711 12.8991 10.8498 12.9428 10.8498 12.9891V13.5C10.8498 13.9695 10.4692 14.35 9.99978 14.35C9.53033 14.35 9.14978 13.9695 9.14978 13.5V12.9891C9.14978 12.4182 9.41335 11.8793 9.86399 11.5288L12.4337 9.53015C13.1984 8.93537 13.6498 8.0047 13.6498 7.02935C13.6498 5.28156 12.2314 3.85002 10.4998 3.85002H9.87899C7.8912 3.85002 6.40032 5.6686 6.79016 7.61779L6.83327 7.83333C6.92533 8.29365 6.6268 8.74145 6.16647 8.83352C5.70615 8.92558 5.25835 8.62705 5.16628 8.16672L5.12318 7.95119Z" fill="#0E3746" />
@@ -56,7 +56,7 @@ const StaffPopUp = () => {
                     Help Center
                 </div>
             </div>
-            <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center">
+            <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]">
                 <div className="pl-[14px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M13 10.7C13.3866 10.7 13.7 10.3866 13.7 10C13.7 9.6134 13.3866 9.3 13 9.3L13 10.7ZM2.50503 9.50502C2.23166 9.77839 2.23166 10.2216 2.50503 10.495L6.9598 14.9497C7.23316 15.2231 7.67638 15.2231 7.94975 14.9497C8.22311 14.6764 8.22311 14.2332 7.94975 13.9598L3.98995 10L7.94975 6.0402C8.22312 5.76683 8.22312 5.32362 7.94975 5.05025C7.67638 4.77688 7.23317 4.77688 6.9598 5.05025L2.50503 9.50502ZM13 9.3L3 9.3L3 10.7L13 10.7L13 9.3Z" fill="#0E3746" />

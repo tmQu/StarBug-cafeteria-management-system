@@ -18,9 +18,9 @@ module.exports = withMT({
       keyframes: {
         itemShow: {
           "0%": {
-            transform: "scale(0.98)",
-            opacity: "0.2",
-            top: "20px",
+            transform: "scale(0.97)",
+            opacity: "0.6",
+            top: "10px",
           },
           "100%": {
             transform: "scale(1)",
@@ -30,7 +30,7 @@ module.exports = withMT({
         },
       },
       animation: {
-        "item-show": "itemShow 1s ease-in",
+        "item-show": "itemShow 0.4s ease-in",
       },
     },
     screens: {

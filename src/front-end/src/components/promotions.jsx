@@ -1,8 +1,8 @@
 const Promotions = (props) => {
-  const { images } = props; // Sửa ở đây
+  const { images } = props;
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row animate-item-show">
       {images.length !== 0 &&
         images.map((image) => (
           <img
