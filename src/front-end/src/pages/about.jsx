@@ -9,28 +9,47 @@ import { useInView } from "react-intersection-observer";
 const About = () => {
   const { ref: sliderRef, inView: sliderVisible } = useInView();
 
-  const { ref: storyTitleRef, inView: storyTitleVisible } = useInView();
-  const { ref: story1Ref, inView: story1Visible } = useInView();
-  const { ref: story2Ref, inView: story2Visible } = useInView();
-  const { ref: story3Ref, inView: story3Visible } = useInView();
-  const { ref: story4Ref, inView: story4Visible } = useInView();
-
+  const { ref: storyTitleRef, inView: storyTitleVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: story1Ref, inView: story1Visible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: story2Ref, inView: story2Visible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: story3Ref, inView: story3Visible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: story4Ref, inView: story4Visible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
   const { ref: peopleTitleRef, inView: peopleTitleVisible } = useInView();
   const { ref: people1Ref, inView: people1Visible } = useInView();
   const { ref: people2Ref, inView: people2Visible } = useInView();
 
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-[1120px] mx-auto bg-[#F4F2EC]">
-        <div className="w-[1120px] h-[300px]" ref={sliderRef}>
+      <div className="w-screen mx-auto pb-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+        <div
+          className="w-screen max-w-[2000px] h-[386px] mx-auto"
+          ref={sliderRef}
+        >
           {sliderVisible && <HomeSlider items={items} />}
         </div>
         <div
-          className="w-[1120px] h-fit mt-1 pt-4 flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]"
+          className="w-full h-fit mt-1 pt-4 flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]"
           ref={storyTitleRef}
         >
           {storyTitleVisible && (
-            <h2 className="animate-item-show">STORY BEHIND THE FAVOR</h2>
+            <h2 className="text-center animate-item-show">
+              STORY BEHIND THE FAVOR
+            </h2>
           )}
         </div>
         <div className="w-[1120px] h-fit px-4 mx-auto">

@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <button
       type={type}
-      className={`w-fit h-[40px] px-4 pt-[4px] text-lg font-light 
+      className={`w-fit h-[40px] px-4 pt-[4px] text-base font-light
       transition-transform duration-500 ease-in-out
       ${
         isClicked

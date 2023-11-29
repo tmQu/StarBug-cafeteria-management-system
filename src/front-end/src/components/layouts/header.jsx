@@ -1,4 +1,4 @@
-import SearchBar from "../searchBar";
+import SearchBar from "./searchBar";
 import CartButton from "../buttons/cartButton";
 import LoginButton from "../buttons/loginButton";
 import Logo from "../logo";

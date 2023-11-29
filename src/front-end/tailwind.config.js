@@ -13,7 +13,7 @@ module.exports = withMT({
         app: "1fr",
       },
       gridTemplateRows: {
-        app: "60px 60px 1fr 250px",
+        app: "60px 40px 1fr 250px",
       },
       keyframes: {
         itemShow: {

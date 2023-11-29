@@ -10,7 +10,6 @@ import images from "../api/images";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
 import { useInView } from "react-intersection-observer";
 
 const Home = () => {
@@ -138,7 +137,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="py-4" ref={showButtonRef}>
+        <div className="py-6" ref={showButtonRef}>
           {showButtonVisible && <ShowAllButton />}
         </div>
       </div>
