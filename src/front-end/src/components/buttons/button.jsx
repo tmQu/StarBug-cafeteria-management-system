@@ -37,12 +37,13 @@ export const BorderButton = (props) => {
 
 export const RoundedButton = (props) => {
   const { onClick, name, className, type = "button" } = props;
+  const myClassName= `w-[114px] h-[43px] text-xs rounded-full font-light border-[0.6px] border-[#B0B0B0]
+  transition-transform duration-500 ease-in-out text-black bg-[#E5E5E5] ${className}`
 
   return (
     <button
       type={type}
-      className={`w-[114px] h-[43px] text-xs rounded-full font-light border-[0.6px] border-[#B0B0B0]
-      transition-transform duration-500 ease-in-out text-black bg-[#E5E5E5] ${className}`}
+      className={myClassName}
       onClick={onClick}
     >
       {name}
