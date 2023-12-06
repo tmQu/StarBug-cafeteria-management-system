@@ -2,10 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser';
 
-import {itemRouter} from './router/itemRouter.js';
-import {sliderRouter} from './router/sliderRouter.js';
+import { itemRouter } from './router/itemRouter.js';
+import { sliderRouter } from './router/sliderRouter.js';
 import { promotionRouter } from './router/promotionRouter.js';
-
+import { orderRouter } from './router/orderRouter.js';
 import cors from 'cors'
 
 const app = express();
@@ -19,7 +19,7 @@ app.use('/database', express.static('database'))
 app.use('/item', itemRouter);
 app.use('/promotion', promotionRouter);
 app.use('/slider', sliderRouter);
-
+app.use('/order', orderRouter);
 
 const dbName = "temp"
 mongoose.connect('mongodb://127.0.0.1:27017/' + dbName);
