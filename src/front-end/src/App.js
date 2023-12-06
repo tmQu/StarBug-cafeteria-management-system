@@ -10,6 +10,7 @@ import MilkTea from "./pages/milktea";
 import Coffee from "./pages/coffee";
 import Cake from "./pages/cake";
 import Product from "./pages/product";
+import Setting from "./pages/setting";
 import PaymentDetail from "./pages/payment";
 import OrderManagement from "./components/orderManagement/orderManagement";
 
@@ -50,6 +51,7 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/product" element={<Product />}></Route>
             <Route path="/payment" element={<PaymentDetail />}></Route>
+            <Route path="/setting" element={<Setting />}></Route>
             <Route path="/ordermanagement" element={<OrderManagement />}></Route>
           </Routes>
         </div>

@@ -15,7 +15,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   border: 0,
   color:
     theme.palette.mode === "light"
-      ? "rgba(0,0,0,.85)"
+      ? "#0E3746"
       : "rgba(255,255,255,0.85)",
   WebkitFontSmoothing: "auto",
   letterSpacing: "normal",
@@ -38,7 +38,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   "& .MuiDataGrid-cell": {
     color:
       theme.palette.mode === "light"
-        ? "rgba(0,0,0,.85)"
+        ? "0E3746"
         : "rgba(255,255,255,0.65)",
   },
   "& .MuiPaginationItem-root": {
@@ -52,26 +52,61 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
       },
     },
   },
+  // row interleaved background
+  "& .MuiDataGrid-row:nth-of-type(odd)": {
+    backgroundColor: theme.palette.mode === "light" ? "#EAE8DC" : "#1d1d1d",
+  },
+  "& .MuiDataGrid-row:nth-of-type(even)": {
+    backgroundColor: theme.palette.mode === "light" ? "#F4F2EC" : "#1d1d1d",
+  },
+  // header column background
+  "& .MuiDataGrid-columnHeader": {
+    backgroundColor: theme.palette.mode === "light" ? "#F4F2EC" : "#1d1d1d",
+  },
 }));
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
+  console.log(page);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
+  console.log(pageCount);
+
+  const StyledPagination = styled(Pagination)({
+    "& .MuiPagination-ul li:last-child": {
+        marginLeft: "16px",
+    },
+    "& .MuiPagination-ul li:last-child button::before": {
+        content: "'Next'",
+        marginRight: "8px",
+    },
+    "& .MuiPagination-ul li:first-child": {
+        marginRight: "16px",
+    },
+    "& .MuiPagination-ul li:first-child button::after": {
+        content: "'Previous'",
+        marginLeft: "8px",
+    },
+    // remove next and previous icon
+    "& .MuiPaginationItem-icon": {
+      display: "none",
+    }
+    
+});
 
   return (
-    <Pagination
-      color="primary"
-      variant="outlined"
+    <StyledPagination
       shape="rounded"
       page={page + 1}
       count={pageCount}
+      // background color of the pagination
+      sx={{ color: 'red', mx: "auto", my: "auto", width: "fit-content" }}
       // @ts-expect-error
       renderItem={(props2) => <PaginationItem {...props2} disableRipple />}
       onChange={(event, value) => apiRef.current.setPage(value - 1)}
     />
   );
-}
+};
 
 const PAGE_SIZE = 10;
 
@@ -82,12 +117,12 @@ function ManagementTable({ rows, columns, tableName }) {
   });
 
   return (
-    <div className="w-[1050px] mx-auto bg-[#F4F2EC] shadow-lg my-4 rounded h-[800px]">
+    <div className="w-[1050px] h-fit mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded h-[800px]">
       <div className="w-[1050px] h-[92px] p-[15.14px] bg-stone-200 justify-start items-center gap-[417px] inline-flex">
-        <div className="w-[700px] text-center text-red-700 font-bold text-[48px]">
+        <div className="w-[700px] text-red-700 font-bold text-[48px]">
           {tableName}
         </div>
-          <RoundedButton className="border-none bg-[#BE2623] font-bold" name="ADD"/>
+        <RoundedButton className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED]" name="ADD"/>
       </div>
       <div style={{ height: "fit-content", width: "100%" }}>
         <StyledDataGrid
@@ -97,7 +132,7 @@ function ManagementTable({ rows, columns, tableName }) {
           slots={{
             pagination: CustomPagination,
           }}
-          rows={rows}
+          rows={rows} 
           columns={columns}
         />
       </div>
