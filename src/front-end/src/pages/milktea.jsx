@@ -5,6 +5,7 @@ import stories from "../staticData/stories.json";
 import Item from "../components/items/item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import ItemsMobileContainer from "../responsive/itemsContainer";
 
 // const apiUrl = `dbUrl + '/item/filter?category=Tên category đó'`;
 // const { data } = useQuery({
@@ -30,14 +31,14 @@ const MilkTea = (props) => {
   const { ref: itemsRef3, inView: itemsVisible3 } = useInView();
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-screen mx-auto pb-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+      <div className="w-screen mx-auto pb-8 flex flex-col gap-8 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div
           className="w-screen max-w-[2000px] h-[386px] mx-auto"
           ref={sliderRef}
         >
           {sliderVisible && <HomeSlider items={items} />}
         </div>
-        <div className="w-[930px] mx-auto">
+        <div className="w-[930px] xl:w-screen mx-auto">
           <div clasName="h-fit" ref={storyRef}>
             {storyVisible && (
               <Story
@@ -50,7 +51,7 @@ const MilkTea = (props) => {
             )}
           </div>
         </div>
-        <div className="w-[930px] h-fit mx-auto mt-4 py-4">
+        <div className="w-[930px] h-fit mx-auto xl:hidden">
           <div className="flex flex-col gap-6">
             <div ref={itemsRef1}>
               {itemsVisible1 && (
@@ -98,6 +99,9 @@ const MilkTea = (props) => {
               )}
             </div>
           </div>
+        </div>
+        <div className="w-fit h-fit mx-auto sm:mt-8 hidden xl:block">
+          <ItemsMobileContainer items={items} />
         </div>
       </div>
     </div>

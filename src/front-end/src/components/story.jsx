@@ -5,7 +5,7 @@ const Story = ({ reverse = "false", image, title, subtitle, paragraph }) => {
         reverse ? "flex-row-reverse" : "flex-row"
       } sm:flex-col sm:gap-4`}
     >
-      <div className="w-[50%] sm:w-full h-[460px] mt-10 sm:h-fit sm:pb-5 text-[#0D3745] flex flex-col justify-center">
+      <div className="w-[50%] sm:w-full h-[460px] sm:h-fit sm:pb-5 text-[#0D3745] flex flex-col justify-center">
         <p className="text-2xl font-bold">{title}</p>
         <p className="max-w-[420px] text-7xl sm:text-5xl font-bold">
           {subtitle}

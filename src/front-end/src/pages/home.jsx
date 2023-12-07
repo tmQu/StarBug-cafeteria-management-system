@@ -72,7 +72,7 @@ const Home = () => {
 
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-screen mx-auto bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+      <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div
           className="w-screen max-w-[2000px] h-[386px] mx-auto"
           ref={sliderRef}
@@ -88,40 +88,40 @@ const Home = () => {
           </div>
         </div>
         <div
-          className="w-full h-[320px] sm:h-fit px-5 mt-2 flex flex-col justify-center items-center"
+          className="w-full h-fit flex flex-col justify-center items-center"
           ref={introCardsRef}
         >
           {introCardsVisible && (
-            <p className="my-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
+            <p className="mb-5 text-3xl font-semibold text-[#0D3746] animate-item-show">
               Our values
             </p>
           )}
           {introCardsVisible && <IntroCards />}
         </div>
         <div
-          className="w-full h-10 mt-4 flex flex-row justify-center items-center"
+          className="w-full h-fit py-2 flex flex-row justify-center items-center"
           ref={bestSellerTitleRef}
         >
           {bestSellerTitleVisible && (
-            <p className="pt-2 my-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
+            <p className="pt-1 text-3xl font-semibold text-[#0D3746] animate-item-show">
               Best sellers
             </p>
           )}
         </div>
-        <div className="w-full h-fit mt-4" ref={top3ItemsRef}>
+        <div className="w-full h-fit" ref={top3ItemsRef}>
           {top3ItemsVisible && <Top3Items />}
         </div>
         <div
-          className="w-full h-10 mt-4 flex flex-row justify-center items-center"
+          className="w-full h-fit py-2 flex flex-row justify-center items-center"
           ref={ourProductTitleRef}
         >
           {ourProductTitleVisible && (
-            <p className="pt-2 my-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
+            <p className="pt-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
               Our products
             </p>
           )}
         </div>
-        <div className="w-fit h-fit mx-auto mt-4 xl:hidden">
+        <div className="w-fit h-fit mx-auto xl:hidden">
           <div className="w-full flex flex-col gap-6">
             <div className="" ref={itemsRef1}>
               {itemsVisible1 && (
@@ -170,10 +170,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="w-fit h-fit mx-auto mt-4 hidden xl:block">
+        <div className="w-fit h-fit mx-auto hidden xl:block">
           <ItemsMobileContainer items={items} />
         </div>
-        <div className="py-6" ref={showButtonRef}>
+        <div className="pb-6 pt-3" ref={showButtonRef}>
           {showButtonVisible && <ShowAllButton />}
         </div>
       </div>
