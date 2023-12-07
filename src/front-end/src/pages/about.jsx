@@ -47,12 +47,12 @@ const About = () => {
           ref={storyTitleRef}
         >
           {storyTitleVisible && (
-            <h2 className="text-center animate-item-show">
+            <h2 className="text-center animate-item-show px-4">
               STORY BEHIND THE FAVOR
             </h2>
           )}
         </div>
-        <div className="w-[1120px] h-fit px-4 mx-auto">
+        <div className="w-[1120px] xl:w-screen h-fit px-4 mx-auto">
           <div ref={story1Ref}>
             {story1Visible && (
               <Story
@@ -98,19 +98,22 @@ const About = () => {
             )}
           </div>
         </div>
-        <div className="flex justify-center items-center my-3 pt-8">
-          <hr className="w-[792px] border-[1px] border-[#0D3745]" />
+        <div className="w-full flex justify-center items-center my-3 pt-8">
+          <hr className="w-[80%] border-[1px] border-[#0D3745]" />
         </div>
         <div
-          className="w-[1120px] h-[100px] py-4 flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]"
+          className="w-full h-[100px] py-4 flex items-center justify-center text-[50px] sm:text-[40px] font-bold font-Source-Sans-3  text-[#0D3745]"
           ref={peopleTitleRef}
         >
           {peopleTitleVisible && (
             <p className="animate-item-show">Loyal Customer</p>
           )}
         </div>
-        <div className="w-[1120px] h-fit pb-6 mx-auto">
-          <div className="flex flex-row justify-center gap-4" ref={people1Ref}>
+        <div className="w-[1120px] xl:w-screen h-fit pb-6 mx-auto">
+          <div
+            className="w-fit mx-auto flex flex-row justify-center gap-4 sm:flex-col"
+            ref={people1Ref}
+          >
             {members.slice(0, 2).map((member) => (
               <div>
                 {people1Visible && (
@@ -125,7 +128,7 @@ const About = () => {
             ))}
           </div>
           <div
-            className="flex flex-row justify-center mt-6 gap-4"
+            className="w-fit mx-auto flex flex-row justify-center mt-6 sm:mt-4 gap-4 sm:flex-col"
             ref={people2Ref}
           >
             {members.slice(2, 5).map((member) => (

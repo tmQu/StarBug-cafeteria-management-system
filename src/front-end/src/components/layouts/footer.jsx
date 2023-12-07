@@ -9,11 +9,11 @@ const Footer = () => {
   };
   return (
     <div className="w-screen bg-[#EAE8DC]">
-      <div className="w-[1120px] xl:w-screen mx-auto h-fit py-3 flex flex-col justify-center items-center ">
+      <div className="w-[1120px] xl:w-screen mx-auto h-fit py-3 sm:py-6 flex flex-col justify-center items-center ">
         <div className="w-fit py-2 mx-auto text-[#183942] text-center text-[15px] opacity-[0.6] font-Source-Sans-3 font-bold line-height:normal tracking-[.25em]">
           WE SERVE YOUR FAVOR
         </div>
-        <div className="w-fit py-2 mx-auto text-[#183942] text-center text-[50px] font-Source-Sans-3 font-bold line-height:normal">
+        <div className="w-fit py-2 mx-auto text-[#183942] text-center text-[50px] sm:text-[40px] font-Source-Sans-3 font-bold line-height:normal">
           Request More Information
         </div>
         <div className="py-3 mx-auto">
