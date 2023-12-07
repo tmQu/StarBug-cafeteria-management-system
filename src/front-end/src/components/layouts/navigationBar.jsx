@@ -34,7 +34,7 @@ const NavigationBar = () => {
 
   return (
     <div className="w-screen h-auto grid-in-navigation bg-[#BE2623]">
-      <ul className="w-[1120px] h-fit mx-auto flex flex-row justify-between items-center">
+      <ul className="w-[1120px] xl:w-screen overflow-auto h-fit mx-auto flex flex-row justify-between items-center">
         {routes.map((route) => (
           <li key={route.name}>
             <Button

@@ -4,6 +4,7 @@ import Top3Items from "../components/items/top3Items";
 import HomeSlider from "../components/slider";
 import Promotions from "../components/promotions";
 import ShowAllButton from "../components/buttons/showAllButton";
+import ItemsMobileContainer from "../responsive/itemsContainer";
 
 import items from "../api/items";
 import images from "../api/images";
@@ -24,18 +25,50 @@ const Home = () => {
   // });
   // console.log(data);
 
-  const { ref: sliderRef, inView: sliderVisible } = useInView();
-  const { ref: promotionRef, inView: promotionVisible } = useInView();
-  const { ref: introCardsRef, inView: introCardsVisible } = useInView();
-  const { ref: bestSellerTitleRef, inView: bestSellerTitleVisible } =
-    useInView();
-  const { ref: top3ItemsRef, inView: top3ItemsVisible } = useInView();
-  const { ref: ourProductTitleRef, inView: ourProductTitleVisible } =
-    useInView();
-  const { ref: itemsRef1, inView: itemsVisible1 } = useInView();
-  const { ref: itemsRef2, inView: itemsVisible2 } = useInView();
-  const { ref: itemsRef3, inView: itemsVisible3 } = useInView();
-  const { ref: showButtonRef, inView: showButtonVisible } = useInView();
+  const { ref: sliderRef, inView: sliderVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: promotionRef, inView: promotionVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: introCardsRef, inView: introCardsVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: bestSellerTitleRef, inView: bestSellerTitleVisible } = useInView(
+    {
+      threshold: 0,
+      triggerOnce: true,
+    }
+  );
+  const { ref: top3ItemsRef, inView: top3ItemsVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: ourProductTitleRef, inView: ourProductTitleVisible } = useInView(
+    {
+      threshold: 0,
+      triggerOnce: true,
+    }
+  );
+  const { ref: itemsRef1, inView: itemsVisible1 } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: itemsRef2, inView: itemsVisible2 } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: itemsRef3, inView: itemsVisible3 } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: showButtonRef, inView: showButtonVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
   return (
     <div className="w-screen h-fit mx-auto">
@@ -46,16 +79,16 @@ const Home = () => {
         >
           {sliderVisible && <HomeSlider items={items} />}
         </div>
-        <div className="h-[160px]">
+        <div className="h-[160px] sm:h-[390px]">
           <div
-            className="w-[930px] h-[210px] flex items-center mx-auto justify-between relative -top-12"
+            className="w-full flex items-center justify-center"
             ref={promotionRef}
           >
             {promotionVisible && <Promotions images={images} />}
           </div>
         </div>
         <div
-          className="w-full h-[320px] px-5 mt-2 flex flex-col justify-center items-center"
+          className="w-full h-[320px] sm:h-fit px-5 mt-2 flex flex-col justify-center items-center"
           ref={introCardsRef}
         >
           {introCardsVisible && (
@@ -75,7 +108,7 @@ const Home = () => {
             </p>
           )}
         </div>
-        <div className="w-full h-[385px] mt-4" ref={top3ItemsRef}>
+        <div className="w-full h-fit mt-4" ref={top3ItemsRef}>
           {top3ItemsVisible && <Top3Items />}
         </div>
         <div
@@ -88,11 +121,11 @@ const Home = () => {
             </p>
           )}
         </div>
-        <div className="w-[930px] h-fit mx-auto mt-4 ">
-          <div className="flex flex-col gap-6">
-            <div ref={itemsRef1}>
+        <div className="w-fit h-fit mx-auto mt-4 xl:hidden">
+          <div className="w-full flex flex-col gap-6">
+            <div className="" ref={itemsRef1}>
               {itemsVisible1 && (
-                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                <div className="w-auto h-auto mx-auto flex flex-row gap-6 animate-item-show">
                   {items.slice(0, 4).map((item) => (
                     <Item
                       id={item.id}
@@ -120,7 +153,7 @@ const Home = () => {
                 </div>
               )}
             </div>
-            <div ref={itemsRef3}>
+            <div className="" ref={itemsRef3}>
               {itemsVisible3 && (
                 <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
                   {items.slice(8, 12).map((item) => (
@@ -136,6 +169,9 @@ const Home = () => {
               )}
             </div>
           </div>
+        </div>
+        <div className="w-fit h-fit mx-auto mt-4 hidden xl:block">
+          <ItemsMobileContainer items={items} />
         </div>
         <div className="py-6" ref={showButtonRef}>
           {showButtonVisible && <ShowAllButton />}
