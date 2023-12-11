@@ -1,7 +1,7 @@
 [
   {
     "image": "./assets/About_files/Latte.jfif",
-    "title": "Secret behind the perfect",
+    "title": "Secret behind",
     "subtitle": "Latte",
     "paragraph": "The word \"latte\" means \"milk\" in Italian. Milk accentuates the rich flavor of espresso in a light, enjoyable drink. Rich hand-brewed espresso combined with smooth steamed milk, topped with a layer of fine foam."
   },
@@ -13,13 +13,13 @@
   },
   {
     "image": "./assets/About_files/HerbalTea.jfif",
-    "title": "What are the benefits of",
+    "title": "The benefits of",
     "subtitle": "Herbal",
-    "paragraph": "In general, herbal tea has many outstanding health benefits including: Against liver, cervical, colon, lymphatic or lung cancer,...; Reduce the risk of diabetes and its complications; Prevent the risk of neurodegenerative diseases such as Alzheimer's; Increases fat metabolism, reduces fat, has the ability to support weight loss; Protect liver, clear heat, detoxify; Reduce fever, relieve cough and sore throat."
+    "paragraph": "In general, herbal tea has many outstanding health benefits including: Against liver, cervical, lymphatic or lung cancer,...; Reduce the risk of diabetes and its complications; Prevent the risk of neurodegenerative diseases such as Alzheimer's; Increases fat metabolism, reduces fat, has the ability to support weight loss."
   },
   {
     "image": "./assets/About_files/MatchaMilkTea.jfif",
-    "title": "What if milk tea combine",
+    "title": "Milk tea combine",
     "subtitle": "Matcha",
     "paragraph": "Matcha Milk Tea, or Matcha Latte, is a popular drink that originated in Asia and has since become a worldwide sensation. You make it by combining matcha powder, a finely ground green tea powder, with milk and sweetener. The result is a creamy, sweet, and earthy drink full of nutrients and other health benefits."
   }
