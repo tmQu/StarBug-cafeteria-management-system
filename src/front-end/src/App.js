@@ -22,24 +22,24 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
+    <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
       <QueryClientProvider client={queryClient}>
-        <div className="fixed top-0 w-full z-40">
+        <div className="w-full z-40">
           <div className="h-[60px]">
             <Header />
           </div>
-          <div className="h-[60px] pt-0">
+          <div className="h-fit">
             <NavigationBar />
           </div>
         </div>
-        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">
-          {/* <AddToCartPopup /> */}
-          {/* <LogInPopUp/> */}
-          {/* <SignUpPopUp/> */}
-          {/* <NewPassword/> */}
-          {/* <ForgotPassword /> */}
-        </div>
-        <div className="grid-in-content">
+        {/* <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50"> */}
+        {/* <AddToCartPopup /> */}
+        {/* <LogInPopUp/> */}
+        {/* <SignUpPopUp/> */}
+        {/* <NewPassword/> */}
+        {/* <ForgotPassword /> */}
+        {/* </div> */}
+        <div className="">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tea" element={<Tea />} />
@@ -51,7 +51,7 @@ function App() {
             <Route path="/payment" element={<PaymentDetail />}></Route>
           </Routes>
         </div>
-        <div className="grid-in-footer">
+        <div className="">
           <Footer />
         </div>
       </QueryClientProvider>

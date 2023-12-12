@@ -6,15 +6,15 @@ module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      gridTemplateAreas: {
-        app: ["header", "navigation", "content", "footer"],
-      },
-      gridTemplateColumns: {
-        app: "1fr",
-      },
-      gridTemplateRows: {
-        app: "60px 60px 1fr 250px",
-      },
+      // gridTemplateAreas: {
+      //   app: ["header", "navigation", "content", "footer"],
+      // },
+      // gridTemplateColumns: {
+      //   app: "1fr",
+      // },
+      // gridTemplateRows: {
+      //   app: "60px 40px 1fr 400px",
+      // },
       keyframes: {
         itemShow: {
           "0%": {
@@ -34,8 +34,20 @@ module.exports = withMT({
       },
     },
     screens: {
-      md: { min: "741px", max: "1023px" }, // tablet responsive
-      sm: { max: "740px" }, // mobile responsive
+      "2xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+
+      xl: { max: "1279px" },
+      // => @media (max-width: 1279px) { ... }
+
+      lg: { max: "1023px" },
+      // => @media (max-width: 1023px) { ... }
+
+      md: { max: "767px" },
+      // => @media (max-width: 767px) { ... }
+
+      sm: { max: "639px" },
+      // => @media (max-width: 639px) { ... }
     },
   },
   plugins: [require("@savvywombat/tailwindcss-grid-areas")],

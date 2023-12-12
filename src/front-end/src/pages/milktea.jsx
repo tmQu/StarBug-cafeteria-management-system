@@ -5,6 +5,7 @@ import stories from "../staticData/stories.json";
 import Item from "../components/items/item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import ItemsMobileContainer from "../responsive/itemsContainer";
 
 // const apiUrl = `dbUrl + '/item/filter?category=Tên category đó'`;
 // const { data } = useQuery({
@@ -17,42 +18,90 @@ import axios from "axios";
 import { useInView } from "react-intersection-observer";
 
 const MilkTea = (props) => {
-
-  const { ref: sliderRef, inView: sliderVisible } = useInView();
-  const { ref: storyRef, inView: storyVisible } = useInView();
-  const { ref: itemsRef, inView: itemsVisible } = useInView();
-
+  const { ref: sliderRef, inView: sliderVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: storyRef, inView: storyVisible } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref: itemsRef1, inView: itemsVisible1 } = useInView();
+  const { ref: itemsRef2, inView: itemsVisible2 } = useInView();
+  const { ref: itemsRef3, inView: itemsVisible3 } = useInView();
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-screen mx-auto bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div className="w-screen max-w-[2000px] h-[386px] mx-auto" ref={sliderRef}>
+      <div className="w-screen mx-auto pb-8 flex flex-col gap-8 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+        <div
+          className="w-screen max-w-[2000px] h-[386px] mx-auto"
+          ref={sliderRef}
+        >
           {sliderVisible && <HomeSlider items={items} />}
         </div>
-        <div className="w-[930px] mx-auto">
-          <div clasName="h-[460px]" ref={storyRef}>
-            {storyVisible && <Story
-              reverse={false}
-              image={stories[0].image}
-              title={stories[0].title}
-              subtitle={stories[0].subtitle}
-              paragraph={stories[0].paragraph}
-            />}
+        <div className="w-[930px] xl:w-screen mx-auto">
+          <div clasName="h-fit" ref={storyRef}>
+            {storyVisible && (
+              <Story
+                reverse={false}
+                image={stories[0].image}
+                title={stories[0].title}
+                subtitle={stories[0].subtitle}
+                paragraph={stories[0].paragraph}
+              />
+            )}
           </div>
         </div>
-        <div className="w-[930px] h-fit mx-auto mt-4 py-4" ref={itemsRef}>
-          {itemsVisible && (
-            <div className="grid grid-cols-4 grid-rows-3 gap-6 animate-item-show">
-              {items.map((item) => (
-                <Item
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  rate={item.rate}
-                  image={item.image}
-                />
-              ))}
+        <div className="w-[930px] h-fit mx-auto xl:hidden">
+          <div className="flex flex-col gap-6">
+            <div ref={itemsRef1}>
+              {itemsVisible1 && (
+                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                  {items.slice(0, 4).map((item) => (
+                    <Item
+                      id={item.id}
+                      name={item.name}
+                      price={item.price}
+                      rate={item.rate}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+            <div ref={itemsRef2}>
+              {itemsVisible2 && (
+                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                  {items.slice(4, 8).map((item) => (
+                    <Item
+                      id={item.id}
+                      name={item.name}
+                      price={item.price}
+                      rate={item.rate}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+            <div ref={itemsRef3}>
+              {itemsVisible3 && (
+                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
+                  {items.slice(8, 12).map((item) => (
+                    <Item
+                      id={item.id}
+                      name={item.name}
+                      price={item.price}
+                      rate={item.rate}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="w-fit h-fit mx-auto sm:mt-8 hidden xl:block">
+          <ItemsMobileContainer items={items} />
         </div>
       </div>
     </div>

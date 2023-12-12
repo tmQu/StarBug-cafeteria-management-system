@@ -1,10 +1,10 @@
-import SizeSelect from "../components/sizeSelect";
-import ToppingSelect from "../components/toppingSelect";
+import SizeSelect from "../components/itemsDetail/sizeSelect";
+import ToppingSelect from "../components/itemsDetail/toppingSelect";
 import AddToCartButton from "../components/buttons/addToCartButton";
-import NoteHere from "../components/noteHere";
-import Star from "../components/star";
+import NoteHere from "../components/itemsDetail/noteHere";
+import Star from "../components/itemsDetail/star";
 import PicItem from "../components/items/picItem";
-import ProductInfo from "../components/productInfo";
+import ProductInfo from "../components/itemsDetail/productInfo";
 
 const Product = () => {
   return (

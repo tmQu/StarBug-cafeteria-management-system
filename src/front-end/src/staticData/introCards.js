@@ -3,7 +3,7 @@ const cards = [
     id: 1,
     title: "Excellence",
     description:
-      "Sip perfection with us, where every cup reflects our dedication to excellence.",
+      "Sip perfection with us, which reflects our dedication to excellence.",
     image: "/assets/excellence-icon.png",
   },
   {
