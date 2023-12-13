@@ -25,6 +25,8 @@ const Home = () => {
   // });
   // console.log(data);
 
+  const shuffledItems = items.sort(() => Math.random() - 0.5);
+
   const { ref: sliderRef, inView: sliderVisible } = useInView({
     threshold: 0,
     triggerOnce: true,
@@ -77,14 +79,14 @@ const Home = () => {
           className="w-screen max-w-[2000px] h-[386px] mx-auto"
           ref={sliderRef}
         >
-          {sliderVisible && <HomeSlider items={items} />}
+          {sliderVisible && <HomeSlider/>}
         </div>
         <div className="h-[160px] sm:h-[390px]">
           <div
             className="w-full flex items-center justify-center"
             ref={promotionRef}
           >
-            {promotionVisible && <Promotions images={images} />}
+            {promotionVisible && <Promotions/>}
           </div>
         </div>
         <div
@@ -126,7 +128,7 @@ const Home = () => {
             <div className="" ref={itemsRef1}>
               {itemsVisible1 && (
                 <div className="w-auto h-auto mx-auto flex flex-row gap-6 animate-item-show">
-                  {items.slice(0, 4).map((item) => (
+                  {shuffledItems.slice(0, 4).map((item) => (
                     <Item
                       id={item.id}
                       name={item.name}
@@ -141,7 +143,7 @@ const Home = () => {
             <div ref={itemsRef2}>
               {itemsVisible2 && (
                 <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {items.slice(4, 8).map((item) => (
+                  {shuffledItems.slice(4, 8).map((item) => (
                     <Item
                       id={item.id}
                       name={item.name}
@@ -156,7 +158,7 @@ const Home = () => {
             <div className="" ref={itemsRef3}>
               {itemsVisible3 && (
                 <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {items.slice(8, 12).map((item) => (
+                  {shuffledItems.slice(8, 12).map((item) => (
                     <Item
                       id={item.id}
                       name={item.name}

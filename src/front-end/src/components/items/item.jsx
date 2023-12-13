@@ -5,7 +5,7 @@ const Item = (props) => {
     <div className="group w-[210px] h-[260px] sm:w-[170px] sm:h-[240px] bg-[#DBDBDB] hover:bg-[#0D3746] rounded-xl shadow-lg">
       <div className="w-fit h-fit p-1.5 pb-0">
         <img
-          className="w-full h-[155px] sm:h-[134px] rounded-lg"
+          className="w-full h-[155px] sm:h-[134px] rounded-lg object-fill"
           alt={id}
           src={image}
         ></img>

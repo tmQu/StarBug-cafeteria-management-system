@@ -7,6 +7,7 @@ import ItemsMobileContainer from "../responsive/itemsContainer";
 
 import { useInView } from "react-intersection-observer";
 import { useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 // const apiUrl = `dbUrl + '/item/filter?category=Tên category đó'`;
@@ -18,6 +19,8 @@ import axios from "axios";
 // });
 
 const Coffee = (props) => {
+  const [allItemsVisible, setAllItemsVisible] = useState(false);
+  const coffeeItems = items.filter((item) => item.category === "Coffee");
   const { ref: sliderRef, inView: sliderVisible } = useInView({
     threshold: 0,
     triggerOnce: true,
@@ -26,10 +29,11 @@ const Coffee = (props) => {
     threshold: 0,
     triggerOnce: true,
   });
-  const { ref: itemsRef1, inView: itemsVisible1 } = useInView();
-  const { ref: itemsRef2, inView: itemsVisible2 } = useInView();
-  const { ref: itemsRef3, inView: itemsVisible3 } = useInView();
 
+  const { ref: itemRef, inView: itemVisible } = useInView({    
+    threshold: 0,
+    triggerOnce: true,
+  });
   return (
     <div className="w-screen h-fit mx-auto">
       <div className="w-screen mx-auto pb-8 flex flex-col gap-8 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
@@ -37,7 +41,7 @@ const Coffee = (props) => {
           className="w-screen max-w-[2000px] h-[386px] mx-auto"
           ref={sliderRef}
         >
-          {sliderVisible && <HomeSlider items={items} />}
+          {sliderVisible && <HomeSlider />}
         </div>
         <div className="w-[930px] xl:w-screen mx-auto">
           <div clasName="h-fit" ref={storyRef}>
@@ -54,50 +58,18 @@ const Coffee = (props) => {
         </div>
         <div className="w-[930px] h-fit mx-auto xl:hidden">
           <div className="flex flex-col gap-6">
-            <div ref={itemsRef1}>
-              {itemsVisible1 && (
-                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {items.slice(0, 4).map((item) => (
-                    <Item
-                      id={item.id}
-                      name={item.name}
-                      price={item.price}
-                      rate={item.rate}
-                      image={item.image}
-                    />
-                  ))}
+            <div className="w-fit h-fit flex flex-row flex-wrap gap-6 animate-item-show" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }} ref={itemRef}>
+              {itemVisible && coffeeItems.map((item) => (
+                <div key={item.id}>
+                  <Item
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    rate={item.rate}
+                    image={item.image}
+                  />
                 </div>
-              )}
-            </div>
-            <div ref={itemsRef2}>
-              {itemsVisible2 && (
-                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {items.slice(4, 8).map((item) => (
-                    <Item
-                      id={item.id}
-                      name={item.name}
-                      price={item.price}
-                      rate={item.rate}
-                      image={item.image}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-            <div ref={itemsRef3}>
-              {itemsVisible3 && (
-                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {items.slice(8, 12).map((item) => (
-                    <Item
-                      id={item.id}
-                      name={item.name}
-                      price={item.price}
-                      rate={item.rate}
-                      image={item.image}
-                    />
-                  ))}
-                </div>
-              )}
+              ))}
             </div>
           </div>
         </div>

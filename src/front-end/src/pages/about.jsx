@@ -40,7 +40,7 @@ const About = () => {
           className="w-screen max-w-[2000px] h-[386px] mx-auto"
           ref={sliderRef}
         >
-          {sliderVisible && <HomeSlider items={items} />}
+          {sliderVisible && <HomeSlider/>}
         </div>
         <div
           className="w-full h-fit flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]"

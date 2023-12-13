@@ -17,25 +17,31 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   WebkitFontSmoothing: "auto",
   letterSpacing: "normal",
   "& .MuiDataGrid-columnsContainer": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: theme.palette.mode === "light" ? "#fafafa" : "#1d1d1d",
   },
   "& .MuiDataGrid-iconSeparator": {
     display: "none",
   },
   "& .MuiDataGrid-columnHeader, .MuiDataGrid-cell": {
-    borderRight: `1px solid ${
-      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-    }`,
-  },
-  "& .MuiDataGrid-columnsContainer, .MuiDataGrid-cell": {
-    borderBottom: `1px solid ${
-      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-    }`,
-  },
-  "& .MuiDataGrid-cell": {
-    color: theme.palette.mode === "light" ? "0E3746" : "rgba(255,255,255,0.65)",
+    fontWeight: "bold",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    borderRight: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+      }`,
+    borderBottom: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+      }`,
+    color: theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.65)",
   },
   "& .MuiPaginationItem-root": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
     borderRadius: 0,
     "&.Mui-selected": {
       pointerEvents: "none",
@@ -57,7 +63,17 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   "& .MuiDataGrid-columnHeader": {
     backgroundColor: theme.palette.mode === "light" ? "#F4F2EC" : "#1d1d1d",
   },
+  "& .MuiDataGrid-columnHeaderTitle": {
+    fontWeight: "bold",
+  },
+  "& .MuiDataGrid-columnHeaderTitleContainer": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  },
 }));
+
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -120,9 +136,9 @@ function ManagementTable({ rows, columns, tableName }) {
   });
 
   return (
-    <div className="w-[1050px] h-fit mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded h-[800px]">
-      <div className="w-[1050px] h-[92px] p-[15.14px] bg-stone-200 justify-start items-center gap-[417px] inline-flex">
-        <div className="w-[700px] text-red-700 font-bold text-[48px]">
+    <div className="w-fit h-fit mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
+      <div className="w-full h-[92px] p-[15.14px] bg-stone-200 justify-between items-center flex flex-row">
+        <div className="w-fit text-[48px] font-bold text-[#BE2623]">
           {tableName}
         </div>
         <RoundedButton

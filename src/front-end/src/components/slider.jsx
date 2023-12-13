@@ -1,19 +1,20 @@
 import { Carousel } from "@material-tailwind/react";
+import items from "../api/slider.js";
 
-const HomeSlider = (props) => {
-  const items = props.items;
-
+const HomeSlider = () => {
+  const itemsData = items.items
   return (
     <Carousel
       transition={{ duration: 1 }}
       className="animate-item-show"
       navigation={() => <div></div>}
     >
-      {items.map((item) => (
+      {itemsData.map((item) => (
         <img
+          key={item.id} // Added a unique key for each image
           src={item.image}
           alt="slider-img"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-fill"
         />
       ))}
     </Carousel>
