@@ -16,7 +16,7 @@ const ToppingSelect = () => {
             viewBox="0 0 342 2"
             fill="none"
           >
-            <path d="M1 1H341" stroke="#D9D9D9" stroke-linecap="round" />
+            <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
           </svg>
         </div>
         <Topping />
@@ -28,7 +28,7 @@ const ToppingSelect = () => {
             viewBox="0 0 342 2"
             fill="none"
           >
-            <path d="M1 1H341" stroke="#D9D9D9" stroke-linecap="round" />
+            <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
           </svg>
         </div>
         <Topping />
@@ -40,7 +40,7 @@ const ToppingSelect = () => {
             viewBox="0 0 342 2"
             fill="none"
           >
-            <path d="M1 1H341" stroke="#D9D9D9" stroke-linecap="round" />
+            <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
           </svg>
         </div>
         <Topping />

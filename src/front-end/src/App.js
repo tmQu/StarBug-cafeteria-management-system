@@ -25,10 +25,10 @@ import StaffManagement from "./pages/management/staffManagement";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Account Pages
-import LogInPopUp from "./components/popUps/logInPopUp";
-import SignUpPopUp from "./components/popUps/signUpPopUp";
-import NewPassword from "./components/popUps/newPassword";
-import ForgotPassword from "./components/popUps/forgotPassword";
+import LogInPopUp from "./components/authen/logInPopUp";
+import SignUpPopUp from "./components/authen/signUpPopUp";
+import NewPassword from "./components/authen/newPassword";
+import ForgotPassword from "./components/authen/forgotPassword";
 
 const queryClient = new QueryClient();
 
@@ -44,13 +44,13 @@ function App() {
             <NavigationBar />
           </div>
         </div>
-        {/* <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50"> */}
-        {/* <AddToCartPopup /> */}
-        {/* <LogInPopUp/> */}
-        {/* <SignUpPopUp/> */}
-        {/* <NewPassword/> */}
-        {/* <ForgotPassword /> */}
-        {/* </div> */}
+        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">  
+            {/* <AddToCartPopup /> */}
+            {/* <LogInPopUp/> */}
+            <SignUpPopUp/>
+            {/* <NewPassword/> */}
+            {/* <ForgotPassword /> */}
+        </div>
         <div className="">
           <Routes>
             <Route path="/" element={<Home />} />

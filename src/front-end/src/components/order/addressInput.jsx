@@ -18,7 +18,7 @@ const AddressInput = () => {
                 d="M29.4434 58.7099L29.429 58.7004L29.4144 58.6912C16.9911 50.8962 8.75 37.5272 8.75 22.5C8.75 10.6904 18.1904 1.25 30 1.25C41.8096 1.25 51.25 10.6904 51.25 22.5C51.25 37.4921 43.0447 50.6044 30.8789 58.6621C30.2 58.9824 29.7176 58.8927 29.4434 58.7099ZM18.75 22.5C18.75 28.6904 23.8096 33.75 30 33.75C36.1904 33.75 41.25 28.6904 41.25 22.5C41.25 16.3096 36.1904 11.25 30 11.25C23.8096 11.25 18.75 16.3096 18.75 22.5Z"
                 fill="#BE2623"
                 stroke="#BE2623"
-                stroke-width="2.5"
+                strokeWidth="2.5"
               />
             </g>
             <defs>
@@ -51,16 +51,16 @@ const AddressInput = () => {
                   clip-rule="evenodd"
                   d="M1.87187 9.59832C0.798865 6.24832 2.05287 2.41932 5.56987 1.28632C7.41987 0.689322 9.46187 1.04132 10.9999 2.19832C12.4549 1.07332 14.5719 0.693322 16.4199 1.28632C19.9369 2.41932 21.1989 6.24832 20.1269 9.59832C18.4569 14.9083 10.9999 18.9983 10.9999 18.9983C10.9999 18.9983 3.59787 14.9703 1.87187 9.59832Z"
                   stroke="#BE2623"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M15 4.69995C16.07 5.04595 16.826 6.00095 16.917 7.12195"
                   stroke="#BE2623"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -92,16 +92,16 @@ const AddressInput = () => {
                   clip-rule="evenodd"
                   d="M1.87187 9.59832C0.798865 6.24832 2.05287 2.41932 5.56987 1.28632C7.41987 0.689322 9.46187 1.04132 10.9999 2.19832C12.4549 1.07332 14.5719 0.693322 16.4199 1.28632C19.9369 2.41932 21.1989 6.24832 20.1269 9.59832C18.4569 14.9083 10.9999 18.9983 10.9999 18.9983C10.9999 18.9983 3.59787 14.9703 1.87187 9.59832Z"
                   stroke="#BE2623"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M15 4.69995C16.07 5.04595 16.826 6.00095 16.917 7.12195"
                   stroke="#BE2623"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -133,16 +133,16 @@ const AddressInput = () => {
                   clip-rule="evenodd"
                   d="M1.87187 9.59832C0.798865 6.24832 2.05287 2.41932 5.56987 1.28632C7.41987 0.689322 9.46187 1.04132 10.9999 2.19832C12.4549 1.07332 14.5719 0.693322 16.4199 1.28632C19.9369 2.41932 21.1989 6.24832 20.1269 9.59832C18.4569 14.9083 10.9999 18.9983 10.9999 18.9983C10.9999 18.9983 3.59787 14.9703 1.87187 9.59832Z"
                   stroke="#BE2623"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M15 4.69995C16.07 5.04595 16.826 6.00095 16.917 7.12195"
                   stroke="#BE2623"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -181,9 +181,9 @@ const AddressInput = () => {
                 <path
                   d="M10.6668 1.66663L6.00016 6.33329L1.3335 1.66663"
                   stroke="#130F26"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
