@@ -50,5 +50,11 @@ module.exports = withMT({
       // => @media (max-width: 639px) { ... }
     },
   },
-  plugins: [require("@savvywombat/tailwindcss-grid-areas")],
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss/nesting")(require("postcss-nesting")),
+    require("autoprefixer"),
+    require("tailwindcss"),
+    require("@savvywombat/tailwindcss-grid-areas"),
+  ],
 });
