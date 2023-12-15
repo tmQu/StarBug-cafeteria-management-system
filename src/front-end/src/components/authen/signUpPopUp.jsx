@@ -5,7 +5,7 @@ import axios from "axios";
 import { set } from "react-hook-form";
 
 axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "http://localhost:4000/auth/signup",
 });
 
 const GMAIL_REGEX = /^[a-zA-Z0-9]+@gmail.com$/;
