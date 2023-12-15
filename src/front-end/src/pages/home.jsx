@@ -79,14 +79,14 @@ const Home = () => {
           className="w-screen max-w-[2000px] h-[386px] mx-auto"
           ref={sliderRef}
         >
-          {sliderVisible && <HomeSlider/>}
+          {sliderVisible && <HomeSlider />}
         </div>
         <div className="h-[160px] sm:h-[390px]">
           <div
             className="w-full flex items-center justify-center"
             ref={promotionRef}
           >
-            {promotionVisible && <Promotions/>}
+            {promotionVisible && <Promotions />}
           </div>
         </div>
         <div

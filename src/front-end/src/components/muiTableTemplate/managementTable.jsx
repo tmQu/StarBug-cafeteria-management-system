@@ -32,11 +32,14 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    borderRight: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-      }`,
-    borderBottom: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-      }`,
-    color: theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.65)",
+    borderRight: `1px solid ${
+      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+    }`,
+    borderBottom: `1px solid ${
+      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+    }`,
+    color:
+      theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.65)",
   },
   "& .MuiPaginationItem-root": {
     display: "flex",
@@ -74,7 +77,6 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     textAlign: "center",
   },
 }));
-
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
@@ -118,7 +120,8 @@ function CustomPagination() {
           sx={{
             color: props2.type === "page" ? "#F4F2EC" : "#0E3746",
             borderRadius: "50%",
-            backgroundColor: props2.type === "last" || "first" ? "transparent" : "inherit",
+            backgroundColor:
+              props2.type === "last" || "first" ? "transparent" : "inherit",
           }}
           disableRipple
         />
@@ -139,11 +142,11 @@ function ManagementTable({ rows, columns, tableName }) {
   return (
     <div className="w-fit h-fit mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
       <div className="w-full h-[92px] p-[15.14px] bg-stone-200 justify-between items-center flex flex-row">
-        <div className="w-fit text-[48px] font-bold text-[#BE2623]">
+        <div className="text-3xl pt-1 font-bold text-[#BE2623]">
           {tableName}
         </div>
         <RoundedButton
-          className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED]"
+          className="border-none pt-1 !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED]"
           name="ADD"
         />
       </div>

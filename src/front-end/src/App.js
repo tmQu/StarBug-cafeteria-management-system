@@ -19,8 +19,10 @@ import PaymentDetail from "./pages/payment";
 
 // Management Pages
 import OrderManagement from "./pages/management/orderManagement";
-import HomeManagement from "./pages/management/homeManagement";
+import ProductManagement from "./pages/management/productManagement";
 import StaffManagement from "./pages/management/staffManagement";
+import SliderManagement from "./pages/management/sliderManagement";
+import ReportManagement from "./pages/management/reportManagement";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -30,9 +32,18 @@ import SignUpPopUp from "./components/authen/signUpPopUp";
 import NewPassword from "./components/authen/newPassword";
 import ForgotPassword from "./components/authen/forgotPassword";
 
+// Popups
+import StaffPopUp from "./components/popUps/staffPopUp";
+import EditProductPopUp from "./components/popUps/editProductPopUp";
+import StaffEditPopUp from "./components/popUps/staffEditPopUp";
+
+// Redux
+import { useSelector } from "react-redux";
+
 const queryClient = new QueryClient();
 
 function App() {
+  const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
       <QueryClientProvider client={queryClient}>
@@ -41,18 +52,23 @@ function App() {
             <Header />
           </div>
           <div className="h-fit">
-            <NavigationBar />
+            {/* if login successful -> isAdmin = true */}
+            <NavigationBar isAdmin={false} />
           </div>
         </div>
-        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">  
-            {/* <AddToCartPopup /> */}
-            {/* <LogInPopUp/> */}
-            <SignUpPopUp/>
-            {/* <NewPassword/> */}
-            {/* <ForgotPassword /> */}
+        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-[20%] grid-in-content z-50">
+          {/* <AddToCartPopup /> */}
+          {/* <LogInPopUp/> */}
+          {/* <SignUpPopUp/> */}
+          {/* <NewPassword/> */}
+          {/* <ForgotPassword /> */}
+          {/* <StaffPopUp /> */}
+          {/* <EditProductPopUp /> */}
+          {/* <StaffEditPopUp /> */}
         </div>
         <div className="">
           <Routes>
+            {/* Public users */}
             <Route path="/" element={<Home />} />
             <Route path="/tea" element={<Tea />} />
             <Route path="/milktea" element={<MilkTea />} />
@@ -62,9 +78,27 @@ function App() {
             <Route path="/product" element={<Product />}></Route>
             <Route path="/payment" element={<PaymentDetail />}></Route>
             <Route path="/setting" element={<Setting />}></Route>
-            <Route path="/order-management" element={<OrderManagement />}></Route>
-            <Route path="/home-management" element={<HomeManagement/>}></Route>
-            <Route path="/staff-management" element={<StaffManagement />}></Route>
+            {/* Admin & Staff */}
+            <Route
+              path="/order-management"
+              element={<OrderManagement />}
+            ></Route>
+            <Route
+              path="/staff-management"
+              element={<StaffManagement />}
+            ></Route>
+            <Route
+              path="/product-management"
+              element={<ProductManagement />}
+            ></Route>
+            <Route
+              path="/slider-management"
+              element={<SliderManagement />}
+            ></Route>
+            <Route
+              path="/report-management"
+              element={<ReportManagement />}
+            ></Route>
           </Routes>
         </div>
         <div className="">

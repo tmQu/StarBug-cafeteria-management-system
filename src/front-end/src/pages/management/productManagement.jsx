@@ -1,5 +1,3 @@
-import * as React from "react";
-import { Button } from "@mui/material";
 import ManagementTable from "../../components/muiTableTemplate/managementTable";
 import items from "../../api/items";
 
@@ -85,10 +83,10 @@ const rows =
       }))
     : [];
 
-const HomeManagement = () => {
+const ProductManagement = () => {
   return (
     <div className="w-screen h-fit mx-auto">
-      <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+      <div className="w-screen h-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div>
           <ManagementTable
             columns={columns}
@@ -101,4 +99,4 @@ const HomeManagement = () => {
   );
 };
 
-export default HomeManagement;
+export default ProductManagement;
