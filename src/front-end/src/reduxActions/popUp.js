@@ -8,8 +8,10 @@ export const popUpActions = createSlice({
   },
   reducers: {
     toggleLogin: (state, action) => {
-      state.isOpenLoginPopUp = !state.isOpenLoginPopUp;
       if (action.payload === false) state.isOpenLoginPopUp = false;
+      else {
+        state.isOpenLoginPopUp = !state.isOpenLoginPopUp;
+      }
     },
     toggleAddToCart: (state, action) => {
       state.isOpenAddToCartPopUp = !state.isOpenAddToCartPopUp;

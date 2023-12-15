@@ -18,15 +18,13 @@ const Header = () => {
   const handleLoginButton = () => {
     dispatch(toggleLogin());
   };
-  const handleCartButton = () => {
-    dispatch();
-  };
+  const handleCartButton = () => {};
 
   const { isOpenLoginPopUp } = useSelector((state) => state.popUpReducer);
 
   useEffect(() => {
     const mouseDownHandler = (e) => {
-      if (!loginPopUpRef.current.contains(e.target)) {
+      if (isOpenLoginPopUp && !loginPopUpRef.current.contains(e.target)) {
         handleLoginButton(false);
       }
     };
@@ -48,16 +46,18 @@ const Header = () => {
           <SearchBar />
         </div>
 
-        <div ref={loginPopUpRef} className="flex flex-row gap-3">
+        <div className="flex flex-row gap-3">
           <div className="hidden sm:block">
             <SearchButtonMobile onClick={() => {}} />
           </div>
           <CartButton onClick={() => handleCartButton()} />
-          <div className="sm:hidden">
-            <LoginButton onClick={() => handleLoginButton()} />
-          </div>
-          <div className="absolute top-12 right-[20%] z-50">
-            {isOpenLoginPopUp && <SignInPopUp />}
+          <div ref={loginPopUpRef}>
+            <div className="sm:hidden">
+              <LoginButton onClick={() => handleLoginButton()} />
+            </div>
+            <div className="absolute top-12 right-[20%] z-50">
+              {isOpenLoginPopUp && <SignInPopUp />}
+            </div>
           </div>
         </div>
       </div>
