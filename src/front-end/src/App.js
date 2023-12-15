@@ -46,8 +46,8 @@ function App() {
         </div>
         <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">  
             {/* <AddToCartPopup /> */}
-            {/* <LogInPopUp/> */}
-            <SignUpPopUp/>
+            <LogInPopUp/>
+            {/* <SignUpPopUp/> */}
             {/* <NewPassword/> */}
             {/* <ForgotPassword /> */}
         </div>

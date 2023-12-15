@@ -2,17 +2,16 @@ import { useRef, useState, useEffect } from "react";
 import LargeButton from "../buttons/largeButton";
 import "./authen.css";
 import axios from "axios";
-import { set } from "react-hook-form";
 
 axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "http://localhost:4000",
 });
+const REGISTER_URL = "/register";
 
 const GMAIL_REGEX = /^[a-zA-Z0-9]+@gmail.com$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const PHONE_REGEX = /^0[0-9]+$/;
-const REGISTER_URL = "/register";
 
 const Register = () => {
   const emailRef = useRef();
@@ -121,6 +120,7 @@ const Register = () => {
         </section>
       ) : (
         <div className="w-[380px] h-fit py-4 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
+          <p ref={errRef} className={errMsg ? "text-sm text-[#BE2634] px-1 -mb-8" : "hidden"} aria-live="assertive">{errMsg}</p>
           <div className="w-[24px] h-[24px] -mb-4 mr-auto pl-3">
             <button className="hover:scale-110 transition-transform duration-500 ease-in-out">
               <svg
@@ -212,7 +212,7 @@ const Register = () => {
             <div className="w-full h-full flex relative justify-center items-center">
               <input
                 className="input"
-                placeholder="USERNAME"
+                placeholder="FULLNAME"
                 name="username"
                 ref={userRef}
                 autoComplete="off"
