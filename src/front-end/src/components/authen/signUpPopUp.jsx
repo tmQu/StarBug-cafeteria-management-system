@@ -4,7 +4,7 @@ import "./authen.css";
 import axios from "axios";
 
 axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "http://localhost:4000/auth/signup",
 });
 const REGISTER_URL = "/register";
 

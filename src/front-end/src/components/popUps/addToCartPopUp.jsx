@@ -1,8 +1,8 @@
-import SizeSelect from "../sizeSelect";
-import ToppingSelect from "../toppingSelect";
+import SizeSelect from "../itemsDetail/sizeSelect";
+import ToppingSelect from "../itemsDetail/toppingSelect";
 import AddToCartButton from "../buttons/addToCartButton";
-import NoteHere from "../noteHere";
-import ProductInfo from "../productInfo";
+import NoteHere from "../itemsDetail/noteHere";
+import ProductInfo from "../itemsDetail/productInfo";
 
 const AddToCartPopup = () => {
   return (

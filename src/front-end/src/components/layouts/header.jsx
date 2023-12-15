@@ -4,12 +4,35 @@ import LoginButton from "../buttons/loginButton";
 import Logo from "../logo";
 import SearchButtonMobile from "../../responsive/searchButton";
 import MenuButtonMobile from "../../responsive/menuButton";
+import SignInPopUp from "../authen/logInPopUp";
+
+import { useDispatch, useSelector } from "react-redux";
+import { toggleLogin } from "../../reduxActions/popUp";
+import { useEffect, useRef } from "react";
 
 const Header = () => {
-  const handleLogin = () => {
-    alert("Login");
-  };
+  const loginPopUpRef = useRef();
 
+  const dispatch = useDispatch();
+
+  const handleLoginButton = () => {
+    dispatch(toggleLogin());
+  };
+  const handleCartButton = () => {};
+
+  const { isOpenLoginPopUp } = useSelector((state) => state.popUpReducer);
+
+  useEffect(() => {
+    const mouseDownHandler = (e) => {
+      if (isOpenLoginPopUp && !loginPopUpRef.current.contains(e.target)) {
+        handleLoginButton(false);
+      }
+    };
+    document.addEventListener("mousedown", mouseDownHandler);
+    return () => {
+      document.removeEventListener("mousedown", mouseDownHandler);
+    };
+  });
   return (
     <div className="w-screen pt-2 content-center h-full grid-in-header bg-[#BE2623]">
       <div className="w-[1120px] xl:w-screen h-[40px] mx-auto xl:px-4 sm:px-2 flex flex-row justify-between">
@@ -27,9 +50,14 @@ const Header = () => {
           <div className="hidden sm:block">
             <SearchButtonMobile onClick={() => {}} />
           </div>
-          <CartButton />
-          <div className="sm:hidden">
-            <LoginButton onClick={() => handleLogin()} />
+          <CartButton onClick={() => handleCartButton()} />
+          <div ref={loginPopUpRef}>
+            <div className="sm:hidden">
+              <LoginButton onClick={() => handleLoginButton()} />
+            </div>
+            <div className="absolute top-12 right-[20%] z-50">
+              {isOpenLoginPopUp && <SignInPopUp />}
+            </div>
           </div>
         </div>
       </div>
