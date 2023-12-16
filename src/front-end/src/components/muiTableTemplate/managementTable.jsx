@@ -117,8 +117,8 @@ function ManagementTable({ rows, columns, tableName }) {
   });
 
   return (
-    <div className=" w-fit lg:w-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
-      <div className="w-full lg:h-[92px] p-[15.14px] bg-stone-200 flex flex-row justify-between items-center">
+    <div className=" w-fit lg:w-full h-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
+      <div className="w-full p-[15.14px] bg-stone-200 flex flex-row justify-between items-center">
         <div className="text-[48px] lg:text-[32px] font-bold text-[#BE2623] mb-2 lg:mb-0">
           {tableName}
         </div>
