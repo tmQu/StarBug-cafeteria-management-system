@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link, useLocation } from 'react-router-dom';
 import {
   DataGrid,
   gridPageCountSelector,
@@ -14,6 +15,7 @@ import { RoundedButton } from "../buttons/button";
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   border: 0,
+  overflowX: 'auto',
   color: theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.85)",
   WebkitFontSmoothing: "auto",
   letterSpacing: "normal",
@@ -81,52 +83,28 @@ function CustomPagination() {
   const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
 
-  const StyledPagination = styled(Pagination)({
-    "& .MuiPagination-ul li:last-child": {
-      marginLeft: "16px",
-    },
-    "& .MuiPagination-ul li:last-child button::before": {
-      content: "'Next'",
-      marginRight: "8px",
-    },
-    "& .MuiPagination-ul li:first-child": {
-      marginRight: "16px",
-    },
-    "& .MuiPagination-ul li:first-child button::after": {
-      content: "'Previous'",
-      marginLeft: "8px",
-    },
-    // remove next and previous icon
-    "& .MuiPaginationItem-icon": {
-      display: "none",
-    },
-    "& .MuiPaginationItem-root:hover": {
-      backgroundColor: "transparent",
-      color: "#BE2623",
-    },
-  });
-
-  return (
-    <StyledPagination
-      page={page + 1}
-      count={pageCount}
-      // background color of the pagination
-      sx={{ color: "#BE2623", mx: "auto", my: "auto", width: "fit-content" }}
-      renderItem={(props2) => (
+  const StyledPagination = (
+    <Pagination
+      count={10}
+      renderItem={(item) => (
         <PaginationItem
-          {...props2}
-          sx={{
-            color: props2.type === "page" ? "#F4F2EC" : "#0E3746",
-            borderRadius: "50%",
-            backgroundColor: props2.type === "last" || "first" ? "transparent" : "inherit",
-          }}
-          disableRipple
+          {...item}
         />
       )}
+      sx={{
+        color: "#BE2623",
+        mx: "auto",
+        my: "auto",
+        width: "fit-content"
+      }}
       onChange={(event, value) => apiRef.current.setPage(value - 1)}
     />
   );
+
+  return StyledPagination;
 }
+
+
 
 const PAGE_SIZE = 10;
 
@@ -137,13 +115,13 @@ function ManagementTable({ rows, columns, tableName }) {
   });
 
   return (
-    <div className="w-fit h-fit mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
-      <div className="w-full h-[92px] p-[15.14px] bg-stone-200 justify-between items-center flex flex-row">
-        <div className="w-fit text-[48px] font-bold text-[#BE2623]">
+    <div className=" w-fit lg:w-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
+      <div className="w-full lg:h-[92px] p-[15.14px] bg-stone-200 flex flex-row justify-between items-center">
+        <div className="text-[48px] lg:text-[32px] font-bold text-[#BE2623] mb-2 lg:mb-0">
           {tableName}
         </div>
         <RoundedButton
-          className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED]"
+          className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED] lg:mr-2"
           name="ADD"
         />
       </div>
