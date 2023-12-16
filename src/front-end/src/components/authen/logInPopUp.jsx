@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import LargeButton from "../buttons/largeButton";
-import useAuth from "../../hooks/userAuth";
+import useAuth from "../../hooks/useAuth";
 import "../../css/authen.css";
 
 axios.create({
@@ -12,7 +12,7 @@ axios.create({
 const LOGIN_URL = "http://localhost:4000/auth/login";
 
 const SignInPopUp = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, persist, setPersist } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,6 +32,14 @@ const SignInPopUp = () => {
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd]);
+
+  const togglePersist = () => {
+    setPersist((prev) => !prev);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("persist", persist);
+  }, [persist]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -143,6 +151,16 @@ const SignInPopUp = () => {
             required
           />
         </div>
+      </div>
+      <div className="h-fit -mt-2 -mb-2 mr-auto ml-8 flex items-center">
+        <input
+          type="checkbox"
+          id="persist"
+          className="w-[16px] h-[16px]"
+          onChange={togglePersist}
+          checked={persist}
+        />
+        <text className="text-[#0E3746] text-[16px] font-normal ml-[10px]"> Trust This Device </text>
       </div>
       <div className="w-[300px] h-[44px] flex justify-center items-center">
         <LargeButton name="LOGIN" type="submit" onClick={handleSubmit} />
