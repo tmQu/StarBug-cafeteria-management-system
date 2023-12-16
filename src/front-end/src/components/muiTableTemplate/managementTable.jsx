@@ -85,7 +85,7 @@ function CustomPagination() {
 
   const StyledPagination = (
     <Pagination
-      count={10}
+      count={pageCount}
       renderItem={(item) => (
         <PaginationItem
           {...item}
