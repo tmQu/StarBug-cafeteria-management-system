@@ -1,9 +1,9 @@
-import { useNavigate, Link } from "react-router-dom";
-import userLogout from "../../hooks/useLogout";
+import { useNavigate } from "react-router-dom";
+import useLogout from "../../hooks/useLogout";
 
 const UserPopUp = () => {
   const navigate = useNavigate();
-  const logout = userLogout();
+  const logout = useLogout();
 
   const handleLogout = async () => {
     await logout();

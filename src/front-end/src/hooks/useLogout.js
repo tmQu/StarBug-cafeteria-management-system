@@ -5,7 +5,7 @@ axios.create({
   baseURL: "http://localhost:4000",
 });
 
-const userLogout = () => {
+const useLogout = () => {
   const { setAuth } = useAuth();
 
   const logout = async () => {
@@ -20,4 +20,4 @@ const userLogout = () => {
   };
 };
 
-export default userLogout;
+export default useLogout;
