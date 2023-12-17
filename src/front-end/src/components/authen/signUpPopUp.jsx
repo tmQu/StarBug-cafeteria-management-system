@@ -4,11 +4,11 @@ import "../../css/authen.css";
 import axios from "axios";
 
 axios.create({
-  baseURL: "http://localhost:4000/auth/signup",
+  baseURL: "http://localhost:4000",
 });
-const REGISTER_URL = "/register";
+const REGISTER_URL = "/auth/signup";
 
-const GMAIL_REGEX = /^[a-zA-Z0-9]+@gmail.com$/;
+const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const PHONE_REGEX = /^0[0-9]+$/;

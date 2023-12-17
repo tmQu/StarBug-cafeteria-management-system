@@ -1,4 +1,15 @@
+import { useNavigate, Link } from "react-router-dom";
+import userLogout from "../../hooks/useLogout";
+
 const UserPopUp = () => {
+  const navigate = useNavigate();
+  const logout = userLogout();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/");
+  } 
+
   return (
     <div className="w-[305px] h-[330px] flex flex-col bg-[#F4F2EC] px-[8px] py-[10px] rounded-[8px]">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
@@ -137,7 +148,7 @@ const UserPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]">Sign Out</div>
+        <div className="text-[#0E3746] font-medium text-[20px]"><button onClick={handleLogout}>Sign Out</button></div>
       </div>
     </div>
   );
