@@ -43,6 +43,7 @@ import { useSelector } from "react-redux";
 const queryClient = new QueryClient();
 
 function App() {
+  
   const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
@@ -53,7 +54,7 @@ function App() {
           </div>
           <div className="h-fit">
             {/* if login successful -> isAdmin = true */}
-            <NavigationBar isAdmin={false} />
+            <NavigationBar isAdmin={true} />
           </div>
         </div>
         <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-[20%] grid-in-content z-50">

@@ -6,7 +6,7 @@ import axios from "axios";
 axios.create({
   baseURL: "http://localhost:4000",
 });
-const LOGIN_URL = "/auth";
+const LOGIN_URL = "http://localhost:4000/auth/signin";
 
 const SignInPopUp = () => {
   const { setAuth } = useContext(AuthContext);
@@ -51,6 +51,8 @@ const SignInPopUp = () => {
         setErrMsg("Missing email or password");
       } else if (err?.response?.status === 401) {
         setErrMsg("Wrong email or password");
+      } else if (err?.response?.status === 402) {
+        setErrMsg("Not verified user, please check your email");
       } else {
         setErrMsg("Login failed");
       }
