@@ -30,7 +30,7 @@ app.use('/auth', authRouter);
 const dbName = "Starbug"
 const dbUrl = `mongodb+srv://StarbugCoffee:vcydm8VTdB75VRjz@starbugproject.ukwaquc.mongodb.net/${dbName}?retryWrites=true&w=majority`
 
-mongoose.connect('mongodb://127.0.0.1:27017/temp').then(()=> {
+mongoose.connect(dbUrl).then(()=> {
     console.log('connected to db')
 });
 
