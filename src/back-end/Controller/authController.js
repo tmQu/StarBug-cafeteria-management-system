@@ -8,30 +8,40 @@ const expiredDate = 3*24*60*60; // 3 days
 const errorHandle = (err) => 
 {
     console.log(err);
-    var errors = {};
+    var errors = {
+        status: 500,
+        error: 'Internal Server Error'
+    };
     if (err.message == 'Wrong password' || err.message == 'Not valid user')
     {
-        errors.error = 'Not valid Email/Password';
+        errors.status = 401;
+        errors.error = 'Wrong Email or Password';
         return errors;
     }
     if (err.message == 'Not verified user')
     {
-        errors.error = 'Not verified user';
+        errors.status = 402;
+        errors.error = 'Not verified user, please check your email';
 
         return errors;
     }
-    // error checking unique email
-    if (err.code === 11000)
+    if (err.message && err.message.includes('User validation failed'))
     {
-        errors.email = 'That email is already exists';
-        return errors
-    }
-    if (err.message.includes('user validation failed'))
-    {
+        errors.status=400;
         Object.values(err.errors).forEach(({properties}) => {
             errors[properties.path] = properties.message
         })
+        return errors;
     }
+
+    // error checking unique email
+    if (err.code === 11000)
+    {
+        errors.status = 409;
+        errors.error = 'Email is already registered';
+        return errors
+    }
+
     return errors;
 }
 
@@ -67,23 +77,28 @@ const authHandler = {
     signUp: async (req, res) => {
         console.log('sing')
         const userInfo = req.body;
-
+        console.log(req.body)
         try {
-            const user = User(userInfo).save();
+            const user = await User(userInfo).save();
             sendVerifyEmail(userInfo.email);
-            res.stauts(201);
+            res.status(201);
         }
         catch(err) {
             console.log(err);
-            res.status(400).json(errorHandle(err))
+            var errors = errorHandle(err);
+            res.status(errors.status).json(errors.error)
         }
     },
     signIn: async (req, res) => {
+        console.log('sign in')
+        console.log(req.body);
         const {email, pwd} = req.body;
 
         try {
             const user = await User.login(email, pwd)
             const token = createToken(user.email);
+            console.log('sigin in token')
+            console.log(token)
             res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
             res.status(201).json({email: user.email});
         }
@@ -93,7 +108,9 @@ const authHandler = {
             {
                 sendVerifyEmail(email);
             }
-            res.status(400).json(errorHandle(err))
+            var errors = errorHandle(err);
+            console.log(errors);
+            res.status(errors.status).json(errors.error)
         }
     },
     sendVerifyEmail: (req, res) => {
@@ -101,19 +118,25 @@ const authHandler = {
         sendVerifyEmail(email)
     },
     verify: async (req, res) => {
-        var token = req.query.token;
-        if (!token)
+        var verifyToken = req.query.token;
+        console.log(verifyToken);
+        if (!verifyToken)
         {
+            console.log('no token')
             res.status(400);
+        
         }
 
         try{
-            var decodedToken = jwt.verify(token, process.env.VERIFY_SECRET)
+            var decodedToken = jwt.verify(verifyToken, process.env.VERIFY_SECRET)
             var result = await User.findOneAndUpdate({email: decodedToken.email}, {verified: true});
             const token = createToken(decodedToken.email);
-
+            console.log('success verify');
+            console.log(token);
             res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
-            res.status(201).json({email: decodedToken.email});
+            // res.status(201).json({email: decodedToken.email});
+            res.redirect('http://localhost:3000');
+
         }
         catch (err)
         {

@@ -3,19 +3,20 @@ import mongoose from "mongoose";
 const userSchema = mongoose.Schema({
     email: {
         type: String,
-        unique: true
+        // unique: true,
+        required: [true, 'Email is required field']
     },
     name: {
         type: String,
-        require: true
+        required: [true, 'Name is required field']
     },
     phone: {
         type: String,
-        require: true
+        required: [true, 'Phone is required field']
     },
     pwd: {
         type: String,
-        require: true
+        required: [true, 'Password is required field']
     },
     verified: {
         type: Boolean,
@@ -40,7 +41,7 @@ userSchema.statics.login = async (email, pwd) => {
     user = user[0];
 
     console.log(pwd)
-    console.log(pwd === user.pwd)
+    // console.log(pwd === user.pwd)
     if (user)
     {
         // hash pwd compare later
