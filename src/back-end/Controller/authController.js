@@ -67,9 +67,16 @@ const createForgetPwdToken = (email) => {
 
 const sendVerifyEmail = (email) => {
     var verifyToken = createVerifyToken(email);
-    var verifyUrl = process.env.SERVER_URL + `/auth/verify?token=${verifyToken}`
-    var htmlContent = '<a>' + verifyUrl + '</a>'
-    sendEmail(email, '[StarBug] verify email', htmlContent);
+    var verifyUrl = process.env.SERVER_URL + `/auth/verify?token=${verifyToken}`;
+    var htmlContent = `<a href=${verifyUrl}>Verify link</a>`
+    sendEmail(email, '[StarBug] Verify email', htmlContent);
+}
+
+const sendForgetPwdEmail = (email) => {
+    var forgetPwdToken = createForgetPwdToken(email);
+    var forgetPwdUrl = process.env.APP_URL + `/reset?token=${forgetPwdToken}`;
+    var htmlContent = `<a href=${forgetPwdUrl}>Reset link</a>`
+    sendEmail(email, '[StarBug] Reset Password', htmlContent);
 }
 
 
@@ -115,7 +122,8 @@ const authHandler = {
     },
     sendVerifyEmail: (req, res) => {
         var email = req.query.email;
-        sendVerifyEmail(email)
+        sendVerifyEmail(email);
+        res.staus(201);
     },
     verify: async (req, res) => {
         var verifyToken = req.query.token;
@@ -142,6 +150,64 @@ const authHandler = {
         {
             console.log(err)
             res.status(401).json({error: err});
+        }
+
+    },
+    refreshToken: async (req, res) => {
+        console.log('refresh token')
+        console.log(req.cookies)
+        const token = req.cookies.jwt;
+        if (!token)
+        {
+            console.log('no token')
+            res.status(400);
+        }
+        try{
+            var decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+            const user = await User.findOne({email: decodedToken.email});
+            const newToken = createToken(user.email);
+            res.cookie('jwt', newToken, {httpOnly: true, maxAge: expiredDate * 1000})
+            res.status(201).json({email: user.email, role: user.role, accessToken: newToken});
+        }
+        catch(err)
+        {
+            console.log(err);
+            res.status(401).json({error: err});
+        }
+    },
+    forgetPwd: async (req, res) => {
+        var email = req.body.email;
+        sendForgetPwdEmail(email);
+        res.staus(201);
+    },
+    resetPwd: async (req, res) => {
+        var forgetPwdToken = req.query.token;
+        console.log(forgetPwdToken);
+        if (!forgetPwdToken)
+        {
+            console.log('no token')
+            res.status(400);
+        
+        }
+        var newPwd = req.body.pwd;
+        if (jwt.verify(forgetPwdToken, process.env.FORGETPWD_SECRET))
+        {
+            try{
+                var decodedToken = jwt.verify(forgetPwdToken, process.env.FORGETPWD_SECRET)
+                var result = await User.findOneAndUpdate({email: decodedToken.email}, {pwd: newPwd});
+                const token = createToken(decodedToken.email);
+                console.log('success change pwd');
+                console.log(token);
+                res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
+                // res.status(201).json({email: decodedToken.email});
+                res.redirect('http://localhost:3000');
+    
+            }
+            catch (err)
+            {
+                console.log(err)
+                res.status(401).json({error: err});
+            }
         }
 
     }

@@ -1,28 +1,44 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
+    // idUser will be default _id
     email: {
         type: String,
         // unique: true,
         required: [true, 'Email is required field']
     },
+    imgAvatar:{
+        type: String,
+    },
     name: {
         type: String,
         required: [true, 'Name is required field']
-    },
-    phone: {
-        type: String,
-        required: [true, 'Phone is required field']
     },
     pwd: {
         type: String,
         required: [true, 'Password is required field']
     },
     verified: {
-        type: Boolean,
-        default: false
-    }
+        type: Boolean
+    },
+    role: {
+        type: String,
+        enum: ['customer', 'staff', 'manager'],
+        required: [true, 'Role is required field']
+    },
 
+    // customer infor
+    phone: {
+        type: String,
+    },
+
+    // staff infor and manager infor
+    birthdate:{
+        type: Date,
+    },
+    branchWork:{
+        type: String,
+    } 
 })
 
 // hash password
