@@ -5,7 +5,7 @@ import Logo from "../logo";
 import SearchButtonMobile from "../../responsive/searchButton";
 import MenuButtonMobile from "../../responsive/menuButton";
 import SignInPopUp from "../authen/logInPopUp";
-import SignUpPopUp from "../authen/signUpPopUp"
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLogin } from "../../reduxActions/popUp";
@@ -57,7 +57,7 @@ const Header = () => {
               <LoginButton onClick={() => handleLoginButton()} />
             </div>
             <div className="absolute top-12 right-[20%] z-50">
-              {isOpenLoginPopUp && <SignUpPopUp />}
+              {isOpenLoginPopUp && <SignInPopUp />}
             </div>
           </div>
         </div>
