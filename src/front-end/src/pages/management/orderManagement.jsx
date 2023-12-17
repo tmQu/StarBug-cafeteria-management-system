@@ -95,8 +95,8 @@ const rows =
 
 const OrderManagement = () => {
   return (
-    <div className="w-screen h-fit mx-auto">
-      <div className="w-screen h-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+    <div className="w-screen mx-auto">
+      <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div>
           <ManagementTable
             columns={columns}

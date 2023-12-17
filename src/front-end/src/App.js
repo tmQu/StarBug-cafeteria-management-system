@@ -5,6 +5,8 @@ import Header from "./components/layouts/header";
 import NavigationBar from "./components/layouts/navigationBar";
 import Footer from "./components/layouts/footer";
 import { Routes, Route } from "react-router-dom";
+import RequiredAuth from "./components/authen/requiredAuth";
+import PersistLogin from "./components/authen/persistLogin";
 
 // Category Pages
 import Tea from "./pages/tea";
@@ -57,15 +59,12 @@ function App() {
             <NavigationBar isAdmin={true} />
           </div>
         </div>
-        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-[20%] grid-in-content z-50">
-          {/* <AddToCartPopup /> */}
-          {/* <LogInPopUp/> */}
-          {/* <SignUpPopUp/> */}
-          {/* <NewPassword/> */}
-          {/* <ForgotPassword /> */}
-          {/* <StaffPopUp /> */}
-          {/* <EditProductPopUp /> */}
-          {/* <StaffEditPopUp /> */}
+        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">  
+            {/* <AddToCartPopup /> */}
+            {/* <LogInPopUp/> */}
+            {/* <SignUpPopUp/> */}
+            {/* <NewPassword/> */}
+            {/* <ForgotPassword /> */}
         </div>
         <div className="">
           <Routes>
@@ -78,28 +77,41 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/product" element={<Product />}></Route>
             <Route path="/payment" element={<PaymentDetail />}></Route>
-            <Route path="/setting" element={<Setting />}></Route>
-            {/* Admin & Staff */}
-            <Route
-              path="/order-management"
-              element={<OrderManagement />}
-            ></Route>
-            <Route
-              path="/staff-management"
-              element={<StaffManagement />}
-            ></Route>
-            <Route
-              path="/product-management"
-              element={<ProductManagement />}
-            ></Route>
-            <Route
-              path="/slider-management"
-              element={<SliderManagement />}
-            ></Route>
-            <Route
-              path="/report-management"
-              element={<ReportManagement />}
-            ></Route>
+
+            <Route element={<PersistLogin />}>
+              <Route
+                element={
+                  <RequiredAuth allowedRoles={["customer", "staff", "manager"]} />
+                }
+              >
+                <Route path="/setting" element={<Setting />} />
+              </Route>
+              {/* Admin & Staff */}
+              <Route
+                element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
+              >
+                <Route path="/order-management" element={<OrderManagement />} />
+              </Route>
+  
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
+                <Route path="/staff-management" element={<StaffManagement />} />
+              </Route>
+  
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
+                <Route
+                  path="/product-management"
+                  element={<ProductManagement />}
+                />
+              </Route>
+  
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
+                <Route path="/slider-management" element={<SliderManagement />} />
+              </Route>
+  
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
+                <Route path="/report-management" element={<ReportManagement />} />
+              </Route>
+            </Route>
           </Routes>
         </div>
         <div className="">
