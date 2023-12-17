@@ -10,6 +10,8 @@ const ForgotPassword = () => {
   const handleSend = () => {
     console.log("Đã gửi email tới:", email);
     setSendStatus("Email đã được gửi");
+
+    // axios reqest here
   };
 
   const handleResend = () => {

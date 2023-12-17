@@ -97,6 +97,9 @@ const Register = () => {
       setPwd("");
       setMatchPwd("");
       setPhoneNumber("");
+      
+      // message check email to verify
+      
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');

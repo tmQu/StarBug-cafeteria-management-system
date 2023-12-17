@@ -59,6 +59,9 @@ const SignInPopUp = () => {
       setEmail("");
       setPwd("");
       navigate(from, { replace: true });
+      //hide login popup, hide login button, show user avatar
+      // response?.data?.imageAvatar
+      // set static avatar for now, database not ready
     } catch (err) {
       if (!err.response) {
         setErrMsg("Server is not responding");
