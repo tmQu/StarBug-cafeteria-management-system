@@ -19,21 +19,17 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-<<<<<<< HEAD
-  font-family: "Source Sans 3", sans-serif;
-=======
-    font-family: 'Source Sans 3', sans-serif;
->>>>>>> c8bcea5 (Huybean-do-footer)
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "sans-serif";
+  font-family: "Source Sans 3", "sans-serif";
+  -webkit-font-smoothing: "antialiased";
+  -moz-osx-font-smoothing: "grayscale";
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "source-code-pro", "Menlo", "Monaco", "Consolas", "Courier New",
+    "monospace";
 }
 
 html *::-webkit-scrollbar {
@@ -56,5 +52,5 @@ html *::-webkit-scrollbar-thumb {
 
 html *::-webkit-scrollbar-track {
   border-radius: 0;
-  background-color: #F4F2EC;
+  background-color: #f4f2ec;
 }
