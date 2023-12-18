@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../buttons/button";
+
+import { motion } from "framer-motion";
 
 const NavigationBar = ({ isAdmin }) => {
   const navigate = useNavigate();
@@ -27,20 +29,9 @@ const NavigationBar = ({ isAdmin }) => {
     ],
     []
   );
-  const [selectedButton, setSelectedButton] = useState("Home");
-
-  useEffect(() => {
-    const currentRoute = routes.find(
-      (route) => route.path === location.pathname
-    );
-    if (currentRoute) {
-      setSelectedButton(currentRoute.name);
-    }
-  }, [location.pathname, routes]);
 
   const handleButtonOnClick = (data) => {
     navigate(data.path);
-    setSelectedButton(data.name);
   };
 
   return (
@@ -48,19 +39,31 @@ const NavigationBar = ({ isAdmin }) => {
       <ul className="w-[1120px] xl:w-screen overflow-hidden sm:overflow-auto h-fit mx-auto flex flex-row justify-between items-center">
         {isAdmin === true
           ? adminRoutes.map((route) => (
-              <li key={route.name}>
+              <li key={route.name} className="h-fit relative">
+                {route.path === location.pathname && (
+                  <motion.span
+                    layoutId="underline"
+                    className="absolute left-0 top-[95%] h-[2px] block w-full bg-white"
+                  />
+                )}
                 <Button
                   name={route.name}
-                  isClicked={route.name === selectedButton}
+                  isClicked={route.path === location.pathname}
                   onClick={() => handleButtonOnClick(route)}
                 />
               </li>
             ))
           : routes.map((route) => (
-              <li key={route.name}>
+              <li key={route.name} className="h-fit relative">
+                {route.path === location.pathname && (
+                  <motion.span
+                    layoutId="underline"
+                    className="absolute left-0 top-[95%] h-[2px] block w-full bg-white"
+                  />
+                )}
                 <Button
                   name={route.name}
-                  isClicked={route.name === selectedButton}
+                  isClicked={route.path === location.pathname}
                   onClick={() => handleButtonOnClick(route)}
                 />
               </li>

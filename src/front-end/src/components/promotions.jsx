@@ -1,10 +1,10 @@
 import promotion from "../api/promotion";
 
 const Promotions = () => {
-  const itemsData = promotion.items
+  const itemsData = promotion.items;
 
   return (
-    <div className="relative -top-16 flex flex-row sm:flex-col justify-center items-center gap-6 sm:gap-4 animate-item-show">
+    <div className="relative -top-16 flex flex-row sm:flex-col justify-center items-center gap-6 sm:gap-4">
       {itemsData.length !== 0 &&
         itemsData.map((image) => (
           <img

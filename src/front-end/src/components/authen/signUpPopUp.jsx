@@ -1,20 +1,20 @@
 import { useRef, useState, useEffect } from "react";
-import LargeButton from "../buttons/largeButton";
-import "../../css/authen.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLogin, toggleSignUp } from "../../reduxActions/popUp";
 
 import SignInPopUp from "./logInPopUp";
-
+import LargeButton from "../buttons/largeButton";
+import "../../css/authen.css";
 
 axios.create({
-  baseURL: "http://localhost:4000/auth/signup",
+  baseURL: "http://localhost:4000",
 });
-const REGISTER_URL = "/register";
+const REGISTER_URL = "http://localhost:4000/auth/signup";
 
-const GMAIL_REGEX = /^[a-zA-Z0-9]+@gmail.com$/;
+const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const PHONE_REGEX = /^0[0-9]+$/;
@@ -50,6 +50,10 @@ const Register = () => {
   const userRef = useRef();
   const errRef = useRef();
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
@@ -70,7 +74,6 @@ const Register = () => {
   const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     emailRef.current.focus();
@@ -114,7 +117,12 @@ const Register = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ email: email, pwd: pwd, phone: phoneNumber, name: user }),
+        JSON.stringify({
+          email: email,
+          pwd: pwd,
+          phone: phoneNumber,
+          name: user,
+        }),
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
@@ -122,39 +130,37 @@ const Register = () => {
       );
       console.log(response.data);
       console.log(response.accessToken);
-      console.log(JSON.stringify(response))
-      setSuccess(true);
+      console.log(JSON.stringify(response));
       // Clear input field
       setEmail("");
       setPwd("");
       setMatchPwd("");
       setPhoneNumber("");
+      navigate(from, { replace: true });
+      // message check email to verify
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response');
+        setErrMsg("No Server Response");
       } else if (err.response?.status === 409) {
-        setErrMsg('Email has Taken');
+        setErrMsg("Email has Taken");
       } else {
-        setErrMsg('Registration Failed')
+        setErrMsg("Registration Failed");
       }
       errRef.current.focus();
     }
   };
 
   return (
-    <>
-      {success ? (
-        <section>
-          <h1>Success!</h1>
-          <p>
-            <a href="#">Sign In</a>
-          </p>
-        </section>
-      ) : (
         <>
           {isOpenSignInPopUp ? (<SignInPopUp />) : (
             <div className="w-[380px] h-fit py-4 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
-              <p ref={errRef} className={errMsg ? "text-sm text-[#BE2634] px-1 -mb-8" : "hidden"} aria-live="assertive">{errMsg}</p>
+              <p
+                ref={errRef}
+                className={errMsg ? "text-sm text-[#BE2634] px-1 -mb-8" : "hidden"}
+                aria-live="assertive"
+              >
+                {errMsg}
+              </p>
               <div className="w-[24px] h-[24px] -mb-4 mr-auto pl-3">
                 <button className="hover:scale-110 transition-transform duration-500 ease-in-out" onClick={handleSignInButton}>
                   <svg
@@ -303,8 +309,8 @@ const Register = () => {
                 }
               >
                 {" "}
-                8 characters must include uppercase and lowercase letters, a number
-                and a special character:
+                8 characters must include uppercase and lowercase letters, a number and
+                a special character:
                 <span aria-label="exclamation mark"> ! </span>{" "}
                 <span aria-label="at symbol">@</span>{" "}
                 <span aria-label="hashtag">#</span>{" "}
@@ -406,8 +412,6 @@ const Register = () => {
             </div>
           )}
         </>
-      )}
-    </>
   );
 };
 

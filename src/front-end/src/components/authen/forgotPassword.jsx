@@ -5,7 +5,9 @@ import SignInPopUp from "./logInPopUp";
 import SignUpPopUp from "./signUpPopUp";
 
 import { useDispatch, useSelector } from "react-redux";
-import {toggleSignUp, toggleForgotPassword } from "../../reduxActions/popUp";
+import { toggleSignUp, toggleForgotPassword } from "../../reduxActions/popUp";
+
+import axios from "axios";
 
 const ForgotPassword = () => {
 
@@ -59,24 +61,61 @@ const ForgotPassword = () => {
   const [resendStatus, setResendStatus] = useState("");
   const [signupStatus, setSignupStatus] = useState("");
 
-  const handleSend = () => {
+  axios.create({
+    baseURL: "http://localhost:4000/auth/forgetpwd",
+  });
+
+  const URL = "http://localhost:4000/auth/forgetpwd"
+
+  const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
+
+  const emailRef = useRef();
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+
+  useEffect(() => {
+    const result = GMAIL_REGEX.test(email);
+
+    setValidEmail(result);
+  }, [email]);
+
+  const handleSend = async (e) => {
     console.log("Đã gửi email tới:", email);
-    setSendStatus("Email đã được gửi");
+    // axios reqest here
+    e.preventDefault();
+    if (!GMAIL_REGEX.test(email)) {
+      setErrMsg("Invalid email");
+      return;
+    }
+    try {
+      const response = await axios.post(
+        URL,
+        JSON.stringify({
+          email: email,
+
+        }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      // Clear input field
+      setEmail("");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleResend = () => {
     console.log("Đã gửi lại email tới:", email);
-    setResendStatus("Email đã được gửi lại");
   };
 
   const handleSignup = () => {
     console.log("Đăng ký với email:", email);
-    setSignupStatus("Đã đăng ký thành công");
   };
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
   return (
     <>
       {isOpenSignInPopUp ? (<SignInPopUp />) :
@@ -85,8 +124,8 @@ const ForgotPassword = () => {
             {isOpenSignUpPopUp ? (<SignUpPopUp />) :
               (
                 <div className="w-[380px] h-[270px] flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
-                  <div className="w-[24px] h-[24px] -mt-6 mr-auto pl-3" onClick={handleSignInButton}>
-                    <button className="hover:scale-110 transition-transform duration-500 ease-in-out">
+                  <div className="w-[24px] h-[24px] -mt-6 mr-auto pl-3">
+                    <button className="hover:scale-110 transition-transform duration-500 ease-in-out" onClick={handleSignInButton}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -126,11 +165,28 @@ const ForgotPassword = () => {
                     </div>
                     <div className="w-full h-full flex relative justify-center items-center">
                       <input
-                        className="w-full text-[18px] font- font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
-                        placeholder="GMAIL"
-                        value={email}
-                        onChange={handleEmailChange}
+                        className="input"
+                        placeholder="EMAIL"
+                        name="email"
+                        ref={emailRef}
+                        autoComplete="off"
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        aria-invalid={validEmail ? "false" : "true"}
+                        aria-describedby="emailnote"
+                        onFocus={() => setEmailFocus(true)}
+                        onBlur={() => setEmailFocus(false)}
                       />
+                      <p
+                        id="emailnote"
+                        className={
+                          emailFocus && email && !validEmail
+                            ? "text-sm text-[#BE2634] px-1 m-0"
+                            : "hidden"
+                        }
+                      >
+                        invalid
+                      </p>
                     </div>
                   </div>
                   <div className="w-[300px] h-[44px] flex justify-center items-center">

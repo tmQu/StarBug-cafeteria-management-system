@@ -6,6 +6,7 @@ import SearchButtonMobile from "../../responsive/searchButton";
 import MenuButtonMobile from "../../responsive/menuButton";
 import SignInPopUp from "../authen/logInPopUp";
 
+
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLogin, toggleAddToCart} from "../../reduxActions/popUp";
 import { useEffect, useRef } from "react";

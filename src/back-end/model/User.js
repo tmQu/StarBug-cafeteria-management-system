@@ -1,27 +1,44 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
+    // idUser will be default _id
     email: {
         type: String,
-        unique: true
+        // unique: true,
+        required: [true, 'Email is required field']
+    },
+    imgAvatar:{
+        type: String,
     },
     name: {
         type: String,
-        require: true
-    },
-    phone: {
-        type: String,
-        require: true
+        required: [true, 'Name is required field']
     },
     pwd: {
         type: String,
-        require: true
+        required: [true, 'Password is required field']
     },
     verified: {
-        type: Boolean,
-        default: false
-    }
+        type: Boolean
+    },
+    role: {
+        type: String,
+        enum: ['customer', 'staff', 'manager'],
+        required: [true, 'Role is required field']
+    },
 
+    // customer infor
+    phone: {
+        type: String,
+    },
+
+    // staff infor and manager infor
+    birthdate:{
+        type: Date,
+    },
+    branchWork:{
+        type: String,
+    } 
 })
 
 // hash password
@@ -40,7 +57,7 @@ userSchema.statics.login = async (email, pwd) => {
     user = user[0];
 
     console.log(pwd)
-    console.log(pwd === user.pwd)
+    // console.log(pwd === user.pwd)
     if (user)
     {
         // hash pwd compare later

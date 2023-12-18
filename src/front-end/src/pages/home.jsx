@@ -11,7 +11,8 @@ import images from "../api/images";
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useInView } from "react-intersection-observer";
+
+import { motion } from "framer-motion";
 
 const Home = () => {
   // we will fetch items data from serverconst apiUrl = `https://fakestoreapi.com/products?limit=12`;
@@ -27,159 +28,88 @@ const Home = () => {
 
   const shuffledItems = items.sort(() => Math.random() - 0.5);
 
-  const { ref: sliderRef, inView: sliderVisible } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: promotionRef, inView: promotionVisible } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: introCardsRef, inView: introCardsVisible } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: bestSellerTitleRef, inView: bestSellerTitleVisible } = useInView(
-    {
-      threshold: 0,
-      triggerOnce: true,
-    }
-  );
-  const { ref: top3ItemsRef, inView: top3ItemsVisible } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: ourProductTitleRef, inView: ourProductTitleVisible } = useInView(
-    {
-      threshold: 0,
-      triggerOnce: true,
-    }
-  );
-  const { ref: itemsRef1, inView: itemsVisible1 } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: itemsRef2, inView: itemsVisible2 } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: itemsRef3, inView: itemsVisible3 } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { ref: showButtonRef, inView: showButtonVisible } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
   return (
-    <div className="w-screen h-fit mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 40 }}
+      className="w-screen h-fit mx-auto"
+    >
       <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div
-          className="w-screen max-w-[2000px] h-[386px] mx-auto"
-          ref={sliderRef}
-        >
-          {sliderVisible && <HomeSlider />}
+        <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
+          <HomeSlider />
         </div>
         <div className="h-[160px] sm:h-[390px]">
-          <div
-            className="w-full flex items-center justify-center"
-            ref={promotionRef}
-          >
-            {promotionVisible && <Promotions />}
+          <div className="w-full flex items-center justify-center">
+            <Promotions />
           </div>
         </div>
-        <div
-          className="w-full h-fit flex flex-col justify-center items-center"
-          ref={introCardsRef}
-        >
-          {introCardsVisible && (
-            <p className="mb-5 text-3xl font-semibold text-[#0D3746] animate-item-show">
-              Our values
-            </p>
-          )}
-          {introCardsVisible && <IntroCards />}
+        <div className="w-full h-fit flex flex-col justify-center items-center">
+          <p className="mb-5 text-3xl font-semibold text-[#0D3746]">
+            Our values
+          </p>
+
+          <IntroCards />
         </div>
-        <div
-          className="w-full h-fit py-2 flex flex-row justify-center items-center"
-          ref={bestSellerTitleRef}
-        >
-          {bestSellerTitleVisible && (
-            <p className="pt-1 text-3xl font-semibold text-[#0D3746] animate-item-show">
-              Best sellers
-            </p>
-          )}
+        <div className="w-full h-fit py-2 flex flex-row justify-center items-center">
+          <p className="pt-1 text-3xl font-semibold text-[#0D3746]">
+            Best sellers
+          </p>
         </div>
-        <div className="w-full h-fit" ref={top3ItemsRef}>
-          {top3ItemsVisible && <Top3Items />}
+        <div className="w-full h-fit">
+          <Top3Items />
         </div>
-        <div
-          className="w-full h-fit py-2 flex flex-row justify-center items-center"
-          ref={ourProductTitleRef}
-        >
-          {ourProductTitleVisible && (
-            <p className="pt-2 text-3xl font-semibold text-[#0D3746] animate-item-show">
-              Our products
-            </p>
-          )}
+        <div className="w-full h-fit py-2 flex flex-row justify-center items-center">
+          <p className="pt-2 text-3xl font-semibold text-[#0D3746]">
+            Our products
+          </p>
         </div>
         <div className="w-fit h-fit mx-auto xl:hidden">
           <div className="w-full flex flex-col gap-6">
-            <div className="" ref={itemsRef1}>
-              {itemsVisible1 && (
-                <div className="w-auto h-auto mx-auto flex flex-row gap-6 animate-item-show">
-                  {shuffledItems.slice(0, 4).map((item) => (
-                    <Item
-                      id={item.id}
-                      name={item.name}
-                      price={item.price}
-                      rate={item.rate}
-                      image={item.image}
-                    />
-                  ))}
-                </div>
-              )}
+            <div className="w-auto h-auto mx-auto flex flex-row gap-6">
+              {shuffledItems.slice(0, 4).map((item) => (
+                <Item
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  rate={item.rate}
+                  image={item.image}
+                />
+              ))}
             </div>
-            <div ref={itemsRef2}>
-              {itemsVisible2 && (
-                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {shuffledItems.slice(4, 8).map((item) => (
-                    <Item
-                      id={item.id}
-                      name={item.name}
-                      price={item.price}
-                      rate={item.rate}
-                      image={item.image}
-                    />
-                  ))}
-                </div>
-              )}
+
+            <div className="w-fit h-fit flex flex-row gap-6">
+              {shuffledItems.slice(4, 8).map((item) => (
+                <Item
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  rate={item.rate}
+                  image={item.image}
+                />
+              ))}
             </div>
-            <div className="" ref={itemsRef3}>
-              {itemsVisible3 && (
-                <div className="w-fit h-fit flex flex-row gap-6 animate-item-show">
-                  {shuffledItems.slice(8, 12).map((item) => (
-                    <Item
-                      id={item.id}
-                      name={item.name}
-                      price={item.price}
-                      rate={item.rate}
-                      image={item.image}
-                    />
-                  ))}
-                </div>
-              )}
+            <div className="w-fit h-fit flex flex-row gap-6">
+              {shuffledItems.slice(8, 12).map((item) => (
+                <Item
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  rate={item.rate}
+                  image={item.image}
+                />
+              ))}
             </div>
           </div>
         </div>
         <div className="w-fit h-fit mx-auto hidden xl:block">
           <ItemsMobileContainer items={items} />
         </div>
-        <div className="pb-6 pt-3" ref={showButtonRef}>
-          {showButtonVisible && <ShowAllButton />}
+        <div className="pb-6 pt-3">
+          <ShowAllButton />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
