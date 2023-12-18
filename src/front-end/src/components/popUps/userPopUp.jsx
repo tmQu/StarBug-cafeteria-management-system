@@ -53,7 +53,7 @@ const UserPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-          Profile Settings
+          <Link to="/setting">Profile Settings</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -96,7 +96,7 @@ const UserPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-          Order History
+          <Link to="/order-history">Order History</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">

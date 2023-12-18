@@ -65,6 +65,7 @@ function App() {
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
           {/* <ForgotPassword /> */}
+          <StaffPopUp />
         </div>
         <div className="">
           <AnimatePresence>

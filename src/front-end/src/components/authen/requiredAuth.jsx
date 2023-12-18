@@ -4,10 +4,11 @@ import useAuth from "../../hooks/useAuth";
 const RequiredAuth = ({ allowedRoles }) => {
   const { auth } = useAuth();
   const location = useLocation();
+  const role = auth?.role;
 
-  return auth?.roles?.find((role) => allowedRoles?.include(role)) ? (
+  return (allowedRoles?.includes(role)) ? (
     <Outlet />
-  ) : auth?.user ? (
+  ) : auth?.email ? (
     <Navigate to={{ pathname: "/unauthorized", state: { from: location } }} />
   ) : (
     <Navigate to={{ pathname: "/", state: { from: location } }} />

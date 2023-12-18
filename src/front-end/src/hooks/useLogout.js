@@ -18,6 +18,7 @@ const useLogout = () => {
       console.error(err);
     }
   };
+  return logout;
 };
 
 export default useLogout;

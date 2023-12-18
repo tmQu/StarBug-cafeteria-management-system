@@ -57,9 +57,6 @@ const ForgotPassword = () => {
   }, [isOpenSignUpPopUp]);
 
   const [email, setEmail] = useState("");
-  const [sendStatus, setSendStatus] = useState("");
-  const [resendStatus, setResendStatus] = useState("");
-  const [signupStatus, setSignupStatus] = useState("");
 
   axios.create({
     baseURL: "http://localhost:4000/auth/forgetpwd",

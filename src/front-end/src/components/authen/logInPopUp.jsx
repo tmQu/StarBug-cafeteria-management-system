@@ -12,7 +12,7 @@ import ForgotPassword from "../authen/forgotPassword"
 import SignUp from "../authen/signUpPopUp"
 
 import { useDispatch, useSelector } from "react-redux";
-import { toggleForgotPassword, toggleSignUp } from "../../reduxActions/popUp";
+import { toggleForgotPassword, toggleLogin, toggleSignUp } from "../../reduxActions/popUp";
 
 axios.create({
   baseURL: "http://localhost:4000",
@@ -24,7 +24,7 @@ const SignInPopUp = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location?.pathname || "/";
 
   const emailRef = useRef();
   const errRef = useRef();
@@ -113,8 +113,8 @@ const SignInPopUp = () => {
       setAuth({ email, role, accessToken });
       resetEmail();
       setPwd("");
-      console.log(`email: ${email}, role: ${role}, accessToken: ${accessToken}`);
       navigate(from, { replace: true });
+      dispatch(toggleLogin())
       //hide login popup, hide login button, show user avatar
       // response?.data?.imageAvatar
       // set static avatar for now, database not ready
@@ -130,6 +130,7 @@ const SignInPopUp = () => {
       } else {
         setErrMsg("Login failed");
       }
+      errRef.current.focus();
     }
   };
 
