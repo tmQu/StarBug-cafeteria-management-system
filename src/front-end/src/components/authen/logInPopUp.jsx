@@ -236,12 +236,14 @@ const SignInPopUp = () => {
                     <button
                       className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center mr-auto hover:scale-105 transition-transform duration-500 ease-in-out"
                       href="#"
+                      onClick={handleSignUpButton}
                     >
                       Sign up
                     </button>
                     <button
                       className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center ml-auto hover:scale-105 transition-transform duration-500 ease-in-out"
                       href="#"
+                      onClick={handleForgotButton}
                     >
                       Forgot password?
                     </button>
