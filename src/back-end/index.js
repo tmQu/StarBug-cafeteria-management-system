@@ -9,6 +9,14 @@ import { orderRouter } from './router/orderRouter.js';
 import {authRouter} from './router/authRouter.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+
 const app = express();
 const port = 4000;
 
@@ -21,7 +29,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/db', express.static('db'))
+
+
+app.use('/db', express.static(path.join(__dirname,'db')));
 app.use('/item', itemRouter);
 app.use('/promotion', promotionRouter);
 app.use('/slider', sliderRouter);
