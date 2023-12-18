@@ -17,7 +17,6 @@ import Cake from "./pages/cake";
 // Staff Pages
 import Product from "./pages/product";
 import Setting from "./pages/setting";
-import PaymentDetail from "./pages/payment";
 
 // Management Pages
 import OrderManagement from "./pages/management/orderManagement";
@@ -65,7 +64,7 @@ function App() {
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
           {/* <ForgotPassword /> */}
-          <StaffPopUp />
+          {/* <StaffPopUp /> */}
         </div>
         <div className="">
           <AnimatePresence>
@@ -78,7 +77,6 @@ function App() {
               <Route path="/cake" element={<Cake />} />
               <Route path="/about" element={<About />}></Route>
               <Route path="/product" element={<Product />}></Route>
-              <Route path="/payment" element={<PaymentDetail />}></Route>
 
               {/* <Route element={<PersistLogin />}> */}
               {/* <Route

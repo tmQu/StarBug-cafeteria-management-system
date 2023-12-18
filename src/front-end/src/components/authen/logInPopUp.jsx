@@ -1,6 +1,15 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import {
+  toggleLogin,
+  toggleSignUp,
+  toggleForgotPassword,
+} from "../../reduxActions/popUp";
+
+import { motion } from "framer-motion";
 
 import LargeButton from "../buttons/largeButton";
 import useAuth from "../../hooks/useAuth";
@@ -14,6 +23,21 @@ axios.create({
 const LOGIN_URL = "http://localhost:4000/auth/signin";
 
 const SignInPopUp = () => {
+  // PopUp Redux
+  const dispatch = useDispatch();
+
+  const handleSignUpButton = () => {
+    dispatch(toggleLogin(false));
+    dispatch(toggleSignUp(true));
+  };
+
+  const handleForgotPasswordButton = () => {
+    dispatch(toggleLogin(false));
+    dispatch(toggleSignUp(false));
+    dispatch(toggleForgotPassword(true));
+  };
+
+  // Auth
   const { setAuth } = useAuth();
 
   const navigate = useNavigate();
@@ -74,7 +98,12 @@ const SignInPopUp = () => {
   };
 
   return (
-    <div className="w-[380px] h-fit py-4 pt-6 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
+    <motion.div
+      initial={{ opacity: 0.5, y: 15, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-[380px] h-fit py-4 pt-6 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]"
+    >
       <p
         ref={errRef}
         className={
@@ -164,8 +193,7 @@ const SignInPopUp = () => {
           checked={check}
         />
         <text className="text-[#0E3746] text-[16px] font-normal ml-[10px]">
-          {" "}
-          Trust This Device{" "}
+          Trust This Device
         </text>
       </div>
       <div className="w-[300px] h-[44px] flex justify-center items-center">
@@ -175,17 +203,19 @@ const SignInPopUp = () => {
         <button
           className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center mr-auto hover:scale-105 transition-transform duration-500 ease-in-out"
           href="#"
+          onClick={() => handleSignUpButton()}
         >
           Sign up
         </button>
         <button
           className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center ml-auto hover:scale-105 transition-transform duration-500 ease-in-out"
           href="#"
+          onClick={() => handleForgotPasswordButton()}
         >
           Forgot password?
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
