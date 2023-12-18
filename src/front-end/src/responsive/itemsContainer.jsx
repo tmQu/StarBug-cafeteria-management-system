@@ -3,7 +3,7 @@ import Item from "../components/items/item";
 const ItemsMobileContainer = (props) => {
   return (
     <div
-      className="w-fit h-auto mx-auto grid grid-cols-3 sm:grid-cols-2 gap-4 justify-items-center animate-item-show
+      className="w-fit h-auto mx-auto grid grid-cols-3 sm:grid-cols-2 gap-4 justify-items-center
     "
     >
       {props.items.map((item) => (

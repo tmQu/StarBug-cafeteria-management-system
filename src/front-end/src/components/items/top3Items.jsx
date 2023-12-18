@@ -6,7 +6,7 @@ const Top3Items = () => {
 
   return (
     <div
-      className="w-fit h-fit mx-auto flex flex-row animate-item-show
+      className="w-fit h-fit mx-auto flex flex-row
       xl:flex-col xl:gap-4"
     >
       <div className="w-auto flex flex-row sm:flex-col xl:gap-4 ">
