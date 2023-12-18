@@ -5,21 +5,7 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {
-<<<<<<< HEAD
-      keyframes: {},
-=======
-      gridTemplateAreas: {
-        app: ["header", "navigation", "content", "footer"],
-      },
-      gridTemplateColumns: {
-        app: "1fr",
-      },
-      gridTemplateRows: {
-        app: "60px 60px 1fr 250px",
-      },
->>>>>>> 85ded07 (Chuong - Header fix commit)
-    },
+    extend: {},
     screens: {
       "2xl": { max: "1535px" },
       // => @media (max-width: 1535px) { ... }
@@ -39,7 +25,8 @@ module.exports = withMT({
   },
   plugins: [
     require("postcss-import"),
-    require("tailwindcss/nesting")(require("postcss-nesting")),
+    require("tailwindcss/nesting"),
+    require("postcss-nesting"),
     require("autoprefixer"),
     require("tailwindcss"),
     require("@savvywombat/tailwindcss-grid-areas"),
