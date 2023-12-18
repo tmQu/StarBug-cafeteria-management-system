@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/database', express.static('database'))
+app.use('/db', express.static('db'))
 app.use('/item', itemRouter);
 app.use('/promotion', promotionRouter);
 app.use('/slider', sliderRouter);

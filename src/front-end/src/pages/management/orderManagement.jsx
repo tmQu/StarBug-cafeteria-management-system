@@ -1,5 +1,3 @@
-import * as React from "react";
-import { Button } from "@mui/material";
 import ManagementTable from "../../components/muiTableTemplate/managementTable";
 import orders from "../../api/order";
 
@@ -73,7 +71,6 @@ const columns = [
             strokeLinejoin="round"
           />
         </svg>
-        
       </div>
     ),
   },

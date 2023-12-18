@@ -36,7 +36,7 @@ const NavigationBar = ({ isAdmin }) => {
 
   return (
     <div className="w-screen h-auto grid-in-navigation bg-[#BE2623]">
-      <ul className="w-[1120px] xl:w-screen overflow-hidden sm:overflow-auto h-fit mx-auto flex flex-row justify-between items-center">
+      <ul className="w-[1120px] xl:w-screen overflow-hidden sm:!overflow-x-auto h-fit mx-auto flex flex-row justify-between items-center">
         {isAdmin === true
           ? adminRoutes.map((route) => (
               <li key={route.name} className="h-fit relative">

@@ -24,7 +24,7 @@ import OrderManagement from "./pages/management/orderManagement";
 import ProductManagement from "./pages/management/productManagement";
 import StaffManagement from "./pages/management/staffManagement";
 import SliderManagement from "./pages/management/sliderManagement";
-import ReportManagement from "./pages/management/reportManagement";
+import StatisticReport from "./pages/management/statisticReport";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
@@ -80,54 +80,42 @@ function App() {
               <Route path="/product" element={<Product />}></Route>
               <Route path="/payment" element={<PaymentDetail />}></Route>
 
-              <Route element={<PersistLogin />}>
-                <Route
+              {/* <Route element={<PersistLogin />}> */}
+              {/* <Route
                   element={
                     <RequiredAuth
                       allowedRoles={["customer", "staff", "manager"]}
                     />
                   }
-                >
-                  <Route path="/setting" element={<Setting />} />
-                </Route>
-                {/* Admin & Staff */}
-                <Route
+                > */}
+              <Route path="/setting" element={<Setting />} />
+              {/* </Route> */}
+              {/* <Route
                   element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
-                >
-                  <Route
-                    path="/order-management"
-                    element={<OrderManagement />}
-                  />
-                </Route>
+                > */}
+              <Route path="/order-management" element={<OrderManagement />} />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/staff-management"
-                    element={<StaffManagement />}
-                  />
-                </Route>
+              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route path="/staff-management" element={<StaffManagement />} />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/product-management"
-                    element={<ProductManagement />}
-                  />
-                </Route>
+              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route
+                path="/product-management"
+                element={<ProductManagement />}
+              />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/slider-management"
-                    element={<SliderManagement />}
-                  />
-                </Route>
+              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route path="/slider-management" element={<SliderManagement />} />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/report-management"
-                    element={<ReportManagement />}
-                  />
-                </Route>
-              </Route>
+              <Route
+                path="statistic-report"
+                element={<StatisticReport />}
+              ></Route>
+              {/* </Route> */}
             </Routes>
           </AnimatePresence>
         </div>
