@@ -5,6 +5,8 @@ export const popUpActions = createSlice({
   initialState: {
     isOpenLoginPopUp: false,
     isOpenAddToCartPopUp: false,
+    isOpenForgotPasswordPopUp: false,
+    isOpenSignUpPopUp: false,
   },
   reducers: {
     toggleLogin: (state, action) => {
@@ -16,8 +18,16 @@ export const popUpActions = createSlice({
     toggleAddToCart: (state, action) => {
       state.isOpenAddToCartPopUp = !state.isOpenAddToCartPopUp;
     },
+    toggleForgotPassword: (state, action) => {
+      if (action.payload === false) state.isOpenForgotPasswordPopUp = false;
+      else state.isOpenForgotPasswordPopUp = !state.isOpenForgotPasswordPopUp;
+    },
+    toggleSignUp: (state, action) => {
+      if (action.payload === false) state.isOpenSignUpPopUp = false;
+      else state.isOpenSignUpPopUp = !state.isOpenSignUpPopUp;
+    },
   },
 });
 
-export const { toggleLogin, toggleAddToCart } = popUpActions.actions;
+export const { toggleLogin, toggleAddToCart, toggleForgotPassword, toggleSignUp } = popUpActions.actions;
 export default popUpActions.reducer;

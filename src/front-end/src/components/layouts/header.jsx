@@ -7,7 +7,7 @@ import MenuButtonMobile from "../../responsive/menuButton";
 import SignInPopUp from "../authen/logInPopUp";
 
 import { useDispatch, useSelector } from "react-redux";
-import { toggleLogin } from "../../reduxActions/popUp";
+import { toggleLogin, toggleAddToCart} from "../../reduxActions/popUp";
 import { useEffect, useRef } from "react";
 
 const Header = () => {
@@ -18,7 +18,9 @@ const Header = () => {
   const handleLoginButton = () => {
     dispatch(toggleLogin());
   };
-  const handleCartButton = () => {};
+  const handleCartButton = () => {
+    dispatch(toggleAddToCart());
+  };
 
   const { isOpenLoginPopUp } = useSelector((state) => state.popUpReducer);
 
@@ -38,7 +40,7 @@ const Header = () => {
       <div className="w-[1120px] xl:w-screen h-[40px] mx-auto xl:px-4 sm:px-2 flex flex-row justify-between">
         <div className="flex flex-row gap-2">
           <div className="hidden sm:block">
-            <MenuButtonMobile onClick={() => {}} />
+            <MenuButtonMobile onClick={() => { }} />
           </div>
           <Logo />
         </div>
@@ -48,7 +50,7 @@ const Header = () => {
 
         <div className="flex flex-row gap-3">
           <div className="hidden sm:block">
-            <SearchButtonMobile onClick={() => {}} />
+            <SearchButtonMobile onClick={() => { }} />
           </div>
           <CartButton onClick={() => handleCartButton()} />
           <div ref={loginPopUpRef}>
