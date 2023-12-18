@@ -1,8 +1,19 @@
 import Top3Item from "./top3Item";
 import items from "../../api/items";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Top3Items = () => {
   const top3Items = items.filter((item) => item.bestSeller === "Top");
+
+  const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=true`;
+  const { data } = useQuery({
+    queryKey: ["top3Items"],
+    queryFn: () => axios.get(apiUrl).then((res) => res),
+    staleTime: 1000 * 10,
+    retry: 3,
+  });
+  console.log(data?.data);
 
   return (
     <div
