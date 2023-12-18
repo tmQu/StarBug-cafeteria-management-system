@@ -6,7 +6,19 @@ module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+<<<<<<< HEAD
       keyframes: {},
+=======
+      gridTemplateAreas: {
+        app: ["header", "navigation", "content", "footer"],
+      },
+      gridTemplateColumns: {
+        app: "1fr",
+      },
+      gridTemplateRows: {
+        app: "59px 59px 1fr 250px",
+      },
+>>>>>>> 85ded07 (Chuong - Header fix commit)
     },
     screens: {
       "2xl": { max: "1535px" },

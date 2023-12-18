@@ -48,6 +48,7 @@ const queryClient = new QueryClient();
 function App() {
   const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
   return (
+<<<<<<< HEAD
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
       <QueryClientProvider client={queryClient}>
         <div className="w-full z-40">
@@ -134,6 +135,26 @@ function App() {
           <Footer />
         </div>
       </QueryClientProvider>
+=======
+    <div className="w-screen h-auto grid grid-areas-app grid-cols-app grid-rows-app">
+      <div className="fixed top-0 w-full z-40">
+        <div className="h-[60px]"><Header /></div>
+        <div className="h-[60px] pt-0"><NavigationBar /></div>
+      </div>
+      <div className="grid-in-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tea" element={<Tea />} />
+          <Route path="/milktea" element={<MilkTea />} />
+          <Route path="/coffee" element={<Coffee />} />
+          <Route path="/cake" element={<Cake />} />
+          <Route path="/about" element={<About />}></Route>
+        </Routes>
+      </div>
+      <div className="grid-in-footer">
+        <Footer />
+      </div>
+>>>>>>> 85ded07 (Chuong - Header fix commit)
     </div>
   );
 }
