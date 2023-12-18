@@ -25,6 +25,7 @@ import ProductManagement from "./pages/management/productManagement";
 import StaffManagement from "./pages/management/staffManagement";
 import SliderManagement from "./pages/management/sliderManagement";
 import ReportManagement from "./pages/management/reportManagement";
+import StatisticReport from "./pages/management/statisticReport";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
@@ -89,7 +90,6 @@ function App() {
                 >
                   <Route path="/setting" element={<Setting />} />
                 </Route>
-                {/* Admin & Staff */}
                 <Route
                   element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
                 >
@@ -98,7 +98,6 @@ function App() {
                     element={<OrderManagement />}
                   />
                 </Route>
-
                 <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
                   <Route
                     path="/staff-management"
@@ -126,6 +125,10 @@ function App() {
                     element={<ReportManagement />}
                   />
                 </Route>
+                <Route
+                  path="statistic-report"
+                  element={<StatisticReport />}
+                ></Route>
               </Route>
             </Routes>
           </AnimatePresence>
