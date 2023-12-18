@@ -13,6 +13,7 @@ import Tea from "./pages/tea";
 import MilkTea from "./pages/milktea";
 import Coffee from "./pages/coffee";
 import Cake from "./pages/cake";
+import Reset from "./pages/reset";
 
 // Staff Pages
 import Product from "./pages/product";
@@ -65,7 +66,7 @@ function App() {
           {/* <SignUpPopUp/> */}
           {/* <NewPassword/> */}
           {/* <ForgotPassword /> */}
-          <StaffPopUp />
+          {/* <StaffPopUp /> */}
         </div>
         <div className="">
           <AnimatePresence>
@@ -79,43 +80,44 @@ function App() {
               <Route path="/about" element={<About />}></Route>
               <Route path="/product" element={<Product />}></Route>
               <Route path="/payment" element={<PaymentDetail />}></Route>
+              <Route path="/reset" element={<Reset />}></Route>
 
-              {/* <Route element={<PersistLogin />}> */}
-              {/* <Route
+              <Route element={<PersistLogin />}>
+              <Route
                   element={
                     <RequiredAuth
                       allowedRoles={["customer", "staff", "manager"]}
                     />
                   }
-                > */}
+                >
               <Route path="/setting" element={<Setting />} />
-              {/* </Route> */}
-              {/* <Route
+              </Route>
+              <Route
                   element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
-                > */}
+                >
               <Route path="/order-management" element={<OrderManagement />} />
-              {/* </Route> */}
+              </Route>
 
-              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
               <Route path="/staff-management" element={<StaffManagement />} />
-              {/* </Route> */}
+              </Route>
 
-              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
               <Route
                 path="/product-management"
                 element={<ProductManagement />}
               />
-              {/* </Route> */}
+              </Route>
 
-              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
               <Route path="/slider-management" element={<SliderManagement />} />
-              {/* </Route> */}
+              </Route>
 
               <Route
                 path="statistic-report"
                 element={<StatisticReport />}
               ></Route>
-              {/* </Route> */}
+              </Route>
             </Routes>
           </AnimatePresence>
         </div>
