@@ -107,7 +107,7 @@ const authHandler = {
             console.log('sigin in token')
             console.log(token)
             res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
-            res.status(201).json({email: user.email});
+            res.status(201).json({email: user.email, role: user.role, accessToken: token});
         }
         catch(err) {
             console.log(err);
