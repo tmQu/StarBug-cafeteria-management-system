@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import LargeButton from "../buttons/largeButton";
 import useAuth from "../../hooks/useAuth";
+import useToggle from "../../hooks/useToggle";
+import useInput from "../../hooks/useInput";
 import "../../css/authen.css";
 
 axios.create({
@@ -12,7 +14,7 @@ axios.create({
 const LOGIN_URL = "http://localhost:4000/auth/signin";
 
 const SignInPopUp = () => {
-  const { setAuth, persist, setPersist } = useAuth();
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,9 +23,10 @@ const SignInPopUp = () => {
   const emailRef = useRef();
   const errRef = useRef();
 
-  const [email, setEmail] = useState("");
+  const [email, resetEmail, emailAttribs] = useInput('user', '')
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [check, toggleCheck] = useToggle('persist', false);
 
   useEffect(() => {
     emailRef.current.focus();
@@ -33,13 +36,13 @@ const SignInPopUp = () => {
     setErrMsg("");
   }, [email, pwd]);
 
-  const togglePersist = () => {
-    setPersist((prev) => !prev);
-  };
+  // const togglePersist = () => {
+  //   setPersist((prev) => !prev);
+  // };
 
-  useEffect(() => {
-    localStorage.setItem("persist", persist);
-  }, [persist]);
+  // useEffect(() => {
+  //   localStorage.setItem("persist", persist);
+  // }, [persist]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,10 +57,11 @@ const SignInPopUp = () => {
       );
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
-      const role = response?.data?.roles;
-      setAuth({ email, pwd, role, accessToken });
-      setEmail("");
+      const role = response?.data?.role;
+      setAuth({ email, role, accessToken });
+      resetEmail();
       setPwd("");
+      console.log(`email: ${email}, role: ${role}, accessToken: ${accessToken}`);
       navigate(from, { replace: true });
       //hide login popup, hide login button, show user avatar
       // response?.data?.imageAvatar
@@ -81,7 +85,7 @@ const SignInPopUp = () => {
     <div className="w-[380px] h-fit py-4 pt-6 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
       <p
         ref={errRef}
-        className={errMsg ? "text-sm text-[#BE2634] absolute mb-48" : "hidden"}
+        className={errMsg ? "text-sm text-[#BE2634] absolute mb-[265px]" : "hidden"}
         aria-live="assertive"
       >
         {errMsg}
@@ -116,7 +120,7 @@ const SignInPopUp = () => {
             name="email"
             ref={emailRef}
             autoComplete="off"
-            onChange={(e) => setEmail(e.target.value)}
+            {...emailAttribs}
             required
           />
         </div>
@@ -162,8 +166,8 @@ const SignInPopUp = () => {
           type="checkbox"
           id="persist"
           className="w-[16px] h-[16px]"
-          onChange={togglePersist}
-          checked={persist}
+          onChange={toggleCheck}
+          checked={check}
         />
         <text className="text-[#0E3746] text-[16px] font-normal ml-[10px]"> Trust This Device </text>
       </div>

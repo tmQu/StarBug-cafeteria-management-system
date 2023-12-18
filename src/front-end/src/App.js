@@ -64,7 +64,7 @@ function App() {
             {/* <LogInPopUp/> */}
             {/* <SignUpPopUp/> */}
             {/* <NewPassword/> */}
-            {/* <ForgotPassword /> */}
+            <ForgotPassword />
         </div>
         <div className="">
           <Routes>

@@ -107,7 +107,7 @@ const authHandler = {
             console.log('sigin in token')
             console.log(token)
             res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
-            res.status(201).json({email: user.email, role: user.role, accessToken: token});
+            res.status(201).json({email: user.email});
         }
         catch(err) {
             console.log(err);
@@ -178,7 +178,7 @@ const authHandler = {
     forgetPwd: async (req, res) => {
         var email = req.body.email;
         sendForgetPwdEmail(email);
-        res.staus(201);
+        res.status(201);
     },
     resetPwd: async (req, res) => {
         var forgetPwdToken = req.query.token;
