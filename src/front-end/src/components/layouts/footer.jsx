@@ -30,11 +30,11 @@ const Footer = () => {
         <div className="flex justify-center items-center my-3">
           <hr className="w-screen border-[1px] border-gray-600" />
         </div>
-        <div className="w-screen h-fit mx-auto px-4 flex flex-row sm:flex-col justify-between items-center sm:gap-4 sm:justify-center">
+        <div className="w-full h-fit  px-4 flex flex-row sm:flex-col justify-between items-center sm:gap-4 sm:justify-center">
           <div className="w-fit mr-2">
             <Logo theme="dark" />
           </div>
-          <div className="w-fit h-fit flex flex-row justify-between gap-12 xl:gap-6">
+          <div className="w-auto h-fit flex flex-row justify-between gap-12 xl:gap-6">
             {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
               <button
                 className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
@@ -44,7 +44,7 @@ const Footer = () => {
               </button>
             ))}
           </div>
-          <div className="w-fit h-fit flex flex-row justify-between gap-2">
+          <div className="w-auto h-fit flex flex-row justify-between gap-2">
             <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
               <svg
                 version="1.0"
