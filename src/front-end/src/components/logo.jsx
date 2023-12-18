@@ -13,7 +13,7 @@ const Logo = (props) => {
         <img
           className="object-cover rounded-lg w-[164px] h-[40px] transition-transform duration-500 ease-in-out hover:scale-[1.02]"
           alt="logo"
-          src="./assets/sample.png"
+          src={logoSrc}
         ></img>
       </div>
     </button>
