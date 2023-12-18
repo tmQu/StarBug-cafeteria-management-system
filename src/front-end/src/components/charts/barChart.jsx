@@ -19,7 +19,7 @@ const chartSetting = {
 const dataset = [
   {
     tea: 59,
-    milktea: 57,
+    milktea: 99,
     coffee: 86,
     cake: 21,
     month: "Jan",
@@ -27,15 +27,15 @@ const dataset = [
   {
     tea: 59,
     milktea: 57,
-    coffee: 86,
+    coffee: 36,
     cake: 21,
     month: "Fev",
   },
   {
     tea: 59,
-    milktea: 57,
-    coffee: 86,
-    cake: 21,
+    milktea: 5,
+    coffee: 46,
+    cake: 11,
     month: "Mar",
   },
   {
@@ -48,7 +48,7 @@ const dataset = [
   {
     tea: 59,
     milktea: 57,
-    coffee: 86,
+    coffee: 66,
     cake: 21,
     month: "May",
   },
@@ -75,7 +75,7 @@ const dataset = [
   },
   {
     tea: 59,
-    milktea: 57,
+    milktea: 87,
     coffee: 86,
     cake: 21,
     month: "Sept",
@@ -83,7 +83,7 @@ const dataset = [
   {
     tea: 59,
     milktea: 57,
-    coffee: 86,
+    coffee: 95,
     cake: 21,
     month: "Oct",
   },
@@ -91,14 +91,14 @@ const dataset = [
     tea: 59,
     milktea: 57,
     coffee: 86,
-    cake: 21,
+    cake: 99,
     month: "Nov",
   },
   {
     tea: 59,
     milktea: 57,
     coffee: 86,
-    cake: 21,
+    cake: 79,
     month: "Dec",
   },
 ];

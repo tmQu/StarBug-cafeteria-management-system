@@ -1,44 +1,10 @@
-import MemberCard from "../components/cards/memberCard";
-import Story from "../components/story";
+import Story from "../components/about/story";
 import HomeSlider from "../components/slider";
 import stories from "../staticData/stories.json";
-import members from "../staticData/members.json";
-
+import People from "../components/about/people";
 import { motion } from "framer-motion";
 
 const About = () => {
-  const members = [
-    {
-      name: "Le Hoang Sang",
-      role: "\"Perfect website\"",
-      image:
-        "./assets/Member_files/LHS.jpg",
-    },
-    {
-      name: "Tran Minh Quang",
-      role: "\"I found my favor here\"",
-      image:
-        "./assets/Member_files/TMQ.jpg",
-    },
-    {
-      name: "Nguyen Quoc Huy",
-      role: "\"I like this cake\"",
-      image:
-        "./assets/Member_files/NQH.jpg",
-    },
-    {
-      name: "Vu Dinh Chuong",
-      role: "\"Coffee is my style\"",
-      image:
-        "./assets/Member_files/VDC.jpg",
-    },
-    {
-      name: "Phu Thanh Nhan",
-      role: "\"Love the tea here\"",
-      image:
-        "./assets/Member_files/PTN.png",
-    },
-  ];
   return (
     <motion.div
       initial={{ opacity: 0.5, y: 20 }}
@@ -68,7 +34,6 @@ const About = () => {
             subtitle={stories[1].subtitle}
             paragraph={stories[1].paragraph}
           />
-
           <Story
             reverse={false}
             image={stories[2].image}
@@ -76,7 +41,6 @@ const About = () => {
             subtitle={stories[2].subtitle}
             paragraph={stories[2].paragraph}
           />
-
           <Story
             reverse={true}
             image={stories[3].image}
@@ -85,35 +49,14 @@ const About = () => {
             paragraph={stories[3].paragraph}
           />
         </div>
-        <div className="w-full flex justify-center items-center">
+        <div className="w-full flex justify-center mt-6 items-center">
           <hr className="w-[800px] xl:w-[80%] border-[1px] border-[#0D3745]" />
         </div>
         <div className="w-full fit flex items-center justify-center text-[50px] sm:text-[40px] font-bold font-Source-Sans-3  text-[#0D3745]">
           <p>Loyal Customer</p>
         </div>
         <div className="w-[1120px] xl:w-screen h-fit mx-auto">
-          <div className="w-fit mx-auto flex flex-row justify-center gap-4 sm:flex-col">
-            {members.slice(0, 2).map((member) => (
-              <div>
-                <MemberCard
-                  id={member.id}
-                  name={member.name}
-                  role={member.role}
-                  image={member.image}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="w-fit mx-auto flex flex-row justify-center mt-6 sm:mt-4 gap-4 sm:flex-col">
-            {members.slice(2, 5).map((member) => (
-              <MemberCard
-                id={member.id}
-                name={member.name}
-                role={member.role}
-                image={member.image}
-              />
-            ))}
-          </div>
+          <People />
         </div>
       </div>
     </motion.div>
