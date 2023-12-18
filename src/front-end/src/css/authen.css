@@ -27,10 +27,9 @@
   color: #0e3746;
   background-color: #f4f2ec;
   outline: none;
-  ::placeholder {
-    color: #0e3746;
-  }
-  ::placeholder {
-    opacity: 0.7;
-  }
+}
+
+.input::placeholder {
+  color: #0e3746;
+  opacity: 0.7;
 }
