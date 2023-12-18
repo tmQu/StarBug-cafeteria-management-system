@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 
 const StaffPopUp = () => {
@@ -8,7 +8,7 @@ const StaffPopUp = () => {
   const handleLogout = async () => {
     await logout();
     navigate("/");
-  } 
+  };
 
   return (
     <div className="w-[305px] h-[330px] flex flex-col bg-[#F4F2EC] px-[8px] py-[10px] rounded-[8px]">
@@ -53,7 +53,7 @@ const StaffPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-          Profile Settings
+          <Link to="/setting">Profile Settings</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -88,7 +88,7 @@ const StaffPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-          Order Manager
+         <Link to="/order-management">Order Manager</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -140,7 +140,9 @@ const StaffPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]"><button onClick={handleLogout}>Sign Out</button></div>
+        <div className="text-[#0E3746] font-medium text-[20px]">
+          <button onClick={handleLogout}>Sign Out</button>
+        </div>
       </div>
     </div>
   );
