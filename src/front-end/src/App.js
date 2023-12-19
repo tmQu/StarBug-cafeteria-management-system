@@ -78,7 +78,6 @@ function App() {
               <Route path="/cake" element={<Cake />} />
               <Route path="/about" element={<About />}></Route>
               <Route path="/product" element={<Product />}></Route>
-              <Route path="/payment" element={<PaymentDetail />}></Route>
               <Route path="/reset" element={<Reset />}></Route>
 
               <Route element={<PersistLogin />}>
