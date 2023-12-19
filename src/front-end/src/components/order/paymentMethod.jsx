@@ -65,14 +65,14 @@ const PaymentMethod = () => {
       </div>
       <hr className="w-[50px] border-[1px] border-[#BE2623]" />
       <div className="py-2 ml-8">
-        <div className="py-2">{renderSizeButton("Cash", "Cash")}</div>
+        <div className="py-2">{renderSizeButton("../../../public/assets/Payment_files/cash.png", "Cash")}</div>
         <hr className="w-[426px] border-[1px] border-[#0E3746] opacity-50" />
-        <div className="py-2">{renderSizeButton("Momo", "Momo")}</div>
+        <div className="py-2">{renderSizeButton("../../../public/assets/Payment_files/momo.png", "Momo")}</div>
         <hr className="w-[426px] border-[1px] border-[#0E3746] opacity-50" />
-        <div className="py-2">{renderSizeButton("ZaloPay", "ZaloPay")}</div>
+        <div className="py-2">{renderSizeButton("../../../public/assets/Payment_files/zalo.png", "ZaloPay")}</div>
         <hr className="w-[426px] border-[1px] border-[#0E3746] opacity-50" />
         <div className="py-2">
-          {renderSizeButton("Credit card", "Credit card")}
+          {renderSizeButton("../../../public/assets/Payment_files/credit.png", "Credit card")}
         </div>
       </div>
       <div>
