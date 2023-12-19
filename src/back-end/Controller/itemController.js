@@ -3,6 +3,7 @@ import Item from '../model/Item.js'
 
 const projection ={
     _id: 0,
+    id: 1,
     name: 1,
     category: 1,
     img: 1,
