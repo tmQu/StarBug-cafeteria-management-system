@@ -5,7 +5,6 @@ import Promotions from "../components/promotions";
 import ItemsContainer from "../components/items/itemsContainer";
 import ShowAllButton from "../components/buttons/showAllButton";
 import { useLocation } from "react-router-dom";
-
 import { motion } from "framer-motion";
 
 const Home = () => {

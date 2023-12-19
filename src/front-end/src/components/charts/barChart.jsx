@@ -5,7 +5,7 @@ import { axisClasses } from "@mui/x-charts";
 const chartSetting = {
   yAxis: [
     {
-      label: "Revenue (million)",
+      label: "Revenue (100 million)",
     },
   ],
   width: 800,
@@ -103,7 +103,7 @@ const dataset = [
   },
 ];
 
-const valueFormatter = (value) => `${value}mm`;
+const valueFormatter = (value) => `${value}m`;
 
 export default function BarChartReport() {
   return (

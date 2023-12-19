@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const Promotions = () => {
@@ -13,20 +13,29 @@ const Promotions = () => {
     retry: 3,
   });
 
-  console.log("Loading", isLoading);
-  console.log("Success", isSuccess);
-
   return (
     <div className="relative -top-16 flex flex-row sm:flex-col justify-center items-center gap-6 sm:gap-4">
       {isLoading ? (
-        <SkeletonTheme
-          baseColor="#5294e0"
-          highlightColor="#96c7ff"
-          borderRadius="0.5rem"
-          duration={4}
-        >
-          <Skeleton height="100%" width="100%" count={2} />
-        </SkeletonTheme>
+        <>
+          <div className="w-fit h-fit bg-[#254b58] p-2 pt-1 rounded-xl">
+            <Skeleton
+              baseColor="#6d8790"
+              borderRadius={12}
+              height={56}
+              width={445}
+              count={3}
+            />
+          </div>
+          <div className="w-fit h-fit bg-[#254b58] p-2 pt-1 rounded-xl">
+            <Skeleton
+              baseColor="#6d8790"
+              borderRadius={12}
+              height={56}
+              width={445}
+              count={3}
+            />
+          </div>
+        </>
       ) : (
         <>
           {isSuccess === true &&

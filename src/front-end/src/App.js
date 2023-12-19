@@ -42,6 +42,7 @@ import StaffEditPopUp from "./components/popUps/staffEditPopUp";
 
 // Redux
 import { useSelector } from "react-redux";
+import PaymentDetail from "./pages/payment";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ function App() {
               <Route path="/cake" element={<Cake />} />
               <Route path="/about" element={<About />}></Route>
               <Route path="/product" element={<Product />}></Route>
+              <Route path="/payment" element={<PaymentDetail />}></Route>
               <Route path="/reset" element={<Reset />}></Route>
 
               <Route element={<PersistLogin />}>
