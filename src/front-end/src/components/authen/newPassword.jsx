@@ -73,7 +73,10 @@ const NewPassword = () => {
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
-      } else {
+      } else if (err?.response?.status === 401) {
+        setErrMsg("Token Expired");
+      } 
+      else {
         setErrMsg("Reset Password Failed");
       }
     }
