@@ -4,7 +4,7 @@ import axios from "axios";
 import LargeButton from "../buttons/largeButton";
 
 axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "http://localhost:4000/auth/resetpwd",
 });
 const URL = "http://localhost:4000/auth/resetpwd";
 
@@ -17,7 +17,8 @@ const NewPassword = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.pathname || "/";
-
+  var s = new URLSearchParams(location.search)
+  const token = s.get("token")
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
@@ -44,6 +45,7 @@ const NewPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const v1 = PASSWORD_REGEX.test(pwd);
+
     if (!v1) {
       setErrMsg("Invalid password");
       return;
@@ -53,6 +55,7 @@ const NewPassword = () => {
       const response = await axios.post(
         URL,
         JSON.stringify({
+          token: token,
           pwd: pwd,
         }),
         {
@@ -78,6 +81,15 @@ const NewPassword = () => {
 
   return (
     <div className="w-[380px] h-fit py-6 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
+       <p
+        ref={errRef}
+        className={
+          errMsg ? "text-sm text-[#BE2634]" : "hidden"
+        }
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
       <div className="inputBox">
         <div className="w-[40px] h-[40px] flex justify-center items-center mx-auto">
           <svg

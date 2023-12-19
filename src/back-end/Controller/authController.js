@@ -188,7 +188,7 @@ const authHandler = {
         {
             console.log('no token')
             res.status(400);
-        
+            return;
         }
         var newPwd = req.body.pwd;
         if (jwt.verify(forgetPwdToken, process.env.FORGETPWD_SECRET))
