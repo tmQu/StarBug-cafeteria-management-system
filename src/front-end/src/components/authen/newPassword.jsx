@@ -1,29 +1,84 @@
+import { useRef, useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import LargeButton from "../buttons/largeButton";
 
+axios.create({
+  baseURL: "http://localhost:4000",
+});
+const URL = "http://localhost:4000/auth/resetpwd";
+
+const PASSWORD_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
 const NewPassword = () => {
+  const errRef = useRef();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.pathname || "/";
+
+  const [pwd, setPwd] = useState("");
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
+
+  const [matchPwd, setMatchPwd] = useState("");
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
+
+  const [errMsg, setErrMsg] = useState("");
+
+  useEffect(() => {
+    const result = PASSWORD_REGEX.test(pwd);
+    console.log(result);
+    console.log(pwd);
+    setValidPwd(result);
+    const match = pwd === matchPwd;
+    setValidMatch(match);
+  }, [pwd, matchPwd]);
+
+  useEffect(() => {
+    setErrMsg("");
+  }, [pwd, matchPwd]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const v1 = PASSWORD_REGEX.test(pwd);
+    if (!v1) {
+      setErrMsg("Invalid password");
+      return;
+    }
+    console.log(from)
+    try {
+      const response = await axios.post(
+        URL,
+        JSON.stringify({
+          pwd: pwd,
+        }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      // Clear input field
+      setPwd("");
+      setMatchPwd("");
+      navigate(from, { replace: true });
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else {
+        setErrMsg("Reset Password Failed");
+      }
+    }
+  };
+
   return (
-    <div className="w-[380px] h-[270px] flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
-      <div className="w-[24px] h-[24px] -mt-6 mr-auto pl-3">
-        <button className="hover:scale-110 transition-transform duration-500 ease-in-out">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M14.9998 19.92L8.47984 13.4C7.70984 12.63 7.70984 11.37 8.47984 10.6L14.9998 4.07996"
-              stroke="#0E3746"
-              strokeWidth="1.5"
-              strokeMiterlimit="10"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
-      <div className="w-[300px] h-[45px] border border-solid border-[#0E3746] flex flex-row mx-auto justify-center items-center rounded-[5px]">
+    <div className="w-[380px] h-fit py-6 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
+      <div className="inputBox">
         <div className="w-[40px] h-[40px] flex justify-center items-center mx-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,12 +103,37 @@ const NewPassword = () => {
         </div>
         <div className="w-full h-full flex relative justify-center items-center">
           <input
-            className="w-full text-[18px] font-extralight font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
+            className="input"
+            type="password"
             placeholder="PASSWORD"
+            name="password"
+            onChange={(e) => setPwd(e.target.value)}
+            required
+            aria-invalid={validPwd ? "false" : "true"}
+            aria-describedby="pwdnote"
+            onFocus={() => setPwdFocus(true)}
+            onBlur={() => setPwdFocus(false)}
           />
         </div>
       </div>
-      <div className="w-[300px] h-[45px] border border-solid border-[#0E3746] flex flex-row mx-auto justify-center items-center rounded-[5px]">
+      <p
+        id="pwdnote"
+        className={
+          pwdFocus && !validPwd
+            ? "text-xs text-[#BE2634] pl-8 pr-2 -mt-4 -mb-2"
+            : "hidden"
+        }
+      >
+        {" "}
+        8 characters must include uppercase and lowercase letters, a number and
+        a special character:
+        <span aria-label="exclamation mark"> ! </span>{" "}
+        <span aria-label="at symbol">@</span>{" "}
+        <span aria-label="hashtag">#</span>{" "}
+        <span aria-label="dollar sign">$</span>{" "}
+        <span aria-label="percent">%</span>
+      </p>
+      <div className="inputBox">
         <div className="w-[40px] h-[40px] flex justify-center items-center mx-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,13 +158,31 @@ const NewPassword = () => {
         </div>
         <div className="w-full h-full flex relative justify-center items-center">
           <input
-            className="w-full text-[18px] font-extralight font-Source-Sans-3 text-[#0E3746] bg-[#F4F2EC] placeholder:text-[#0E3746] outline-none"
+            className="input"
+            type="password"
             placeholder="CONFIRM"
+            name="confirmPassword"
+            onChange={(e) => setMatchPwd(e.target.value)}
+            required
+            aria-invalid={validMatch ? "false" : "true"}
+            aria-describedby="matchnote"
+            onFocus={() => setMatchFocus(true)}
+            onBlur={() => setMatchFocus(false)}
           />
         </div>
       </div>
+      <p
+        id="matchnote"
+        className={
+          matchFocus && !validMatch
+            ? "text-xs text-[#BE2634] pr-2 -mt-4 -mb-2"
+            : "hidden"
+        }
+      >
+        Must match the first password input field
+      </p>
       <div className="w-[300px] h-[44px] flex justify-center items-center">
-        <LargeButton name="CONFIRM" />
+        <LargeButton name="CONFIRM" onClick={handleSubmit} />
       </div>
     </div>
   );

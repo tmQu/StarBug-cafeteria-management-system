@@ -44,6 +44,8 @@ const ForgotPassword = () => {
     setValidEmail(result);
   }, [email]);
 
+  
+
   const handleSend = async (e) => {
     console.log("Đã gửi email tới:", email);
     // axios reqest here
