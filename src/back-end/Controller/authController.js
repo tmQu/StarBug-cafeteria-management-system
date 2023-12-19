@@ -85,6 +85,7 @@ const authHandler = {
         console.log('sing')
         const userInfo = req.body;
         console.log(req.body)
+        userInfo.role = 'customer';
         try {
             const user = await User(userInfo).save();
             sendVerifyEmail(userInfo.email);
