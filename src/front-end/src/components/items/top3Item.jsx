@@ -1,8 +1,17 @@
+import { useDispatch } from "react-redux";
+import { addCart } from "../../reduxActions/cart";
+
 const Top3Item = (props) => {
   const { id, name, price, image, rate } = props;
+
+  const dispatch = useDispatch();
+  const handleAddButton = (data) => {
+    dispatch(addCart(data));
+  };
+
   return (
     <div
-      className="group w-[300px] h-[385px] bg-[#D8D4BA] hover:bg-[#183942] rounded-xl shadow-xl
+      className="group w-[300px] h-[425px] bg-[#D8D4BA] hover:bg-[#183942] rounded-xl shadow-xl
     [transition:transform_0.5s_ease] hover:scale-[1.01]"
     >
       <div className="pt-3">
@@ -14,10 +23,10 @@ const Top3Item = (props) => {
         ></img>
       </div>
       <div className="flex flex-col items-start px-4 mt-1.5 hover:cursor-pointer">
-        <p className="text-[30px] font-medium mt-1 overflow-hidden whitespace-nowrap overflow-ellipsis text-[#0D3746] group-hover:text-white">
+        <p className="text-2xl font-medium mt-1 break-words line-clamp-2 leading-7 overflow-ellipsis text-[#0D3746] group-hover:text-white">
           {name}
         </p>
-        <p className="text-2xl font-light -mt-1 text-[#D63431]">{price} VND</p>
+        <p className="text-2xl mt-2 font-light text-[#D63431]">{price} VND</p>
         <div className="w-full flex flex-row justify-between items-center">
           <div className="w-fit h-fit flex flex-row justify-start items-center">
             <div className="text-xl text-[#FFC107]">{rate}</div>
@@ -27,7 +36,7 @@ const Top3Item = (props) => {
               src="/assets/star.png"
             ></img>
           </div>
-          <button onClick={() => {}}>
+          <button onClick={() => handleAddButton(props)}>
             <img
               className="w-6"
               alt="add-icon"

@@ -1,4 +1,9 @@
+import { useDispatch } from "react-redux";
+import { removeCart } from "../../reduxActions/cart";
+
 const CustomerOrder = (prop) => {
+  const dispatch = useDispatch();
+
   const { order } = prop;
   // order item = {name, size, amount, price, topping, note}
   // use order.map for this
@@ -8,15 +13,15 @@ const CustomerOrder = (prop) => {
     console.log("Edit");
   };
 
-  const handleDelete = () => {
-    // Remove item from order by id
-    console.log("Delete");
+  const handleDelete = (id) => {
+    dispatch(removeCart(id));
+    console.log("Delete", id);
   };
 
   return (
     <div className="w-[433px] h-fit mx-auto mt-4 flex">
-      <div className="w-[32px] h-[56px] flex-col items-center mt-2 flex justify-center mr-0.5">
-        <button onClick={handleEdit()}>
+      <div className="w-[32px] h-[56px] flex-col items-center gap-2 mt-2 flex justify-center mr-2">
+        <button onClick={() => handleEdit()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="13"
@@ -30,7 +35,7 @@ const CustomerOrder = (prop) => {
             />
           </svg>
         </button>
-        <button onClick={handleDelete()}>
+        <button onClick={() => handleDelete(order.id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="23"
@@ -78,19 +83,30 @@ const CustomerOrder = (prop) => {
         </button>
       </div>
       <div className="w-[410px] h-fit mx-auto ">
-        <div className="w-[410px] h-[fit] text-[#0E3746] text-sm font-semibold">
-          Name
+        <div className="w-full h-[fit] text-[#0E3746] text-sm font-semibold">
+          {order.name || "Product Name"}
         </div>
-        <div className="w-[410px] h-[fit] flex justify-between">
+        <div className="w-full h-[fit] flex justify-between">
           <div className="w-[322px] h-[fit] text-[#0E3746] text-sm pr-[10px]">
-            Size Amount
+            Size: {order.size || "L"}
           </div>
-          <div className="w-[80px] text-[#0E3746] text-sm text-right pr-0.5">
-            Price
+          <div className="w-[80px] text-[#0E3746] text-base text-right pr-0.5">
+            {order.price || "100000"}
           </div>
         </div>
-        <div className="w-[410px] h-[fit] text-[#0E3746] text-sm ">Topping</div>
-        <div className="w-[410px] h-[fit] text-[#0E3746] text-sm ">Note</div>
+        <div className="-mt-1 flex flex-row gap-2 justify-start">
+          <div className="w-fit text-[#0E3746] text-sm ">
+            Quantity: {order.quantity || "1"}
+          </div>
+          <div className="h-4 border-r-2 border-[#0E3746]"></div>
+          <div className="w-fit text-[#0E3746] text-sm ">
+            {order.topping || "Full Topping"}
+          </div>
+          <div className="h-4 border-r-2 border-[#0E3746]"></div>
+          <div className="w-fit text-[#0E3746] text-sm ">
+            {order.note || "No Thing"}
+          </div>
+        </div>
       </div>
     </div>
   );

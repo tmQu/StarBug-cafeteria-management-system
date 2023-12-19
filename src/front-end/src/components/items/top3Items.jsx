@@ -1,19 +1,18 @@
 import Top3Item from "./top3Item";
-import items from "../../api/items";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const Top3Items = () => {
-  const top3Items = items.filter((item) => item.bestSeller === "Top");
-
   const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=true`;
+
   const { data } = useQuery({
-    queryKey: ["top3Items"],
+    queryKey: ["top-3-items"],
     queryFn: () => axios.get(apiUrl).then((res) => res),
     staleTime: 1000 * 10,
     retry: 3,
   });
-  console.log(data?.data);
+
+  // console.log("tops3", data?.data);
 
   return (
     <div
@@ -21,25 +20,25 @@ const Top3Items = () => {
       xl:flex-col xl:gap-4"
     >
       <div className="w-auto flex flex-row sm:flex-col xl:gap-4 ">
-        {top3Items.slice(0, 2).map((item) => (
+        {data?.data.slice(0, 2).map((item, index) => (
           <div className="mx-2 xl:mx-0">
             <Top3Item
               id={item.id}
               name={item.name}
               price={item.price}
-              rate={item.rate}
-              image={item.image}
+              rate={item.avgRate}
+              image={item.img}
             />
           </div>
         ))}
       </div>
       <div className="mx-2 xl:mx-0 xl:col-span-2">
         <Top3Item
-          id={top3Items[2].id}
-          name={top3Items[2].name}
-          price={top3Items[2].price}
-          rate={top3Items[2].rate}
-          image={top3Items[2].image}
+          id={data?.data[2].id}
+          name={data?.data[2].name}
+          price={data?.data[2].price}
+          rate={data?.data[2].avgRate}
+          image={data?.data[2].img}
         />
       </div>
     </div>
