@@ -8,7 +8,7 @@ const OrderTotal = ({ total, fee, voucher }) => {
       <div className="text-[#0E3746] text-lg font-semibold pt-[1em]">Total</div>
       <hr className="w-[50px] border-[1px] border-[#BE2623]" />
       <div className="w-[433px] h-[50px] flex justify-between items-center my-2">
-        <div className="text-[#0E3746] text-sm">Amount</div>
+        <div className="text-[#0E3746] text-sm">Bill</div>
         <div className="text-[#0E3746] text-sm">{total}</div>
       </div>
       <hr className="w-[433px] border-[1px] border-gray-500" />
@@ -31,10 +31,10 @@ const OrderTotal = ({ total, fee, voucher }) => {
           <div className="my-auto flex-col">
             <div className="text-white text-sm font-semibold">Total</div>
             <div className="text-white text-sm font-semibold">
-              {total + fee - discount}
+              {total - fee - discount}
             </div>
           </div>
-          <RoundedButton className="my-auto" name="Order" />
+          <RoundedButton className="my-auto pt-0.5" name="Order" />
         </div>
       </div>
     </div>

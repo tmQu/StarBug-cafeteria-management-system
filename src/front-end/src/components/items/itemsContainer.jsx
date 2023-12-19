@@ -2,21 +2,18 @@ import Item from "./item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-import items from "../../api/items";
-
 const ItemsContainer = ({ route }) => {
+  //page home have 12 items, other pages have 16 items
   const limit = route === "/" ? 12 : 16;
-  const apiUrl = `http://localhost:4000/item/all`;
 
+  const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=false`;
   const { data } = useQuery({
-    queryKey: [`${limit} ${route} items`],
+    queryKey: [`${route}-items-container`], // unique for each page
     queryFn: () => axios.get(apiUrl).then((res) => res),
-    staleTime: 1000 * 5,
+    staleTime: 1000 * 10,
     retry: 3,
   });
-  console.log(data);
-
-  const shuffledItems = items.sort(() => Math.random() - 0.5);
+  // console.log("items container", data?.data);
 
   return (
     <div
@@ -25,13 +22,13 @@ const ItemsContainer = ({ route }) => {
       sm:grid sm:!grid-cols-2 
     "
     >
-      {shuffledItems.slice(0, limit).map((item) => (
+      {data?.data.slice(0, limit).map((item) => (
         <Item
           id={item.id}
           name={item.name}
           price={item.price}
-          rate={item.rate}
-          image={item.image}
+          rate={item.avgRate}
+          image={item.img}
         />
       ))}
     </div>

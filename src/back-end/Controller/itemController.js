@@ -3,11 +3,13 @@ import Item from '../model/Item.js'
 
 const projection ={
     _id: 0,
+    id: 1,
     name: 1,
     category: 1,
     img: 1,
     price: 1,
-    topItem: 1
+    topItem: 1,
+    avgRate: 1
 }
 
 const itemHandler = {
@@ -48,9 +50,17 @@ const itemHandler = {
             }
             try{
                 var result;
-                if (req.query.from && req.query.to)
+                if (req.query.page_12)
                 {
-                    result = await Item.find(query, filterProjection).skip(req.query.from).limit(req.query.to - req.query.from + 1);
+                    var from = (req.query.page - 1) * 12;
+                    var to = from + 11;
+                    result = await Item.find(query, filterProjection).skip(from).limit(to - from + 1);
+                }
+                if (req.query.page_16)
+                {
+                    var from = (req.query.page - 1) * 16;
+                    var to = from + 15;
+                    result = await Item.find(query, filterProjection).skip(from).limit(from - to + 1);
                 }
                 else{
                     result = await Item.find(query, filterProjection);

@@ -18,7 +18,6 @@ import Reset from "./pages/reset";
 // Staff Pages
 import Product from "./pages/product";
 import Setting from "./pages/setting";
-import PaymentDetail from "./pages/payment";
 
 // Management Pages
 import OrderManagement from "./pages/management/orderManagement";
