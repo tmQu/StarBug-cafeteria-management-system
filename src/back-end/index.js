@@ -23,7 +23,7 @@ const port = 4000;
 app.use(cors({
     origin:[
         'http://localhost:3000', 
-        'https://star-bug-cafeteria-management-system-q2g5.vercel.app/'
+        'https://star-bug-cafeteria-management-system-q2g5.vercel.app'
     ],
     credentials:true
 }));
