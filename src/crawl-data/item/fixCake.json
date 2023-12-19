@@ -1,0 +1,122 @@
+[
+    {
+        "id": "banh-ngot-1",
+        "name": "Bánh Chocolate Brownie",
+        "category": "cake",
+        "price": 25000,
+        "description": "Bánh Chocolate Brownie\nHương Vị Chocolate Đậm Đà\nBánh Chocolate Brownie đậm đà với lớp chocolate béo ngậy, hấp dẫn từng miếng.",
+        "topItem": true,
+        "avgRate": 4.2,
+        "img": [
+            "https://i.pinimg.com/564x/0f/22/f6/0f22f6cb6c5692c695762fa7624b40a5.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-2",
+        "name": "Bánh Muffin Dâu",
+        "category": "cake",
+        "price": 28000,
+        "description": "Bánh Muffin Dâu\nHương Vị Tươi Mát\nBánh Muffin dâu tươi ngon, mang lại cảm giác tươi mát và ngon miệng.",
+        "topItem": false,
+        "avgRate": 4.1,
+        "img": [
+            "https://i.pinimg.com/564x/79/e8/2a/79e82adb43ea1aebbaf5bb84db50cd1d.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-3",
+        "name": "Bánh Gato Trứng Muối",
+        "category": "cake",
+        "price": 30000,
+        "description": "Bánh Gato Trứng Muối\nHòa Quyện Hương Vị\nBánh gato trứng muối hòa quyện hương vị trứng và muối, tạo nên sự độc đáo.",
+        "topItem": false,
+        "avgRate": 4.3,
+        "img": [
+            "https://i.pinimg.com/564x/0f/0e/27/0f0e27f6340c1aafd14ec94897d732ec.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-4",
+        "name": "Bánh Cupcake Vanilla",
+        "category": "cake",
+        "price": 26000,
+        "description": "Bánh Cupcake Vanilla\nHương Vị Vanilla Dịu Dàng\nBánh Cupcake vanilla với hương vị dịu dàng và kem phủ béo ngậy, thích hợp cho thời điểm nhẹ nhàng.",
+        "topItem": false,
+        "avgRate": 4,
+        "img": [
+            "https://i.pinimg.com/564x/58/ac/d2/58acd2e3d9b6097bf55f82fddc4fdc88.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-5",
+        "name": "Bánh Donut Chocolate",
+        "category": "cake",
+        "price": 32000,
+        "description": "Bánh Donut Chocolate\nHương Vị Donut Đặc Trưng\nBánh Donut chocolate với hương vị đặc trưng của donut và lớp chocolate béo ngậy.",
+        "topItem": false,
+        "avgRate": 4.4,
+        "img": [
+            "https://i.pinimg.com/564x/4c/ec/1d/4cec1da2ea92d68f0c1dfbf7a269c3f9.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-6",
+        "name": "Bánh Tart Dâu",
+        "category": "cake",
+        "price": 29000,
+        "description": "Bánh Tart Dâu\nHương Vị Tươi Mát\nBánh Tart dâu với hương vị tươi mát và lớp nhân dâu thơm ngon.",
+        "topItem": false,
+        "avgRate": 4.2,
+        "img": [
+            "https://i.pinimg.com/564x/0c/1d/53/0c1d53a1fad489bec27386d2b58452fc.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-7",
+        "name": "Bánh Pudding Caramel",
+        "category": "cake",
+        "price": 35000,
+        "description": "Bánh Pudding Caramel\nHương Vị Caramel Béo Ngậy\nBánh Pudding Caramel với hương vị caramel béo ngậy và lớp bánh mềm mịn.",
+        "topItem": false,
+        "avgRate": 4.3,
+        "img": [
+            "https://i.pinimg.com/564x/4b/88/42/4b8842ca5618a7388c3e424bcd78f50e.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-8",
+        "name": "Matcha Macaron",
+        "category": "cake",
+        "price": 33000,
+        "description": "Matcha Macaron\nHương Vị Độc Đáo\nMatcha Macaron với hương vị độc đáo của trà xanh Matcha, thích hợp cho người yêu thích trà.",
+        "topItem": false,
+        "avgRate": 4.1,
+        "img": [
+            "https://i.pinimg.com/736x/57/dc/33/57dc339c0944a33bb2be77089d126399.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-9",
+        "name": "Bánh chocolate",
+        "category": "cake",
+        "price": 31000,
+        "description": "Bánh chocolate\nHương Vị chocolate Đặc Trưng\nBánh chocolate với hương vị đặc trưng của chocolate.",
+        "topItem": false,
+        "avgRate": 4,
+        "img": [
+            "https://i.pinimg.com/564x/0f/22/f6/0f22f6cb6c5692c695762fa7624b40a5.jpg"
+        ]
+    },
+    {
+        "id": "banh-ngot-10",
+        "name": "White chocolate Matcha mousse cake",
+        "category": "cake",
+        "price": 30000,
+        "description": "White chocolate Matcha mousse cake\nHương Vị Bông Lan Quyến Rũ\nTrải nghiệm sức hấp dẫn quyến rũ của chiếc bánh Mousse matcha cùng chocolate trắng.",
+        "topItem": false,
+        "avgRate": 4.4,
+        "img": [
+            "https://i.pinimg.com/564x/45/42/e1/4542e1e0ef68a732079842b1516603cd.jpg"
+        ]
+    }
+]

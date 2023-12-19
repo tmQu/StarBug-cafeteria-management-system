@@ -7,7 +7,8 @@ const projection ={
     category: 1,
     img: 1,
     price: 1,
-    topItem: 1
+    topItem: 1,
+    avgRate: 1
 }
 
 const itemHandler = {
