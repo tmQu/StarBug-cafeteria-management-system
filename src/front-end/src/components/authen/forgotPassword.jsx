@@ -1,9 +1,29 @@
 import { useState, useRef, useEffect } from "react";
 import LargeButton from "../buttons/largeButton";
 
+import { useDispatch } from "react-redux";
+import {
+  toggleSignUp,
+  toggleForgotPassword,
+  toggleLogin,
+} from "../../reduxActions/popUp";
+
 import axios from "axios";
 
 const ForgotPassword = () => {
+  // PopUp Redux
+  const dispatch = useDispatch();
+
+  const handleSignUpButton = () => {
+    dispatch(toggleForgotPassword(false));
+    dispatch(toggleSignUp(true));
+  };
+  const handleBackButton = () => {
+    dispatch(toggleForgotPassword(false));
+    dispatch(toggleLogin(true));
+  };
+
+  // Auth
   axios.create({
     baseURL: "http://localhost:4000/auth/forgetpwd",
   });
@@ -56,6 +76,7 @@ const ForgotPassword = () => {
   };
 
   const handleSignup = () => {
+    handleSignUpButton();
     console.log("Đăng ký với email:", email);
   };
 
@@ -64,6 +85,7 @@ const ForgotPassword = () => {
       <div className="w-[24px] h-[24px] -mt-6 mr-auto pl-3">
         <button
           className="hover:scale-110 transition-transform duration-500 ease-in-out"
+          onClick={() => handleBackButton()}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

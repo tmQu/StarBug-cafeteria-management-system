@@ -4,31 +4,86 @@ import LoginButton from "../buttons/loginButton";
 import Logo from "../logo";
 import SearchButtonMobile from "../../responsive/searchButton";
 import MenuButtonMobile from "../../responsive/menuButton";
-import SignInPopUp from "../authen/logInPopUp";
 
+import SignInPopUp from "../authen/logInPopUp";
+import SignUpPopUp from "../authen/signUpPopUp";
+import PaymentDetail from "../order/payment";
+import ForgotPassword from "../authen/forgotPassword";
+import NewPassword from "../authen/newPassword";
 
 import { useDispatch, useSelector } from "react-redux";
-import { toggleLogin, toggleAddToCart} from "../../reduxActions/popUp";
+import {
+  toggleLogin,
+  togglePayment,
+  toggleSignUp,
+  toggleForgotPassword,
+  toggleNewPassword,
+} from "../../reduxActions/popUp";
 import { useEffect, useRef } from "react";
 
 const Header = () => {
-  const loginPopUpRef = useRef();
-
+  const popUpRef = useRef();
   const dispatch = useDispatch();
 
-  const handleLoginButton = () => {
-    dispatch(toggleLogin());
-  };
-  const handleCartButton = () => {
-    dispatch(toggleAddToCart());
-  };
+  const {
+    isOpenLoginPopUp,
+    isOpenPaymentPopUp,
+    isOpenSignUpPopUp,
+    isOpenForgotPasswordPopUp,
+    isOpenNewPasswordPopUp,
+  } = useSelector((state) => state.popUpReducer);
 
-  const { isOpenLoginPopUp } = useSelector((state) => state.popUpReducer);
+  const handleLoginButton = (props) => {
+    dispatch(toggleSignUp(false));
+    dispatch(togglePayment(false));
+    toggleForgotPassword(false);
+    toggleNewPassword(false);
+    dispatch(toggleLogin(props));
+  };
+  const handleCartButton = (props) => {
+    dispatch(toggleLogin(false));
+    dispatch(toggleSignUp(false));
+    toggleForgotPassword(false);
+    toggleNewPassword(false);
+    dispatch(togglePayment(props));
+  };
+  const handleSignUpButton = (props) => {
+    dispatch(toggleLogin(false));
+    dispatch(togglePayment(false));
+    toggleForgotPassword(false);
+    toggleNewPassword(false);
+    dispatch(toggleSignUp(props));
+  };
+  const handleForgotPasswordButton = (props) => {
+    dispatch(toggleLogin(false));
+    dispatch(togglePayment(false));
+    dispatch(toggleSignUp(false));
+    toggleNewPassword(false);
+    dispatch(toggleForgotPassword(props));
+  };
+  const handleNewPasswordButton = (props) => {
+    dispatch(toggleLogin(false));
+    dispatch(togglePayment(false));
+    dispatch(toggleSignUp(false));
+    toggleForgotPassword(false);
+    dispatch(toggleNewPassword(props));
+  };
 
   useEffect(() => {
     const mouseDownHandler = (e) => {
-      if (isOpenLoginPopUp && !loginPopUpRef.current.contains(e.target)) {
+      if (
+        (isOpenLoginPopUp ||
+          isOpenPaymentPopUp ||
+          isOpenSignUpPopUp ||
+          isOpenForgotPasswordPopUp ||
+          isOpenNewPasswordPopUp) &&
+        !popUpRef.current.contains(e.target)
+      ) {
         handleLoginButton(false);
+        handleCartButton(false);
+        handleSignUpButton(false);
+        handleForgotPasswordButton(false);
+        handleNewPasswordButton(false);
       }
     };
     document.addEventListener("mousedown", mouseDownHandler);
@@ -41,7 +96,7 @@ const Header = () => {
       <div className="w-[1120px] xl:w-screen h-[40px] mx-auto xl:px-4 sm:px-2 flex flex-row justify-between">
         <div className="flex flex-row gap-2">
           <div className="hidden sm:block">
-            <MenuButtonMobile onClick={() => { }} />
+            <MenuButtonMobile onClick={() => {}} />
           </div>
           <Logo />
         </div>
@@ -51,15 +106,19 @@ const Header = () => {
 
         <div className="flex flex-row gap-3">
           <div className="hidden sm:block">
-            <SearchButtonMobile onClick={() => { }} />
+            <SearchButtonMobile onClick={() => {}} />
           </div>
-          <CartButton onClick={() => handleCartButton()} />
-          <div ref={loginPopUpRef}>
+          <div className="flex flex-row gap-3" ref={popUpRef}>
+            <CartButton onClick={() => handleCartButton()} />
             <div className="sm:hidden">
               <LoginButton onClick={() => handleLoginButton()} />
             </div>
-            <div className="absolute top-12 right-[20%] z-50">
+            <div className="absolute top-20 right-[24%] z-50">
               {isOpenLoginPopUp && <SignInPopUp />}
+              {isOpenSignUpPopUp && <SignUpPopUp />}
+              {isOpenForgotPasswordPopUp && <ForgotPassword />}
+              {isOpenNewPasswordPopUp && <NewPassword />}
+              {isOpenPaymentPopUp && <PaymentDetail />}
             </div>
           </div>
         </div>
