@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeCart } from "../../reduxActions/cart";
+import formatCurrencyWithCommas from "../../utils/formatCurrency";
 
 const CustomerOrder = (prop) => {
   const dispatch = useDispatch();
@@ -91,7 +92,7 @@ const CustomerOrder = (prop) => {
             Size: {order.size.size || "Small"}
           </div>
           <div className="w-[80px] text-[#0E3746] text-base text-right pr-0.5">
-            {order.price || "100000"}
+            {formatCurrencyWithCommas(order.price) || ""}
           </div>
         </div>
         <div className="-mt-1 flex flex-row gap-2 justify-start">

@@ -17,7 +17,7 @@ const Promotions = () => {
     <div className="relative -top-16 flex flex-row sm:flex-col justify-center items-center gap-6 sm:gap-4">
       {isLoading ? (
         <>
-          <div className="w-fit h-fit bg-[#254b58] p-2 pt-1 rounded-xl">
+          <div className="w-fit h-fit bg-[#506e79] p-2 pt-1 rounded-xl">
             <Skeleton
               baseColor="#6d8790"
               borderRadius={12}
@@ -26,7 +26,7 @@ const Promotions = () => {
               count={3}
             />
           </div>
-          <div className="w-fit h-fit bg-[#254b58] p-2 pt-1 rounded-xl">
+          <div className="w-fit h-fit bg-[#506e79] p-2 pt-1 rounded-xl">
             <Skeleton
               baseColor="#6d8790"
               borderRadius={12}

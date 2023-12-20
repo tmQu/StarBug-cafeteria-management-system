@@ -11,12 +11,11 @@ const HomeSlider = () => {
     staleTime: 1000 * 10,
     retry: 3,
   });
-  // console.log("sliders", data?.data);
 
   return (
     <div>
       {isLoading ? (
-        <div className="w-fit mx-auto flex flex-row gap-1 bg-[#254b58] mt-2 p-3 pt-2 rounded-lg">
+        <div className="w-fit h-[370px] mx-auto flex flex-row gap-1 bg-[#506e79] mt-2 p-3 pt-2 rounded-lg">
           <Skeleton
             baseColor="#6d8790"
             borderRadius={12}
