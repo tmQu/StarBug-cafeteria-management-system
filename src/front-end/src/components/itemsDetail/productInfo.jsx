@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import formatCurrencyWithCommas from "../../utils/formatCurrency";
 
-const ProductInfo = ({ productName = "Tên sản phẩm", price = "9999" }) => {
+const ProductInfo = ({
+  productName = "Tên sản phẩm",
+  price = "9999",
+  changeQuantityFunction,
+}) => {
   const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => {
@@ -13,21 +18,25 @@ const ProductInfo = ({ productName = "Tên sản phẩm", price = "9999" }) => {
     }
   };
 
+  useEffect(() => {
+    changeQuantityFunction(quantity);
+  }, [quantity]);
+
   return (
     <div>
-      <div className="w-fit h-[40px] font-Source-Sans-3 text-[32px] font-semibold flex-inline">
+      <div className="w-fit h-[40px] font-Source-Sans-3 text-[32px] text-[#BE2622] font-semibold flex-inline">
         {productName}
       </div>
       <div className="flex items-center w-[400px] h-[35px] py-3">
         <div className="w-fit h-[28] font-Source-Sans-3 text-[22px] font-normal flex-inline pt-3 text-[#0D3745] ">
-          ${price}
+          {formatCurrencyWithCommas(price)} VND
         </div>
         <div className="flex pt-3 ml-auto gap-[30.6px] pl-8">
           <svg
             width="35"
             height="35"
             viewBox="0 0 30 30"
-            fill="#BFBFBF"
+            fill="#BE2623"
             xmlns="http://www.w3.org/2000/svg"
             className={`mr-2 cursor-pointer ${quantity === 0 && "hidden"}`}
             onClick={handleDecrement}

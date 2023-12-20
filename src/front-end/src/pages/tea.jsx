@@ -1,22 +1,8 @@
 import Story from "../components/about/story";
 import HomeSlider from "../components/slider";
-import items from "../api/items";
 import stories from "../staticData/stories.json";
-
 import ItemsContainer from "../components/items/itemsContainer";
-
 import { motion } from "framer-motion";
-
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-
-// const apiUrl = `dbUrl + '/item/filter?category=Tên category đó'`;
-// const { data } = useQuery({
-//   queryKey: ["coffees"],
-//   queryFn: () => axios.get(apiUrl).then((res) => res),
-//   staleTime: 1000 * 5,
-//   retry: 3,
-// });
 
 const Coffee = (props) => {
   return (
@@ -40,7 +26,7 @@ const Coffee = (props) => {
           />
         </div>
         <div className="w-fit h-fit mx-auto">
-          <ItemsContainer isHome={false} />
+          <ItemsContainer route={"tea"} />
         </div>
       </div>
     </motion.div>

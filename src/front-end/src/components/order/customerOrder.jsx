@@ -88,7 +88,7 @@ const CustomerOrder = (prop) => {
         </div>
         <div className="w-full h-[fit] flex justify-between">
           <div className="w-[322px] h-[fit] text-[#0E3746] text-sm pr-[10px]">
-            Size: {order.size || "L"}
+            Size: {order.size.size || "Small"}
           </div>
           <div className="w-[80px] text-[#0E3746] text-base text-right pr-0.5">
             {order.price || "100000"}
@@ -99,13 +99,23 @@ const CustomerOrder = (prop) => {
             Quantity: {order.quantity || "1"}
           </div>
           <div className="h-4 border-r-2 border-[#0E3746]"></div>
-          <div className="w-fit text-[#0E3746] text-sm ">
-            {order.topping || "Full Topping"}
-          </div>
-          <div className="h-4 border-r-2 border-[#0E3746]"></div>
-          <div className="w-fit text-[#0E3746] text-sm ">
-            {order.note || "No Thing"}
-          </div>
+          {order.topping[0].quantity > 0 ||
+          order.topping[1].quantity > 0 ||
+          order.topping[2].quantity > 0 ? (
+            <div className="w-fit text-[#0E3746] text-sm ">
+              {order.topping[0].quantity > 0 && order.topping[0].name}{" "}
+              {order.topping[1].quantity > 0 && order.topping[1].name}{" "}
+              {order.topping[2].quantity > 0 && order.topping[2].name}{" "}
+            </div>
+          ) : (
+            <></>
+          )}
+          {order.note && (
+            <>
+              <div className="h-4 border-r-2 border-[#0E3746]"></div>
+              <div className="w-fit text-[#0E3746] text-sm ">{order.note}</div>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -3,13 +3,26 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
-const ItemsContainer = ({ route, limit }) => {
-  const defaultLimit = route === "/" ? 12 : 16;
-  const displayLimit = limit === Infinity ? limit : defaultLimit;
+// filter?page_12=1&category=
 
-  const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=false`;
+const ItemsContainer = ({ route, limit }) => {
+  // const defaultLimit = route === "/" ? 12 : 16;
+  const displayLimit = limit === Infinity ? 20 : 12;
+
+  // const subUrl =
+  //   route === "/"
+  //     ? `filter?page_${displayLimit}` // home
+  //     : `filter?page_16=1&category=${route}`; // others
+
+  const subUrl =
+    route === "/"
+      ? `item/all` // home
+      : `item/filter?page_16=1&category=${route}`; // others
+
+  const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/${subUrl}`;
+
   const { data, isLoading, isSuccess } = useQuery({
-    queryKey: [`${route}-items-container`],
+    queryKey: [`${route}-${displayLimit}-items-container`],
     queryFn: () => axios.get(apiUrl).then((res) => res),
     staleTime: 1000 * 10,
     retry: 3,

@@ -16,7 +16,7 @@ const NoteHere = () => {
         isFocused ? "border-[blue]" : "border-[#D9D9D9]"
       } hover:shadow-md shadow-none`}
     >
-      <div className="w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center rounded-tl-[5px] rounded-bl-[5px]">
+      <div className="w-[52px] h-[52px] bg-[#D9D9D9] pb-1 flex justify-center items-center rounded-tl-[5px] rounded-bl-[5px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
