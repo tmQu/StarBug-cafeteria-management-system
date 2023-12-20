@@ -28,6 +28,7 @@ const itemHandler = {
     getFilter:    async function (req, res)
         {
             var query = {};
+            console.log('test')
             var filterProjection = projection;
             if (req.query.category)
             {

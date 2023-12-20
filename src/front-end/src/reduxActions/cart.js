@@ -1,15 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const calTotalPrice = (cartList) => {
+const calculateToppingPrice = (toppingList) => {
   let totalPrice = 0;
+  const toppingPrice = 15000;
 
-  cartList.forEach((item) => {
-    const itemPrice = item.price * item.quantity;
+  toppingList.forEach((top) => {
+    const itemPrice = toppingPrice * top.quantity;
     totalPrice += itemPrice;
   });
 
   return totalPrice;
 };
+
+const calTotalPrice = (cartList) => {
+  let totalPrice = 0;
+
+  cartList.forEach((item) => {
+    const itemPrice =
+      (item.price + item.size.sizePrice + calculateToppingPrice(item.topping)) *
+      item.quantity;
+    totalPrice += itemPrice;
+  });
+
+  return totalPrice;
+};
+
 const calTotalFee = (cartList) => {
   const ratio = 0.1;
   let totalFee = 0;
@@ -21,6 +36,7 @@ const calTotalFee = (cartList) => {
 
   return totalFee;
 };
+
 const calTotalVoucher = () => {
   return 0.1;
 };
@@ -36,8 +52,8 @@ export const cartActions = createSlice({
   },
   reducers: {
     addCart: (state, action) => {
-      const item = { ...action.payload, quantity: 1 };
-      // item = { id, name, price, rate, image, quantity };
+      // console.log(action.payload);
+      const item = { ...action.payload };
 
       let addFlag = true;
       state.cartList.forEach((i) => {

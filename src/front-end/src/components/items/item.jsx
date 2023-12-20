@@ -1,16 +1,21 @@
 import { useDispatch } from "react-redux";
 import { addCart } from "../../reduxActions/cart";
+import formatCurrencyWithCommas from "../../utils/formatCurrency";
+import { useNavigate } from "react-router-dom";
 
 const Item = (props) => {
+  const navigate = useNavigate();
   const { id, name, price, rate, image } = props;
 
-  const dispatch = useDispatch();
-  const handleAddButton = (data) => {
-    dispatch(addCart(data));
+  const handlePressItem = (data) => {
+    navigate("/product", { state: data });
   };
 
   return (
-    <div className="group w-[210px] h-[288px] sm:w-[170px] sm:h-[240px] bg-[#DBDBDB] hover:bg-[#0D3746] rounded-xl shadow-lg">
+    <div
+      className="group w-[210px] h-[288px] sm:w-[170px] sm:h-[240px] bg-[#DBDBDB] hover:bg-[#0D3746] rounded-xl shadow-lg"
+      onClick={() => handlePressItem(props)}
+    >
       <div className="w-full h-fit p-1.5 pb-0">
         <img
           className="w-full h-[155px] mx-auto sm:h-[134px] rounded-lg object-fill"
@@ -23,7 +28,9 @@ const Item = (props) => {
           {name}
         </p>
         <div>
-          <p className="font-light text-[#D63431]">{price} VND</p>
+          <p className="font-light text-[#D63431]">
+            {formatCurrencyWithCommas(price)} VND
+          </p>
           <div className="w-full -mt-1 flex flex-row justify-between items-center">
             <div className="w-fit h-fit flex flex-row justify-start items-center">
               <div className="text-[#FFC107]">{rate}</div>
@@ -33,13 +40,13 @@ const Item = (props) => {
                 src="/assets/star.png"
               ></img>
             </div>
-            <button onClick={() => handleAddButton(props)}>
+            <div>
               <img
                 className="w-4"
                 alt="add-icon"
                 src="/assets/add-icon.png"
               ></img>
-            </button>
+            </div>
           </div>
         </div>
       </div>

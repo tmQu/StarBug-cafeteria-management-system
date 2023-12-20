@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addCart } from "../../reduxActions/cart";
+import formatCurrencyWithComas from "../../utils/formatCurrency";
 
 const Top3Item = (props) => {
   const { id, name, price, image, rate } = props;
@@ -26,7 +27,9 @@ const Top3Item = (props) => {
         <p className="text-2xl font-medium mt-1 break-words line-clamp-2 leading-7 overflow-ellipsis text-[#0D3746] group-hover:text-white">
           {name}
         </p>
-        <p className="text-2xl mt-2 font-light text-[#D63431]">{price} VND</p>
+        <p className="text-2xl mt-2 font-light text-[#D63431]">
+          {formatCurrencyWithComas(price)} VND
+        </p>
         <div className="w-full flex flex-row justify-between items-center">
           <div className="w-fit h-fit flex flex-row justify-start items-center">
             <div className="text-xl text-[#FFC107]">{rate}</div>

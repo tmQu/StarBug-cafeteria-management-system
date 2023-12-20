@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const SizeSelect = () => {
+const SizeSelect = ({ sizeSelectfunction }) => {
   const [selectedSize, setSelectedSize] = useState("Small");
 
   const handleSizeSelect = (size) => {
     if (selectedSize === size) {
-      setSelectedSize(null); // Unselect if already selected
+      setSelectedSize(null);
       setSelectedSize("Small");
     } else {
       setSelectedSize(size);
-      // Do something with the selected size, like calling a function or setting state
     }
   };
+
+  useEffect(() => {
+    sizeSelectfunction(selectedSize);
+  }, [selectedSize]);
 
   const renderSizeButton = (size, price) => {
     const isSelected = selectedSize === size;
@@ -58,9 +61,9 @@ const SizeSelect = () => {
         Size
       </div>
       <div className="h-[80px] flex justify-center items-center bg-[#F3F2ED] text-[16px] font-medium text-[#324054]">
-        {renderSizeButton("Small", "+ 0")}
-        {renderSizeButton("Medium", "+ $5")}
-        {renderSizeButton("Large", "+ $10")}
+        {renderSizeButton("Small", "")}
+        {renderSizeButton("Medium", "+ 5.000")}
+        {renderSizeButton("Large", "+ 10.000")}
       </div>
     </div>
   );

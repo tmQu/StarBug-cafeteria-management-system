@@ -1,12 +1,9 @@
 import { BorderButton } from "../buttons/button";
 import CustomerOrder from "./customerOrder";
 import OrderTotal from "./orderTotal";
-
 import { useSelector } from "react-redux";
 
-const OrderDetail = (prop) => {
-  const { order } = prop;
-
+const OrderDetail = () => {
   const { cartList, totalPrice, totalFee, totalVoucher } = useSelector(
     (state) => state.cartReducer
   );
