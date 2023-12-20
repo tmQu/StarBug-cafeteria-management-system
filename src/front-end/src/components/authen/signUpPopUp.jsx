@@ -109,17 +109,7 @@ const Register = () => {
       return;
     }
     try {
-      console.log('success1');
       // Clear input field
-      setEmail("");
-      setUser("");
-      setPwd("");
-      setMatchPwd("");
-      setPhoneNumber("");
-      navigate(from, { replace: true });
-      // message check email to verify
-      handleSignInButton(false);
-      alert("Check your email to verify your account");
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
@@ -131,8 +121,17 @@ const Register = () => {
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
-        }
-      );
+        });
+        console.log('success1');
+        setEmail("");
+        setUser("");
+        setPwd("");
+        setMatchPwd("");
+        setPhoneNumber("");
+        navigate(from, { replace: true });
+        // message check email to verify
+        handleSignInButton(false);
+        alert("Check your email to verify your account");
     } catch (err) {
       console.log(err);
       if (!err?.response) {

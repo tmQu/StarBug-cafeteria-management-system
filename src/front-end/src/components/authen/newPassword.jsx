@@ -33,8 +33,6 @@ const NewPassword = () => {
 
   useEffect(() => {
     const result = PASSWORD_REGEX.test(pwd);
-    console.log(result);
-    console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
@@ -52,7 +50,7 @@ const NewPassword = () => {
       setErrMsg("Invalid password");
       return;
     }
-    console.log(from)
+    console.log(token)
     try {
       const response = await axios.post(
         URL,

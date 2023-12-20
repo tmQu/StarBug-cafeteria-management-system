@@ -65,18 +65,18 @@ const createForgetPwdToken = (email) => {
     })
 }
 
-const sendVerifyEmail = (email) => {
+const sendVerifyEmail = async (email) => {
     var verifyToken = createVerifyToken(email);
     var verifyUrl = process.env.SERVER_URL + `/auth/verify?token=${verifyToken}`;
     var htmlContent = `<a href=${verifyUrl}>Verify link</a>`
-    sendEmail(email, '[StarBug] Verify email', htmlContent);
+    await sendEmail(email, '[StarBug] Verify email', htmlContent);
 }
 
-const sendForgetPwdEmail = (email) => {
+const sendForgetPwdEmail = async (email) => {
     var forgetPwdToken = createForgetPwdToken(email);
     var forgetPwdUrl = process.env.APP_URL + `/reset?token=${forgetPwdToken}`;
     var htmlContent = `<a href=${forgetPwdUrl}>Reset link</a>`
-    sendEmail(email, '[StarBug] Reset Password', htmlContent);
+    await sendEmail(email, '[StarBug] Reset Password', htmlContent);
 }
 
 
@@ -89,7 +89,7 @@ const authHandler = {
         try {
             const user = await User(userInfo).save();
             sendVerifyEmail(userInfo.email);
-            res.status(201);
+            res.status(201).json({user: "hekasd"});
         }
         catch(err) {
             console.log(err);
