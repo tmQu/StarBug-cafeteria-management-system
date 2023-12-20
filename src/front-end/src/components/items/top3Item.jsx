@@ -1,19 +1,19 @@
-import { useDispatch } from "react-redux";
-import { addCart } from "../../reduxActions/cart";
+import { useNavigate } from "react-router-dom";
 import formatCurrencyWithComas from "../../utils/formatCurrency";
 
 const Top3Item = (props) => {
   const { id, name, price, image, rate } = props;
 
-  const dispatch = useDispatch();
-  const handleAddButton = (data) => {
-    dispatch(addCart(data));
+  const navigate = useNavigate();
+  const handlePressItem = (data) => {
+    navigate("/product", { state: data });
   };
 
   return (
     <div
       className="group w-[300px] h-[425px] bg-[#D8D4BA] hover:bg-[#183942] rounded-xl shadow-xl
     [transition:transform_0.5s_ease] hover:scale-[1.01]"
+      onClick={() => handlePressItem(props)}
     >
       <div className="pt-3">
         <img
@@ -39,13 +39,13 @@ const Top3Item = (props) => {
               src="/assets/star.png"
             ></img>
           </div>
-          <button onClick={() => handleAddButton(props)}>
+          <div>
             <img
               className="w-6"
               alt="add-icon"
               src="/assets/add-icon.png"
             ></img>
-          </button>
+          </div>
         </div>
       </div>
     </div>
