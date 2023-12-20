@@ -29,7 +29,7 @@ export const cartActions = createSlice({
   name: "cartActions",
   initialState: {
     counter: 0,
-    cartList: [], // [{id, name, price, rate, image, quantity}, {id, name, price, rate, image, quantity},...]
+    cartList: [],
     totalPrice: 0,
     totalFee: 0,
     totalVoucher: 0,

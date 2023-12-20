@@ -5,11 +5,17 @@ import Promotions from "../components/promotions";
 import ItemsContainer from "../components/items/itemsContainer";
 import ShowAllButton from "../components/buttons/showAllButton";
 import { useLocation } from "react-router-dom";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Home = () => {
   const location = useLocation();
+  const [showAllItems, setShowAllItems] = useState(false);
+
+  const handleShowAll = () => {
+    setShowAllItems(!showAllItems);
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0.5, y: 20 }}
@@ -46,10 +52,14 @@ const Home = () => {
           </p>
         </div>
         <div className="w-fit h-fit mx-auto">
-          <ItemsContainer route={location.pathname} />
+          {showAllItems ? (
+            <ItemsContainer route={location.pathname} limit={Infinity} />
+          ) : (
+            <ItemsContainer route={location.pathname} limit={12} />
+          )}
         </div>
         <div className="pb-6 pt-3">
-          <ShowAllButton />
+          <ShowAllButton showAll={!showAllItems} onClick={handleShowAll} />
         </div>
       </div>
     </motion.div>

@@ -1,47 +1,99 @@
 import Top3Item from "./top3Item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
 
 const Top3Items = () => {
   const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=true`;
 
-  const { data } = useQuery({
+  const { data, isLoading, isSuccess } = useQuery({
     queryKey: ["top-3-items"],
     queryFn: () => axios.get(apiUrl).then((res) => res),
     staleTime: 1000 * 10,
     retry: 3,
   });
 
-  // console.log("tops3", data?.data);
-
   return (
-    <div
-      className="w-fit h-fit mx-auto flex flex-row
-      xl:flex-col xl:gap-4"
-    >
-      <div className="w-auto flex flex-row sm:flex-col xl:gap-4 ">
-        {data?.data.slice(0, 2).map((item, index) => (
-          <div className="mx-2 xl:mx-0">
-            <Top3Item
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              rate={item.avgRate}
-              image={item.img}
-            />
+    <div>
+      {isLoading ? (
+        <Top3ItemSkeleton />
+      ) : (
+        <div
+          className="w-fit h-fit mx-auto flex flex-row
+          xl:flex-col xl:gap-4"
+        >
+          <div className="w-auto flex flex-row xl:grid xl:!grid-cols-2 xl:gap-4 xl:!mx-0 sm:!flex sm:!flex-col">
+            {isSuccess &&
+              data?.data.slice(0, 3).map((item, index) => (
+                <div className="mx-2 xl:mx-0">
+                  <Top3Item
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    rate={item.avgRate}
+                    image={item.img}
+                  />
+                </div>
+              ))}
           </div>
-        ))}
+        </div>
+      )}
+    </div>
+  );
+};
+export default Top3Items;
+
+const Top3ItemSkeleton = () => {
+  return (
+    <div className="w-fit mx-auto flex flex-row gap-4 xl:grid xl:!grid-cols-2 xl:gap-4 xl:!mx-0 sm:!flex sm:!flex-col">
+      <div className="w-fit h-fit flex flex-col bg-[#D8D4BA] p-3 pt-2 rounded-xl">
+        <Skeleton
+          baseColor="#979482"
+          borderRadius={12}
+          height={276}
+          width={290}
+          count={1}
+        />
+        <Skeleton
+          baseColor="#979482"
+          borderRadius={12}
+          height={42}
+          width={290}
+          count={3}
+        />
       </div>
-      <div className="mx-2 xl:mx-0 xl:col-span-2">
-        <Top3Item
-          id={data?.data[2].id}
-          name={data?.data[2].name}
-          price={data?.data[2].price}
-          rate={data?.data[2].avgRate}
-          image={data?.data[2].img}
+      <div className="w-fit h-fit flex flex-col bg-[#D8D4BA] p-3 pt-2 rounded-xl">
+        <Skeleton
+          baseColor="#979482"
+          borderRadius={12}
+          height={276}
+          width={290}
+          count={1}
+        />
+        <Skeleton
+          baseColor="#979482"
+          borderRadius={12}
+          height={42}
+          width={290}
+          count={3}
+        />
+      </div>
+      <div className="w-fit h-fit flex flex-col bg-[#D8D4BA] p-3 pt-2 rounded-xl">
+        <Skeleton
+          baseColor="#979482"
+          borderRadius={12}
+          height={276}
+          width={290}
+          count={1}
+        />
+        <Skeleton
+          baseColor="#979482"
+          borderRadius={12}
+          height={42}
+          width={290}
+          count={3}
         />
       </div>
     </div>
   );
 };
-export default Top3Items;

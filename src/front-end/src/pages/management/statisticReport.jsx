@@ -1,28 +1,28 @@
 import BarChartReport from "../../components/charts/barChart.jsx";
 import PieChartReport from "../../components/charts/pieChart.jsx";
+import formatCurrencyWithCommas from "../../utils/formatCurrency";
 
 const StatisticReport = () => {
-  const totalSales = 456.456;
-  const totalOrders = 345.345;
-  const visitors = 234.234;
-
-  const sucessfullOrder = 0;
-  const unsucessfullOrder = 0;
+  const totalSales =
+    Math.floor(Math.random() * (10000000 - 100000 + 1)) + 100000;
+  const totalOrders =
+    Math.floor(Math.random() * (10000000 - 100000 + 1)) + 100000;
+  const visitors = Math.floor(Math.random() * (10000000 - 100000 + 1)) + 100000;
 
   const top3Trends = [
     {
       image: "",
-      name: "Macbook M2 Pro",
+      name: "Cà Phê Sữa Đá",
       trend: 15,
     },
     {
       image: "",
-      name: "iPhone 14",
+      name: "Bánh chocolate",
       trend: 7,
     },
     {
       image: "",
-      name: "Camera Lens",
+      name: "Cà Phê Đen Robusta",
       trend: 2,
     },
   ];
@@ -63,7 +63,7 @@ const StatisticReport = () => {
                 <h3 className="text-sm">Total Sales</h3>
               </div>
               <div className="text-2xl text-center font-medium">
-                ${totalSales}
+                {formatCurrencyWithCommas(totalSales * 1000)}
               </div>
               <div className="text-sm text-[#4ACA61] flex flex-row">
                 <img
@@ -87,7 +87,7 @@ const StatisticReport = () => {
                 <h3 className="text-sm">Total Orders</h3>
               </div>
               <div className="text-2xl text-center font-medium">
-                ${totalOrders}
+                {formatCurrencyWithCommas(totalOrders * 1000)}
               </div>
               <div className="text-sm text-[#4ACA61] flex flex-row">
                 <img
@@ -111,7 +111,7 @@ const StatisticReport = () => {
                 <h3 className="text-sm">Visitors</h3>
               </div>
               <div className="text-2xl text-center font-medium">
-                ${visitors}
+                {formatCurrencyWithCommas(visitors * 1000)}
               </div>
               <div className="text-sm text-[#4ACA61] flex flex-row">
                 <img

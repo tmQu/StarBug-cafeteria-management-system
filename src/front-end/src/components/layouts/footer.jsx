@@ -7,6 +7,16 @@ const Footer = () => {
   const handleNavigation = (route) => {
     navigate(`/${route}`);
   };
+
+  const scrollToTopAndNavigate = (item) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    handleNavigation(item.toLowerCase());
+  };
+
   return (
     <div className="w-screen bg-[#EAE8DC]">
       <div className="w-[1120px] xl:w-screen mx-auto h-fit py-3 sm:py-6 flex flex-col justify-center items-center ">
@@ -18,7 +28,7 @@ const Footer = () => {
         </div>
         <div className="py-3 mx-auto">
           <button
-            onClick={() => handleNavigation("about")}
+            onClick={() => scrollToTopAndNavigate("about")}
             className="w-[198px] h-[60px] py-1 text-[#F4F2EC] bg-[#183942] px-6 rounded-[30px] text-xl font-Source-Sans-3 font-bold cursor-pointer transition-transform ease-in-out duration-500 hover:bg-[#0a181c] hover:scale-[1.05]"
           >
             About us
@@ -38,7 +48,7 @@ const Footer = () => {
             {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
               <button
                 className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
-                onClick={() => handleNavigation(item.toLowerCase())}
+                onClick={() => scrollToTopAndNavigate(item)}
               >
                 {item}
               </button>

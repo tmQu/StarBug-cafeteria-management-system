@@ -1,19 +1,19 @@
 import Item from "./item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
 
-const ItemsContainer = ({ route }) => {
-  //page home have 12 items, other pages have 16 items
-  const limit = route === "/" ? 12 : 16;
+const ItemsContainer = ({ route, limit }) => {
+  const defaultLimit = route === "/" ? 12 : 16;
+  const displayLimit = limit === Infinity ? limit : defaultLimit;
 
   const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=false`;
-  const { data } = useQuery({
-    queryKey: [`${route}-items-container`], // unique for each page
+  const { data, isLoading, isSuccess } = useQuery({
+    queryKey: [`${route}-items-container`],
     queryFn: () => axios.get(apiUrl).then((res) => res),
     staleTime: 1000 * 10,
     retry: 3,
   });
-  // console.log("items container", data?.data);
 
   return (
     <div
@@ -22,17 +22,50 @@ const ItemsContainer = ({ route }) => {
       sm:grid sm:!grid-cols-2 
     "
     >
-      {data?.data.slice(0, limit).map((item) => (
-        <Item
-          id={item.id}
-          name={item.name}
-          price={item.price}
-          rate={item.avgRate}
-          image={item.img}
-        />
-      ))}
+      {isLoading ? (
+        <>
+          {Array.from({ length: displayLimit }, (_, index) => (
+            <ItemSkeleton key={index} />
+          ))}
+        </>
+      ) : (
+        isSuccess &&
+        data?.data
+          .slice(0, displayLimit)
+          .map((item) => (
+            <Item
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              rate={item.avgRate}
+              image={item.img}
+            />
+          ))
+      )}
     </div>
   );
 };
 
 export default ItemsContainer;
+
+const ItemSkeleton = () => {
+  return (
+    <div className="w-[200px] h-[280px] bg-[#D8D4BA] p-2 pt-1 rounded-xl shadow-lg">
+      <Skeleton
+        baseColor="#979482"
+        borderRadius={12}
+        height={180}
+        width={180}
+        count={1}
+      />
+      <Skeleton
+        baseColor="#979482"
+        borderRadius={12}
+        height={36}
+        width={180}
+        count={2}
+      />
+    </div>
+  );
+};

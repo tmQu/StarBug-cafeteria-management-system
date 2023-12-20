@@ -4,17 +4,16 @@ import LoginButton from "../buttons/loginButton";
 import Logo from "../logo";
 import SearchButtonMobile from "../../responsive/searchButton";
 import MenuButtonMobile from "../../responsive/menuButton";
+import { useNavigate } from "react-router-dom";
 
 import SignInPopUp from "../authen/logInPopUp";
 import SignUpPopUp from "../authen/signUpPopUp";
-import PaymentDetail from "../order/payment";
 import ForgotPassword from "../authen/forgotPassword";
 import NewPassword from "../authen/newPassword";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
   toggleLogin,
-  togglePayment,
   toggleSignUp,
   toggleForgotPassword,
   toggleNewPassword,
@@ -22,12 +21,13 @@ import {
 import { useEffect, useRef } from "react";
 
 const Header = () => {
+  const navigate = useNavigate();
   const popUpRef = useRef();
   const dispatch = useDispatch();
 
   const {
     isOpenLoginPopUp,
-    isOpenPaymentPopUp,
+
     isOpenSignUpPopUp,
     isOpenForgotPasswordPopUp,
     isOpenNewPasswordPopUp,
@@ -35,7 +35,6 @@ const Header = () => {
 
   const handleLoginButton = (props) => {
     dispatch(toggleSignUp(false));
-    dispatch(togglePayment(false));
     toggleForgotPassword(false);
     toggleNewPassword(false);
     dispatch(toggleLogin(props));
@@ -45,25 +44,21 @@ const Header = () => {
     dispatch(toggleSignUp(false));
     toggleForgotPassword(false);
     toggleNewPassword(false);
-    dispatch(togglePayment(props));
   };
   const handleSignUpButton = (props) => {
     dispatch(toggleLogin(false));
-    dispatch(togglePayment(false));
     toggleForgotPassword(false);
     toggleNewPassword(false);
     dispatch(toggleSignUp(props));
   };
   const handleForgotPasswordButton = (props) => {
     dispatch(toggleLogin(false));
-    dispatch(togglePayment(false));
     dispatch(toggleSignUp(false));
     toggleNewPassword(false);
     dispatch(toggleForgotPassword(props));
   };
   const handleNewPasswordButton = (props) => {
     dispatch(toggleLogin(false));
-    dispatch(togglePayment(false));
     dispatch(toggleSignUp(false));
     toggleForgotPassword(false);
     dispatch(toggleNewPassword(props));
@@ -73,7 +68,6 @@ const Header = () => {
     const mouseDownHandler = (e) => {
       if (
         (isOpenLoginPopUp ||
-          isOpenPaymentPopUp ||
           isOpenSignUpPopUp ||
           isOpenForgotPasswordPopUp ||
           isOpenNewPasswordPopUp) &&
@@ -109,7 +103,7 @@ const Header = () => {
             <SearchButtonMobile onClick={() => {}} />
           </div>
           <div className="flex flex-row gap-3" ref={popUpRef}>
-            <CartButton onClick={() => handleCartButton()} />
+            <CartButton onClick={() => navigate("/payment")} />
             <div className="sm:hidden">
               <LoginButton onClick={() => handleLoginButton()} />
             </div>
@@ -118,7 +112,6 @@ const Header = () => {
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}
               {isOpenNewPasswordPopUp && <NewPassword />}
-              {isOpenPaymentPopUp && <PaymentDetail />}
             </div>
           </div>
         </div>

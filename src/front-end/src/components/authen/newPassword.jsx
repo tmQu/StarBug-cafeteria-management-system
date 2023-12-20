@@ -17,8 +17,10 @@ const NewPassword = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.pathname || "/";
+  
   var s = new URLSearchParams(location.search)
   const token = s.get("token")
+
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
@@ -73,7 +75,10 @@ const NewPassword = () => {
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
-      } else {
+      } else if (err?.response?.status === 401) {
+        setErrMsg("Token Expired");
+      } 
+      else {
         setErrMsg("Reset Password Failed");
       }
     }

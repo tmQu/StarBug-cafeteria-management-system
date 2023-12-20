@@ -4,20 +4,15 @@ import OrderTotal from "./orderTotal";
 
 import { useSelector } from "react-redux";
 
-// order = [total + item]
-// order item = {name, size, amount, price, topping, note}
-
 const OrderDetail = (prop) => {
   const { order } = prop;
 
   const { cartList, totalPrice, totalFee, totalVoucher } = useSelector(
     (state) => state.cartReducer
   );
-  // order item = {name, size, amount, price, topping, note}
 
   const handleAdd = () => {
     // Change direct to product page
-    console.log("Add");
   };
 
   return (

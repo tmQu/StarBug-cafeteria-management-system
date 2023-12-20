@@ -31,7 +31,7 @@ const OrderTotal = ({ total, fee, voucher }) => {
           <div className="my-auto flex-col">
             <div className="text-white text-sm font-semibold">Total</div>
             <div className="text-white text-sm font-semibold">
-              {total - fee - discount}
+              {total + fee - discount}
             </div>
           </div>
           <RoundedButton className="my-auto pt-0.5" name="Order" />
