@@ -10,7 +10,7 @@ import LargeButton from "../buttons/largeButton";
 import "../../css/authen.css";
 
 axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "http://localhost:4000/auth/signup",
 });
 const REGISTER_URL = "http://localhost:4000/auth/signup";
 
@@ -81,15 +81,11 @@ const Register = () => {
 
   useEffect(() => {
     const result = GMAIL_REGEX.test(email);
-    console.log(result);
-    console.log(email);
     setValidEmail(result);
   }, [email]);
 
   useEffect(() => {
     const result = PASSWORD_REGEX.test(pwd);
-    console.log(result);
-    console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
@@ -97,8 +93,6 @@ const Register = () => {
 
   useEffect(() => {
     const result = PHONE_REGEX.test(phoneNumber);
-    console.log(result);
-    console.log(phoneNumber);
     setValidPhoneNumber(result);
   }, [phoneNumber]);
 
@@ -115,6 +109,17 @@ const Register = () => {
       return;
     }
     try {
+      console.log('success1');
+      // Clear input field
+      setEmail("");
+      setUser("");
+      setPwd("");
+      setMatchPwd("");
+      setPhoneNumber("");
+      navigate(from, { replace: true });
+      // message check email to verify
+      handleSignInButton(false);
+      alert("Check your email to verify your account");
       const response = await axios.post(
         REGISTER_URL,
         JSON.stringify({
@@ -128,17 +133,8 @@ const Register = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data);
-      console.log(response.accessToken);
-      console.log(JSON.stringify(response));
-      // Clear input field
-      setEmail("");
-      setPwd("");
-      setMatchPwd("");
-      setPhoneNumber("");
-      navigate(from, { replace: true });
-      // message check email to verify
     } catch (err) {
+      console.log(err);
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.status === 409) {
@@ -208,6 +204,7 @@ const Register = () => {
                     ref={emailRef}
                     autoComplete="off"
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     required
                     aria-invalid={validEmail ? "false" : "true"}
                     aria-describedby="emailnote"
@@ -257,6 +254,8 @@ const Register = () => {
                     ref={userRef}
                     autoComplete="off"
                     onChange={(e) => setUser(e.target.value)}
+                    value={user}
+                    required
                     onFocus={() => setUserFocus(true)}
                     onBlur={() => setUserFocus(false)}
                   />
@@ -292,6 +291,7 @@ const Register = () => {
                     placeholder="PASSWORD"
                     name="password"
                     onChange={(e) => setPwd(e.target.value)}
+                    value={pwd}
                     required
                     aria-invalid={validPwd ? "false" : "true"}
                     aria-describedby="pwdnote"
@@ -347,6 +347,7 @@ const Register = () => {
                     placeholder="CONFIRM"
                     name="confirmPassword"
                     onChange={(e) => setMatchPwd(e.target.value)}
+                    value={matchPwd}
                     required
                     aria-invalid={validMatch ? "false" : "true"}
                     aria-describedby="matchnote"
@@ -388,7 +389,7 @@ const Register = () => {
                     placeholder="PHONE NUMBER"
                     name="phoneNumber"
                     onChange={(e) => setPhoneNumber(e.target.value)}
-                    required
+                    value={phoneNumber}
                     aria-invalid={validPhoneNumber ? "false" : "true"}
                     aria-describedby="phonenote"
                     onFocus={() => setPhoneNumberFocus(true)}
