@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
-const ItemsContainer = ({ route }) => {
-  //page home have 12 items, other pages have 16 items
-  const limit = route === "/" ? 12 : 16;
+const ItemsContainer = ({ route, limit }) => {
+  const defaultLimit = route === "/" ? 12 : 16;
+  const displayLimit = limit === Infinity ? limit : defaultLimit;
 
   const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/item/filter?topItem=false`;
   const { data, isLoading, isSuccess } = useQuery({
@@ -24,16 +24,17 @@ const ItemsContainer = ({ route }) => {
     >
       {isLoading ? (
         <>
-          {Array.from({ length: limit }, (_, index) => (
+          {Array.from({ length: displayLimit }, (_, index) => (
             <ItemSkeleton key={index} />
           ))}
         </>
       ) : (
         isSuccess &&
         data?.data
-          .slice(0, limit)
+          .slice(0, displayLimit)
           .map((item) => (
             <Item
+              key={item.id}
               id={item.id}
               name={item.name}
               price={item.price}
