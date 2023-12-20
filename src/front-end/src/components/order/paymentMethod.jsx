@@ -51,7 +51,7 @@ const PaymentMethod = () => {
           </g>
         </svg>
         <div className="ml-4 flex items-center">
-          <img src={method} alt={name} />
+          <img className="w-[25px] h-[25px]" src={method} alt={name} />
           <span className="ml-2 text-[#0E3746]">{name}</span>
         </div>
       </div>

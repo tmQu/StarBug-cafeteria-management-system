@@ -16,7 +16,7 @@ const NewPassword = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.pathname || "/";
+  const from = "/";
   
   var s = new URLSearchParams(location.search)
   const token = s.get("token")
