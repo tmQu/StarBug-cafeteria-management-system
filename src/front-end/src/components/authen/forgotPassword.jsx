@@ -44,8 +44,6 @@ const ForgotPassword = () => {
     setValidEmail(result);
   }, [email]);
 
-  
-
   const handleSend = async (e) => {
     console.log("Đã gửi email tới:", email);
     // axios reqest here
@@ -64,10 +62,10 @@ const ForgotPassword = () => {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
-      );
-      console.log(JSON.stringify(response?.data));
-      // Clear input field
-      setEmail("");
+        );
+        console.log(JSON.stringify(response?.data));
+        // Clear input field
+        setEmail("");        
     } catch (err) {
       console.log(err);
     }
@@ -134,6 +132,7 @@ const ForgotPassword = () => {
             ref={emailRef}
             autoComplete="off"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
             required
             aria-invalid={validEmail ? "false" : "true"}
             aria-describedby="emailnote"

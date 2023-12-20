@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -47,7 +47,7 @@ const SignInPopUp = () => {
   const emailRef = useRef();
   const errRef = useRef();
 
-  const [email, resetEmail, emailAttribs] = useInput("user", "");
+  const [email, resetEmail, emailAttribs] = useInput("email", "");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [check, toggleCheck] = useToggle("persist", false);
@@ -60,8 +60,16 @@ const SignInPopUp = () => {
   //   localStorage.setItem("persist", persist);
   // }, [persist]);
 
+  useEffect(() => {
+    emailRef.current.focus();
+  }, [])
+
+  useEffect(() => {
+    setErrMsg("")
+  }, [email, pwd]);
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     try {
       const response = await axios.post(
         LOGIN_URL,
@@ -78,13 +86,13 @@ const SignInPopUp = () => {
       resetEmail();
       setPwd("");
       navigate(from, { replace: true });
-      setErrMsg("");
-      
+      dispatch(toggleLogin(false));
       //hide login popup, hide login button, show user avatar
       // response?.data?.imageAvatar
       // set static avatar for now, database not ready
     } catch (err) {
-      if (!err.response) {
+      console.log('Error: ', err);
+      if (!err?.response) {
         setErrMsg("Server is not responding");
       } else if (err?.response?.status === 400) {
         setErrMsg("Missing email or password");
