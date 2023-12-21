@@ -64,24 +64,24 @@ const PaymentMethod = () => {
         Payment
       </div>
       <hr className="w-[50px] border-[1px] border-[#BE2623]" />
-      <div className="py-2 ml-8">
+      <div className="py-2 mx-2">
         <div className="py-2">
           {renderSizeButton("/assets/Payment_files/cash.png", "Cash")}
         </div>
-        <hr className="w-[426px] border-[1px] border-[#0E3746] opacity-50" />
+        <hr className="w-[426px] sm:w-full border-[1px] border-[#0E3746] opacity-50" />
         <div className="py-2">
           {renderSizeButton("/assets/Payment_files/momo.png", "Momo")}
         </div>
-        <hr className="w-[426px] border-[1px] border-[#0E3746] opacity-50" />
+        <hr className="w-[426px] sm:w-full border-[1px] border-[#0E3746] opacity-50" />
         <div className="py-2">
           {renderSizeButton("/assets/Payment_files/zalo.png", "ZaloPay")}
         </div>
-        <hr className="w-[426px] border-[1px] border-[#0E3746] opacity-50" />
+        <hr className="w-[426px] sm:w-full border-[1px] border-[#0E3746] opacity-50" />
         <div className="py-2">
           {renderSizeButton("/assets/Payment_files/credit.png", "Credit card")}
         </div>
       </div>
-      <div>
+      <div className="mx-2">
         <Checkbox
           checked={isChecked}
           onChange={handleChange}

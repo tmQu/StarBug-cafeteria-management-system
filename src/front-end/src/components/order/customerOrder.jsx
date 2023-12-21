@@ -20,8 +20,8 @@ const CustomerOrder = (prop) => {
   };
 
   return (
-    <div className="w-[433px] h-fit mx-auto mt-4 flex">
-      <div className="w-[32px] h-[56px] flex-col items-center gap-2 mt-2 flex justify-center mr-2">
+    <div className="w-[433px] sm:w-full h-fit mx-auto mt-4 flex">
+      <div className="w-[32px] h-[56px] flex-col items-center gap-2 mt-2 flex justify-center mr-2 sm:ml-6 sm:mr-2">
         <button onClick={() => handleEdit()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -83,15 +83,15 @@ const CustomerOrder = (prop) => {
           </svg>
         </button>
       </div>
-      <div className="w-[410px] h-fit mx-auto ">
+      <div className="w-[410px] sm:w-full h-fit mx-auto ">
         <div className="w-full h-[fit] text-[#0E3746] text-sm font-semibold">
           {order.name || "Product Name"}
         </div>
         <div className="w-full h-[fit] flex justify-between">
-          <div className="w-[322px] h-[fit] text-[#0E3746] text-sm pr-[10px]">
+          <div className="w-[322px] sm:w-[90%] h-[fit] text-[#0E3746] text-sm pr-[10px]">
             Size: {order.size.size || "Small"}
           </div>
-          <div className="w-[80px] text-[#0E3746] text-base text-right pr-0.5">
+          <div className="w-[80px] sm:hidden text-[#0E3746] text-base text-right pr-0.5">
             {formatCurrencyWithCommas(order.price) || ""}
           </div>
         </div>
@@ -117,6 +117,9 @@ const CustomerOrder = (prop) => {
               <div className="w-fit text-[#0E3746] text-sm ">{order.note}</div>
             </>
           )}
+        </div>
+        <div className="w-[80px] text-[#0E3746] text-base text-left">
+          {formatCurrencyWithCommas(order.price) || ""}
         </div>
       </div>
     </div>

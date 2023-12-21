@@ -12,7 +12,7 @@ const Voucher = () => {
   };
   return (
     <div
-      className={`w-[427px] h-[40px] flex border-[1px] rounded-[5px] overflow-hidden ${
+      className={`w-full h-[40px] flex border-[1px] rounded-[5px] overflow-hidden ${
         isFocused ? "border-[#BE2623]" : "border-[#D9D9D9]"
       } hover:border-[#BE2623]`}
     >
@@ -76,7 +76,7 @@ const Voucher = () => {
       </div>
       <div className="h-full flex-grow relative">
         <input
-          className="w-[380px] h-full px-4 pt-0.5 bg-transparent text-[18px] font-Source-Sans-3 font-normal outline-none"
+          className="w-[380px] sm:w-full h-full px-4 pt-0.5 bg-transparent text-[18px] font-Source-Sans-3 font-normal outline-none"
           placeholder="Voucher code"
           onFocus={handleFocus}
           onBlur={handleBlur}
