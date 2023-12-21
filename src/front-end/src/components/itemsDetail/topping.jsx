@@ -22,8 +22,8 @@ const Topping = ({
   }, [quantity]);
 
   return (
-    <div className="flex items-center w-[400px] py-2">
-      <div className="ml-8">
+    <div className="flex items-center w-[400px] sm:w-full py-2">
+      <div className="ml-8 sm:ml-4">
         <div className="text-[#666] font-Source-Sans-3 text-[16px] font-semibold">
           {toppingName}
         </div>
@@ -31,7 +31,7 @@ const Topping = ({
           +{price}
         </div>
       </div>
-      <div className="flex ml-auto items-center mr-8">
+      <div className="flex ml-auto items-center mr-8 sm:mr-4">
         <svg
           width="20"
           height="20"

@@ -66,9 +66,7 @@ const Star = ({ rates = "5" }) => {
     return stars;
   };
 
-  return (
-    <div className="flex flex-row gap-[7.116px] pl-4">{renderStars()}</div>
-  );
+  return <div className="flex flex-row gap-[7.116px]">{renderStars()}</div>;
 };
 
 export default Star;

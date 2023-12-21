@@ -53,111 +53,113 @@ const Product = () => {
   };
 
   return (
-    <div className="w-screen h-fit mx-auto">
-      <div className="w-screen mx-auto py-10 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div className="w-[900px] h-[690px] bg-white mx-auto rounded-xl overflow-hidden shadow-2xl flex">
-          <div className="w-[450px] h-[690px] flex flex-col">
-            <div className="w-[400px] h-[500px]">
-              <PicItem />
-            </div>
-            <div className="w-[400px] h-[126px] flex mx-auto text-[16px] justify-center items-center text-justify my-auto px-2">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-              aperiam sunt praesentium perspiciatis at deserunt velit architecto
-              ipsa quis? Asperiores, excepturi? Eaque perferendis aspernatur
-              beatae soluta neque omnis at autem!
-            </div>
-          </div>
-          <div className="w-[450px] h-[690px] py-2 flex flex-col gap-2">
-            <div className="w-fit h-fit flex mr-auto ml-2 mt-3">
+    <div className="w-screen h-fit mx-auto py-6 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+      <div className="w-[900px] xl:w-fit sm:!w-[96%] h-fit bg-white mx-auto rounded-xl overflow-hidden shadow-2xl flex flex-row xl:flex-col xl:items-center">
+        <div className="w-[450px] xl:w-full h-[690px] xl:h-fit flex flex-col items-center">
+          <div className="w-full px-8 sm:px-4 mt-8 hidden xl:block">
+            <div className="w-fit h-fit flex">
               <Star rates={data.rate} />
             </div>
-            <div className="w-fit flex ml-auto mr-4 mb-2">
+            <div className="w-full flex mb-2 sm:mt-2">
               <ProductInfo
                 productName={data.name}
                 price={data.price}
                 changeQuantityFunction={(quantity) => setQuantity(quantity)}
               />
             </div>
-            <div className="w-[400px] h-[53px] ml-auto mr-4">
-              <NoteHere />
+          </div>
+          <div className="w-fit xl:w-full h-fit">
+            <PicItem image={data.image} />
+          </div>
+          <div className="w-[400px] sm:w-full h-fit xl:h-fit mt-4 flex mx-auto text-[16px] justify-center items-center text-justify px-2 sm:px-4">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+            aperiam sunt praesentium perspiciatis at deserunt velit architecto
+            ipsa quis? Asperiores, excepturi? Eaque perferendis aspernatur
+            beatae soluta neque omnis at autem!
+          </div>
+        </div>
+        <div className="w-[450px] xl:w-[400px] sm:w-full h-[690px] xl:mxauto xl:h-fit xl:mt-2 py-2 sm:px-4 flex flex-col justify-center items-start gap-2">
+          <div className="ml-5 w-full xl:hidden flex flex-col items-start justify-start">
+            <div className="w-fit h-fit mt-3">
+              <Star rates={data.rate} />
             </div>
-            <div className="w-[400px] h-[fit] ml-auto mr-4 rounded-lg border-[#F4F2EC] border mt-auto overflow-hidden">
-              <div className="w-[400px] h-fit mx-auto">
-                <SizeSelect
-                  sizeSelectfunction={(data) => handleSizeSelect(data)}
-                />
-              </div>
-              <div className="w-[400px] h-fit mx-auto -mt-2.5">
-                <div className="w-400">
-                  <div className="flex items-center bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-normal pl-3">
-                    Topping
-                  </div>
-                  <div className="flex flex-col justify-center items-center bg-[#F3F2ED]">
-                    <Topping
-                      toppingName="Black Pearl"
-                      price="15.000"
-                      changeFunction={(quantity) =>
-                        handleChangeBlackPearl(quantity)
-                      }
-                    />
-                    <div className="w-[340px] stroke-[1px]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="342"
-                        height="2"
-                        viewBox="0 0 342 2"
-                        fill="none"
-                      >
-                        <path
-                          d="M1 1H341"
-                          stroke="#D9D9D9"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </div>
-                    <Topping
-                      toppingName="Whited Pearl"
-                      price="15.000"
-                      changeFunction={(quantity) =>
-                        handleChangeWhitePearl(quantity)
-                      }
-                    />
-                    <div className="w-[340px] stroke-[1px]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="342"
-                        height="2"
-                        viewBox="0 0 342 2"
-                        fill="none"
-                      >
-                        <path
-                          d="M1 1H341"
-                          stroke="#D9D9D9"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </div>
-                    <Topping
-                      toppingName="Jelly"
-                      price="15.000"
-                      changeFunction={(quantity) => handleChangeJelly(quantity)}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-[400px] mx-auto py-2 mr-2.5">
-              <AddToCartButton
-                onClick={() =>
-                  handleAddToCartButton({
-                    ...data,
-                    topping,
-                    size: sizeSelect,
-                    quantity: quantity,
-                  })
-                }
+            <div className="w-fit flex mb-2 mt-2">
+              <ProductInfo
+                productName={data.name}
+                price={data.price}
+                changeQuantityFunction={(quantity) => setQuantity(quantity)}
               />
             </div>
+          </div>
+          <div className="w-full px-5 sm:px-4 h-[53px] mx-auto sm:m-0">
+            <NoteHere />
+          </div>
+          <div className="w-[400px] xl:w-full sm:!w-[90%] h-fit mx-auto rounded-lg border-[#F4F2EC] border overflow-hidden">
+            <div className="w-full h-fit">
+              <SizeSelect
+                sizeSelectfunction={(data) => handleSizeSelect(data)}
+              />
+            </div>
+            <div className="w-full h-fit mx-auto -mt-2.5">
+              <div className="flex items-center bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-normal pl-3">
+                Topping
+              </div>
+              <div className="flex flex-col justify-center items-center bg-[#F3F2ED]">
+                <Topping
+                  toppingName="Black Pearl"
+                  price="15.000"
+                  changeFunction={(quantity) =>
+                    handleChangeBlackPearl(quantity)
+                  }
+                />
+                <div className="w-[340px] stroke-[1px]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="342"
+                    height="2"
+                    viewBox="0 0 342 2"
+                    fill="none"
+                  >
+                    <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <Topping
+                  toppingName="Whited Pearl"
+                  price="15.000"
+                  changeFunction={(quantity) =>
+                    handleChangeWhitePearl(quantity)
+                  }
+                />
+                <div className="w-[340px] stroke-[1px]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="342"
+                    height="2"
+                    viewBox="0 0 342 2"
+                    fill="none"
+                  >
+                    <path d="M1 1H341" stroke="#D9D9D9" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <Topping
+                  toppingName="Jelly"
+                  price="15.000"
+                  changeFunction={(quantity) => handleChangeJelly(quantity)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-[400px] xl:w-full mx-auto pb-2 sm:px-4">
+            <AddToCartButton
+              onClick={() =>
+                handleAddToCartButton({
+                  ...data,
+                  topping,
+                  size: sizeSelect,
+                  quantity: quantity,
+                })
+              }
+            />
           </div>
         </div>
       </div>

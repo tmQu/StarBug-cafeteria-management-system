@@ -47,7 +47,7 @@ const SizeSelect = ({ sizeSelectfunction }) => {
             )}
           </g>
         </svg>
-        <div className="ml-4">
+        <div className="ml-4 sm:ml-2">
           <p>{size}</p>
           <p>{price}</p>
         </div>
@@ -56,11 +56,11 @@ const SizeSelect = ({ sizeSelectfunction }) => {
   };
 
   return (
-    <div className="w-[400px] mb-2">
-      <div className="py-1 bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-norma pl-3">
+    <div className="w-[400px] sm:!w-full mb-2 ">
+      <div className="w-full py-1 bg-[#D9D9D9] h-[40px] text-[#666] font-Source-Sans-3 text-[20px] font-norma pl-3">
         Size
       </div>
-      <div className="h-[80px] flex justify-center items-center bg-[#F3F2ED] text-[16px] font-medium text-[#324054]">
+      <div className="w-full h-[80px] flex justify-center sm:justify-start items-center bg-[#F3F2ED] text-[16px] font-medium text-[#324054]">
         {renderSizeButton("Small", "")}
         {renderSizeButton("Medium", "+ 5.000")}
         {renderSizeButton("Large", "+ 10.000")}
