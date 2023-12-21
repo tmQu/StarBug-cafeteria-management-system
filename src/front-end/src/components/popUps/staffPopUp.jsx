@@ -21,7 +21,10 @@ const StaffPopUp = () => {
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
-          <Avatar avatar={auth.avatar} />
+          <img
+            className="w-[40px] h-[40px] rounded-full"
+            src={auth.avatar || "./assets/noname.png"}
+          ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
               {auth.name || "FULLNAME"}
@@ -56,9 +59,9 @@ const StaffPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]">
+        <button className="text-[#0E3746] font-medium text-[20px]">
           <Link to="/setting">Profile Settings</Link>
-        </div>
+        </button>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
         <div className="pl-[14px]">
@@ -91,9 +94,9 @@ const StaffPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]">
+        <button className="text-[#0E3746] font-medium text-[20px]">
          <Link to="/order-management">Order Manager</Link>
-        </div>
+        </button>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
         <div className="pl-[14px]">
@@ -119,9 +122,9 @@ const StaffPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]">
+        <button className="text-[#0E3746] font-medium text-[20px]">
           Help Center
-        </div>
+        </button>
       </div>
       <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]">
         <div className="pl-[14px]">
@@ -144,9 +147,9 @@ const StaffPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]">
-          <button onClick={handleLogout}>Sign Out</button>
-        </div>
+        <button className="text-[#0E3746] font-medium text-[20px]" onClick={handleLogout}>
+          Sign Out
+        </button>
       </div>
     </div>
   );

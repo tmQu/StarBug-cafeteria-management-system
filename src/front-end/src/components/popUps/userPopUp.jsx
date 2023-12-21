@@ -21,7 +21,10 @@ const UserPopUp = () => {
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
-          <Avatar avatar={auth.avatar} />
+          <img
+            className="w-[40px] h-[40px] rounded-full"
+            src={auth.avatar || "./assets/noname.png"}
+          ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
               {auth.name || "FULLNAME"}
