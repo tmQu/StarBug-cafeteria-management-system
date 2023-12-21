@@ -48,6 +48,7 @@ const Footer = ({ isAdmin }) => {
             (<div className="w-auto h-fit flex flex-row justify-between gap-12 xl:gap-6">
               {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
                 <button
+                  key={index}
                   className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
                   onClick={() => scrollToTopAndNavigate(item)}
                 >

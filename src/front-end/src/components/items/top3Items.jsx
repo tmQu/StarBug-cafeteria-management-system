@@ -26,7 +26,7 @@ const Top3Items = () => {
           <div className="w-auto flex flex-row xl:grid xl:!grid-cols-2 xl:gap-4 xl:!mx-0 sm:!flex sm:!flex-col">
             {isSuccess &&
               data?.data.slice(0, 3).map((item, index) => (
-                <div className="mx-2 xl:mx-0">
+                <div className="mx-2 xl:mx-0" key={index}>
                   <Top3Item
                     id={item.id}
                     name={item.name}

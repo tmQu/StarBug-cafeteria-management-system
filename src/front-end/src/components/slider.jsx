@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
-import { Hidden } from "@mui/material";
-
 const HomeSlider = () => {
   const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/slider/all`;
   const { data, isLoading, isSuccess } = useQuery({

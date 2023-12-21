@@ -31,8 +31,8 @@ const People = () => {
   return (
     <div>
       <div className="w-fit mx-auto flex flex-row justify-center gap-4 sm:flex-col">
-        {members.slice(0, 2).map((member) => (
-          <div>
+        {members.slice(0, 2).map((member, index) => (
+          <div key={index}>
             <MemberCard
               id={member.id}
               name={member.name}
@@ -43,13 +43,15 @@ const People = () => {
         ))}
       </div>
       <div className="w-fit mx-auto flex flex-row justify-center mt-6 sm:mt-4 gap-4 sm:flex-col">
-        {members.slice(2, 5).map((member) => (
-          <MemberCard
-            id={member.id}
-            name={member.name}
-            role={member.role}
-            image={member.image}
-          />
+        {members.slice(2, 5).map((member, index) => (
+          <div key={index}>
+            <MemberCard
+              id={member.id}
+              name={member.name}
+              role={member.role}
+              image={member.image}
+            />
+          </div>
         ))}
       </div>
     </div>

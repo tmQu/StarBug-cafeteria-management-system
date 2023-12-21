@@ -1,9 +1,7 @@
 import * as React from "react";
-import { Link, useLocation } from 'react-router-dom';
 import {
   DataGrid,
   gridPageCountSelector,
-  gridPageSelector,
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
@@ -80,7 +78,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
+  // const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
 
   const StyledPagination = (
