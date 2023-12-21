@@ -108,8 +108,8 @@ const authHandler = {
             const token = createToken(user.email);
             console.log('sigin in token')
             console.log(token)
-            res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
-            res.status(201).json({email: user.email, role: user.role, accessToken: token});
+            res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000});
+            res.status(201).json({email: user.email, role: user.role, accessToken: token, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
         }
         catch(err) {
             console.log(err);
@@ -122,7 +122,7 @@ const authHandler = {
             res.status(errors.status).json(errors.error)
         }
     },
-    sendVerifyEmail: (req, res) => {
+    sendVerifyEmail:    (req, res) => {
         var email = req.query.email;
         sendVerifyEmail(email);
         res.status(201);
