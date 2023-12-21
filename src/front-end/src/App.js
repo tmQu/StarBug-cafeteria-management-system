@@ -7,6 +7,7 @@ import Footer from "./components/layouts/footer";
 import { Routes, Route } from "react-router-dom";
 import RequiredAuth from "./components/authen/requiredAuth";
 import PersistLogin from "./components/authen/persistLogin";
+import useAuth from "./hooks/useAuth";
 
 // Category Pages
 import Tea from "./pages/tea";
@@ -47,6 +48,7 @@ import PaymentDetail from "./pages/payment";
 const queryClient = new QueryClient();
 
 function App() {
+  const { auth } = useAuth();
   const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
@@ -57,7 +59,7 @@ function App() {
           </div>
           <div className="h-fit">
             {/* if login successful -> isAdmin = true */}
-            <NavigationBar isAdmin={false} />
+            <NavigationBar isAdmin={auth.role === 'manager' ? true : false} />
           </div>
         </div>
         <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">

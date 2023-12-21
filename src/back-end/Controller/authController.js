@@ -109,7 +109,7 @@ const authHandler = {
             console.log('sigin in token')
             console.log(token)
             res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000});
-            res.status(201).json({email: user.email, role: user.role, accessToken: token, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
+            res.status(201).json({email: user.email, role: user.role, accessToken: token, name: user.name, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
         }
         catch(err) {
             console.log(err);

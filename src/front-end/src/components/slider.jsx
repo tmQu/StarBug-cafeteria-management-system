@@ -42,7 +42,7 @@ const HomeSlider = () => {
         </div>
       ) : (
         <Carousel
-          className="w-full max-w-[1500px] mx-auto shadow-xl sm:h-[180px]"
+          className="w-full max-w-[1600px] mx-auto shadow-xl sm:h-[180px]"
           transition={{ duration: 1 }}
           navigation={() => <div></div>}
         >
