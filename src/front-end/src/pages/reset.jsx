@@ -2,7 +2,7 @@ import NewPassword from "../components/authen/newPassword";
 
 function Reset() {
   return ( 
-    <NewPassword />
+    <div className="p-20"><NewPassword /></div>
   );
 }
 

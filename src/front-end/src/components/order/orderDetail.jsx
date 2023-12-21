@@ -2,14 +2,16 @@ import { BorderButton } from "../buttons/button";
 import CustomerOrder from "./customerOrder";
 import OrderTotal from "./orderTotal";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const OrderDetail = () => {
+  const navigate = useNavigate();
   const { cartList, totalPrice, totalFee, totalVoucher } = useSelector(
     (state) => state.cartReducer
   );
 
   const handleAdd = () => {
-    // Change direct to product page
+    navigate("/");
   };
 
   return (
@@ -19,7 +21,7 @@ const OrderDetail = () => {
         <BorderButton
           className="w-[90px] h-[34.1px] pt-0.5"
           name="Add more"
-          onClick={handleAdd()}
+          onClick={handleAdd}
         />
       </div>
       <div className="w-full h-[fit] mx-auto mt-4 overflow-y-auto">

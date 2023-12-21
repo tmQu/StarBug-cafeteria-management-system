@@ -120,7 +120,7 @@ const Header = () => {
                 onClick={() => handleAvatarPopUp()}
               />
             )}
-            <div className="absolute top-36 right-[calc((100vw_-_380px)_/_2)] z-50">
+            <div className="absolute top-20 right-[24%] z-50">
               {isOpenLoginPopUp && <SignInPopUp />}
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}

@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin } from '../../reduxActions/popUp';
+import { toggleAvatarLogin, toggleAvatar } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
-import Avatar from "../avatar";
 
 const UserPopUp = () => {
   const navigate = useNavigate();
@@ -15,7 +14,17 @@ const UserPopUp = () => {
     await logout();
     dispatch(toggleAvatarLogin(false));
     navigate("/");
-  } 
+  };
+
+  const handleSetting = () => {
+    dispatch(toggleAvatar(false));
+    navigate("/setting");
+  };
+
+  const handleOrderHistory = () => {
+    dispatch(toggleAvatar(false));
+    navigate("/order-history");
+  };
 
   return (
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
@@ -23,7 +32,7 @@ const UserPopUp = () => {
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
           <img
             className="w-[40px] h-[40px] rounded-full"
-            src={auth.avatar || "./assets/noname.png"}
+            src="./assets/StarBug_files/StarBug_square.jpg"
           ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
@@ -36,7 +45,10 @@ const UserPopUp = () => {
         </div>
       </div>
 
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <button
+        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]"
+        onClick={handleSetting}
+      >
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -60,10 +72,13 @@ const UserPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-          <Link to="/setting">Profile Settings</Link>
+          Profile Settings
         </div>
-      </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button
+        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]"
+        onClick={handleOrderHistory}
+      >
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -103,10 +118,10 @@ const UserPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-          <Link to="/order-history">Order History</Link>
+          Order History
         </div>
-      </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -133,8 +148,11 @@ const UserPopUp = () => {
         <div className="text-[#0E3746] font-medium text-[20px]">
           Help Center
         </div>
-      </div>
-      <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button
+        className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]"
+        onClick={handleLogout}
+      >
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -155,8 +173,8 @@ const UserPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]"><button onClick={handleLogout}>Sign Out</button></div>
-      </div>
+        <div className="text-[#0E3746] font-medium text-[20px]">Sign Out</div>
+      </button>
     </div>
   );
 };

@@ -42,7 +42,6 @@ const queryClient = new QueryClient();
 
 function App() {
   const { auth } = useAuth();
-  const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
   const {
     isOpenLoginPopUp,
     isOpenPaymentPopUp,
