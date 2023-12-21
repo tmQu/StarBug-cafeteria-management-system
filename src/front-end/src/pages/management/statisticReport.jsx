@@ -29,7 +29,7 @@ const StatisticReport = () => {
   return (
     <div className="w-screen mx-auto overflow-hidden bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
       <div className="w-fit xl:w-[96%] h-fit p-4 my-6 mx-auto grid grid-cols-3 xl:flex xl:flex-col gap-4 bg-[#F4F2EC] text-[#0E3746] shadow-2xl rounded-xl">
-        <div className="h-80 col-start-1 col-span-2 rounded-lg">
+        <div className="h-80 sm:h-fit col-start-1 col-span-2 rounded-lg">
           <div className="p-4 pb-0">
             <h1 className="w-[70%] text-3xl font-semibold ">
               Keep track of the health of your business
@@ -37,8 +37,8 @@ const StatisticReport = () => {
             <h3 className="mb-3 mt-1">
               Control and analyze your data in the most covenient way.
             </h3>
-            <div className="text-xl mt-6 flex flex-row justify-between">
-              <h2 className="text-xl font-medium">Overview</h2>
+            <div className="text-xl mt-6 flex flex-row sm:flex-col justify-between sm:items-center">
+              <h2 className="text-xl font-medium sm:mb-4">Overview</h2>
               <div className="flex flex-row gap-2">
                 <div className="h-8 w-16 text-base pt-0.5 flex justify-center items-center rounded-lg bg-white border-[#E9EDF7] border">
                   Week
@@ -52,7 +52,7 @@ const StatisticReport = () => {
               </div>
             </div>
           </div>
-          <div className="w-full mt-4 flex flex-row justify-around gap-4">
+          <div className="w-full mt-4 flex flex-row sm:flex-col justify-around gap-4">
             <div className="w-full h-32 bg-white border-[#E9EDF7] border rounded-xl p-3 flex flex-col justify-between">
               <div className="flex flex-row gap-1">
                 <img
@@ -127,7 +127,7 @@ const StatisticReport = () => {
             </div>
           </div>
         </div>
-        <div className="h-80 w-fit col-start-3 col-span-1 rounded-lg bg-white border-[#E9EDF7] border">
+        <div className="h-80 w-fit sm:w-full sm:overflow-hidden col-start-3 col-span-1 rounded-lg bg-white border-[#E9EDF7] border">
           <div className="w-full p-4 flex flex-row justify-between">
             <h2 className="text-xl font-medium">Analytics</h2>
             <button>
@@ -138,11 +138,11 @@ const StatisticReport = () => {
               ></img>
             </button>
           </div>
-          <div className="w-full h-full">
+          <div className="w-[400px] h-full overflow-auto">
             <PieChartReport />
           </div>
         </div>
-        <div className="h-80 w-[800px] xl:w-full col-start-1 col-span-2 rounded-lg bg-white border-[#E9EDF7] border p-4">
+        <div className="h-80 sm:h-fit w-[800px] xl:w-full col-start-1 col-span-2 rounded-lg bg-white border-[#E9EDF7] border p-4">
           <h2 className="text-xl font-medium">Reports</h2>
           <div className="w-full">
             <BarChartReport />
@@ -167,7 +167,7 @@ const StatisticReport = () => {
                   alt="Product 1"
                   className="h-10 w-10"
                 ></img>
-                <div className="text-lg">{item.name}</div>
+                <div className="text-lg sm:text-sm">{item.name}</div>
               </div>
               <div className="flex flex-row gap-0.5">
                 <img

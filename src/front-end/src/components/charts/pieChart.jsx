@@ -20,7 +20,6 @@ const PieChartReport = () => {
             cy: 150,
           },
         ]}
-        width={390}
         height={300}
       />
       <div className="text-3xl font-semibold text-[#0E3746] relative left-20 -top-32">
