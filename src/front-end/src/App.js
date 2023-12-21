@@ -45,6 +45,9 @@ import StaffEditPopUp from "./components/popUps/staffEditPopUp";
 import { useSelector } from "react-redux";
 import PaymentDetail from "./pages/payment";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -76,15 +79,14 @@ function App() {
           {/* <StaffPopUp /> */}
         </div>
         <div
-          className={`${
-            isOpenLoginPopUp ||
-            isOpenPaymentPopUp ||
-            isOpenSignUpPopUp ||
-            isOpenForgotPasswordPopUp ||
-            isOpenNewPasswordPopUp
+          className={`${isOpenLoginPopUp ||
+              isOpenPaymentPopUp ||
+              isOpenSignUpPopUp ||
+              isOpenForgotPasswordPopUp ||
+              isOpenNewPasswordPopUp
               ? "blur"
               : ""
-          }`}
+            }`}
         >
           <AnimatePresence>
             <Routes>
@@ -148,6 +150,17 @@ function App() {
           <Footer isAdmin={false} />
         </div>
       </QueryClientProvider>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
