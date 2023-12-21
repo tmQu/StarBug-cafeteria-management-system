@@ -13,11 +13,11 @@ const About = () => {
       className="w-screen h-fit mx-auto"
     >
       <div className="w-screen mx-auto flex flex-col pb-8 gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
+        <div className="w-screen max-w-[2000px] h-fit mx-auto">
           <HomeSlider />
         </div>
-        <div className="w-full h-fit flex items-center justify-center text-[50px] font-bold font-Source-Sans-3  text-[#0D3745]">
-          <h2 className="pt-2  px-4">STORY BEHIND THE FAVOR</h2>
+        <div className="w-full h-fit flex items-center justify-center text-[50px] font-bold font-Source-Sans-3 text-[#0D3745]">
+          <h2 className="pt-2 px-8">STORY BEHIND THE FAVOR</h2>
         </div>
         <div className="w-[1120px] xl:w-screen h-fit px-4 mx-auto flex flex-col gap-8">
           <Story

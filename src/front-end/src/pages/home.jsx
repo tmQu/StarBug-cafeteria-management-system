@@ -14,7 +14,7 @@ const Home = () => {
 
   const handleShowAll = () => {
     setShowAllItems(!showAllItems);
-  }
+  };
 
   return (
     <motion.div
