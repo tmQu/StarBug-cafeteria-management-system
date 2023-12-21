@@ -16,7 +16,7 @@ const Top3Items = () => {
 
   return (
     <div className="w-fit mx-auto">
-      {true ? (
+      {isLoading ? (
         <Top3ItemSkeleton />
       ) : (
         <div
