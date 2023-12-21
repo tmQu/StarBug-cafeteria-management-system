@@ -29,13 +29,13 @@ const SignInPopUp = () => {
 
   const handleSignUpButton = () => {
     dispatch(toggleLogin(false));
-    dispatch(toggleSignUp(true));
+    dispatch(toggleSignUp());
   };
 
   const handleForgotPasswordButton = () => {
     dispatch(toggleLogin(false));
     dispatch(toggleSignUp(false));
-    dispatch(toggleForgotPassword(true));
+    dispatch(toggleForgotPassword());
   };
 
   // Auth

@@ -8,7 +8,7 @@ const chartSetting = {
       label: "Revenue (100 million)",
     },
   ],
-  width: 800,
+  // width: 700,
   height: 350,
   sx: {
     [`.${axisClasses.left} .${axisClasses.label}`]: {
