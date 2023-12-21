@@ -1,15 +1,15 @@
 import axios from "axios";
 import useAuth from "./useAuth";
 
-axios.create({
-  baseURL: "http://localhost:4000",
-});
+// axios.create({
+//   baseURL: "http://localhost:4000",
+// });
 
 const useRefreshToken = () => {
   const { setAuth } = useAuth();
 
   const refresh = async () => {
-    const response = await axios.get("/auth/refresh", {
+    const response = await axios.get("https://star-bug-cafeteria-management-system.vercel.app/auth/refresh", {
       withCredentials: true,
     });
     setAuth((prev) => {
