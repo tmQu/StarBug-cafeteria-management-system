@@ -19,10 +19,10 @@ const Coffee = () => {
         <div className="w-[930px] h-fit xl:w-screen mx-auto">
           <Story
             reverse={false}
-            image={stories[0].image}
-            title={stories[0].title}
-            subtitle={stories[0].subtitle}
-            paragraph={stories[0].paragraph}
+            image={stories[1].image}
+            title={stories[1].title}
+            subtitle={stories[1].subtitle}
+            paragraph={stories[1].paragraph}
           />
         </div>
         <div className="w-fit h-fit mx-auto">

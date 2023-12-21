@@ -10,6 +10,9 @@ import Topping from "../components/itemsDetail/topping";
 import { useDispatch } from "react-redux";
 import { addCart } from "../reduxActions/cart";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -52,15 +55,21 @@ const Product = () => {
     navigate("/");
   };
 
+  const notify = () => {
+    toast("Your product has been added successfully");
+    localStorage.setItem('addedToCartMessage', 'Your product has been added successfully');
+    return true;
+  };
+
   return (
     <div className="w-screen h-fit mx-auto py-6 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-      <div className="w-[900px] xl:w-[60%] sm:!w-[96%] h-fit mx-auto rounded-xl overflow-hidden bg-[#F4F2EC] shadow-[0px_4px_10px_5px_rgba(0,0,0,0.25)] flex flex-row xl:flex-col xl:items-center">
+      <div className="w-[900px] xl:w-fit sm:!w-[96%] h-fit bg-white mx-auto rounded-xl overflow-hidden shadow-2xl flex flex-row xl:flex-col xl:items-center">
         <div className="w-[450px] xl:w-full h-[690px] xl:h-fit flex flex-col items-center">
-          <div className="hidden w-full xl:flex flex-col gap-2 justify-center items-center px8 sm:px-4 mt-8 mx-auto">
+          <div className="w-full px-8 sm:px-4 mt-8 hidden xl:block">
             <div className="w-fit h-fit flex">
               <Star rates={data.rate} />
             </div>
-            <div className="w-fit flex mb-2 xl:mt-2">
+            <div className="w-full flex mb-2 sm:mt-2">
               <ProductInfo
                 productName={data.name}
                 price={data.price}
@@ -91,7 +100,7 @@ const Product = () => {
               />
             </div>
           </div>
-          <div className="w-full px-5 xl:px-0 sm:!px-4 h-[53px] mx-auto sm:m-0">
+          <div className="w-full px-5 sm:px-4 h-[53px] mx-auto sm:m-0">
             <NoteHere />
           </div>
           <div className="w-[400px] xl:w-full sm:!w-[90%] h-fit mx-auto rounded-lg border-[#F4F2EC] border overflow-hidden">
@@ -152,7 +161,7 @@ const Product = () => {
           <div className="w-[400px] xl:w-full mx-auto pb-2 sm:px-4">
             <AddToCartButton
               onClick={() =>
-                handleAddToCartButton({
+                notify() && handleAddToCartButton({
                   ...data,
                   topping,
                   size: sizeSelect,

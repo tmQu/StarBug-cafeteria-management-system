@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { removeCart } from "../../reduxActions/cart";
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CustomerOrder = (prop) => {
   const dispatch = useDispatch();
@@ -17,6 +19,12 @@ const CustomerOrder = (prop) => {
   const handleDelete = (id) => {
     dispatch(removeCart(id));
     console.log("Delete", id);
+  };
+
+  const deleteNotify = () => {
+    toast("Your product has been removed from cart");
+    localStorage.setItem('addedToCartMessage', 'Your product has been added successfully');
+    return true;
   };
 
   return (
@@ -36,7 +44,7 @@ const CustomerOrder = (prop) => {
             />
           </svg>
         </button>
-        <button onClick={() => handleDelete(order.id)}>
+        <button onClick={() => deleteNotify() && handleDelete(order.id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="23"
