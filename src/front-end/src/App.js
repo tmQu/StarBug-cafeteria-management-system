@@ -20,6 +20,7 @@ import Product from "./pages/product";
 import Setting from "./pages/setting";
 
 // Management Pages
+import UserOrderHistory from "./pages/management/userOrderHistory";
 import OrderManagement from "./pages/management/orderManagement";
 import ProductManagement from "./pages/management/productManagement";
 import StaffManagement from "./pages/management/staffManagement";
@@ -92,6 +93,15 @@ function App() {
                 >
                   <Route path="/setting" element={<Setting />} />
                 </Route>
+                <Route
+                  element={<RequiredAuth allowedRoles={["customer", "staff", "manager"]} />}
+                >
+                  <Route
+                    path="/order-history"
+                    element={<UserOrderHistory/>}
+                  />
+                </Route>
+
                 <Route
                   element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
                 >

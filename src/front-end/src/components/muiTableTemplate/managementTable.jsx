@@ -34,12 +34,10 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    borderRight: `1px solid ${
-      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-    }`,
-    borderBottom: `1px solid ${
-      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-    }`,
+    borderRight: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+      }`,
+    borderBottom: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+      }`,
     color:
       theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.65)",
   },
@@ -110,7 +108,7 @@ function CustomPagination() {
 
 const PAGE_SIZE = 10;
 
-function ManagementTable({ rows, columns, tableName }) {
+function ManagementTable({ rows, columns, tableName, button = "true" }) {
   const [paginationModel, setPaginationModel] = React.useState({
     pageSize: PAGE_SIZE,
     page: 0,
@@ -119,13 +117,15 @@ function ManagementTable({ rows, columns, tableName }) {
   return (
     <div className=" w-fit lg:w-full h-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
       <div className="w-full p-[15.14px] bg-stone-200 flex flex-row justify-between items-center">
-        <div className="text-[48px] lg:text-[32px] font-bold text-[#BE2623] mb-2 lg:mb-0">
+        <div className={`text-[48px] lg:text-[32px] font-bold text-[#BE2623] mb-2 lg:mb-0 ${!button && 'mx-auto'}`}>
           {tableName}
         </div>
-        <RoundedButton
-          className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED] lg:mr-2"
-          name="ADD"
-        />
+        {button && (
+          <RoundedButton
+            className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED] lg:mr-2"
+            name="ADD"
+          />
+        )}
       </div>
       <div style={{ height: "fit-content", width: "100%" }}>
         <StyledDataGrid
