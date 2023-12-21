@@ -34,7 +34,7 @@ const Promotions = () => {
   }, []);
 
   return (
-    <div className="relative lg:-top-16 flex flex-row sm:flex-col justify-center items-center gap-6 sm:gap-4">
+    <div className="relative -top-16 flex flex-row sm:flex-col justify-center items-center gap-6 sm:gap-4">
       {isLoading ? (
         <>
           <div className="h-fit bg-[#506e79] pt-1 rounded-xl" style={{width:skeletonWidth}}>
