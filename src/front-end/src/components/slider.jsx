@@ -49,23 +49,21 @@ const HomeSlider = () => {
           </div>
         </>
       ) : (
-        <>
-          <Carousel
-            className="w-full max-w-[1500px] mx-auto shadow-xl sm:h-[180px]"
-            transition={{ duration: 1 }}
-            navigation={() => <div></div>}
-          >
-            {isSuccess &&
-              data?.data.map((item) => (
-                <img
-                  key={item.id}
-                  src={item.image}
-                  alt="Slider"
-                  className="h-full w-full object-fill sm:object-cover"
-                />
-              ))}
-          </Carousel>
-        </>
+        <Carousel
+          className="w-full max-w-[1600px] mx-auto shadow-xl sm:h-[180px]"
+          transition={{ duration: 1 }}
+          navigation={() => <div></div>}
+        >
+          {isSuccess &&
+            data?.data.map((item) => (
+              <img
+                key={item.id}
+                src={item.image}
+                alt="Slider"
+                className="h-full w-full object-fill sm:object-cover"
+              />
+            ))}
+        </Carousel>
       )}
     </div>
   );

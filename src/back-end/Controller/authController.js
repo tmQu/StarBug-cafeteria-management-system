@@ -109,7 +109,7 @@ const authHandler = {
             console.log('sigin in token')
             console.log(token)
             res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000});
-            res.status(201).json({email: user.email, role: user.role, accessToken: token, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
+            res.status(201).json({email: user.email, role: user.role, accessToken: token, name: user.name, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
         }
         catch(err) {
             console.log(err);
@@ -125,7 +125,7 @@ const authHandler = {
     sendVerifyEmail:    (req, res) => {
         var email = req.query.email;
         sendVerifyEmail(email);
-        res.status(201).{email: email};
+        res.status(201).josn({email: email});
     },
     verify: async (req, res) => {
         var verifyToken = req.query.token;
@@ -162,7 +162,7 @@ const authHandler = {
         if (!token)
         {
             console.log('no token')
-            res.status(400);
+            res.status(400).json({error: 'no token'});
             return;
         }
         try{
@@ -181,7 +181,7 @@ const authHandler = {
     forgetPwd: async (req, res) => {
         var email = req.body.email;
         sendForgetPwdEmail(email);
-        res.status(201);
+        res.status(201).json({email: email});
     },
     resetPwd: async (req, res) => {
         var forgetPwdToken = req.body.token;
@@ -189,7 +189,7 @@ const authHandler = {
         if (!forgetPwdToken)
         {
             console.log('no token')
-            res.status(400).json({error: 'no token'};
+            res.status(400).json({error: 'no token'});
             return;
         }
         var newPwd = req.body.pwd;

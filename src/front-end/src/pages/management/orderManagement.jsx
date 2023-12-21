@@ -15,14 +15,15 @@ const columns = [
     width: 150,
     renderCell: (params) => (
       <div
-        className={`px-2 py-1 rounded-[20px] text-sm font-semibold ${params.row.status === "Delivered"
+        className={`px-2 py-1 rounded-[20px] text-sm font-semibold ${
+          params.row.status === "Delivered"
             ? "bg-[#EBF9F1] text-[#1F9254]"
             : params.row.status === "Canceled"
-              ? "bg-[#FBE7E8] text-[#A30D11]"
-              : params.row.status === "Process"
-                ? "bg-[#FEF2E5] text-[#CD6200]"
-                : ""
-          }`}
+            ? "bg-[#FBE7E8] text-[#A30D11]"
+            : params.row.status === "Process"
+            ? "bg-[#FEF2E5] text-[#CD6200]"
+            : ""
+        }`}
       >
         {params.value}
       </div>
@@ -79,14 +80,14 @@ const columns = [
 const rows =
   orders && Array.isArray(orders)
     ? orders.map((item) => ({
-      id: `#${item.id}`, // Thêm dấu # vào trước id
-      branch: item.branch,
-      customer: item.customer,
-      date: item.date,
-      amount: item.amount,
-      payment: item.payment,
-      status: item.status,
-    }))
+        id: `#${item.id}`, // Thêm dấu # vào trước id
+        branch: item.branch,
+        customer: item.customer,
+        date: item.date,
+        amount: item.amount,
+        payment: item.payment,
+        status: item.status,
+      }))
     : [];
 
 const OrderManagement = () => {
