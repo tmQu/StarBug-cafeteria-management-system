@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import {
   toggleLogin,
@@ -9,9 +8,7 @@ import {
   toggleForgotPassword,
   toggleAvatarLogin,
 } from "../../reduxActions/popUp";
-
 import { motion } from "framer-motion";
-
 import LargeButton from "../buttons/largeButton";
 import useAuth from "../../hooks/useAuth";
 import useToggle from "../../hooks/useToggle";
@@ -25,7 +22,6 @@ const LOGIN_URL =
   "https://star-bug-cafeteria-management-system.vercel.app/auth/signin";
 
 const SignInPopUp = () => {
-  // PopUp Redux
   const dispatch = useDispatch();
 
   const handleSignUpButton = () => {
@@ -53,14 +49,6 @@ const SignInPopUp = () => {
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [check, toggleCheck] = useToggle("persist", false);
-
-  // const togglePersist = () => {
-  //   setPersist((prev) => !prev);
-  // };
-
-  // useEffect(() => {
-  //   localStorage.setItem("persist", persist);
-  // }, [persist]);
 
   useEffect(() => {
     emailRef.current.focus();

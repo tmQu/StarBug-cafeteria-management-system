@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin } from '../../reduxActions/popUp';
+import { toggleAvatarLogin } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
 
 const ManagerPopUp = () => {
@@ -14,7 +14,7 @@ const ManagerPopUp = () => {
     await logout();
     dispatch(toggleAvatarLogin(false));
     navigate("/");
-  } 
+  };
 
   return (
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
@@ -23,6 +23,7 @@ const ManagerPopUp = () => {
           <img
             className="w-[40px] h-[40px] rounded-full"
             src={auth.avatar || "./assets/noname.png"}
+            alt="Avatar"
           ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
@@ -59,7 +60,7 @@ const ManagerPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-        <Link to="/setting">Profile Settings</Link>
+          <Link to="/setting">Profile Settings</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -94,7 +95,7 @@ const ManagerPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-        <Link to="/order-management">Order Manager</Link>
+          <Link to="/order-management">Order Manager</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -124,7 +125,7 @@ const ManagerPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-        <Link to="/staff-management">Staff Manager</Link>
+          <Link to="/staff-management">Staff Manager</Link>
         </div>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -176,7 +177,9 @@ const ManagerPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]"><button onClick={handleLogout}>Sign Out</button></div>
+        <div className="text-[#0E3746] font-medium text-[20px]">
+          <button onClick={handleLogout}>Sign Out</button>
+        </div>
       </div>
     </div>
   );

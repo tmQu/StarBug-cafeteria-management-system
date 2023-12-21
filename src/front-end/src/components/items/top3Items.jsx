@@ -49,7 +49,10 @@ const Top3ItemSkeleton = () => {
 
   useEffect(() => {
     const updateSkeletonWidth = () => {
-      const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const windowWidth =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
       const maxWidth = 290;
       const width = windowWidth < maxWidth ? windowWidth : maxWidth;
       setSkeletonWidth(width);

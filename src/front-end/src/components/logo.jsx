@@ -1,5 +1,3 @@
-import React from "react";
-
 const Logo = (props) => {
   const { onClick, theme } = props;
   const logoSrc =

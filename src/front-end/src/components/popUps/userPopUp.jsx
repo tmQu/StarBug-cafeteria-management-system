@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin } from '../../reduxActions/popUp';
+import { toggleAvatarLogin } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
-import Avatar from "../avatar";
 
 const UserPopUp = () => {
   const navigate = useNavigate();
@@ -15,15 +14,16 @@ const UserPopUp = () => {
     await logout();
     dispatch(toggleAvatarLogin(false));
     navigate("/");
-  } 
+  };
 
   return (
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
-      <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
+      <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE] hover:cursor-pointer">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
           <img
             className="w-[40px] h-[40px] rounded-full"
             src={auth.avatar || "./assets/noname.png"}
+            alt="Avatar"
           ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
@@ -35,8 +35,7 @@ const UserPopUp = () => {
           </div>
         </div>
       </div>
-
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:cursor-pointer">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +62,7 @@ const UserPopUp = () => {
           <Link to="/setting">Profile Settings</Link>
         </div>
       </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:cursor-pointer">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +105,7 @@ const UserPopUp = () => {
           <Link to="/order-history">Order History</Link>
         </div>
       </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:cursor-pointer">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +133,7 @@ const UserPopUp = () => {
           Help Center
         </div>
       </div>
-      <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +154,9 @@ const UserPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]"><button onClick={handleLogout}>Sign Out</button></div>
+        <div className="text-[#0E3746] font-medium text-[20px]">
+          <button onClick={handleLogout}>Sign Out</button>
+        </div>
       </div>
     </div>
   );

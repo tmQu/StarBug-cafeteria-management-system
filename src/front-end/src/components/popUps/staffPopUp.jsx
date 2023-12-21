@@ -1,9 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin } from '../../reduxActions/popUp';
+import { toggleAvatarLogin } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
-import Avatar from "../avatar";
 
 const StaffPopUp = () => {
   const navigate = useNavigate();
@@ -95,7 +94,7 @@ const StaffPopUp = () => {
           </svg>
         </div>
         <button className="text-[#0E3746] font-medium text-[20px]">
-         <Link to="/order-management">Order Manager</Link>
+          <Link to="/order-management">Order Manager</Link>
         </button>
       </div>
       <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
@@ -147,7 +146,10 @@ const StaffPopUp = () => {
             />
           </svg>
         </div>
-        <button className="text-[#0E3746] font-medium text-[20px]" onClick={handleLogout}>
+        <button
+          className="text-[#0E3746] font-medium text-[20px]"
+          onClick={handleLogout}
+        >
           Sign Out
         </button>
       </div>

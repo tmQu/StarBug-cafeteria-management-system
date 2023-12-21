@@ -1,5 +1,3 @@
-import React from "react";
-
 const Button = (props) => {
   const { onClick, isClicked, name, className, type = "button" } = props;
 

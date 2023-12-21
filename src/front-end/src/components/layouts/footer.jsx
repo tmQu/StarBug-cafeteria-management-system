@@ -11,7 +11,7 @@ const Footer = ({ isAdmin }) => {
   const scrollToTopAndNavigate = (item) => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
 
     handleNavigation(item.toLowerCase());
@@ -44,8 +44,10 @@ const Footer = ({ isAdmin }) => {
           <div className="w-fit mr-2">
             <Logo theme="dark" />
           </div>
-          {isAdmin === true ? <></> :
-            (<div className="w-auto h-fit flex flex-row justify-between gap-12 xl:gap-6">
+          {isAdmin === true ? (
+            <></>
+          ) : (
+            <div className="w-auto h-fit flex flex-row justify-between gap-12 xl:gap-6">
               {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
                 <button
                   key={index}
@@ -56,7 +58,7 @@ const Footer = ({ isAdmin }) => {
                 </button>
               ))}
             </div>
-            )}
+          )}
           <div className="w-auto h-fit flex flex-row justify-between gap-2">
             <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
               <svg
@@ -124,7 +126,7 @@ const Footer = ({ isAdmin }) => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
