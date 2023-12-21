@@ -47,7 +47,7 @@ const UserPopUp = () => {
       </div>
 
       <button
-        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:cursor-pointer"
+        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0"
         onClick={handleSetting}
       >
         <div className="pl-[14px]">

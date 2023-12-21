@@ -45,7 +45,7 @@ const StaffPopUp = () => {
         </div>
       </div>
 
-      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]" onClick={handleSetting}>
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleSetting}>
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const StaffPopUp = () => {
           Profile Settings
         </div>
       </button>
-      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]" onClick={handleOrderManagement}>
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleOrderManagement}>
         <div className="pl-[14px]">
           <svg
             width="20"
@@ -107,7 +107,7 @@ const StaffPopUp = () => {
          Order Manager
         </div>
       </button>
-      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ const StaffPopUp = () => {
           Help Center
         </div>
       </button>
-      <button className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]" onClick={handleLogout}>
+      <button className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center" onClick={handleLogout}>
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,4 @@
-import InfoBox from "./infoBox";
+import InfoBox from "./infobox";
 import useAuth from "../../hooks/useAuth";
 
 const handleCancle = () => {
