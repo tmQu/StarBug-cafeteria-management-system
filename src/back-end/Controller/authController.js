@@ -125,7 +125,7 @@ const authHandler = {
     sendVerifyEmail:    (req, res) => {
         var email = req.query.email;
         sendVerifyEmail(email);
-        res.status(201);
+        res.status(201).{email: email};
     },
     verify: async (req, res) => {
         var verifyToken = req.query.token;
@@ -189,7 +189,7 @@ const authHandler = {
         if (!forgetPwdToken)
         {
             console.log('no token')
-            res.status(400);
+            res.status(400).json({error: 'no token'};
             return;
         }
         var newPwd = req.body.pwd;
