@@ -141,7 +141,7 @@ function App() {
           </AnimatePresence>
         </div>
         <div className="">
-          <Footer />
+          <Footer isAdmin={false}/>
         </div>
       </QueryClientProvider>
     </div>

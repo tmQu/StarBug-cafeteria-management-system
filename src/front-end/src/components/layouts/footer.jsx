@@ -1,7 +1,7 @@
 import Logo from "../logo";
 import { useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ isAdmin }) => {
   const navigate = useNavigate();
 
   const handleNavigation = (route) => {
@@ -44,16 +44,18 @@ const Footer = () => {
           <div className="w-fit mr-2">
             <Logo theme="dark" />
           </div>
-          <div className="w-auto h-fit flex flex-row justify-between gap-12 xl:gap-6">
-            {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
-              <button
-                className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
-                onClick={() => scrollToTopAndNavigate(item)}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
+          {isAdmin === true ? <></> :
+            (<div className="w-auto h-fit flex flex-row justify-between gap-12 xl:gap-6">
+              {["Tea", "Milktea", "Coffee", "Cake"].map((item, index) => (
+                <button
+                  className="text-[#183942] text-center font-black text-[18px] cursor-pointer"
+                  onClick={() => scrollToTopAndNavigate(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+            )}
           <div className="w-auto h-fit flex flex-row justify-between gap-2">
             <a className="transition-transform duration-500 ease-in-out cursor-pointer hover:scale-[1.1]">
               <svg
@@ -121,7 +123,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
