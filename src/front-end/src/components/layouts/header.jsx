@@ -4,11 +4,18 @@ import LoginButton from "../buttons/loginButton";
 import Logo from "../logo";
 import SearchButtonMobile from "../../responsive/searchButton";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 import SignInPopUp from "../authen/logInPopUp";
 import SignUpPopUp from "../authen/signUpPopUp";
 import ForgotPassword from "../authen/forgotPassword";
 import NewPassword from "../authen/newPassword";
+
+import Avatar from "../avatar"
+import StaffPopUp from "../popUps/staffPopUp";
+import UserPopUp from "../popUps/userPopUp";
+import ManagerPopUp from "../popUps/managerPopUp";
+
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,6 +23,7 @@ import {
   toggleSignUp,
   toggleForgotPassword,
   toggleNewPassword,
+  toggleAvatar
 } from "../../reduxActions/popUp";
 import { useEffect, useRef } from "react";
 
@@ -23,13 +31,15 @@ const Header = () => {
   const navigate = useNavigate();
   const popUpRef = useRef();
   const dispatch = useDispatch();
+  const { auth } = useAuth();
 
   const {
     isOpenLoginPopUp,
-
     isOpenSignUpPopUp,
     isOpenForgotPasswordPopUp,
     isOpenNewPasswordPopUp,
+    isAvatar,
+    isAvatarPopUp,
   } = useSelector((state) => state.popUpReducer);
 
   const handleLoginButton = (props) => {
@@ -62,6 +72,10 @@ const Header = () => {
     toggleForgotPassword(false);
     dispatch(toggleNewPassword(props));
   };
+  const handleAvatarPopUp = (props) => {
+    toggleAvatar(false);
+    dispatch(toggleAvatar(props));
+  };
 
   useEffect(() => {
     const mouseDownHandler = (e) => {
@@ -69,7 +83,8 @@ const Header = () => {
         (isOpenLoginPopUp ||
           isOpenSignUpPopUp ||
           isOpenForgotPasswordPopUp ||
-          isOpenNewPasswordPopUp) &&
+          isOpenNewPasswordPopUp || 
+          isAvatarPopUp) &&
         !popUpRef.current.contains(e.target)
       ) {
         handleLoginButton(false);
@@ -77,6 +92,7 @@ const Header = () => {
         handleSignUpButton(false);
         handleForgotPasswordButton(false);
         handleNewPasswordButton(false);
+        handleAvatarPopUp(false);
       }
     };
     document.addEventListener("mousedown", mouseDownHandler);
@@ -97,12 +113,16 @@ const Header = () => {
           </div>
           <div className="flex flex-row gap-3 sm:gap-0" ref={popUpRef}>
             <CartButton onClick={() => navigate("/payment")} />
-            <LoginButton onClick={() => handleLoginButton()} />
+            {!isAvatar ? <LoginButton onClick={() => handleLoginButton()} /> : <Avatar onClick={() => handleAvatarPopUp()} />} 
             <div className="absolute top-20 right-[24%] z-50">
               {isOpenLoginPopUp && <SignInPopUp />}
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}
               {isOpenNewPasswordPopUp && <NewPassword />}
+              {isOpenSignUpPopUp && <SignUpPopUp />}
+              {isAvatarPopUp && isAvatar && auth.role == 'customer' && <UserPopUp />}
+              {isAvatarPopUp && isAvatar && auth.role == 'staff' && <StaffPopUp />}
+              {isAvatarPopUp && isAvatar && auth.role == 'manager' && <ManagerPopUp />}
             </div>
           </div>
         </div>

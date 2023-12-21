@@ -8,6 +8,8 @@ export const popUpActions = createSlice({
     isOpenSignUpPopUp: false,
     isOpenForgotPasswordPopUp: false,
     isOpenNewPasswordPopUp: false,
+    isAvatar: false,
+    isAvatarPopUp: false,
   },
   reducers: {
     toggleLogin: (state, action) => {
@@ -32,6 +34,14 @@ export const popUpActions = createSlice({
       if (action.payload === false) state.isOpenNewPasswordPopUp = false;
       else state.isOpenNewPasswordPopUp = !state.isOpenNewPasswordPopUp;
     },
+    toggleAvatarLogin: (state, action) => {
+      if (action.payload === false) state.isAvatar = false;
+      else state.isAvatar = !state.isAvatar;
+    },
+    toggleAvatar: (state, action) => {
+      if (action.payload === false) state.isAvatarPopUp = false;
+      else state.isAvatarPopUp = !state.isAvatarPopUp;
+    },
   },
 });
 
@@ -41,5 +51,7 @@ export const {
   toggleForgotPassword,
   toggleSignUp,
   toggleNewPassword,
+  toggleAvatarLogin,
+  toggleAvatar,
 } = popUpActions.actions;
 export default popUpActions.reducer;

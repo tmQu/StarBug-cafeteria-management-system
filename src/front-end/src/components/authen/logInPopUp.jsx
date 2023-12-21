@@ -7,6 +7,7 @@ import {
   toggleLogin,
   toggleSignUp,
   toggleForgotPassword,
+  toggleAvatarLogin,
 } from "../../reduxActions/popUp";
 
 import { motion } from "framer-motion";
@@ -87,6 +88,7 @@ const SignInPopUp = () => {
       setPwd("");
       navigate(from, { replace: true });
       dispatch(toggleLogin(false));
+      dispatch(toggleAvatarLogin(true));
       //hide login popup, hide login button, show user avatar
       // response?.data?.imageAvatar
       // set static avatar for now, database not ready

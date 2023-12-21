@@ -1,17 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
+import { useDispatch } from "react-redux";
+import { toggleAvatarLogin } from '../../reduxActions/popUp';
 
 const UserPopUp = () => {
   const navigate = useNavigate();
   const logout = useLogout();
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
     await logout();
+    dispatch(toggleAvatarLogin(false));
     navigate("/");
   } 
 
   return (
-    <div className="w-[305px] h-[330px] flex flex-col bg-[#F4F2EC] px-[8px] py-[10px] rounded-[8px]">
+    <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
           <img
