@@ -21,7 +21,8 @@ import "../../css/authen.css";
 axios.create({
   baseURL: "https://star-bug-cafeteria-management-system.vercel.app/",
 });
-const LOGIN_URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/signin";
+const LOGIN_URL =
+  "https://star-bug-cafeteria-management-system.vercel.app/auth/signin";
 
 const SignInPopUp = () => {
   // PopUp Redux
@@ -63,14 +64,14 @@ const SignInPopUp = () => {
 
   useEffect(() => {
     emailRef.current.focus();
-  }, [])
+  }, []);
 
   useEffect(() => {
-    setErrMsg("")
+    setErrMsg("");
   }, [email, pwd]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();  
+    e.preventDefault();
     try {
       const response = await axios.post(
         LOGIN_URL,
@@ -96,7 +97,7 @@ const SignInPopUp = () => {
       // response?.data?.imageAvatar
       // set static avatar for now, database not ready
     } catch (err) {
-      console.log('Error: ', err);
+      console.log("Error: ", err);
       if (!err?.response) {
         setErrMsg("Server is not responding");
       } else if (err?.response?.status === 400) {

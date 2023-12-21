@@ -48,7 +48,13 @@ import PaymentDetail from "./pages/payment";
 const queryClient = new QueryClient();
 
 function App() {
-  const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
+  const {
+    isOpenLoginPopUp,
+    isOpenPaymentPopUp,
+    isOpenSignUpPopUp,
+    isOpenForgotPasswordPopUp,
+    isOpenNewPasswordPopUp,
+  } = useSelector((state) => state.popUpReducer);
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
       <QueryClientProvider client={queryClient}>
@@ -69,79 +75,77 @@ function App() {
           {/* <ForgotPassword /> */}
           {/* <StaffPopUp /> */}
         </div>
-        <div className="">
+        <div
+          className={`${
+            isOpenLoginPopUp ||
+            isOpenPaymentPopUp ||
+            isOpenSignUpPopUp ||
+            isOpenForgotPasswordPopUp ||
+            isOpenNewPasswordPopUp
+              ? "blur"
+              : ""
+          }`}
+        >
           <AnimatePresence>
             <Routes>
               {/* Public users */}
-              <Route element={<PersistLogin />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/tea" element={<Tea />} />
-                <Route path="/milktea" element={<MilkTea />} />
-                <Route path="/coffee" element={<Coffee />} />
-                <Route path="/cake" element={<Cake />} />
-                <Route path="/about" element={<About />}></Route>
-                <Route path="/product" element={<Product />}></Route>
-                <Route path="/payment" element={<PaymentDetail />}></Route>
-                <Route path="/reset" element={<Reset />}></Route>
+              {/* <Route element={<PersistLogin />}> */}
+              <Route path="/" element={<Home />} />
+              <Route path="/tea" element={<Tea />} />
+              <Route path="/milktea" element={<MilkTea />} />
+              <Route path="/coffee" element={<Coffee />} />
+              <Route path="/cake" element={<Cake />} />
+              <Route path="/about" element={<About />}></Route>
+              <Route path="/product" element={<Product />}></Route>
+              <Route path="/payment" element={<PaymentDetail />}></Route>
+              <Route path="/reset" element={<Reset />}></Route>
 
-                <Route
+              {/* <Route
                   element={
                     <RequiredAuth
                       allowedRoles={["customer", "staff", "manager"]}
                     />
                   }
-                >
-                  <Route path="/setting" element={<Setting />} />
-                </Route>
-                <Route
+                > */}
+              <Route path="/setting" element={<Setting />} />
+              {/* </Route> */}
+              {/* <Route
                   element={<RequiredAuth allowedRoles={["customer", "staff", "manager"]} />}
-                >
-                  <Route
-                    path="/order-history"
-                    element={<UserOrderHistory/>}
-                  />
-                </Route>
+                > */}
+              <Route path="/order-history" element={<UserOrderHistory />} />
+              {/* </Route> */}
 
-                <Route
+              {/* <Route
                   element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
-                >
-                  <Route
-                    path="/order-management"
-                    element={<OrderManagement />}
-                  />
-                </Route>
+                > */}
+              <Route path="/order-management" element={<OrderManagement />} />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/staff-management"
-                    element={<StaffManagement />}
-                  />
-                </Route>
+              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route path="/staff-management" element={<StaffManagement />} />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/product-management"
-                    element={<ProductManagement />}
-                  />
-                </Route>
+              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route
+                path="/product-management"
+                element={<ProductManagement />}
+              />
+              {/* </Route> */}
 
-                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
-                  <Route
-                    path="/slider-management"
-                    element={<SliderManagement />}
-                  />
-                </Route>
+              {/* <Route element={<RequiredAuth allowedRoles={["manager"]} />}> */}
+              <Route path="/slider-management" element={<SliderManagement />} />
+              {/* </Route> */}
 
-                <Route
-                  path="statistic-report"
-                  element={<StatisticReport />}
-                ></Route>
-              </Route>
+              <Route
+                path="statistic-report"
+                element={<StatisticReport />}
+              ></Route>
+              {/* </Route> */}
             </Routes>
           </AnimatePresence>
         </div>
         <div className="">
-          <Footer isAdmin={false}/>
+          <Footer isAdmin={false} />
         </div>
       </QueryClientProvider>
     </div>

@@ -12,14 +12,16 @@ const HomeSlider = () => {
     retry: 3,
   });
 
-
   const [skeletonWidth, setSkeletonWidth] = useState(445); // Initial width for the skeleton
 
   useEffect(() => {
     const updateSkeletonWidth = () => {
-      const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-      const maxWidth = 1500;
-      const width = windowWidth < maxWidth ? windowWidth : maxWidth;
+      const windowWidth =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
+      const maxWidth = 1200;
+      const width = windowWidth < maxWidth ? windowWidth - 30 : maxWidth;
       setSkeletonWidth(width);
     };
 
@@ -41,7 +43,7 @@ const HomeSlider = () => {
               baseColor="#6d8790"
               borderRadius={12}
               height={340}
-              width={skeletonWidth - (skeletonWidth / 20)}
+              width={skeletonWidth - skeletonWidth / 20}
               count={1}
             />
           </div>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const PaymentDetail = () => {
   return (
-    <div className="w-screen h-fit mx-auto py-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+    <div className="w-screen h-fit mx-auto py-4 px-2 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
       <motion.div
         initial={{ opacity: 0.5, y: 20, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
