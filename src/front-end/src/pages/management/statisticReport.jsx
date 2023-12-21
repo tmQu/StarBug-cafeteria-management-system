@@ -142,7 +142,7 @@ const StatisticReport = () => {
             <PieChartReport />
           </div>
         </div>
-        <div className="h-80 sm:h-fit w-[800px] xl:w-full col-start-1 col-span-2 rounded-lg bg-white border-[#E9EDF7] border p-4">
+        <div className="h-80 sm:h-fit w-full xl:w-full col-start-1 col-span-2 rounded-lg bg-white border-[#E9EDF7] border p-4">
           <h2 className="text-xl font-medium">Reports</h2>
           <div className="w-full">
             <BarChartReport />

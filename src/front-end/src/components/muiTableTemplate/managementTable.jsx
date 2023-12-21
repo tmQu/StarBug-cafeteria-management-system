@@ -13,7 +13,7 @@ import { RoundedButton } from "../buttons/button";
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   border: 0,
-  overflowX: 'auto',
+  overflowX: "auto",
   color: theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.85)",
   WebkitFontSmoothing: "auto",
   letterSpacing: "normal",
@@ -32,10 +32,12 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    borderRight: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-      }`,
-    borderBottom: `1px solid ${theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
-      }`,
+    borderRight: `1px solid ${
+      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+    }`,
+    borderBottom: `1px solid ${
+      theme.palette.mode === "light" ? "#f0f0f0" : "#303030"
+    }`,
     color:
       theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.65)",
   },
@@ -84,16 +86,12 @@ function CustomPagination() {
   const StyledPagination = (
     <Pagination
       count={pageCount}
-      renderItem={(item) => (
-        <PaginationItem
-          {...item}
-        />
-      )}
+      renderItem={(item) => <PaginationItem {...item} />}
       sx={{
         color: "#BE2623",
         mx: "auto",
         my: "auto",
-        width: "fit-content"
+        width: "fit-content",
       }}
       onChange={(event, value) => apiRef.current.setPage(value - 1)}
     />
@@ -101,8 +99,6 @@ function CustomPagination() {
 
   return StyledPagination;
 }
-
-
 
 const PAGE_SIZE = 10;
 
@@ -113,9 +109,13 @@ function ManagementTable({ rows, columns, tableName, button = "true" }) {
   });
 
   return (
-    <div className=" w-fit lg:w-full h-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
-      <div className="w-full p-[15.14px] bg-stone-200 flex flex-row justify-between items-center">
-        <div className={`text-[48px] lg:text-[32px] font-bold text-[#BE2623] mb-2 lg:mb-0 ${!button && 'mx-auto'}`}>
+    <div className="w-fit xl:w-[96%] xl:mx-auto h-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded-lg">
+      <div className="w-full px-4 pt-3 pb-1 bg-stone-200 flex flex-row justify-between items-center">
+        <div
+          className={`text-[48px] lg:text-[32px] font-bold text-[#BE2623] lg:mb-0 ${
+            !button && "mx-auto"
+          }`}
+        >
           {tableName}
         </div>
         {button && (
