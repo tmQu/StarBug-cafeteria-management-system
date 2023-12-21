@@ -83,7 +83,10 @@ const SignInPopUp = () => {
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const role = response?.data?.role;
-      setAuth({ email, role, accessToken });
+      const avatar = response?.data?.imgAvatar;
+      console.log(avatar);
+      const name = response?.data?.name;
+      setAuth({ email, role, accessToken, avatar, name });
       resetEmail();
       setPwd("");
       navigate(from, { replace: true });

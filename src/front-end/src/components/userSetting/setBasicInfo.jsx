@@ -1,4 +1,5 @@
 import InfoBox from "./infobox";
+import useAuth from "../../hooks/useAuth";
 
 const handleCancle = () => {
   console.log("Cancle");
@@ -8,7 +9,9 @@ const handleSave = () => {
   console.log("Save");
 }
 
-const SetBasicInfo = ({ user }) => {
+const SetBasicInfo = () => {
+  const { auth } = useAuth();
+
   return (
     <div className="w-[1050px] h-[502px] mx-auto">
       <div className="w-[995px] flex justify-between mx-auto">
@@ -34,12 +37,12 @@ const SetBasicInfo = ({ user }) => {
         <hr className="ml-[27px] w-[995px] border-[1px] border-[#9F9FA8]" />
       </div>
       <div className="w-[995px] flex flex-row justify-between mx-auto">
-        <InfoBox className="w-[471px] h-[69px]" title="First Name" info="First Name" />
-        <InfoBox className="w-[471px] h-[69px]" title="Last Name" info="Last Name" />
+        <InfoBox className="w-[471px] h-[69px]" title="First Name" info={auth.name} />
+        <InfoBox className="w-[471px] h-[69px]" title="Last Name" info={auth.name} />
       </div>
       <div className="w-[995px] justify-between mx-auto">
         <InfoBox className="w-full h-[69px]" title="Phone Number" info="Phone Number" />
-        <InfoBox className="w-full h-[69px]" title="Email" info="Email@email.com" />
+        <InfoBox className="w-full h-[69px]" title="Email" info={auth.email} />
       </div>
     </div>
   );

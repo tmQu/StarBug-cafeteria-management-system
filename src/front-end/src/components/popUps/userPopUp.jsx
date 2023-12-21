@@ -2,11 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
 import { toggleAvatarLogin } from '../../reduxActions/popUp';
+import useAuth from "../../hooks/useAuth";
+import Avatar from "../avatar";
 
 const UserPopUp = () => {
   const navigate = useNavigate();
   const logout = useLogout();
   const dispatch = useDispatch();
+  const { auth } = useAuth();
 
   const handleLogout = async () => {
     await logout();
@@ -18,16 +21,13 @@ const UserPopUp = () => {
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
-          <img
-            className="w-[40px] h-[40px] rounded-full"
-            src="./assets/StarBug_files/StarBug_square.jpg"
-          ></img>
+          <Avatar avatar={auth.avatar} />
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
-              Full name
+              {auth.name || "FULLNAME"}
             </div>
             <div className="w-fit h-[22px] text-[16px] font-medium text-[#999]">
-              Gmail here
+              {auth.email}
             </div>
           </div>
         </div>

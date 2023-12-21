@@ -1,4 +1,8 @@
-const SetAvatar = ({ user }) => {
+import useAuth from "../../hooks/useAuth";
+
+const SetAvatar = () => {
+  const { auth } = useAuth();
+
 
   const handleAvatar = () => {
     console.log("Change avatar popup to change avatar");
@@ -9,7 +13,7 @@ const SetAvatar = ({ user }) => {
       <div className="w-[995px] flex mx-auto items-center justify-between">
         <div className="flex items-center">
           <img
-            src="https://i.imgur.com/1qB7B9F.png" // {user.avatar} here
+            src={auth.avatar !== "" ? auth.avatar : "./assets/noname.png"}
             alt="avatar"
             className="w-[200px] h-[200px] rounded-full border-solid border-[#DADADA] border-8"
           />

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Avatar = (props) => {
-  const { onClick, theme } = props;
+  const { onClick, theme, avatar } = props;
   const logoSrc =
     theme === "dark"
       ? "./assets/noname.png"
@@ -13,7 +13,7 @@ const Avatar = (props) => {
         <img
           className="object-cover rounded-full w-[40px] h-[40px] transition-transform duration-500 ease-in-out hover:scale-[1.02]"
           alt="logo"
-          src={logoSrc}
+          src={avatar !== "" ? avatar : logoSrc}
         ></img>
       </div>
     </button>

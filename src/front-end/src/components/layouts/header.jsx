@@ -113,15 +113,15 @@ const Header = () => {
           </div>
           <div className="flex flex-row gap-3 sm:gap-0" ref={popUpRef}>
             <CartButton onClick={() => navigate("/payment")} />
-            {!isAvatar ? <LoginButton onClick={() => handleLoginButton()} /> : <Avatar onClick={() => handleAvatarPopUp()} />} 
+            {!isAvatar ? <LoginButton onClick={() => handleLoginButton()} /> : <Avatar avatar={auth.avatar} onClick={() => handleAvatarPopUp()} />} 
             <div className="absolute top-20 right-[24%] z-50">
               {isOpenLoginPopUp && <SignInPopUp />}
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}
               {isOpenNewPasswordPopUp && <NewPassword />}
-              {isAvatarPopUp && isAvatar && auth.role == 'customer' && <UserPopUp />}
-              {isAvatarPopUp && isAvatar && auth.role == 'staff' && <StaffPopUp />}
-              {isAvatarPopUp && isAvatar && auth.role == 'manager' && <ManagerPopUp />}
+              {isAvatarPopUp && isAvatar && auth.role === 'customer' && <UserPopUp />}
+              {isAvatarPopUp && isAvatar && auth.role === 'staff' && <StaffPopUp />}
+              {isAvatarPopUp && isAvatar && auth.role === 'manager' && <ManagerPopUp />}
             </div>
           </div>
         </div>
