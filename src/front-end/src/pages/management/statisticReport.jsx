@@ -27,8 +27,8 @@ const StatisticReport = () => {
     },
   ];
   return (
-    <div className="w-screen mx-auto flex flex-col gap-8 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-      <div className="w-fit h-fit p-4 my-6 mx-auto grid grid-cols-3 gap-4 bg-[#F4F2EC] text-[#0E3746] shadow-2xl rounded-xl">
+    <div className="w-screen mx-auto overflow-hidden bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+      <div className="w-fit xl:w-[96%] h-fit p-4 my-6 mx-auto grid grid-cols-3 xl:flex xl:flex-col gap-4 bg-[#F4F2EC] text-[#0E3746] shadow-2xl rounded-xl">
         <div className="h-80 col-start-1 col-span-2 rounded-lg">
           <div className="p-4 pb-0">
             <h1 className="w-[70%] text-3xl font-semibold ">
@@ -127,7 +127,7 @@ const StatisticReport = () => {
             </div>
           </div>
         </div>
-        <div className="h-80 col-start-3 col-span-1 rounded-lg bg-white border-[#E9EDF7] border">
+        <div className="h-80 w-fit col-start-3 col-span-1 rounded-lg bg-white border-[#E9EDF7] border">
           <div className="w-full p-4 flex flex-row justify-between">
             <h2 className="text-xl font-medium">Analytics</h2>
             <button>
@@ -142,7 +142,7 @@ const StatisticReport = () => {
             <PieChartReport />
           </div>
         </div>
-        <div className="h-80 col-start-1 col-span-2 rounded-lg bg-white border-[#E9EDF7] border p-4">
+        <div className="h-80 w-[800px] xl:w-full col-start-1 col-span-2 rounded-lg bg-white border-[#E9EDF7] border p-4">
           <h2 className="text-xl font-medium">Reports</h2>
           <div className="w-full">
             <BarChartReport />
