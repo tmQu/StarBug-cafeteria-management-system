@@ -12,7 +12,7 @@ const NoteHere = () => {
   };
   return (
     <div
-      className={`w-[400px] h-[48px] flex border-[1px] rounded-[5px] overflow-hidden ${
+      className={`w-full h-[48px] flex border-[1px] rounded-[5px] overflow-hidden ${
         isFocused ? "border-[blue]" : "border-[#D9D9D9]"
       } hover:shadow-md shadow-none`}
     >
@@ -78,7 +78,7 @@ const NoteHere = () => {
       </div>
       <div className="h-full flex-grow relative">
         <input
-          className="w-[348px] h-full px-4 pt-1 bg-transparent text-[18px] font-Source-Sans-3 font-normal outline-none"
+          className="w-full h-full px-4 pt-1 bg-transparent text-[18px] font-Source-Sans-3 font-normal outline-none"
           placeholder="Note here"
           onFocus={handleFocus}
           onBlur={handleBlur}

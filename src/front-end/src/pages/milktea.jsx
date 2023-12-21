@@ -13,7 +13,7 @@ const Coffee = () => {
       className="w-screen h-fit mx-auto"
     >
       <div className="w-screen mx-auto pb-8 flex flex-col gap-8 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
+        <div className="w-screen max-w-[2000px] h-fit mx-auto">
           <HomeSlider />
         </div>
         <div className="w-[930px] h-fit xl:w-screen mx-auto">

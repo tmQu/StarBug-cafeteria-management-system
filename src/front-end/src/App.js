@@ -21,6 +21,7 @@ import Product from "./pages/product";
 import Setting from "./pages/setting";
 
 // Management Pages
+import UserOrderHistory from "./pages/management/userOrderHistory";
 import OrderManagement from "./pages/management/orderManagement";
 import ProductManagement from "./pages/management/productManagement";
 import StaffManagement from "./pages/management/staffManagement";
@@ -29,17 +30,6 @@ import StatisticReport from "./pages/management/statisticReport";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
-
-// Account Pages
-import LogInPopUp from "./components/authen/logInPopUp";
-import SignUpPopUp from "./components/authen/signUpPopUp";
-import NewPassword from "./components/authen/newPassword";
-import ForgotPassword from "./components/authen/forgotPassword";
-
-// Popups
-import StaffPopUp from "./components/popUps/staffPopUp";
-import EditProductPopUp from "./components/popUps/editProductPopUp";
-import StaffEditPopUp from "./components/popUps/staffEditPopUp";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -50,6 +40,13 @@ const queryClient = new QueryClient();
 function App() {
   const { auth } = useAuth();
   const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
+  const {
+    isOpenLoginPopUp,
+    isOpenPaymentPopUp,
+    isOpenSignUpPopUp,
+    isOpenForgotPasswordPopUp,
+    isOpenNewPasswordPopUp,
+  } = useSelector((state) => state.popUpReducer);
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
       <QueryClientProvider client={queryClient}>
@@ -62,15 +59,17 @@ function App() {
             <NavigationBar isAdmin={auth.role === 'manager' ? true : false} />
           </div>
         </div>
-        <div className="absolute left-[calc((100vw_-_400px)_/_2)] top-6 left- grid-in-content z-50">
-          {/* <AddToCartPopup /> */}
-          {/* <LogInPopUp/> */}
-          {/* <SignUpPopUp/> */}
-          {/* <NewPassword/> */}
-          {/* <ForgotPassword /> */}
-          {/* <StaffPopUp /> */}
-        </div>
-        <div className="">
+        <div
+          className={`${
+            isOpenLoginPopUp ||
+            isOpenPaymentPopUp ||
+            isOpenSignUpPopUp ||
+            isOpenForgotPasswordPopUp ||
+            isOpenNewPasswordPopUp
+              ? "blur"
+              : ""
+          }`}
+        >
           <AnimatePresence>
             <Routes>
               {/* Public users */}
@@ -95,6 +94,15 @@ function App() {
                   <Route path="/setting" element={<Setting />} />
                 </Route>
                 <Route
+                  element={
+                    <RequiredAuth
+                      allowedRoles={["customer", "staff", "manager"]}
+                    />
+                  }
+                >
+                  <Route path="/order-history" element={<UserOrderHistory />} />
+                </Route>
+                <Route
                   element={<RequiredAuth allowedRoles={["staff", "manager"]} />}
                 >
                   <Route
@@ -102,28 +110,24 @@ function App() {
                     element={<OrderManagement />}
                   />
                 </Route>
-
                 <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
                   <Route
                     path="/staff-management"
                     element={<StaffManagement />}
                   />
                 </Route>
-
                 <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
                   <Route
                     path="/product-management"
                     element={<ProductManagement />}
                   />
                 </Route>
-
                 <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
                   <Route
                     path="/slider-management"
                     element={<SliderManagement />}
                   />
                 </Route>
-
                 <Route
                   path="statistic-report"
                   element={<StatisticReport />}
@@ -133,7 +137,7 @@ function App() {
           </AnimatePresence>
         </div>
         <div className="">
-          <Footer />
+          <Footer isAdmin={false} />
         </div>
       </QueryClientProvider>
     </div>

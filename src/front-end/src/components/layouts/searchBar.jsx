@@ -23,7 +23,7 @@
 //               viewBox="0 0 20 20"
 //             >
 //               <path
-//                 stroke="currentColor" 
+//                 stroke="currentColor"
 //                 strokeLinecap="round"
 //                 strokeLinejoin="round"
 //                 strokeWidth="2"
@@ -63,7 +63,7 @@ const SearchBar = (props) => {
 
   const addItems = (data) => {
     const value = data;
-    if (value == "") return;
+    if (value === "") return;
     setItems((prev) => {
       return [...prev, value];
     });
@@ -73,14 +73,14 @@ const SearchBar = (props) => {
     <div className="w-[340px] h-[40px] z-40 relative">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="h-full flex flex-row justify-start rounded-3xl overflow-hidden"
+        className="h-full flex flex-row justify-start rounded-3xl overflow-hidden border-none"
         onChange={(e) => {
           setQuery(e.target.value);
         }}
-        FocusEvent={(e) => {}}
+        // FocusEvent={(e) => {}}
       >
         <input
-          className="w-full pl-4 -mt-0.5 text-lg"
+          className="w-full pl-4 -mt-0.5 text-lg border-none outline-none "
           type="text"
           placeholder="Search product"
           autoComplete="off"
@@ -101,10 +101,10 @@ const SearchBar = (props) => {
           </button>
         </div>
       </form>
-      {query != "" && filteredItems != 0 && (
+      {query !== "" && filteredItems !== 0 && (
         <div className="absolute h-auto w-full mt-1 z-50 rounded-xl overflow-hidden shadow-xl bg-[#eeefef]">
           <div
-            className="h-10 rounded-xl bg-[#e1e1e1] pl-2 font-normal pt-2"
+            className="h-10 rounded-lg bg-[#D8D4BA] pl-2 font-normal pt-2"
             onMouseEnter={() => {
               setValue("search", "");
             }}
@@ -114,7 +114,7 @@ const SearchBar = (props) => {
           {filteredItems.map((item, index) => (
             <div key={index} onClick={() => console.log("cl")}>
               <div
-                className="h-9 px-2 pt-0.5 rounded-md text-lg font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-gray-300"
+                className="h-9 px-2 pt-1.5 bg-blue-gray-100 rounded-md font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-gray-300"
                 onMouseEnter={() => {
                   console.log("set ", item);
                   setValue("search", item);

@@ -1,9 +1,7 @@
 import * as React from "react";
-import { Link, useLocation } from 'react-router-dom';
 import {
   DataGrid,
   gridPageCountSelector,
-  gridPageSelector,
   useGridApiContext,
   useGridSelector,
 } from "@mui/x-data-grid";
@@ -15,7 +13,7 @@ import { RoundedButton } from "../buttons/button";
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   border: 0,
-  overflowX: 'auto',
+  overflowX: "auto",
   color: theme.palette.mode === "light" ? "#0E3746" : "rgba(255,255,255,0.85)",
   WebkitFontSmoothing: "auto",
   letterSpacing: "normal",
@@ -82,22 +80,18 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 
 function CustomPagination() {
   const apiRef = useGridApiContext();
-  const page = useGridSelector(apiRef, gridPageSelector);
+  // const page = useGridSelector(apiRef, gridPageSelector);
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
 
   const StyledPagination = (
     <Pagination
       count={pageCount}
-      renderItem={(item) => (
-        <PaginationItem
-          {...item}
-        />
-      )}
+      renderItem={(item) => <PaginationItem {...item} />}
       sx={{
         color: "#BE2623",
         mx: "auto",
         my: "auto",
-        width: "fit-content"
+        width: "fit-content",
       }}
       onChange={(event, value) => apiRef.current.setPage(value - 1)}
     />
@@ -106,26 +100,30 @@ function CustomPagination() {
   return StyledPagination;
 }
 
-
-
 const PAGE_SIZE = 10;
 
-function ManagementTable({ rows, columns, tableName }) {
+function ManagementTable({ rows, columns, tableName, button = "true" }) {
   const [paginationModel, setPaginationModel] = React.useState({
     pageSize: PAGE_SIZE,
     page: 0,
   });
 
   return (
-    <div className=" w-fit lg:w-full h-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded">
-      <div className="w-full p-[15.14px] bg-stone-200 flex flex-row justify-between items-center">
-        <div className="text-[48px] lg:text-[32px] font-bold text-[#BE2623] mb-2 lg:mb-0">
+    <div className="w-fit xl:w-[96%] xl:mx-auto h-full mx-auto bg-[#EAE8DC] shadow-lg my-4 rounded-lg">
+      <div className="w-full px-4 pt-3 pb-1 bg-stone-200 flex flex-row justify-between items-center">
+        <div
+          className={`text-[48px] lg:text-[32px] font-bold text-[#BE2623] lg:mb-0 ${
+            !button && "mx-auto"
+          }`}
+        >
           {tableName}
         </div>
-        <RoundedButton
-          className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED] lg:mr-2"
-          name="ADD"
-        />
+        {button && (
+          <RoundedButton
+            className="border-none !bg-[#BE2623] !font-bold !text-[20px] !text-[#F3F2ED] lg:mr-2"
+            name="ADD"
+          />
+        )}
       </div>
       <div style={{ height: "fit-content", width: "100%" }}>
         <StyledDataGrid

@@ -13,8 +13,8 @@ const OrderDetail = () => {
   };
 
   return (
-    <div className="w-[472px] h-fit bg-[#F4F2EC] flex flex-col rounded-xl shadow-[1px_6px_10px_4px_rgba(0,0,0,0.15);] pt-[1em]">
-      <div className="w-[433px] flex justify-between items-center mx-auto">
+    <div className="w-[472px] sm:w-full h-fit bg-[#F4F2EC] flex flex-col rounded-xl shadow-[1px_6px_10px_4px_rgba(0,0,0,0.15);] pt-[1em]">
+      <div className="w-[433px] sm:w-[90%] flex justify-between items-center mx-auto">
         <div className="text-[#0E3746] text-lg font-semibold">Your order</div>
         <BorderButton
           className="w-[90px] h-[34.1px] pt-0.5"
@@ -22,7 +22,7 @@ const OrderDetail = () => {
           onClick={handleAdd()}
         />
       </div>
-      <div className="w-[472px] h-[fit] mx-auto mt-4 overflow-y-auto">
+      <div className="w-full h-[fit] mx-auto mt-4 overflow-y-auto">
         {totalPrice === 0 ? (
           <div className="p-4 pb-3 pt-0 text-[#0E3746] text-base font-normal">
             You didn't select any product.
@@ -30,7 +30,7 @@ const OrderDetail = () => {
         ) : (
           <div>
             <hr className="ml-[20px] w-[50px] border-[1px] border-[#BE2623]" />
-            <div className="max-h-[310px] overflow-y-auto">
+            <div className="max-h-[310px] overflow-y-auto sm:my-1">
               {cartList.map((item) => (
                 <CustomerOrder order={item} />
               ))}

@@ -5,8 +5,8 @@ import PaymentMethod from "./paymentMethod";
 
 const OrderPayment = (props) => {
   return (
-    <div className="w-[473px] h-fit bg-[#F4F2EC] flex flex-col pt-[1em]">
-      <div className="w-[473px] flex justify-between items-center mx-auto">
+    <div className="w-[473px] sm:w-full h-fit bg-[#F4F2EC] flex flex-col pt-[1em]">
+      <div className="w-full flex justify-between items-center mx-auto">
         <div className="text-[#0E3746] text-lg font-semibold">Delivery</div>
         <BorderButton
           className="w-[130px] h-[40px]"
@@ -16,7 +16,7 @@ const OrderPayment = (props) => {
           }}
         />
       </div>
-      <div className=" h-fit">
+      <div className="h-fit">
         <OrderDelivery />
         <PaymentMethod />
       </div>

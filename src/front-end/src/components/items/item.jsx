@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-import { addCart } from "../../reduxActions/cart";
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +11,7 @@ const Item = (props) => {
 
   return (
     <div
-      className="group w-[210px] h-[288px] sm:w-[170px] sm:h-[240px] bg-[#DBDBDB] hover:bg-[#0D3746] rounded-xl shadow-lg"
+      className="group w-[210px] h-[288px] sm:w-[170px] sm:h-[266px] bg-[#DBDBDB] hover:bg-[#0D3746] rounded-xl shadow-lg"
       onClick={() => handlePressItem(props)}
     >
       <div className="w-full h-fit p-1.5 pb-0">

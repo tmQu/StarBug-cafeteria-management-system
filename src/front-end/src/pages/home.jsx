@@ -14,7 +14,7 @@ const Home = () => {
 
   const handleShowAll = () => {
     setShowAllItems(!showAllItems);
-  }
+  };
 
   return (
     <motion.div
@@ -24,7 +24,7 @@ const Home = () => {
       className="w-screen h-fit mx-auto"
     >
       <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
-        <div className="w-screen max-w-[2000px] h-[386px] mx-auto">
+        <div className="w-screen max-w-[2000px] h-[386px] sm:h-[280px] mx-auto">
           <HomeSlider />
         </div>
         <div className="h-[160px] sm:h-[390px]">

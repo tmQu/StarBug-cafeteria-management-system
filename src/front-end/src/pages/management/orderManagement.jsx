@@ -99,6 +99,7 @@ const OrderManagement = () => {
             columns={columns}
             rows={rows}
             tableName="ORDER MANAGEMENT"
+            button={false}
           />
         </div>
       </div>

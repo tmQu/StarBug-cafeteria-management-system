@@ -1,11 +1,10 @@
-import AddressInput from "./addressInput";
 import InfoInput from "./infoInput";
 
-const OrderDelivery = ({ Address }) => {
+const OrderDelivery = () => {
   return (
-    <div className="w-[473px] h-[fit] mx-auto mt-4 overflow-y-auto">
+    <div className="w-[473px] sm:w-full h-[fit] mx-auto mt-4 overflow-y-auto">
       <hr className="w-[50px] border-[1px] border-[#BE2623]" />
-      <div className="mt-[20px] flex flex-row items-center mt-2 flex">
+      <div className="mt-[20px] flex-row items-center flex">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="36"
@@ -32,7 +31,7 @@ const OrderDelivery = ({ Address }) => {
           <div>Adress</div>
         </div>
       </div>
-      <div className="mt-[20px] flex flex-row items-center mt-2 flex">
+      <div className="mt-[20px] flex flex-row items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="38"
