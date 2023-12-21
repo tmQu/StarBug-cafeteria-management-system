@@ -26,7 +26,6 @@ const userSchema = mongoose.Schema({
         enum: ['customer', 'staff', 'manager'],
         required: [true, 'Role is required field']
     },
-
     // customer infor
     phone: {
         type: String,
@@ -39,6 +38,7 @@ const userSchema = mongoose.Schema({
     branchWork:{
         type: String,
     } 
+
 })
 
 // hash password
