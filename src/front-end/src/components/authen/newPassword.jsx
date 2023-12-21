@@ -4,9 +4,9 @@ import axios from "axios";
 import LargeButton from "../buttons/largeButton";
 
 axios.create({
-  baseURL: "http://localhost:4000/auth/resetpwd",
+  baseURL: "https://star-bug-cafeteria-management-system.vercel.app",
 });
-const URL = "http://localhost:4000/auth/resetpwd";
+const URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/resetpwd";
 
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;

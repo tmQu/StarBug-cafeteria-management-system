@@ -119,7 +119,6 @@ const Header = () => {
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}
               {isOpenNewPasswordPopUp && <NewPassword />}
-              {isOpenSignUpPopUp && <SignUpPopUp />}
               {isAvatarPopUp && isAvatar && auth.role == 'customer' && <UserPopUp />}
               {isAvatarPopUp && isAvatar && auth.role == 'staff' && <StaffPopUp />}
               {isAvatarPopUp && isAvatar && auth.role == 'manager' && <ManagerPopUp />}

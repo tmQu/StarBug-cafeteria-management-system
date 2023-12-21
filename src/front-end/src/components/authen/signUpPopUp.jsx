@@ -10,9 +10,9 @@ import LargeButton from "../buttons/largeButton";
 import "../../css/authen.css";
 
 axios.create({
-  baseURL: "http://localhost:4000/auth/signup",
+  baseURL: "https://star-bug-cafeteria-management-system.vercel.app/",
 });
-const REGISTER_URL = "http://localhost:4000/auth/signup";
+const REGISTER_URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/signup";
 
 const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
 const PASSWORD_REGEX =

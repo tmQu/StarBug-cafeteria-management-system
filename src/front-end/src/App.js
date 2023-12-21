@@ -72,17 +72,17 @@ function App() {
           <AnimatePresence>
             <Routes>
               {/* Public users */}
-              <Route path="/" element={<Home />} />
-              <Route path="/tea" element={<Tea />} />
-              <Route path="/milktea" element={<MilkTea />} />
-              <Route path="/coffee" element={<Coffee />} />
-              <Route path="/cake" element={<Cake />} />
-              <Route path="/about" element={<About />}></Route>
-              <Route path="/product" element={<Product />}></Route>
-              <Route path="/payment" element={<PaymentDetail />}></Route>
-              <Route path="/reset" element={<Reset />}></Route>
-
               <Route element={<PersistLogin />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/tea" element={<Tea />} />
+                <Route path="/milktea" element={<MilkTea />} />
+                <Route path="/coffee" element={<Coffee />} />
+                <Route path="/cake" element={<Cake />} />
+                <Route path="/about" element={<About />}></Route>
+                <Route path="/product" element={<Product />}></Route>
+                <Route path="/payment" element={<PaymentDetail />}></Route>
+                <Route path="/reset" element={<Reset />}></Route>
+
                 <Route
                   element={
                     <RequiredAuth

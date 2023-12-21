@@ -25,10 +25,10 @@ const ForgotPassword = () => {
 
   // Auth
   axios.create({
-    baseURL: "http://localhost:4000/auth/forgetpwd",
+    baseURL: "https://star-bug-cafeteria-management-system.vercel.app",
   });
 
-  const URL = "http://localhost:4000/auth/forgetpwd";
+  const URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/forgetpwd";
 
   const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
 
@@ -126,7 +126,7 @@ const ForgotPassword = () => {
         </div>
         <div className="w-full h-full flex relative justify-center items-center">
           <input
-            className="input"
+            className="input justify-center items-center"
             placeholder="EMAIL"
             name="email"
             ref={emailRef}

@@ -19,9 +19,9 @@ import useInput from "../../hooks/useInput";
 import "../../css/authen.css";
 
 axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://star-bug-cafeteria-management-system.vercel.app/",
 });
-const LOGIN_URL = "http://localhost:4000/auth/signin";
+const LOGIN_URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/signin";
 
 const SignInPopUp = () => {
   // PopUp Redux
@@ -150,7 +150,7 @@ const SignInPopUp = () => {
         </div>
         <div className="w-full h-full flex relative justify-center items-center">
           <input
-            className="input"
+            className="input justify-center items-center"
             placeholder="EMAIL"
             name="email"
             ref={emailRef}
