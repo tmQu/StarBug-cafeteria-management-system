@@ -80,7 +80,7 @@ const SearchBar = (props) => {
         // FocusEvent={(e) => {}}
       >
         <input
-          className="w-full pl-4 -mt-0.5 text-lg border-none outline-none "
+          className="w-full pl-4 -mt-0.5 pt-1 text-lg border-none outline-none "
           type="text"
           placeholder="Search product"
           autoComplete="off"
@@ -104,7 +104,7 @@ const SearchBar = (props) => {
       {query !== "" && filteredItems !== 0 && (
         <div className="absolute h-auto w-full mt-1 z-50 rounded-xl overflow-hidden shadow-xl bg-[#eeefef]">
           <div
-            className="h-10 rounded-lg bg-[#D8D4BA] pl-2 font-normal pt-2"
+            className="h-10 rounded-lg bg-[#EAE8DC] pl-2 font-normal pt-2"
             onMouseEnter={() => {
               setValue("search", "");
             }}
@@ -114,7 +114,7 @@ const SearchBar = (props) => {
           {filteredItems.map((item, index) => (
             <div key={index} onClick={() => console.log("cl")}>
               <div
-                className="h-9 px-2 pt-1.5 bg-blue-gray-100 rounded-md font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer hover:bg-gray-300"
+                className="h-9 px-2 pt-1.5 rounded-md font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer"
                 onMouseEnter={() => {
                   console.log("set ", item);
                   setValue("search", item);
@@ -123,7 +123,7 @@ const SearchBar = (props) => {
                 {item}
               </div>
               {item !== filteredItems[filteredItems.length - 1] && (
-                <hr className="h-[1.5px] mt-1 bg-[#d0d1d2] w-[80%] ml-2"></hr>
+                <hr className="h-[1.5px] mt-1 w-[80%] ml-2"></hr>
               )}
             </div>
           ))}

@@ -5,17 +5,14 @@ import Logo from "../logo";
 import SearchButtonMobile from "../../responsive/searchButton";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
 import SignInPopUp from "../authen/logInPopUp";
 import SignUpPopUp from "../authen/signUpPopUp";
 import ForgotPassword from "../authen/forgotPassword";
 import NewPassword from "../authen/newPassword";
-
 import Avatar from "../avatar";
 import StaffPopUp from "../popUps/staffPopUp";
 import UserPopUp from "../popUps/userPopUp";
 import ManagerPopUp from "../popUps/managerPopUp";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   toggleLogin,
@@ -110,7 +107,7 @@ const Header = () => {
           <div className="hidden sm:block">
             <SearchButtonMobile onClick={() => {}} />
           </div>
-          <div className="flex flex-row gap-3 sm:gap-0" ref={popUpRef}>
+          <div className="flex flex-row gap-3 sm:gap-2" ref={popUpRef}>
             <CartButton onClick={() => navigate("/payment")} />
             {!isAvatar ? (
               <LoginButton onClick={() => handleLoginButton()} />
@@ -120,7 +117,7 @@ const Header = () => {
                 onClick={() => handleAvatarPopUp()}
               />
             )}
-            <div className="absolute top-20 right-[24%] z-50">
+            <div className="absolute top-28 right-[calc((100vw_-_380px)_/_2)] z-50">
               {isOpenLoginPopUp && <SignInPopUp />}
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}

@@ -5,6 +5,14 @@ import ('dotenv/config')
 
 const expiredDate = 3*24*60*60; // 3 days
 
+
+const COOKIES_OPTIONS_LOGIN = {
+    httpOnly: true, 
+    maxAge: expiredDate * 1000, 
+    sameSite: 'none', 
+    secure: 'false'
+}
+
 const errorHandle = (err) => 
 {
     console.log(err);
@@ -61,7 +69,7 @@ const createVerifyToken = (email) => {
 
 const createForgetPwdToken = (email) => {
     return jwt.sign({email: email}, process.env.FORGETPWD_SECRET,{
-        expiresIn: 5*60 // 5 minutes
+        expiresIn: 10*60 // 10 minutes
     })
 }
 
@@ -108,7 +116,7 @@ const authHandler = {
             const token = createToken(user.email);
             console.log('sigin in token')
             console.log(token)
-            res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000});
+            res.cookie('jwt', token, COOKIES_OPTIONS_LOGIN);
             res.status(201).json({email: user.email, role: user.role, accessToken: token, name: user.name, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
         }
         catch(err) {
@@ -143,9 +151,10 @@ const authHandler = {
             const token = createToken(decodedToken.email);
             console.log('success verify');
             console.log(token);
-            res.cookie('jwt', token, {httpOnly: true, maxAge: expiredDate * 1000})
+            res.cookie('jwt', token, {COOKIES_OPTIONS_LOGIN, Domain: process.env.APP_URL});
+
             // res.status(201).json({email: decodedToken.email});
-            res.redirect('http://localhost:3000');
+            res.redirect(process.env.APP_URL);
 
         }
         catch (err)

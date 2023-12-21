@@ -1,7 +1,7 @@
 import ManagementTable from "../../components/muiTableTemplate/managementTable";
 import orders from "../../api/order";
+import { motion } from "framer-motion";
 
-// Define columns for the table
 const columns = [
   { field: "id", headerName: "Tracking ID", width: 170 },
   { field: "branch", headerName: "Branch", width: 170 },
@@ -92,7 +92,12 @@ const rows =
 
 const OrderManagement = () => {
   return (
-    <div className="w-screen mx-auto">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-screen mx-auto"
+    >
       <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div>
           <ManagementTable
@@ -103,7 +108,7 @@ const OrderManagement = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

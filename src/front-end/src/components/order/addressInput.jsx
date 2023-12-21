@@ -1,5 +1,3 @@
-import React from "react";
-
 const AddressInput = () => {
   return (
     <div className="w-[800px] h-[525px] relative bg-white rounded-[30px] shadow mx-auto ">

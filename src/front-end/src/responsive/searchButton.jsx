@@ -2,6 +2,7 @@ const searchButtonMobile = (props) => {
   const onClickHandler = () => {
     props.onClick();
   };
+
   return (
     <button type="button" onClick={onClickHandler}>
       <img

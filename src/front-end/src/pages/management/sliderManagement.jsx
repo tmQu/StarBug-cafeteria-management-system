@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const SliderManagement = () => {
   const sliderImages = [
     { image: "/assets/Slider_files/Slider1.png" },
@@ -12,7 +14,12 @@ const SliderManagement = () => {
     { image: "/assets/Promotion_files/Promotion2.png" },
   ];
   return (
-    <div className="w-screen h-fit">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-screen h-fit"
+    >
       <div className="flex flex-col gap-4 py-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div className="w-[950px] xl:w-[96%] h-fit mx-auto bg-[#F4F2EC] rounded-lg overflow-hidden shadow-xl text-[#BE2623]">
           <div className="w-full h-[92px] bg-[#EAE8DC] px-6 flex flex-row justify-between items-center">
@@ -65,7 +72,7 @@ const SliderManagement = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

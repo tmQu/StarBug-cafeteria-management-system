@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { removeCart } from "../../reduxActions/cart";
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CustomerOrder = (prop) => {
   const dispatch = useDispatch();
@@ -23,7 +23,10 @@ const CustomerOrder = (prop) => {
 
   const deleteNotify = () => {
     toast("Your product has been removed from cart");
-    localStorage.setItem('addedToCartMessage', 'Your product has been added successfully');
+    localStorage.setItem(
+      "addedToCartMessage",
+      "Your product has been added successfully"
+    );
     return true;
   };
 

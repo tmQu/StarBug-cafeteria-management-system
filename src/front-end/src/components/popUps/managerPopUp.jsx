@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin, toggleAvatar } from '../../reduxActions/popUp';
+import { toggleAvatarLogin, toggleAvatar } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
 
 const ManagerPopUp = () => {
@@ -38,6 +38,7 @@ const ManagerPopUp = () => {
           <img
             className="w-[40px] h-[40px] rounded-full"
             src={auth.avatar || "./assets/noname.png"}
+            alt="Avatar"
           ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">

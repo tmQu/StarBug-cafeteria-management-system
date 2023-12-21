@@ -4,13 +4,11 @@ import SetPassword from "../components/userSetting/setPassword";
 
 const Setting = () => {
   return (
-    <div className="w-screen h-fit mx-auto">
-      <div className="w-screen mx-auto py-10 bg-[#F4F2EC]">
-        <div className="w-min-[1050px] h-fit mx-auto">
-          <SetAvatar />
-          <SetBasicInfo />
-          <SetPassword />
-        </div>
+    <div className="w-screen mx-auto overflow-hidden bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+      <div className="w-[950px] xl:w-[96%] bg-[#F4F2EC] my-4 p-8 mx-auto rounded-lg overflow-hidden shadow-lg">
+        <SetAvatar />
+        <SetBasicInfo />
+        <SetPassword />
       </div>
     </div>
   );
