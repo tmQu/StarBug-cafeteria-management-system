@@ -1,7 +1,9 @@
 import { Carousel } from "@material-tailwind/react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
+import { Hidden } from "@mui/material";
 
 const HomeSlider = () => {
   const apiUrl = `https://star-bug-cafeteria-management-system.vercel.app/slider/all`;
@@ -12,50 +14,58 @@ const HomeSlider = () => {
     retry: 3,
   });
 
+
+  const [skeletonWidth, setSkeletonWidth] = useState(445); // Initial width for the skeleton
+
+  useEffect(() => {
+    const updateSkeletonWidth = () => {
+      const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const maxWidth = 1500;
+      const width = windowWidth < maxWidth ? windowWidth : maxWidth;
+      setSkeletonWidth(width);
+    };
+
+    updateSkeletonWidth();
+
+    window.addEventListener("resize", updateSkeletonWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateSkeletonWidth);
+    };
+  }, []);
+
   return (
     <div>
       {isLoading ? (
-        <div className="w-fit h-[370px] mx-auto flex flex-row gap-1 bg-[#506e79] mt-2 p-3 pt-2 rounded-lg">
-          <Skeleton
-            baseColor="#6d8790"
-            borderRadius={12}
-            height={270}
-            width={300}
-            count={1}
-          />
-          <div>
+        <>
+          <div className="w-fit h-[370px] mx-auto flex flex-row gap-1 bg-[#506e79] mt-2 p-3 pt-2 rounded-lg relative">
             <Skeleton
               baseColor="#6d8790"
               borderRadius={12}
-              height={50}
-              width={800}
-              count={2}
-            />
-            <Skeleton
-              baseColor="#6d8790"
-              borderRadius={12}
-              height={160}
-              width={800}
+              height={340}
+              width={skeletonWidth - (skeletonWidth / 20)}
               count={1}
             />
           </div>
-        </div>
+        </>
       ) : (
-        <Carousel
-          className="w-full max-w-[1500px] mx-auto shadow-xl sm:h-[180px]"
-          transition={{ duration: 1 }}
-          navigation={() => <div></div>}
-        >
-          {isSuccess &&
-            data?.data.map((item) => (
-              <img
-                key={item.id}
-                src={item.image}
-                alt="Slider"
-                className="h-full w-full object-fill sm:object-cover"
-              />
-            ))}
-        </Carousel>
+        <>
+          <Carousel
+            className="w-full max-w-[1500px] mx-auto shadow-xl sm:h-[180px]"
+            transition={{ duration: 1 }}
+            navigation={() => <div></div>}
+          >
+            {isSuccess &&
+              data?.data.map((item) => (
+                <img
+                  key={item.id}
+                  src={item.image}
+                  alt="Slider"
+                  className="h-full w-full object-fill sm:object-cover"
+                />
+              ))}
+          </Carousel>
+        </>
       )}
     </div>
   );
