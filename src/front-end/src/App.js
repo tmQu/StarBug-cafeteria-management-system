@@ -129,7 +129,7 @@ function App() {
                   />
                 </Route>
                 <Route
-                  path="statistic-report"
+                  path="/report-management"
                   element={<StatisticReport />}
                 ></Route>
               </Route>
