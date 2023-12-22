@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcrypt';
 
 const userSchema = mongoose.Schema({
     // idUser will be default _id
@@ -42,39 +43,21 @@ const userSchema = mongoose.Schema({
 })
 
 // hash password
-// userSchema.pre('save', (doc, next)=> {
-
-// })
-
-// userSchema.post('save', (doc, next) => {
-
-// });
-
-
-userSchema.statics.login = async (email, pwd) => {
-
-    var user = await User.find({email: email});
-    user = user[0];
-
-    console.log(pwd)
-    // console.log(pwd === user.pwd)
-    if (user)
-    {
-        // hash pwd compare later
-        if (pwd === user.pwd)
-        {
-            if (user.verified == false)
-            {
-                throw Error ('Not verified user');
+userSchema.statics.login = async function(email, pwd) {
+    const user = await this.findOne({ email });
+    if (user) {
+        const auth = await bcrypt.compare(pwd, user.pwd);
+        if (auth) {
+            if (user.verified == false) {
+                throw Error('Not verified user');
             }
-            return user
+            return user;
         }
-        else{
-            throw Error ('Wrong password');
-        }
+        throw Error('Wrong password');
     }
-    throw Error('Not valid user')
+    throw Error('Not valid user');
 }
+
 const User = mongoose.model('User', userSchema);
 
 export default User

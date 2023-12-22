@@ -96,6 +96,9 @@ const authHandler = {
         userInfo.role = 'customer';
         userInfo.verified = false;
         try {
+            const salt = await bcrypt.genSalt(10);
+            const hashedNewPwd = await bcrypt.hash(userInfo.pwd, salt);
+            userInfo.pwd = hashedNewPwd;
             const user = await User(userInfo).save();
             sendVerifyEmail(userInfo.email);
             res.status(201).json({email: user.email});
@@ -205,7 +208,9 @@ const authHandler = {
     
         try{
             var decodedToken = jwt.verify(forgetPwdToken, process.env.FORGETPWD_SECRET)
-            var result = await User.findOneAndUpdate({email: decodedToken.email}, {pwd: newPwd});
+            const salt = await bcrypt.genSalt(10);
+            const hashedNewPwd = await bcrypt.hash(newPwd, salt);
+            var result = await User.findOneAndUpdate({email: decodedToken.email}, {pwd: hashedNewPwd});
             const token = createToken(decodedToken.email);
             console.log('success change pwd');
             console.log(token);
