@@ -62,7 +62,6 @@ const ForgotPassword = () => {
       );
       console.log(JSON.stringify(response?.data));
       // Clear input field
-      setEmail("");
     } catch (err) {
       console.log(err);
     }
@@ -70,6 +69,7 @@ const ForgotPassword = () => {
 
   const handleResend = () => {
     console.log("Đã gửi lại email tới:", email);
+
   };
 
   const handleSignup = () => {
@@ -155,7 +155,7 @@ const ForgotPassword = () => {
         <button
           className="w-fit h-[25px] text-[#0E3746] text-[20px] font-normal flex items-center mr-auto hover:scale-105 transition-transform duration-500 ease-in-out"
           href="#"
-          onClick={handleResend}
+          onClick={handleSend}
         >
           Resend
         </button>

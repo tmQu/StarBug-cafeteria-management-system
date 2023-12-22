@@ -50,6 +50,7 @@ function App() {
     isOpenNewPasswordPopUp,
     isAvatarPopUp,
   } = useSelector((state) => state.popUpReducer);
+
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
       <QueryClientProvider client={queryClient}>
