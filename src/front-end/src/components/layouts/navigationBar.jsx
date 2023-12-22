@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../buttons/button";
-
 import { motion } from "framer-motion";
 
 const NavigationBar = ({ isAdmin }) => {
@@ -25,7 +24,6 @@ const NavigationBar = ({ isAdmin }) => {
       { name: "Product", path: "/product-management" },
       { name: "Slider", path: "/slider-management" },
       { name: "Report", path: "/report-management" },
-      { name: "About", path: "/about-management" },
     ],
     []
   );

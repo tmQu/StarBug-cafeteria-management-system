@@ -35,20 +35,20 @@ import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import PaymentDetail from "./pages/payment";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient();
 
 function App() {
   const { auth } = useAuth();
-  const { isOpenUserPopUp } = useSelector((state) => state.popUpReducer);
   const {
     isOpenLoginPopUp,
     isOpenPaymentPopUp,
     isOpenSignUpPopUp,
     isOpenForgotPasswordPopUp,
     isOpenNewPasswordPopUp,
+    isAvatarPopUp,
   } = useSelector((state) => state.popUpReducer);
   return (
     <div className="w-screen h-auto flex flex-col gap-0 overflow-hidden">
@@ -59,18 +59,20 @@ function App() {
           </div>
           <div className="h-fit">
             {/* if login successful -> isAdmin = true */}
-            <NavigationBar isAdmin={auth.role === 'manager' ? true : false} />
+            <NavigationBar isAdmin={auth.role === "manager" ? true : false} />
           </div>
         </div>
         <div
-          className={`${isOpenLoginPopUp ||
-              isOpenPaymentPopUp ||
-              isOpenSignUpPopUp ||
-              isOpenForgotPasswordPopUp ||
-              isOpenNewPasswordPopUp
+          className={`${
+            isOpenLoginPopUp ||
+            isOpenPaymentPopUp ||
+            isOpenSignUpPopUp ||
+            isOpenForgotPasswordPopUp ||
+            isOpenNewPasswordPopUp ||
+            isAvatarPopUp
               ? "blur"
               : ""
-            }`}
+          }`}
         >
           <AnimatePresence>
             <Routes>
@@ -130,10 +132,12 @@ function App() {
                     element={<SliderManagement />}
                   />
                 </Route>
-                <Route
-                  path="/report-management"
-                  element={<StatisticReport />}
-                ></Route>
+                <Route element={<RequiredAuth allowedRoles={["manager"]} />}>
+                  <Route
+                    path="/report-management"
+                    element={<StatisticReport />}
+                  ></Route>
+                </Route>
               </Route>
             </Routes>
           </AnimatePresence>

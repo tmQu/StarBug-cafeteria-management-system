@@ -9,9 +9,9 @@ import { useState } from "react";
 import Topping from "../components/itemsDetail/topping";
 import { useDispatch } from "react-redux";
 import { addCart } from "../reduxActions/cart";
-
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -57,12 +57,20 @@ const Product = () => {
 
   const notify = () => {
     toast("Your product has been added successfully");
-    localStorage.setItem('addedToCartMessage', 'Your product has been added successfully');
+    localStorage.setItem(
+      "addedToCartMessage",
+      "Your product has been added successfully"
+    );
     return true;
   };
 
   return (
-    <div className="w-screen h-fit mx-auto py-6 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-screen h-fit mx-auto py-6 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]"
+    >
       <div className="w-[900px] xl:w-fit sm:!w-[96%] h-fit bg-white mx-auto rounded-xl overflow-hidden shadow-2xl flex flex-row xl:flex-col xl:items-center">
         <div className="w-[450px] xl:w-full h-[690px] xl:h-fit flex flex-col items-center">
           <div className="w-full px-8 sm:px-4 mt-8 hidden xl:block">
@@ -87,7 +95,7 @@ const Product = () => {
             beatae soluta neque omnis at autem!
           </div>
         </div>
-        <div className="w-[450px] xl:w-[400px] sm:w-full h-[690px] xl:mxauto xl:h-fit xl:mt-2 py-2 sm:px-4 flex flex-col justify-center items-start gap-2">
+        <div className="w-[450px] xl:w-[400px] sm:w-full h-[690px] xl:h-fit xl:mt-2 py-2 sm:px-4 flex flex-col justify-center items-start gap-2">
           <div className="ml-5 w-full xl:hidden flex flex-col items-start justify-start">
             <div className="w-fit h-fit mt-3">
               <Star rates={data.rate} />
@@ -103,7 +111,7 @@ const Product = () => {
           <div className="w-full px-5 sm:px-4 h-[53px] mx-auto sm:m-0">
             <NoteHere />
           </div>
-          <div className="w-[400px] xl:w-full sm:!w-[90%] h-fit mx-auto rounded-lg border-[#F4F2EC] border overflow-hidden">
+          <div className="w-[400px] xl:w-[96%] sm:!w-[90%] h-fit mx-auto rounded-lg border-[#F4F2EC] border overflow-hidden">
             <div className="w-full h-fit">
               <SizeSelect
                 sizeSelectfunction={(data) => handleSizeSelect(data)}
@@ -158,10 +166,11 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div className="w-[400px] xl:w-full mx-auto pb-2 sm:px-4">
+          <div className="w-[400px] xl:w-[96%] mx-auto pb-2 sm:px-4">
             <AddToCartButton
               onClick={() =>
-                notify() && handleAddToCartButton({
+                notify() &&
+                handleAddToCartButton({
                   ...data,
                   topping,
                   size: sizeSelect,
@@ -172,7 +181,7 @@ const Product = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

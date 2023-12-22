@@ -1,12 +1,13 @@
 import { useRef, useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LargeButton from "../buttons/largeButton";
 
 axios.create({
   baseURL: "https://star-bug-cafeteria-management-system.vercel.app",
 });
-const URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/resetpwd";
+const URL =
+  "https://star-bug-cafeteria-management-system.vercel.app/auth/resetpwd";
 
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -17,9 +18,9 @@ const NewPassword = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = "/";
-  
-  var s = new URLSearchParams(location.search)
-  const token = s.get("token")
+
+  var s = new URLSearchParams(location.search);
+  const token = s.get("token");
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
@@ -50,7 +51,7 @@ const NewPassword = () => {
       setErrMsg("Invalid password");
       return;
     }
-    console.log(token)
+    console.log(token);
     try {
       const response = await axios.post(
         URL,
@@ -75,8 +76,7 @@ const NewPassword = () => {
         setErrMsg("No Server Response");
       } else if (err?.response?.status === 401) {
         setErrMsg("Token Expired");
-      } 
-      else {
+      } else {
         setErrMsg("Reset Password Failed");
       }
     }
@@ -84,11 +84,9 @@ const NewPassword = () => {
 
   return (
     <div className="w-[380px] h-fit py-6 flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
-       <p
+      <p
         ref={errRef}
-        className={
-          errMsg ? "text-sm text-[#BE2634]" : "hidden"
-        }
+        className={errMsg ? "text-sm text-[#BE2634]" : "hidden"}
         aria-live="assertive"
       >
         {errMsg}

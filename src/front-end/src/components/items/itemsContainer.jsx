@@ -3,16 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
-// filter?page_12=1&category=
-
 const ItemsContainer = ({ route, limit }) => {
-  // const defaultLimit = route === "/" ? 12 : 16;
   const displayLimit = limit === Infinity ? 20 : 12;
-
-  // const subUrl =
-  //   route === "/"
-  //     ? `filter?page_${displayLimit}` // home
-  //     : `filter?page_16=1&category=${route}`; // others
 
   const subUrl =
     route === "/"

@@ -1,6 +1,7 @@
 import BarChartReport from "../../components/charts/barChart.jsx";
 import PieChartReport from "../../components/charts/pieChart.jsx";
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
+import { motion } from "framer-motion";
 
 const StatisticReport = () => {
   const totalSales =
@@ -27,7 +28,12 @@ const StatisticReport = () => {
     },
   ];
   return (
-    <div className="w-screen mx-auto overflow-hidden bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-screen mx-auto overflow-hidden bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]"
+    >
       <div className="w-fit xl:w-[96%] h-fit p-4 my-6 mx-auto grid grid-cols-3 xl:flex xl:flex-col gap-4 bg-[#F4F2EC] text-[#0E3746] shadow-2xl rounded-xl">
         <div className="h-80 sm:h-fit col-start-1 col-span-2 rounded-lg">
           <div className="p-4 pb-0">
@@ -181,7 +187,7 @@ const StatisticReport = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,3 @@
-import { hide } from "@floating-ui/core";
 import { useState } from "react";
 
 const EyeIcon = ({ className }) => {

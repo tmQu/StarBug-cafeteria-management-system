@@ -1,7 +1,7 @@
 import ManagementTable from "../../components/muiTableTemplate/managementTable";
 import items from "../../api/items";
+import { motion } from "framer-motion";
 
-// Define columns for the table
 const columns = [
   { field: "id", headerName: "Product ID", width: 170 },
   { field: "name", headerName: "Name", width: 170 },
@@ -71,11 +71,10 @@ const columns = [
   },
 ];
 
-// Define the rows for the table
 const rows =
   items && Array.isArray(items)
     ? items.map((item) => ({
-        id: `#${item.id}`, // Thêm dấu # vào trước id
+        id: `#${item.id}`,
         name: item.name,
         price: item.price,
         category: item.category,
@@ -85,7 +84,12 @@ const rows =
 
 const ProductManagement = () => {
   return (
-    <div className="w-screen mx-auto">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-screen mx-auto"
+    >
       <div className="w-screen mx-auto flex flex-col gap-4 bg-[#F4F2EC] bg-[url('../../public/assets/background.svg')]">
         <div>
           <ManagementTable
@@ -95,7 +99,7 @@ const ProductManagement = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

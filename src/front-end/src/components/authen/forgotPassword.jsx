@@ -1,17 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import LargeButton from "../buttons/largeButton";
-
 import { useDispatch } from "react-redux";
 import {
   toggleSignUp,
   toggleForgotPassword,
   toggleLogin,
 } from "../../reduxActions/popUp";
-
 import axios from "axios";
 
 const ForgotPassword = () => {
-  // PopUp Redux
   const dispatch = useDispatch();
 
   const handleSignUpButton = () => {
@@ -23,12 +20,12 @@ const ForgotPassword = () => {
     dispatch(toggleLogin(true));
   };
 
-  // Auth
   axios.create({
     baseURL: "https://star-bug-cafeteria-management-system.vercel.app",
   });
 
-  const URL = "https://star-bug-cafeteria-management-system.vercel.app/auth/forgetpwd";
+  const URL =
+    "https://star-bug-cafeteria-management-system.vercel.app/auth/forgetpwd";
 
   const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
 
@@ -62,10 +59,10 @@ const ForgotPassword = () => {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
-        );
-        console.log(JSON.stringify(response?.data));
-        // Clear input field
-        setEmail("");        
+      );
+      console.log(JSON.stringify(response?.data));
+      // Clear input field
+      setEmail("");
     } catch (err) {
       console.log(err);
     }

@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin } from '../../reduxActions/popUp';
+import { toggleAvatarLogin, toggleAvatar } from '../../reduxActions/popUp';
 import useAuth from "../../hooks/useAuth";
 
 const ManagerPopUp = () => {
@@ -14,8 +14,23 @@ const ManagerPopUp = () => {
     await logout();
     dispatch(toggleAvatarLogin(false));
     navigate("/");
-  } 
+  };
 
+  const handleSetting = () => {
+    dispatch(toggleAvatar(false));
+    navigate("/setting");
+  }
+
+  const handleOrderManagement = () => {
+    dispatch(toggleAvatar(false));
+    navigate("/order-management");
+  }
+
+  const handleStaffManagement = () => {
+    dispatch(toggleAvatar(false));
+    navigate("/staff-management");
+  }
+console.log(auth.avatar)
   return (
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
@@ -23,6 +38,7 @@ const ManagerPopUp = () => {
           <img
             className="w-[40px] h-[40px] rounded-full"
             src={auth.avatar || "./assets/noname.png"}
+            alt="Avatar"
           ></img>
           <div className="w-full flex flex-col">
             <div className="w-fit h-[22px] text-[#0E3746] font-medium text-[18px]">
@@ -35,7 +51,7 @@ const ManagerPopUp = () => {
         </div>
       </div>
 
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleSetting}>
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,11 +74,12 @@ const ManagerPopUp = () => {
             />
           </svg>
         </div>
+        
         <div className="text-[#0E3746] font-medium text-[20px]">
-        <Link to="/setting">Profile Settings</Link>
+          Profile Settings
         </div>
-      </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleOrderManagement}>
         <div className="pl-[14px]">
           <svg
             width="20"
@@ -94,10 +111,10 @@ const ManagerPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-        <Link to="/order-management">Order Manager</Link>
+          Order Manager
         </div>
-      </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleStaffManagement}>
         <div className="pl-[14px]">
           <svg
             width="20"
@@ -124,10 +141,10 @@ const ManagerPopUp = () => {
           </svg>
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">
-        <Link to="/staff-management">Staff Manager</Link>
+          Staff Manager
         </div>
-      </div>
-      <div className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE] hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0 border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -154,8 +171,8 @@ const ManagerPopUp = () => {
         <div className="text-[#0E3746] font-medium text-[20px]">
           Help Center
         </div>
-      </div>
-      <div className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center hover:bg-[#DEDAD0] hover:rounded-[14px]">
+      </button>
+      <button className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center" onClick={handleLogout}>
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -176,8 +193,8 @@ const ManagerPopUp = () => {
             />
           </svg>
         </div>
-        <div className="text-[#0E3746] font-medium text-[20px]"><button onClick={handleLogout}>Sign Out</button></div>
-      </div>
+        <div className="text-[#0E3746] font-medium text-[20px]">Sign Out</div>
+      </button>
     </div>
   );
 };

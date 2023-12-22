@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { Checkbox } from "@material-tailwind/react";
 
 const StaffEditPopUp = () => {
   const { register, handleSubmit, reset } = useForm();
