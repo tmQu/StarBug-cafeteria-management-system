@@ -7,6 +7,10 @@ import SignInPopUp from "./logInPopUp";
 import LargeButton from "../buttons/largeButton";
 import "../../css/authen.css";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 axios.create({
   baseURL: "https://star-bug-cafeteria-management-system.vercel.app/",
 });
@@ -98,6 +102,15 @@ const Register = () => {
     setErrMsg("");
   }, [email, pwd, matchPwd]);
 
+  const notify = () => {
+    toast("Check your email to verify your account");
+    localStorage.setItem(
+      "addedToCartMessage",
+      "Check your email to verify your account"
+    );
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const v1 = GMAIL_REGEX.test(email);
@@ -130,7 +143,7 @@ const Register = () => {
       navigate(from, { replace: true });
       // message check email to verify
       handleSignInButton(false);
-      alert("Check your email to verify your account");
+      notify();
     } catch (err) {
       console.log(err);
       if (!err?.response) {

@@ -8,6 +8,10 @@ import {
 } from "../../reduxActions/popUp";
 import axios from "axios";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 const ForgotPassword = () => {
   const dispatch = useDispatch();
 
@@ -41,6 +45,15 @@ const ForgotPassword = () => {
     setValidEmail(result);
   }, [email]);
 
+  const notify = () => {
+    toast("Please check your email");
+    localStorage.setItem(
+      "addedToCartMessage",
+      "Please check your email"
+    );
+    return true;
+  };
+
   const handleSend = async (e) => {
     console.log("Đã gửi email tới:", email);
     // axios reqest here
@@ -62,14 +75,10 @@ const ForgotPassword = () => {
       );
       console.log(JSON.stringify(response?.data));
       // Clear input field
+      notify();
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const handleResend = () => {
-    console.log("Đã gửi lại email tới:", email);
-
   };
 
   const handleSignup = () => {

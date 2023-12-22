@@ -25,7 +25,7 @@ const CustomerOrder = (prop) => {
     toast("Your product has been removed from cart");
     localStorage.setItem(
       "addedToCartMessage",
-      "Your product has been added successfully"
+      "Your product has been removed from cart"
     );
     return true;
   };
