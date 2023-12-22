@@ -179,7 +179,7 @@ const authHandler = {
             const user = await User.findOne({email: decodedToken.email});
             const newToken = createToken(user.email);
             res.cookie('jwt', newToken, {httpOnly: true, maxAge: expiredDate * 1000})
-            res.status(201).json({email: user.email, role: user.role, accessToken: newToken});
+            res.status(201).json({email: user.email, role: user.role, accessToken: token, name: user.name, imgAvatar: user.imgAvatar ? user.imgAvatar : ''});
         }
         catch(err)
         {
