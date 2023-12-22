@@ -22,12 +22,14 @@ import {
   toggleAvatar,
 } from "../../reduxActions/popUp";
 import { useEffect, useRef } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const Header = () => {
   const navigate = useNavigate();
   const popUpRef = useRef();
   const dispatch = useDispatch();
   const { auth } = useAuth();
+  const [persist] = useLocalStorage("persist", false);
 
   const {
     isOpenLoginPopUp,
@@ -69,7 +71,7 @@ const Header = () => {
     dispatch(toggleNewPassword(props));
   };
   const handleAvatarPopUp = (props) => {
-    toggleAvatar(false);
+    dispatch(toggleAvatar(false));
     dispatch(toggleAvatar(props));
   };
 
@@ -109,26 +111,26 @@ const Header = () => {
           </div>
           <div className="flex flex-row gap-3 sm:gap-2" ref={popUpRef}>
             <CartButton onClick={() => navigate("/payment")} />
-            {!isAvatar ? (
-              <LoginButton onClick={() => handleLoginButton()} />
-            ) : (
-              <Avatar
+            {isAvatar || persist ? (
+                <Avatar
                 avatar={auth.avatar}
                 onClick={() => handleAvatarPopUp()}
-              />
+                />
+              ) : (
+                <LoginButton onClick={() => handleLoginButton()} />
             )}
             <div className="absolute top-28 right-[calc((100vw_-_380px)_/_2)] z-50">
               {isOpenLoginPopUp && <SignInPopUp />}
               {isOpenSignUpPopUp && <SignUpPopUp />}
               {isOpenForgotPasswordPopUp && <ForgotPassword />}
               {isOpenNewPasswordPopUp && <NewPassword />}
-              {isAvatarPopUp && isAvatar && auth.role === "customer" && (
+              {isAvatarPopUp && (isAvatar || persist) && auth.role === "customer" && (
                 <UserPopUp />
               )}
-              {isAvatarPopUp && isAvatar && auth.role === "staff" && (
+              {isAvatarPopUp && (isAvatar || persist) && auth.role === "staff" && (
                 <StaffPopUp />
               )}
-              {isAvatarPopUp && isAvatar && auth.role === "manager" && (
+              {isAvatarPopUp && (isAvatar || persist) && auth.role === "manager" && (
                 <ManagerPopUp />
               )}
             </div>

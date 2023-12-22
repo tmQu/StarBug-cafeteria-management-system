@@ -13,6 +13,7 @@ const StaffPopUp = () => {
   const handleLogout = async () => {
     await logout();
     dispatch(toggleAvatarLogin(false));
+    dispatch(toggleAvatar(false));
     navigate("/");
   };
 

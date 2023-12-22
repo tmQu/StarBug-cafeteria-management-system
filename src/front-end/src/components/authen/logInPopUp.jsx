@@ -78,7 +78,9 @@ const SignInPopUp = () => {
       setAuth({ email, role, accessToken, avatar, name });
       resetEmail();
       setPwd("");
-      navigate(from, { replace: true });
+      role === "manager"
+        ? navigate("/order-management", { replace: true })
+        : navigate(from, { replace: true });
       dispatch(toggleLogin(false));
       dispatch(toggleAvatarLogin(true));
       //hide login popup, hide login button, show user avatar

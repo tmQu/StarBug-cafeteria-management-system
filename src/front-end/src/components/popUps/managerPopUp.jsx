@@ -13,6 +13,7 @@ const ManagerPopUp = () => {
   const handleLogout = async () => {
     await logout();
     dispatch(toggleAvatarLogin(false));
+    dispatch(toggleAvatar(false));
     navigate("/");
   };
 
@@ -30,7 +31,6 @@ const ManagerPopUp = () => {
     dispatch(toggleAvatar(false));
     navigate("/staff-management");
   }
-console.log(auth.avatar)
   return (
     <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
