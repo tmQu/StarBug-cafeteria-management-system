@@ -10,4 +10,5 @@ authRouter.get('/refresh', authHandler.refreshToken);
 authRouter.post('/forgetpwd', authHandler.forgetPwd);
 authRouter.post('/resetpwd', authHandler.resetPwd);
 authRouter.post('/sendVerifyEmail', authHandler.sendVerifyEmail);
+authRouter.get('/logout', authHandler.logout);
 export {authRouter};

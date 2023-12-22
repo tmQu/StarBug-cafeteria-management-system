@@ -225,6 +225,17 @@ const authHandler = {
         }
         
         //res.status(401).json({error: 'expired token'});
+    },
+    logout: async (req, res) => {
+        try{
+            res.clearCookie('jwt');
+            res.status(201).json({message: 'logout'});
+        }
+        catch(err)
+        {
+            console.log(err);
+            res.status(401).json({error: err});
+        }
     }
 }
 
