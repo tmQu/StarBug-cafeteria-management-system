@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 
 const StaffEditPopUp = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -7,7 +8,12 @@ const StaffEditPopUp = () => {
   };
 
   return (
-    <div className="w-[400px] h-fit bg-[#F4F2EC] rounded-lg p-4 flex flex-col">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-[400px] h-fit bg-[#F4F2EC] rounded-lg p-4 flex flex-col"
+    >
       <span className="w-full text-[#BE2623] font-semibold flex flex-row justify-between">
         <h className="text-lg">STAFF EDIT</h>
         <img
@@ -75,7 +81,7 @@ const StaffEditPopUp = () => {
           required
         />
       </form>
-    </div>
+    </motion.div>
   );
 };
 

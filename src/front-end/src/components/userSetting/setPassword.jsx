@@ -1,4 +1,4 @@
-import InfoBox from "./infobox";
+import InfoBox from "./infoBox";
 
 const handleCancle = () => {
   console.log("Cancle");

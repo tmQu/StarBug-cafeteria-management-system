@@ -3,6 +3,7 @@ import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
 import { toggleAvatarLogin, toggleAvatar } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
+import { motion } from "framer-motion";
 
 const UserPopUp = () => {
   const navigate = useNavigate();
@@ -28,7 +29,12 @@ const UserPopUp = () => {
   };
 
   return (
-    <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl"
+    >
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE] hover:cursor-pointer">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
           <img
@@ -177,7 +183,7 @@ const UserPopUp = () => {
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">Sign Out</div>
       </button>
-    </div>
+    </motion.div>
   );
 };
 

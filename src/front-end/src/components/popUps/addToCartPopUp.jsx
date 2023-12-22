@@ -3,10 +3,16 @@ import ToppingSelect from "../itemsDetail/toppingSelect";
 import AddToCartButton from "../buttons/addToCartButton";
 import NoteHere from "../itemsDetail/noteHere";
 import ProductInfo from "../itemsDetail/productInfo";
+import { motion } from "framer-motion";
 
 const AddToCartPopup = () => {
   return (
-    <div className="w-[500px] h-fit p-4 rounded-lg shadow-lg flex flex-col gap-4 pb-4 bg-[#F3F2ED]">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-[500px] h-fit p-4 rounded-lg shadow-lg flex flex-col gap-4 pb-4 bg-[#F3F2ED]"
+    >
       <div className="w-full h-fit flex flex-row justify-between pb-2 border-b-2 border-b-[#D9D9D9]">
         <img
           className="w-5 h-5"
@@ -48,7 +54,7 @@ const AddToCartPopup = () => {
       <div className="w-[400px] mx-auto">
         <AddToCartButton />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import { useDispatch } from "react-redux";
-import { toggleAvatarLogin, toggleAvatar } from '../../reduxActions/popUp';
+import { toggleAvatarLogin, toggleAvatar } from "../../reduxActions/popUp";
 import useAuth from "../../hooks/useAuth";
+import { motion } from "framer-motion";
 
 const ManagerPopUp = () => {
   const navigate = useNavigate();
@@ -20,19 +21,24 @@ const ManagerPopUp = () => {
   const handleSetting = () => {
     dispatch(toggleAvatar(false));
     navigate("/setting");
-  }
+  };
 
   const handleOrderManagement = () => {
     dispatch(toggleAvatar(false));
     navigate("/order-management");
-  }
+  };
 
   const handleStaffManagement = () => {
     dispatch(toggleAvatar(false));
     navigate("/staff-management");
-  }
+  };
   return (
-    <div className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl">
+    <motion.div
+      initial={{ opacity: 0.5, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="w-[305px] h-fit flex flex-col bg-[#F4F2EC] mx-auto px-[8px] py-[10px] rounded-[8px] shadow-xl"
+    >
       <div className="h-[80px] py-[16px] pt-[18px] ml-[6px] border-b-[0.7px] border-solid border-[#CECECE]">
         <div className="w-[274px] pr-[68px] pb-[18px] gap-[12px] flex items-center flex-row">
           <img
@@ -51,7 +57,10 @@ const ManagerPopUp = () => {
         </div>
       </div>
 
-      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleSetting}>
+      <button
+        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0"
+        onClick={handleSetting}
+      >
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,12 +83,15 @@ const ManagerPopUp = () => {
             />
           </svg>
         </div>
-        
+
         <div className="text-[#0E3746] font-medium text-[20px]">
           Profile Settings
         </div>
       </button>
-      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleOrderManagement}>
+      <button
+        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0"
+        onClick={handleOrderManagement}
+      >
         <div className="pl-[14px]">
           <svg
             width="20"
@@ -114,7 +126,10 @@ const ManagerPopUp = () => {
           Order Manager
         </div>
       </button>
-      <button className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0" onClick={handleStaffManagement}>
+      <button
+        className="h-[60px] flex flex-row py-[15px] gap-[12px] items-center my-0"
+        onClick={handleStaffManagement}
+      >
         <div className="pl-[14px]">
           <svg
             width="20"
@@ -172,7 +187,10 @@ const ManagerPopUp = () => {
           Help Center
         </div>
       </button>
-      <button className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center" onClick={handleLogout}>
+      <button
+        className="h-[70px] flex flex-row gap-[14px] py-[16px] items-center"
+        onClick={handleLogout}
+      >
         <div className="pl-[14px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +213,7 @@ const ManagerPopUp = () => {
         </div>
         <div className="text-[#0E3746] font-medium text-[20px]">Sign Out</div>
       </button>
-    </div>
+    </motion.div>
   );
 };
 
