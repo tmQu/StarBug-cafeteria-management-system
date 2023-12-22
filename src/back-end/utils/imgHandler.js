@@ -9,15 +9,15 @@ const upload = multer({
             var url = req.originalUrl;
             if(url.includes('item'))
             {
-                cb(null, './database/image/item');
+                cb(null, './db/Item');
             }
             else if (url.includes('promotion'))
             {
-                cb(null, './database/image/promotion');
+                cb(null, './db/Promotion_files');
             }
             else if (url.includes('slider'))
             {
-                cb(null, './database/image/slider');
+                cb(null, './db/Slider_files');
             }
         },
         filename: function (req, file, cb) {

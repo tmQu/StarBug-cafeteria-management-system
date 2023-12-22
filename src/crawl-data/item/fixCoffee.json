@@ -8,7 +8,7 @@
         "topItem": true,
         "avgRate": 4,
         "img": [
-            "https://i.pinimg.com/564x/02/4b/a2/024ba26c2dca5c201a514c7948f3d046.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-1.jpg"
         ]
     },
     {
@@ -20,7 +20,7 @@
         "topItem": false,
         "avgRate": 4.2,
         "img": [
-            "https://i.pinimg.com/564x/c3/29/ee/c329eec7c55dda45475f7fe5a0ec24ef.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-2.jpg"
         ]
     },
     {
@@ -44,7 +44,7 @@
         "topItem": false,
         "avgRate": 4.3,
         "img": [
-            "https://i.pinimg.com/564x/da/b8/a4/dab8a44fabd8ed717f36247f55ba6045.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-4.jpg"
         ]
     },
     {
@@ -56,7 +56,7 @@
         "topItem": false,
         "avgRate": 4.1,
         "img": [
-            "https://i.pinimg.com/564x/a2/4e/5b/a24e5b8638ccdabd9b33e84420397d93.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-5.jpg"
         ]
     },
     {
@@ -80,7 +80,7 @@
         "topItem": false,
         "avgRate": 4.6,
         "img": [
-            "https://i.pinimg.com/564x/05/d8/95/05d895fe6e174cd8762f14de620f79a6.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-7.jpg"
         ]
     },
     {
@@ -92,7 +92,7 @@
         "topItem": false,
         "avgRate": 4.2,
         "img": [
-            "https://i.pinimg.com/564x/cf/43/78/cf437808dc29011e390f0e5e61c31fd0.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-8.jpg"
         ]
     },
     {
@@ -104,7 +104,7 @@
         "topItem": false,
         "avgRate": 4.3,
         "img": [
-            "https://i.pinimg.com/564x/01/6a/33/016a3372283916a4e84a41a7dd80f1f5.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-9.jpg"
         ]
     },
     {
@@ -116,7 +116,7 @@
         "topItem": false,
         "avgRate": 4.1,
         "img": [
-            "https://i.pinimg.com/564x/6b/8c/05/6b8c055bff6d749ee5a8023a3fdb146a.jpg"
+            "https://star-bug-cafeteria-management-system.vercel.app/db/Item/cafe/cafe-10.jpg"
         ]
     }
 ]
