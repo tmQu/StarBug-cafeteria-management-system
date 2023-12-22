@@ -168,15 +168,15 @@ const Product = () => {
           </div>
           <div className="w-[400px] xl:w-[96%] mx-auto pb-2 sm:px-4">
             <AddToCartButton
-              onClick={() =>
-                notify() &&
+              onClick={() => {
+                if (quantity !== 0) notify();
                 handleAddToCartButton({
                   ...data,
                   topping,
                   size: sizeSelect,
                   quantity: quantity,
-                })
-              }
+                });
+              }}
             />
           </div>
         </div>

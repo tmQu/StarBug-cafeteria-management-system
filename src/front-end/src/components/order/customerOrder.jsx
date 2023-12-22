@@ -3,6 +3,7 @@ import { removeCart } from "../../reduxActions/cart";
 import formatCurrencyWithCommas from "../../utils/formatCurrency";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { calculateToppingPrice } from "../../utils/cartCalculate";
 
 const CustomerOrder = (prop) => {
   const dispatch = useDispatch();
@@ -13,12 +14,12 @@ const CustomerOrder = (prop) => {
 
   const handleEdit = () => {
     // Change direct to product popup
-    console.log("Edit");
   };
 
-  const handleDelete = (id) => {
-    dispatch(removeCart(id));
-    console.log("Delete", id);
+  const handleDelete = (id, itemSize, itemTopping) => {
+    const deleteId =
+      id.toString() + itemSize.toString() + itemTopping.toString();
+    dispatch(removeCart(deleteId));
   };
 
   const deleteNotify = () => {
@@ -47,7 +48,18 @@ const CustomerOrder = (prop) => {
             />
           </svg>
         </button>
-        <button onClick={() => deleteNotify() && handleDelete(order.id)}>
+        <button
+          onClick={() =>
+            deleteNotify() &&
+            handleDelete(
+              order.id,
+              order.size.size,
+              order.topping[0].name +
+                order.topping[1].name +
+                order.topping[2].name
+            )
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="23"
@@ -103,18 +115,22 @@ const CustomerOrder = (prop) => {
             Size: {order.size.size || "Small"}
           </div>
           <div className="w-[80px] sm:hidden text-[#0E3746] text-base text-right pr-0.5">
-            {formatCurrencyWithCommas(order.price) || ""}
+            {formatCurrencyWithCommas(
+              order.price +
+                order.size.sizePrice +
+                calculateToppingPrice(order.topping)
+            ) || ""}
           </div>
         </div>
         <div className="-mt-1 flex flex-row gap-2 justify-start">
           <div className="w-fit text-[#0E3746] text-sm ">
             Quantity: {order.quantity || "1"}
           </div>
-          <div className="h-4 border-r-2 border-[#0E3746]"></div>
+          <div className="h-4 "></div>
           {order.topping[0].quantity > 0 ||
           order.topping[1].quantity > 0 ||
           order.topping[2].quantity > 0 ? (
-            <div className="w-fit text-[#0E3746] text-sm ">
+            <div className="w-fit text-[#0E3746] text-sm border-[#0E3746] border-r-2">
               {order.topping[0].quantity > 0 && order.topping[0].name}{" "}
               {order.topping[1].quantity > 0 && order.topping[1].name}{" "}
               {order.topping[2].quantity > 0 && order.topping[2].name}{" "}
@@ -130,7 +146,11 @@ const CustomerOrder = (prop) => {
           )}
         </div>
         <div className="w-[80px] text-[#0E3746] text-base text-left">
-          {formatCurrencyWithCommas(order.price) || ""}
+          {formatCurrencyWithCommas(
+            order.price +
+              order.size.sizePrice +
+              calculateToppingPrice(order.topping)
+          ) || ""}
         </div>
       </div>
     </div>

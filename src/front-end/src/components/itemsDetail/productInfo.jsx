@@ -24,10 +24,10 @@ const ProductInfo = ({
 
   return (
     <div>
-      <div className="w-fit h-[40px] sm:h-fit font-Source-Sans-3 leading-8 text-[32px] text-[#BE2622] font-semibold flex-inline">
+      <div className="w-fit h-fit max-h-[85px] sm:h-fit font-Source-Sans-3 leading-8 text-[32px] text-[#BE2622] font-semibold flex-inline">
         {productName}
       </div>
-      <div className="flex items-center w-full h-[35px] flex-row py-3">
+      <div className="flex items-center w-[380px] xl:w-full h-[35px] flex-row py-3">
         <div className="w-fit h-[28] font-Source-Sans-3 text-[22px] font-normal flex-inline pt-3 text-[#0D3745] ">
           {formatCurrencyWithCommas(price)} VND
         </div>
