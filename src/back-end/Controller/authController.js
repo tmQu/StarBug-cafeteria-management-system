@@ -110,7 +110,7 @@ const authHandler = {
             const hashedNewPwd = await bcrypt.hash(userInfo.pwd, salt);
             userInfo.pwd = hashedNewPwd;
             const user = await User(userInfo).save();
-            sendVerifyEmail(userInfo.email);
+            await sendVerifyEmail(userInfo.email);
             res.status(201).json({email: user.email});
         }
         catch(err) {
@@ -136,17 +136,12 @@ const authHandler = {
             console.log(err);
             if (err.message === 'Not verified user')
             {
-                sendVerifyEmail(email);
+                await sendVerifyEmail(email);
             }
             var errors = errorHandle(err);
             console.log(errors);
             res.status(errors.status).json(errors.error)
         }
-    },
-    sendVerifyEmail:    (req, res) => {
-        var email = req.query.email;
-        sendVerifyEmail(email);
-        res.status(201).josn({email: email});
     },
     verify: async (req, res) => {
         var verifyToken = req.query.token;
