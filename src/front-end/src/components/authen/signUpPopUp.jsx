@@ -145,7 +145,6 @@ const Register = () => {
       handleSignInButton(false);
       notify();
     } catch (err) {
-      console.log(err);
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.status === 409) {
@@ -408,6 +407,7 @@ const Register = () => {
                 value={phoneNumber}
                 aria-invalid={validPhoneNumber ? "false" : "true"}
                 aria-describedby="phonenote"
+                required
                 onFocus={() => setPhoneNumberFocus(true)}
                 onBlur={() => setPhoneNumberFocus(false)}
               />

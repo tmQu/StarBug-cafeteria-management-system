@@ -33,6 +33,7 @@ const ForgotPassword = () => {
 
   const GMAIL_REGEX = /^[a-zA-Z0-9.]+@gmail.com$/;
 
+  const errRef = useRef();
   const emailRef = useRef();
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -77,7 +78,13 @@ const ForgotPassword = () => {
       // Clear input field
       notify();
     } catch (err) {
-      console.log(err);
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      }
+      else if (err?.response?.status === 401) {
+        setErrMsg("Email not found");
+      }
+      errRef.current.focus();
     }
   };
 
@@ -88,6 +95,13 @@ const ForgotPassword = () => {
 
   return (
     <div className="w-[380px] h-[270px] flex flex-col justify-center items-center rounded-[10px] bg-[#F4F2EC] shadow-xl mx-auto gap-[20px]">
+      <p
+        ref={errRef}
+        className={errMsg ? "text-sm text-[#BE2634] px-1 absolute mb-[170px]" : "hidden"}
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
       <div className="w-[24px] h-[24px] -mt-6 mr-auto pl-3">
         <button
           className="hover:scale-110 transition-transform duration-500 ease-in-out"
