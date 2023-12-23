@@ -1,45 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const calculateToppingPrice = (toppingList) => {
-  let totalPrice = 0;
-  const toppingPrice = 15000;
-
-  toppingList.forEach((top) => {
-    const itemPrice = toppingPrice * top.quantity;
-    totalPrice += itemPrice;
-  });
-
-  return totalPrice;
-};
-
-const calTotalPrice = (cartList) => {
-  let totalPrice = 0;
-
-  cartList.forEach((item) => {
-    const itemPrice =
-      (item.price + item.size.sizePrice + calculateToppingPrice(item.topping)) *
-      item.quantity;
-    totalPrice += itemPrice;
-  });
-
-  return totalPrice;
-};
-
-const calTotalFee = (cartList) => {
-  const ratio = 0.1;
-  let totalFee = 0;
-
-  cartList.forEach((item) => {
-    const itemPrice = item.price * item.quantity * ratio;
-    totalFee += itemPrice;
-  });
-
-  return totalFee;
-};
-
-const calTotalVoucher = () => {
-  return 0.1;
-};
+import {
+  calTotalPrice,
+  calTotalFee,
+  calTotalVoucher,
+  calculateToppingPrice,
+} from "../utils/cartCalculate";
 
 export const cartActions = createSlice({
   name: "cartActions",
@@ -52,31 +17,55 @@ export const cartActions = createSlice({
   },
   reducers: {
     addCart: (state, action) => {
-      // console.log(action.payload);
       const item = { ...action.payload };
 
       let addFlag = true;
       state.cartList.forEach((i) => {
-        if (i.id === item.id) {
+        if (
+          i.id === item.id &&
+          i.size.sizePrice == item.size.sizePrice &&
+          i.topping[0].quantity == item.topping[0].quantity &&
+          i.topping[1].quantity == item.topping[1].quantity &&
+          i.topping[2].quantity == item.topping[2].quantity
+        ) {
           addFlag = false;
-          i.quantity++;
+          i.quantity += item.quantity;
+          state.counter += item.quantity;
           return;
         }
       });
       if (addFlag === true) {
         state.cartList.push(item);
+        state.counter++;
       }
-      state.counter++;
 
       state.totalPrice = calTotalPrice(state.cartList);
       state.totalFee = calTotalFee(state.cartList);
       state.totalVoucher = calTotalVoucher();
     },
     removeCart: (state, action) => {
+      console.log(action.payload);
+
+      state.cartList.map((item) => {
+        console.log(
+          item.id.toString() +
+            item.size.sizePrice.toString() +
+            calculateToppingPrice(item.topping).toString()
+        );
+      });
+
       state.cartList = state.cartList.filter(
-        (item) => item.id !== action.payload
+        (item) =>
+          item.id.toString() +
+            item.size.size.toString() +
+            (
+              item.topping[0].name +
+              item.topping[1].name +
+              item.topping[2].name
+            ).toString() !=
+          action.payload
       );
-      state.counter--;
+      state.counter = state.cartList.length;
 
       state.totalPrice = calTotalPrice(state.cartList);
       state.totalFee = calTotalFee(state.cartList);
