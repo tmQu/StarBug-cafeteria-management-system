@@ -200,7 +200,7 @@ const authHandler = {
                 res.status(201).json({email: email});
             }
             else {
-                res.status(401).json({error: 'Email is not registered'});
+                throw new Error('Not valid user');
             }
 
         }
