@@ -2,7 +2,7 @@ import User from '../model/User.js'
 import jwt from 'jsonwebtoken'
 import {sendEmail} from '../utils/emailHandler.js'
 import ('dotenv/config')
-
+import bcrypt from 'bcrypt'
 // const expiredDate = 3*24*60*60; // 3 days
 const expiredDate = 3*60; // 3 minutes
 
@@ -189,8 +189,26 @@ const authHandler = {
     },
     forgetPwd: async (req, res) => {
         var email = req.body.email;
-        sendForgetPwdEmail(email);
-        res.status(201).json({email: email});
+        try{
+            let user = await User.findOne({email: email});
+            if (user){
+                if (user.verified == false) {
+                    user.verified = true;
+                    await user.save();
+                }
+                sendForgetPwdEmail(email);
+                res.status(201).json({email: email});
+            }
+            else {
+                res.status(401).json({error: 'Email is not registered'});
+            }
+
+        }
+        catch (err){
+            console.log(err);
+            res.status(401).json({error: err});
+        }
+
     },
     resetPwd: async (req, res) => {
         var forgetPwdToken = req.body.token;
