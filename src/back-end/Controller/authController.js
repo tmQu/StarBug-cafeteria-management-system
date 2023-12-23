@@ -12,16 +12,9 @@ const COOKIES_OPTIONS_LOGIN = {
     maxAge: expiredDate * 1000, 
     sameSite: 'none', 
     secure: 'false',
-    domain: process.env.APP_URL
 }
 
-const COOKIES_OPTIONS_VERIFY = {
-    httpOnly: true, 
-    maxAge: expiredDate * 1000, 
-    sameSite: 'none', 
-    secure: 'false',
 
-}
 
 const errorHandle = (err) => 
 {
@@ -159,7 +152,6 @@ const authHandler = {
             const token = createToken(decodedToken.email);
             console.log('success verify');
             console.log(token);
-            res.cookie('jwt', token, COOKIES_OPTIONS_VERIFY);
 
             // res.status(201).json({email: decodedToken.email});
             res.redirect(process.env.APP_URL);
