@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     // idUser will be default _id
     email: {
         type: String,
-        // unique: true,
+        unique: true,
         required: [true, 'Email is required field']
     },
     imgAvatar:{
