@@ -229,7 +229,7 @@ const authHandler = {
     },
     logout: async (req, res) => {
         try{
-            res.clearCookie('jwt', {COOKIES_OPTIONS_LOGIN, Domain: process.env.APP_URL});
+            res.cookie('jwt', {COOKIES_OPTIONS_LOGIN});
             res.status(201).json({message: 'logout'});
         }
         catch(err)
