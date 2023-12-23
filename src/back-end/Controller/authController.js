@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken'
 import {sendEmail} from '../utils/emailHandler.js'
 import ('dotenv/config')
 
-const expiredDate = 3*24*60*60; // 3 days
+// const expiredDate = 3*24*60*60; // 3 days
+const expiredDate = 3*60; // 3 minutes
 
 
 const COOKIES_OPTIONS_LOGIN = {
@@ -18,7 +19,7 @@ const errorHandle = (err) =>
     console.log(err);
     var errors = {
         status: 500,
-        error: 'Internal Server Error'
+        error: 'Unknown error'
     };
     if (err.message == 'Wrong password' || err.message == 'Not valid user')
     {
@@ -225,6 +226,17 @@ const authHandler = {
         }
         
         //res.status(401).json({error: 'expired token'});
+    },
+    logout: async (req, res) => {
+        try{
+            res.clearCookie('jwt', {COOKIES_OPTIONS_LOGIN, Domain: process.env.APP_URL});
+            res.status(201).json({message: 'logout'});
+        }
+        catch(err)
+        {
+            console.log(err);
+            res.status(401).json({error: err});
+        }
     }
 }
 

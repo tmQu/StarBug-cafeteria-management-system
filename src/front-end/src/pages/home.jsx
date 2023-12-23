@@ -28,7 +28,7 @@ const Home = () => {
           <HomeSlider />
         </div>
         <div className="h-[160px] sm:h-[390px]">
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex items-center justify-center z-50">
             <Promotions />
           </div>
         </div>
