@@ -23,7 +23,8 @@ const port = 4000;
 app.use(cors({
     origin:[
         'http://localhost:3000', 
-        'https://star-bug-cafeteria-management-system-q2g5.vercel.app'
+        'https://star-bug-cafeteria-management-system-q2g5.vercel.app',
+        'http://172.18.22.53:3000',
     ],
     credentials:true
 }));
@@ -40,6 +41,10 @@ app.use('/promotion', promotionRouter);
 app.use('/slider', sliderRouter);
 app.use('/order', orderRouter);
 app.use('/auth', authRouter);
+
+app.get('/', (req, res) => {
+    res.send('Welcome to StarBug API');
+});
 
 const dbName = "Starbug"
 const dbUrl = `mongodb+srv://StarbugCoffee:vcydm8VTdB75VRjz@starbugproject.ukwaquc.mongodb.net/${dbName}?retryWrites=true&w=majority`
