@@ -111,7 +111,7 @@ const Header = () => {
           </div>
           <div className="flex flex-row gap-3 sm:gap-2" ref={popUpRef}>
             <CartButton onClick={() => navigate("/payment")} />
-            {isAvatar || persist ? (
+            {(isAvatar || persist) && auth.accessToken ? (
                 <Avatar
                 avatar={auth.avatar}
                 onClick={() => handleAvatarPopUp()}
