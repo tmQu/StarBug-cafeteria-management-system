@@ -229,7 +229,7 @@ const authHandler = {
     },
     logout: async (req, res) => {
         try{
-            res.cookie('jwt', {COOKIES_OPTIONS_LOGIN});
+            res.cookie('jwt','' ,{COOKIES_OPTIONS_LOGIN});
             res.status(201).json({message: 'logout'});
         }
         catch(err)
