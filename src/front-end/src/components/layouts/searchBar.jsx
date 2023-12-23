@@ -116,7 +116,6 @@ const SearchBar = (props) => {
               <div
                 className="h-9 px-2 pt-1.5 rounded-md font-light overflow-hidden whitespace-nowrap overflow-ellipsis hover:cursor-pointer"
                 onMouseEnter={() => {
-                  console.log("set ", item);
                   setValue("search", item);
                 }}
               >

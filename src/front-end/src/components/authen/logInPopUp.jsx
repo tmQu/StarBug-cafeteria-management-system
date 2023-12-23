@@ -69,11 +69,9 @@ const SignInPopUp = () => {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const role = response?.data?.role;
       const avatar = response?.data?.imgAvatar;
-      console.log(avatar);
       const name = response?.data?.name;
       setAuth({ email, role, accessToken, avatar, name });
       resetEmail();
@@ -87,7 +85,6 @@ const SignInPopUp = () => {
       // response?.data?.imageAvatar
       // set static avatar for now, database not ready
     } catch (err) {
-      console.log("Error: ", err);
       if (!err?.response) {
         setErrMsg("Server is not responding");
       } else if (err?.response?.status === 400) {

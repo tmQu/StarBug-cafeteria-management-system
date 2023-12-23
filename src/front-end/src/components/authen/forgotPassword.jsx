@@ -56,7 +56,6 @@ const ForgotPassword = () => {
   };
 
   const handleSend = async (e) => {
-    console.log("Đã gửi email tới:", email);
     // axios reqest here
     e.preventDefault();
     if (!GMAIL_REGEX.test(email)) {
@@ -74,7 +73,6 @@ const ForgotPassword = () => {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response?.data));
       // Clear input field
       notify();
     } catch (err) {
@@ -90,7 +88,6 @@ const ForgotPassword = () => {
 
   const handleSignup = () => {
     handleSignUpButton();
-    console.log("Đăng ký với email:", email);
   };
 
   return (

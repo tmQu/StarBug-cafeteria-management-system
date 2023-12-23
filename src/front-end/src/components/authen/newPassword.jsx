@@ -51,7 +51,6 @@ const NewPassword = () => {
       setErrMsg("Invalid password");
       return;
     }
-    console.log(token);
     try {
       const response = await axios.post(
         URL,
@@ -64,9 +63,6 @@ const NewPassword = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data);
-      console.log(response.accessToken);
-      console.log(JSON.stringify(response));
       // Clear input field
       setPwd("");
       setMatchPwd("");

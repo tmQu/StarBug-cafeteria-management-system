@@ -44,7 +44,6 @@ export const cartActions = createSlice({
       state.totalVoucher = calTotalVoucher();
     },
     removeCart: (state, action) => {
-      console.log(action.payload);
 
       state.cartList.map((item) => {
         console.log(

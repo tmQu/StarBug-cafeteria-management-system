@@ -134,7 +134,6 @@ const Register = () => {
           withCredentials: true,
         }
       );
-      console.log("success1");
       setEmail("");
       setUser("");
       setPwd("");
