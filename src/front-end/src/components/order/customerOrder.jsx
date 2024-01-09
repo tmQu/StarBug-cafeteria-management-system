@@ -122,15 +122,15 @@ const CustomerOrder = (prop) => {
             ) || ""}
           </div>
         </div>
-        <div className="-mt-1 flex flex-row gap-2 justify-start">
+        <div className="-mt-1 flex flex-row gap-1 justify-start">
           <div className="w-fit text-[#0E3746] text-sm ">
             Quantity: {order.quantity || "1"}
           </div>
-          <div className="h-4 "></div>
+          <div className="h-4"></div>
           {order.topping[0].quantity > 0 ||
           order.topping[1].quantity > 0 ||
           order.topping[2].quantity > 0 ? (
-            <div className="w-fit text-[#0E3746] text-sm border-[#0E3746] border-r-2">
+            <div className="w-fit text-[#0E3746] text-sm">
               {order.topping[0].quantity > 0 && order.topping[0].name}{" "}
               {order.topping[1].quantity > 0 && order.topping[1].name}{" "}
               {order.topping[2].quantity > 0 && order.topping[2].name}{" "}
